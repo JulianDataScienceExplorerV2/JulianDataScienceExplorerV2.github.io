@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -23,13 +23,13 @@
 
     :root {
       --bg: #04060f;
-      --cyan: #00e5ff;
+      --cyan: #e8192c;
       --cyan2: rgba(0, 229, 255, 0.12);
       --cyan3: rgba(0, 229, 255, 0.06);
-      --purple: #a855f7;
+      --purple: #ff6b35;
       --purple2: rgba(168, 85, 247, 0.12);
-      --pink: #f472b6;
-      --green: #00ff9d;
+      --pink: #c41230;
+      --green: #ffb700;
       --text-1: #f1f5ff;
       --text-2: #8090b0;
       --text-3: #2e3a50;
@@ -73,7 +73,7 @@
       height: 2px;
       width: 0%;
       z-index: 300;
-      background: linear-gradient(90deg, var(--cyan), var(--purple), var(--pink));
+      background: linear-gradient(90deg, var(--red), var(--orange), var(--crimson));
       transition: width .08s linear
     }
 
@@ -97,12 +97,12 @@
     .nav-logo {
       font-family: "JetBrains Mono", monospace;
       font-size: 14px;
-      color: var(--cyan);
+      color: var(--red);
       letter-spacing: .04em
     }
 
     .nav-logo span {
-      color: var(--purple)
+      color: var(--orange)
     }
 
     .nav-links {
@@ -120,13 +120,13 @@
     }
 
     .nav-links a:hover {
-      color: var(--cyan)
+      color: var(--red)
     }
 
     .lang-btn {
-      background: var(--cyan2);
+      background: var(--red2);
       border: 1px solid var(--border);
-      color: var(--cyan);
+      color: var(--red);
       font-family: "JetBrains Mono", monospace;
       font-size: 11px;
       font-weight: 700;
@@ -139,7 +139,7 @@
 
     .lang-btn:hover {
       background: rgba(0, 229, 255, .22);
-      border-color: var(--cyan)
+      border-color: var(--red)
     }
 
     @media(max-width:600px) {
@@ -215,21 +215,21 @@
     .fbadge.a {
       background: rgba(0, 229, 255, .1);
       border: 1px solid rgba(0, 229, 255, .3);
-      color: var(--cyan);
+      color: var(--red);
       animation-delay: 0s
     }
 
     .fbadge.b {
       background: rgba(168, 85, 247, .1);
       border: 1px solid rgba(168, 85, 247, .3);
-      color: var(--purple);
+      color: var(--orange);
       animation-delay: .8s
     }
 
     .fbadge.c {
       background: rgba(0, 255, 157, .1);
       border: 1px solid rgba(0, 255, 157, .3);
-      color: var(--green);
+      color: var(--gold);
       animation-delay: 1.6s
     }
 
@@ -254,7 +254,7 @@
     }
 
     .hero-name .line2 {
-      background: linear-gradient(120deg, var(--cyan) 0%, var(--purple) 50%, var(--pink) 100%);
+      background: linear-gradient(120deg, var(--red) 0%, var(--orange) 50%, var(--crimson) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -275,7 +275,7 @@
     .hero-subtitle {
       font-family: "JetBrains Mono", monospace;
       font-size: .95rem;
-      color: var(--cyan);
+      color: var(--red);
       margin: 1.1rem 0;
       display: flex;
       align-items: center;
@@ -291,7 +291,7 @@
       display: inline-block;
       width: 2px;
       height: 1.1em;
-      background: var(--cyan);
+      background: var(--red);
       margin-left: 1px;
       animation: blink .65s step-end infinite;
       vertical-align: text-bottom;
@@ -335,7 +335,7 @@
       font-weight: 700;
       text-decoration: none;
       color: #04060f;
-      background: linear-gradient(135deg, var(--cyan), var(--purple));
+      background: linear-gradient(135deg, var(--red), var(--orange));
       box-shadow: 0 0 30px rgba(0, 229, 255, .3), 0 0 60px rgba(168, 85, 247, .15);
       transition: all .25s;
       letter-spacing: .02em
@@ -364,7 +364,7 @@
 
     .cta-secondary:hover {
       border-color: var(--border-h);
-      background: var(--cyan3);
+      background: var(--red3);
       transform: translateY(-1px)
     }
 
@@ -393,7 +393,7 @@
       font-size: 2rem;
       font-weight: 700;
       line-height: 1;
-      background: linear-gradient(135deg, var(--cyan), var(--purple));
+      background: linear-gradient(135deg, var(--red), var(--orange));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text
@@ -424,7 +424,7 @@
       font-weight: 700;
       letter-spacing: .15em;
       text-transform: uppercase;
-      color: var(--cyan);
+      color: var(--red);
       margin-bottom: .4rem
     }
 
@@ -475,15 +475,15 @@
     }
 
     .spec-card.c1::before {
-      background: var(--cyan)
+      background: var(--red)
     }
 
     .spec-card.c2::before {
-      background: var(--purple)
+      background: var(--orange)
     }
 
     .spec-card.c3::before {
-      background: var(--green)
+      background: var(--gold)
     }
 
     .spec-card:hover::before {
@@ -502,18 +502,18 @@
     }
 
     .spec-dot.c1 {
-      background: var(--cyan);
-      box-shadow: 0 0 12px var(--cyan)
+      background: var(--red);
+      box-shadow: 0 0 12px var(--red)
     }
 
     .spec-dot.c2 {
-      background: var(--purple);
-      box-shadow: 0 0 12px var(--purple)
+      background: var(--orange);
+      box-shadow: 0 0 12px var(--orange)
     }
 
     .spec-dot.c3 {
-      background: var(--green);
-      box-shadow: 0 0 12px var(--green)
+      background: var(--gold);
+      box-shadow: 0 0 12px var(--gold)
     }
 
     .spec-t {
@@ -556,7 +556,7 @@
     }
 
     .proj-card:hover .card-name {
-      color: var(--cyan)
+      color: var(--red)
     }
 
     .ctop {
@@ -570,7 +570,7 @@
       width: 40px;
       height: 40px;
       border-radius: 10px;
-      background: var(--cyan2);
+      background: var(--red2);
       border: 1px solid var(--border);
       display: flex;
       align-items: center;
@@ -581,7 +581,7 @@
     .cicon svg {
       width: 18px;
       height: 18px;
-      fill: var(--cyan)
+      fill: var(--red)
     }
 
     .cmeta {
@@ -613,7 +613,7 @@
       border-radius: 20px;
       background: rgba(0, 255, 157, .1);
       border: 1px solid rgba(0, 255, 157, .3);
-      color: var(--green);
+      color: var(--gold);
       letter-spacing: .06em;
       text-transform: uppercase
     }
@@ -660,8 +660,8 @@
 
     .tag.lt {
       border-color: rgba(0, 229, 255, .35);
-      color: var(--cyan);
-      background: var(--cyan2)
+      color: var(--red);
+      background: var(--red2)
     }
 
     .ctime {
@@ -763,19 +763,19 @@
     }
 
     .f-c {
-      background: linear-gradient(90deg, var(--cyan), rgba(0, 229, 255, .35))
+      background: linear-gradient(90deg, var(--red), rgba(0, 229, 255, .35))
     }
 
     .f-p {
-      background: linear-gradient(90deg, var(--purple), rgba(168, 85, 247, .35))
+      background: linear-gradient(90deg, var(--orange), rgba(168, 85, 247, .35))
     }
 
     .f-g {
-      background: linear-gradient(90deg, var(--green), rgba(0, 255, 157, .35))
+      background: linear-gradient(90deg, var(--gold), rgba(0, 255, 157, .35))
     }
 
     .f-pk {
-      background: linear-gradient(90deg, var(--pink), rgba(244, 114, 182, .35))
+      background: linear-gradient(90deg, var(--crimson), rgba(244, 114, 182, .35))
     }
 
     /* ── ABOUT ── */
@@ -834,7 +834,7 @@
     }
 
     .dv a {
-      color: var(--cyan);
+      color: var(--red);
       text-decoration: none
     }
 
@@ -847,9 +847,9 @@
       width: 7px;
       height: 7px;
       border-radius: 50%;
-      background: var(--green);
+      background: var(--gold);
       margin-right: 7px;
-      box-shadow: 0 0 8px var(--green);
+      box-shadow: 0 0 8px var(--gold);
       animation: pulse-dot 2s ease-in-out infinite
     }
 
@@ -938,7 +938,7 @@
     }
 
     footer span.hi {
-      color: var(--cyan)
+      color: var(--red)
     }
 
     /* lang toggle */
@@ -1027,7 +1027,7 @@
             data-en>Repositories</span><span class="stat-l" data-es>Repositorios</span></div>
         <div class="stat-cell"><span class="stat-n" id="sStars">—</span><span class="stat-l" data-en>GitHub
             Stars</span><span class="stat-l" data-es>Estrellas</span></div>
-        <div class="stat-cell"><span class="stat-n">3+</span><span class="stat-l" data-en>Years Python</span><span
+        <div class="stat-cell"><span class="stat-n">5+</span><span class="stat-l" data-en>Years Python</span><span
             class="stat-l" data-es>Anos Python</span></div>
       </div>
     </div>
@@ -1208,7 +1208,7 @@
                 target="_blank">JulianDataScienceExplorerV2</a></span></div>
           <div class="dr"><span class="dk">Focus</span><span class="dv" data-en>Marketing Science · Data Analysis ·
               ML</span><span class="dv" data-es>Marketing Science · Analisis de Datos · ML</span></div>
-          <div class="dr"><span class="dk">Status</span><span class="dv" style="color:var(--green)"><span
+          <div class="dr"><span class="dk">Status</span><span class="dv" style="color:var(--gold)"><span
                 class="live-dot"></span><span data-en>Open to opportunities</span><span data-es>Abierto a
                 oportunidades</span></span></div>
         </div>
@@ -1302,7 +1302,7 @@
     let W, H, nodes = [], sigs = [];
     const N = 50, MD = 170, SS = 1.4;
 
-    const COLORS = ["0,229,255", "168,85,247", "244,114,182"];
+    const COLORS = ["232,25,44", "255,107,53", "196,18,48"];
 
     function resize() { W = C.width = C.offsetWidth; H = C.height = C.offsetHeight }
 
@@ -1336,7 +1336,7 @@
         if (d < MD) {
           const a = (1 - d / MD) * .2;
           X.beginPath(); X.moveTo(nodes[i].x, nodes[i].y); X.lineTo(nodes[j].x, nodes[j].y);
-          X.strokeStyle = `rgba(0,229,255,${a})`; X.lineWidth = .7; X.stroke();
+          X.strokeStyle = `rgba(232,25,44,${a})`; X.lineWidth = .7; X.stroke();
         }
       }
 
@@ -1376,7 +1376,7 @@
     // GITHUB API
     const USERNAME = "JulianDataScienceExplorerV2";
     const PINNED = ["Chat-Interface-GUI-Ollama-Py", "Marketing-AB-Testing"];
-    const LCOLS = { Python: "#3572A5", JavaScript: "#f1e05a", TypeScript: "#3178c6", Go: "#00ADD8", Java: "#b07219", HTML: "#e34c26", "Jupyter Notebook": "#DA5B0B" };
+    const LCOLS = { Python: "#3572A5", JavaScript: "#f1e05a", TypeScript: "#3178c6", Go: "#e8192c", Java: "#b07219", HTML: "#e34c26", "Jupyter Notebook": "#DA5B0B" };
 
     function ago(iso) {
       const s = (Date.now() - new Date(iso)) / 1000;
@@ -1429,7 +1429,7 @@
         document.getElementById("apiNote").textContent = `live via github api · ${filtered.length} repos · ${rem} req remaining`;
       } catch (e) {
         grid.innerHTML = `<div class="skel" style="grid-column:1/-1;padding:2rem;text-align:center;color:var(--text-2)">
-      Could not load repositories. <a href="https://github.com/${USERNAME}" style="color:var(--cyan)">View on GitHub</a></div>`;
+      Could not load repositories. <a href="https://github.com/${USERNAME}" style="color:var(--red)">View on GitHub</a></div>`;
       }
     }
     loadRepos();
