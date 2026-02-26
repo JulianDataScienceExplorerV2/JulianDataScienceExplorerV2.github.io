@@ -4,13 +4,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Julian David Urrego — Data Analyst</title>
+  <title>Julian David Urrego Lancheros — Data Analyst & Python Developer</title>
   <meta name="description"
-    content="Data Analyst portfolio — Python, Machine Learning, Data Visualization. / Portafolio Analista de Datos." />
+    content="Data Analyst, Python Developer and Marketing Science specialist. Portfolio of Julian David Urrego Lancheros." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
     rel="stylesheet" />
   <style>
     *,
@@ -22,22 +22,21 @@
     }
 
     :root {
-      --bg: #060812;
-      --surface: rgba(14, 22, 40, 0.8);
-      --surface-solid: #0e1628;
-      --border: rgba(0, 217, 255, 0.12);
-      --border-hover: rgba(0, 217, 255, 0.35);
-      --cyan: #00d9ff;
-      --cyan-dim: rgba(0, 217, 255, 0.08);
-      --purple: #7c3aed;
-      --purple-dim: rgba(124, 58, 237, 0.12);
-      --green: #00ff88;
-      --green-dim: rgba(0, 255, 136, 0.08);
-      --text-1: #f0f6ff;
-      --text-2: #8892a4;
-      --text-3: #3d4a5c;
-      --radius: 10px;
-      --radius-lg: 16px;
+      --bg: #04060f;
+      --cyan: #00e5ff;
+      --cyan2: rgba(0, 229, 255, 0.12);
+      --cyan3: rgba(0, 229, 255, 0.06);
+      --purple: #a855f7;
+      --purple2: rgba(168, 85, 247, 0.12);
+      --pink: #f472b6;
+      --green: #00ff9d;
+      --text-1: #f1f5ff;
+      --text-2: #8090b0;
+      --text-3: #2e3a50;
+      --border: rgba(0, 229, 255, 0.13);
+      --border-h: rgba(0, 229, 255, 0.4);
+      --r: 10px;
+      --rl: 16px;
     }
 
     html {
@@ -48,7 +47,7 @@
       font-family: "Inter", system-ui, sans-serif;
       background: var(--bg);
       color: var(--text-1);
-      line-height: 1.6;
+      line-height: 1.65;
       font-size: 15px;
       overflow-x: hidden
     }
@@ -62,50 +61,53 @@
     }
 
     ::-webkit-scrollbar-thumb {
-      background: rgba(0, 217, 255, 0.3);
+      background: rgba(0, 229, 255, .35);
       border-radius: 2px
     }
 
-    /* scroll progress */
-    #scrollBar {
+    /* progress bar */
+    #prog {
       position: fixed;
       top: 0;
       left: 0;
       height: 2px;
-      background: linear-gradient(90deg, var(--cyan), var(--purple));
-      z-index: 200;
       width: 0%;
-      transition: width .1s linear
+      z-index: 300;
+      background: linear-gradient(90deg, var(--cyan), var(--purple), var(--pink));
+      transition: width .08s linear
     }
 
-    /* ── NAV ──────────────────────────────────────── */
+    /* ── NAV ── */
     nav {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
-      z-index: 100;
+      z-index: 200;
+      height: 60px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 2rem;
-      height: 58px;
-      background: rgba(6, 8, 18, 0.75);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
+      padding: 0 2.5rem;
+      background: rgba(4, 6, 15, .8);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border)
     }
 
-    .nav-brand {
+    .nav-logo {
       font-family: "JetBrains Mono", monospace;
-      font-size: 13px;
+      font-size: 14px;
       color: var(--cyan);
       letter-spacing: .04em
     }
 
+    .nav-logo span {
+      color: var(--purple)
+    }
+
     .nav-links {
       display: flex;
-      align-items: center;
-      gap: 1.75rem;
+      gap: 2rem;
       list-style: none
     }
 
@@ -122,28 +124,34 @@
     }
 
     .lang-btn {
-      background: transparent;
+      background: var(--cyan2);
       border: 1px solid var(--border);
-      color: var(--text-2);
+      color: var(--cyan);
       font-family: "JetBrains Mono", monospace;
       font-size: 11px;
-      font-weight: 600;
-      padding: 5px 14px;
+      font-weight: 700;
+      padding: 5px 16px;
       border-radius: 20px;
       cursor: pointer;
-      letter-spacing: .08em;
-      transition: border-color .2s, color .2s
+      letter-spacing: .1em;
+      transition: all .2s
     }
 
     .lang-btn:hover {
-      border-color: var(--cyan);
-      color: var(--cyan)
+      background: rgba(0, 229, 255, .22);
+      border-color: var(--cyan)
     }
 
-    /* ── HERO ─────────────────────────────────────── */
+    @media(max-width:600px) {
+      .nav-links {
+        display: none
+      }
+    }
+
+    /* ── HERO ── */
     #hero {
       position: relative;
-      min-height: 100vh;
+      min-height: 100svh;
       display: flex;
       align-items: center;
       overflow: hidden;
@@ -154,95 +162,140 @@
       position: absolute;
       inset: 0;
       width: 100%;
-      height: 100%;
-      opacity: .55
+      height: 100%
     }
 
-    .hero-overlay {
+    /* grid + vignette overlay */
+    .hero-overlays {
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse 70% 60% at 20% 50%, rgba(6, 8, 18, .92) 40%, rgba(6, 8, 18, .5) 100%)
+      pointer-events: none
     }
 
-    .hero-inner {
+    .grid-pat {
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(0, 229, 255, .03) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 229, 255, .03) 1px, transparent 1px);
+      background-size: 60px 60px
+    }
+
+    .vignette {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 80% at 15% 50%, rgba(4, 6, 15, .9) 30%, rgba(4, 6, 15, .4) 75%, rgba(4, 6, 15, .85) 100%)
+    }
+
+    .hero-content {
       position: relative;
       z-index: 2;
-      max-width: 960px;
+      width: 100%;
+      max-width: 1000px;
       margin: 0 auto;
-      padding: 0 2rem;
-      padding-top: 58px
+      padding: 120px 3rem 5rem
     }
 
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
+    /* floating badges */
+    .float-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      margin-bottom: 1.75rem
+    }
+
+    .fbadge {
       font-family: "JetBrains Mono", monospace;
       font-size: 11px;
       font-weight: 600;
-      color: var(--green);
-      background: var(--green-dim);
-      border: 1px solid rgba(0, 255, 136, 0.25);
-      padding: 5px 14px;
+      padding: 4px 12px;
       border-radius: 20px;
-      margin-bottom: 2rem;
-      letter-spacing: .06em;
-      text-transform: uppercase
+      letter-spacing: .05em;
+      animation: float-y 4s ease-in-out infinite
     }
 
-    .badge-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--green);
-      animation: pulse-dot 1.8s ease-in-out infinite
+    .fbadge.a {
+      background: rgba(0, 229, 255, .1);
+      border: 1px solid rgba(0, 229, 255, .3);
+      color: var(--cyan);
+      animation-delay: 0s
     }
 
-    @keyframes pulse-dot {
+    .fbadge.b {
+      background: rgba(168, 85, 247, .1);
+      border: 1px solid rgba(168, 85, 247, .3);
+      color: var(--purple);
+      animation-delay: .8s
+    }
+
+    .fbadge.c {
+      background: rgba(0, 255, 157, .1);
+      border: 1px solid rgba(0, 255, 157, .3);
+      color: var(--green);
+      animation-delay: 1.6s
+    }
+
+    @keyframes float-y {
 
       0%,
       100% {
-        opacity: 1;
-        transform: scale(1)
+        transform: translateY(0)
       }
 
       50% {
-        opacity: .4;
-        transform: scale(.7)
+        transform: translateY(-5px)
       }
     }
 
     .hero-name {
-      font-size: clamp(2.8rem, 6vw, 4.2rem);
-      font-weight: 700;
-      letter-spacing: -.035em;
-      line-height: 1.05;
-      margin-bottom: 1rem
+      font-size: clamp(2.6rem, 6vw, 4.4rem);
+      font-weight: 800;
+      letter-spacing: -.04em;
+      line-height: 1.0;
+      margin-bottom: .3rem
     }
 
-    .hero-name .accent {
-      background: linear-gradient(135deg, var(--cyan), var(--purple));
+    .hero-name .line2 {
+      background: linear-gradient(120deg, var(--cyan) 0%, var(--purple) 50%, var(--pink) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      background-clip: text
+      background-clip: text;
+      background-size: 200%;
+      animation: grad-shift 5s ease infinite alternate
     }
 
-    .hero-typewriter {
+    @keyframes grad-shift {
+      0% {
+        background-position: 0%
+      }
+
+      100% {
+        background-position: 100%
+      }
+    }
+
+    .hero-subtitle {
       font-family: "JetBrains Mono", monospace;
-      font-size: 1rem;
+      font-size: .95rem;
       color: var(--cyan);
-      margin-bottom: 1.5rem;
-      min-height: 1.6em
+      margin: 1.1rem 0;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      min-height: 1.5rem
     }
 
-    .cursor {
+    .hero-subtitle .prefix {
+      color: var(--text-2)
+    }
+
+    .caret {
       display: inline-block;
       width: 2px;
-      height: 1em;
+      height: 1.1em;
       background: var(--cyan);
-      margin-left: 2px;
-      animation: blink .7s step-end infinite;
-      vertical-align: text-bottom
+      margin-left: 1px;
+      animation: blink .65s step-end infinite;
+      vertical-align: text-bottom;
+      border-radius: 1px
     }
 
     @keyframes blink {
@@ -257,247 +310,267 @@
       }
     }
 
-    .hero-bio {
+    .hero-desc {
       font-size: 15px;
       color: var(--text-2);
-      max-width: 500px;
-      line-height: 1.75;
+      max-width: 490px;
+      line-height: 1.8;
       margin-bottom: 2.5rem
     }
 
-    .hero-actions {
+    .hero-ctas {
       display: flex;
       gap: .875rem;
       flex-wrap: wrap;
-      margin-bottom: 4rem
+      margin-bottom: 3.5rem
     }
 
-    .btn-glow {
+    .cta-primary {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 11px 24px;
-      border-radius: var(--radius);
+      padding: 12px 26px;
+      border-radius: var(--r);
       font-size: 13px;
-      font-weight: 600;
+      font-weight: 700;
       text-decoration: none;
-      transition: all .25s;
+      color: #04060f;
       background: linear-gradient(135deg, var(--cyan), var(--purple));
-      color: #060812;
-      box-shadow: 0 0 20px rgba(0, 217, 255, .25)
+      box-shadow: 0 0 30px rgba(0, 229, 255, .3), 0 0 60px rgba(168, 85, 247, .15);
+      transition: all .25s;
+      letter-spacing: .02em
     }
 
-    .btn-glow:hover {
-      box-shadow: 0 0 35px rgba(0, 217, 255, .5);
-      transform: translateY(-1px)
+    .cta-primary:hover {
+      box-shadow: 0 0 50px rgba(0, 229, 255, .5), 0 0 80px rgba(168, 85, 247, .3);
+      transform: translateY(-2px)
     }
 
-    .btn-ghost {
+    .cta-secondary {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 11px 24px;
-      border-radius: var(--radius);
+      padding: 12px 26px;
+      border-radius: var(--r);
       font-size: 13px;
       font-weight: 500;
       text-decoration: none;
       color: var(--text-1);
-      background: rgba(255, 255, 255, .04);
+      background: rgba(255, 255, 255, .03);
       border: 1px solid var(--border);
-      transition: all .25s;
-      backdrop-filter: blur(8px)
+      backdrop-filter: blur(10px);
+      transition: all .25s
     }
 
-    .btn-ghost:hover {
-      border-color: var(--border-hover);
-      background: rgba(0, 217, 255, .06)
+    .cta-secondary:hover {
+      border-color: var(--border-h);
+      background: var(--cyan3);
+      transform: translateY(-1px)
     }
 
-    .hero-stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
+    /* stats strip */
+    .stats-strip {
+      display: flex;
       gap: 1px;
       background: var(--border);
       border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
+      border-radius: var(--rl);
       overflow: hidden;
-      max-width: 480px
+      width: fit-content
     }
 
-    .stat-box {
-      padding: 1.25rem 1.5rem;
-      background: rgba(6, 8, 18, .8);
-      backdrop-filter: blur(8px);
+    .stat-cell {
+      padding: 1.25rem 1.75rem;
+      background: rgba(4, 6, 15, .7);
+      backdrop-filter: blur(12px);
       display: flex;
-      flex-direction: column
+      flex-direction: column;
+      min-width: 110px
     }
 
-    .stat-val {
-      font-size: 1.8rem;
+    .stat-n {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 2rem;
       font-weight: 700;
-      color: var(--cyan);
-      letter-spacing: -.03em;
-      font-family: "JetBrains Mono", monospace
+      line-height: 1;
+      background: linear-gradient(135deg, var(--cyan), var(--purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text
     }
 
-    .stat-lab {
+    .stat-l {
       font-size: 11px;
       color: var(--text-2);
-      margin-top: 2px;
+      margin-top: 4px;
       letter-spacing: .02em
     }
 
-    /* ── WHAT I DO ────────────────────────────────── */
-    #specialties {
-      padding: 5rem 0;
+    /* ── SPECIALTIES ── */
+    .section {
+      padding: 5.5rem 0;
       border-bottom: 1px solid var(--border)
     }
 
-    .spec-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      overflow: hidden
-    }
-
-    .spec-card {
-      padding: 2rem;
-      background: var(--surface);
-      backdrop-filter: blur(8px);
-      transition: background .2s
-    }
-
-    .spec-card:hover {
-      background: rgba(0, 217, 255, .04)
-    }
-
-    .spec-icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1.25rem
-    }
-
-    .spec-icon svg {
-      width: 20px;
-      height: 20px
-    }
-
-    .spec-icon.cyan {
-      background: var(--cyan-dim);
-      fill: var(--cyan)
-    }
-
-    .spec-icon.purple {
-      background: var(--purple-dim)
-    }
-
-    .spec-icon.purple svg {
-      fill: var(--purple)
-    }
-
-    .spec-icon.green {
-      background: var(--green-dim)
-    }
-
-    .spec-icon.green svg {
-      fill: var(--green)
-    }
-
-    .spec-title {
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--text-1);
-      margin-bottom: .5rem
-    }
-
-    .spec-desc {
-      font-size: 13px;
-      color: var(--text-2);
-      line-height: 1.65
-    }
-
-    /* ── SECTION HEADER ──────────────────────────── */
-    .container {
-      max-width: 960px;
+    .wrap {
+      max-width: 1000px;
       margin: 0 auto;
-      padding: 0 2rem
+      padding: 0 3rem
     }
 
-    section:not(#hero):not(#specialties) {
-      padding: 5rem 0;
-      border-bottom: 1px solid var(--border)
-    }
-
-    .sec-label {
+    .sec-kicker {
       font-family: "JetBrains Mono", monospace;
       font-size: 11px;
-      font-weight: 600;
-      letter-spacing: .12em;
+      font-weight: 700;
+      letter-spacing: .15em;
       text-transform: uppercase;
       color: var(--cyan);
       margin-bottom: .4rem
     }
 
-    .sec-title {
-      font-size: 1.75rem;
-      font-weight: 700;
-      letter-spacing: -.025em;
+    .sec-h {
+      font-size: 1.85rem;
+      font-weight: 800;
+      letter-spacing: -.03em;
       margin-bottom: .5rem
     }
 
     .sec-sub {
       font-size: 14px;
       color: var(--text-2);
+      margin-bottom: 3rem;
       max-width: 500px;
-      margin-bottom: 3rem
+      line-height: 1.7
     }
 
-    /* ── PROJECTS ────────────────────────────────── */
-    .project-grid {
+    .spec-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(285px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
       gap: 1px;
       background: var(--border);
       border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
+      border-radius: var(--rl);
       overflow: hidden
     }
 
-    .project-card {
-      background: var(--surface);
-      backdrop-filter: blur(8px);
-      padding: 1.5rem;
+    .spec-card {
+      padding: 2rem 1.75rem;
+      background: rgba(4, 6, 15, .7);
+      backdrop-filter: blur(10px);
+      transition: background .2s;
+      position: relative;
+      overflow: hidden
+    }
+
+    .spec-card::before {
+      content: "";
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      opacity: .07;
+      transition: opacity .3s
+    }
+
+    .spec-card.c1::before {
+      background: var(--cyan)
+    }
+
+    .spec-card.c2::before {
+      background: var(--purple)
+    }
+
+    .spec-card.c3::before {
+      background: var(--green)
+    }
+
+    .spec-card:hover::before {
+      opacity: .18
+    }
+
+    .spec-card:hover {
+      background: rgba(0, 229, 255, .04)
+    }
+
+    .spec-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin-bottom: 1.25rem
+    }
+
+    .spec-dot.c1 {
+      background: var(--cyan);
+      box-shadow: 0 0 12px var(--cyan)
+    }
+
+    .spec-dot.c2 {
+      background: var(--purple);
+      box-shadow: 0 0 12px var(--purple)
+    }
+
+    .spec-dot.c3 {
+      background: var(--green);
+      box-shadow: 0 0 12px var(--green)
+    }
+
+    .spec-t {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: .5rem
+    }
+
+    .spec-d {
+      font-size: 13px;
+      color: var(--text-2);
+      line-height: 1.65
+    }
+
+    /* ── PROJECTS ── */
+    .proj-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--rl);
+      overflow: hidden
+    }
+
+    .proj-card {
+      background: rgba(4, 6, 15, .7);
+      backdrop-filter: blur(10px);
+      padding: 1.6rem;
       display: flex;
       flex-direction: column;
       text-decoration: none;
       color: inherit;
-      transition: background .2s, transform .2s;
-      perspective: 800px
+      transition: background .2s, box-shadow .2s;
+      position: relative
     }
 
-    .project-card:hover {
-      background: rgba(0, 217, 255, .05)
+    .proj-card:hover {
+      background: rgba(0, 229, 255, .05)
     }
 
-    .card-top {
+    .proj-card:hover .card-name {
+      color: var(--cyan)
+    }
+
+    .ctop {
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
-      margin-bottom: .875rem
+      margin-bottom: .9rem
     }
 
-    .card-icon-wrap {
-      width: 38px;
-      height: 38px;
-      border-radius: 9px;
-      background: var(--cyan-dim);
+    .cicon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--cyan2);
       border: 1px solid var(--border);
       display: flex;
       align-items: center;
@@ -505,52 +578,53 @@
       flex-shrink: 0
     }
 
-    .card-icon-wrap svg {
-      width: 17px;
-      height: 17px;
+    .cicon svg {
+      width: 18px;
+      height: 18px;
       fill: var(--cyan)
     }
 
-    .card-meta {
+    .cmeta {
       display: flex;
       align-items: center;
       gap: 8px
     }
 
-    .stars-badge {
+    .stars {
       display: flex;
       align-items: center;
-      gap: 4px;
+      gap: 3px;
       font-family: "JetBrains Mono", monospace;
       font-size: 11px;
-      color: #e3b341
+      color: #fbbf24
     }
 
-    .stars-badge svg {
+    .stars svg {
       width: 11px;
       height: 11px;
-      fill: #e3b341
+      fill: #fbbf24
     }
 
-    .pin-badge {
+    .pin {
       font-family: "JetBrains Mono", monospace;
       font-size: 9px;
-      font-weight: 600;
-      letter-spacing: .06em;
-      text-transform: uppercase;
+      font-weight: 700;
       padding: 2px 8px;
       border-radius: 20px;
-      background: rgba(0, 255, 136, .1);
-      border: 1px solid rgba(0, 255, 136, .25);
-      color: var(--green)
+      background: rgba(0, 255, 157, .1);
+      border: 1px solid rgba(0, 255, 157, .3);
+      color: var(--green);
+      letter-spacing: .06em;
+      text-transform: uppercase
     }
 
     .card-name {
       font-size: 14px;
       font-weight: 600;
       color: var(--text-1);
-      margin-bottom: .35rem;
-      line-height: 1.3
+      margin-bottom: .4rem;
+      line-height: 1.3;
+      transition: color .2s
     }
 
     .card-desc {
@@ -561,15 +635,15 @@
       margin-bottom: 1.25rem
     }
 
-    .card-foot {
+    .cfoot {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: .5rem;
-      flex-wrap: wrap
+      flex-wrap: wrap;
+      gap: .4rem
     }
 
-    .tag-row {
+    .tags {
       display: flex;
       flex-wrap: wrap;
       gap: 5px
@@ -584,42 +658,33 @@
       color: var(--text-2)
     }
 
-    .tag.lang {
-      border-color: rgba(0, 217, 255, .3);
+    .tag.lt {
+      border-color: rgba(0, 229, 255, .35);
       color: var(--cyan);
-      background: var(--cyan-dim)
+      background: var(--cyan2)
     }
 
-    .card-time {
+    .ctime {
       font-family: "JetBrains Mono", monospace;
       font-size: 10px;
       color: var(--text-3)
     }
 
-    .api-note {
-      margin-top: .875rem;
-      font-size: 11px;
-      color: var(--text-3);
-      font-family: "JetBrains Mono", monospace;
-      text-align: right
-    }
-
-    /* skeleton */
     .skel {
-      background: var(--surface);
-      padding: 1.5rem;
+      background: rgba(4, 6, 15, .7);
+      padding: 1.6rem;
       display: flex;
       flex-direction: column;
       gap: .875rem
     }
 
-    .skel-line {
+    .skel-l {
       border-radius: 4px;
-      background: rgba(255, 255, 255, .04);
-      animation: shimmer 1.6s ease-in-out infinite
+      background: rgba(255, 255, 255, .05);
+      animation: shim 1.6s ease-in-out infinite
     }
 
-    @keyframes shimmer {
+    @keyframes shim {
 
       0%,
       100% {
@@ -631,81 +696,92 @@
       }
     }
 
-    /* ── SKILLS ──────────────────────────────────── */
-    .skills-wrap {
+    .api-note {
+      margin-top: .75rem;
+      font-size: 11px;
+      color: var(--text-3);
+      font-family: "JetBrains Mono", monospace;
+      text-align: right
+    }
+
+    /* ── SKILLS ── */
+    .skills-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 2.5rem
     }
 
     @media(max-width:640px) {
-      .skills-wrap {
+      .skills-grid {
         grid-template-columns: 1fr
       }
     }
 
-    .skill-group-title {
+    .sg-title {
       font-family: "JetBrains Mono", monospace;
       font-size: 11px;
-      font-weight: 600;
-      letter-spacing: .08em;
+      font-weight: 700;
+      letter-spacing: .1em;
       text-transform: uppercase;
       color: var(--text-2);
       margin-bottom: 1.25rem
     }
 
-    .skill-bar-wrap {
-      margin-bottom: 1rem
+    .skw {
+      margin-bottom: 1.1rem
     }
 
-    .skill-bar-head {
+    .skh {
       display: flex;
       justify-content: space-between;
       margin-bottom: .4rem
     }
 
-    .skill-name {
+    .skn {
       font-size: 13px;
-      font-weight: 500;
-      color: var(--text-1)
+      font-weight: 500
     }
 
-    .skill-pct {
+    .skp {
       font-family: "JetBrains Mono", monospace;
       font-size: 11px;
       color: var(--text-2)
     }
 
-    .skill-track {
-      height: 4px;
+    .sk-track {
+      height: 3px;
       background: rgba(255, 255, 255, .06);
       border-radius: 2px;
       overflow: hidden
     }
 
-    .skill-fill {
+    .sk-fill {
       height: 100%;
       border-radius: 2px;
       width: 0%;
-      transition: width 1.2s cubic-bezier(.25, .46, .45, .94)
+      transition: width 1.3s cubic-bezier(.23, .92, .45, .98)
     }
 
-    .fill-cyan {
-      background: linear-gradient(90deg, var(--cyan), rgba(0, 217, 255, .4))
+    .f-c {
+      background: linear-gradient(90deg, var(--cyan), rgba(0, 229, 255, .35))
     }
 
-    .fill-purple {
-      background: linear-gradient(90deg, var(--purple), rgba(124, 58, 237, .4))
+    .f-p {
+      background: linear-gradient(90deg, var(--purple), rgba(168, 85, 247, .35))
     }
 
-    .fill-green {
-      background: linear-gradient(90deg, var(--green), rgba(0, 255, 136, .4))
+    .f-g {
+      background: linear-gradient(90deg, var(--green), rgba(0, 255, 157, .35))
     }
 
-    /* ── ABOUT ───────────────────────────────────── */
+    .f-pk {
+      background: linear-gradient(90deg, var(--pink), rgba(244, 114, 182, .35))
+    }
+
+    /* ── ABOUT ── */
     .about-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1.1fr 1fr;
       gap: 3rem;
       align-items: start
     }
@@ -716,69 +792,87 @@
       }
     }
 
-    .about-text p {
+    .atext p {
       font-size: 14px;
       color: var(--text-2);
-      line-height: 1.8;
+      line-height: 1.85;
       margin-bottom: 1rem
     }
 
-    .about-text strong {
-      color: var(--text-1);
-      font-weight: 600
+    .atext strong {
+      color: var(--text-1)
     }
 
     .detail-list {
       display: flex;
       flex-direction: column;
-      gap: .875rem
+      gap: 1rem;
+      background: rgba(0, 229, 255, .03);
+      border: 1px solid var(--border);
+      border-radius: var(--rl);
+      padding: 1.5rem
     }
 
-    .detail-row {
+    .dr {
       display: flex;
       gap: .875rem;
-      font-size: 13px;
-      align-items: flex-start
+      font-size: 13px
     }
 
-    .detail-key {
+    .dk {
       font-family: "JetBrains Mono", monospace;
       font-size: 10px;
       color: var(--text-3);
-      min-width: 72px;
+      min-width: 70px;
       padding-top: 2px;
-      letter-spacing: .04em
+      letter-spacing: .04em;
+      flex-shrink: 0
     }
 
-    .detail-val {
+    .dv {
       color: var(--text-2)
     }
 
-    .detail-val a {
+    .dv a {
       color: var(--cyan);
       text-decoration: none
     }
 
-    .detail-val a:hover {
+    .dv a:hover {
       text-decoration: underline
     }
 
-    .status-dot {
+    .live-dot {
       display: inline-block;
       width: 7px;
       height: 7px;
       border-radius: 50%;
       background: var(--green);
       margin-right: 7px;
-      animation: pulse-dot 1.8s ease-in-out infinite
+      box-shadow: 0 0 8px var(--green);
+      animation: pulse-dot 2s ease-in-out infinite
     }
 
-    /* ── CONTACT ─────────────────────────────────── */
-    .contact-box {
-      background: var(--surface);
-      backdrop-filter: blur(12px);
+    @keyframes pulse-dot {
+
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 1
+      }
+
+      50% {
+        transform: scale(.65);
+        opacity: .5
+      }
+    }
+
+    /* ── CONTACT ── */
+    .cbox {
+      background: rgba(4, 6, 15, .6);
+      backdrop-filter: blur(16px);
       border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
+      border-radius: var(--rl);
       padding: 3rem;
       display: flex;
       align-items: center;
@@ -789,38 +883,52 @@
       overflow: hidden
     }
 
-    .contact-box::before {
+    .cbox::before {
       content: "";
       position: absolute;
-      top: -60px;
-      right: -60px;
-      width: 200px;
-      height: 200px;
+      top: -80px;
+      right: -80px;
+      width: 260px;
+      height: 260px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(0, 217, 255, .08), transparent 70%);
+      background: radial-gradient(circle, rgba(168, 85, 247, .12), transparent 70%);
       pointer-events: none
     }
 
-    .contact-text h3 {
-      font-size: 1.3rem;
-      font-weight: 700;
-      margin-bottom: .4rem
+    .cbox::after {
+      content: "";
+      position: absolute;
+      bottom: -80px;
+      left: -40px;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0, 229, 255, .08), transparent 70%);
+      pointer-events: none
     }
 
-    .contact-text p {
+    .ct h3 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      margin-bottom: .4rem;
+      letter-spacing: -.02em
+    }
+
+    .ct p {
       font-size: 13px;
       color: var(--text-2)
     }
 
-    .contact-actions {
+    .cas {
       display: flex;
       gap: .75rem;
-      flex-wrap: wrap
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1
     }
 
-    /* ── FOOTER ──────────────────────────────────── */
     footer {
-      padding: 2rem;
+      padding: 2.5rem;
       text-align: center;
       font-family: "JetBrains Mono", monospace;
       font-size: 11px;
@@ -829,7 +937,11 @@
       border-top: 1px solid var(--border)
     }
 
-    /* ── VISIBILITY ──────────────────────────────── */
+    footer span.hi {
+      color: var(--cyan)
+    }
+
+    /* lang toggle */
     body.lang-es [data-en] {
       display: none
     }
@@ -838,37 +950,35 @@
       display: none
     }
 
-    /* ── SCROLL ANIMATION ────────────────────────── */
-    .reveal {
+    /* reveal */
+    .rv {
       opacity: 0;
-      transform: translateY(24px);
-      transition: opacity .6s ease, transform .6s ease
+      transform: translateY(28px);
+      transition: opacity .65s ease, transform .65s ease
     }
 
-    .reveal.in {
+    .rv.in {
       opacity: 1;
       transform: none
     }
 
-    @media(max-width:580px) {
-      .nav-links {
-        display: none
-      }
+    .rv.delay1 {
+      transition-delay: .1s
+    }
 
-      .hero-stats {
-        grid-template-columns: 1fr 1fr
-      }
+    .rv.delay2 {
+      transition-delay: .2s
     }
   </style>
 </head>
 
 <body class="lang-en">
 
-  <div id="scrollBar"></div>
+  <div id="prog"></div>
 
   <!-- NAV -->
   <nav>
-    <span class="nav-brand">&gt; julian.dev</span>
+    <span class="nav-logo">&gt;<span> julian</span>.dev</span>
     <ul class="nav-links">
       <li><a href="#projects" data-en>Projects</a><a href="#projects" data-es>Proyectos</a></li>
       <li><a href="#skills" data-en>Skills</a><a href="#skills" data-es>Habilidades</a></li>
@@ -881,109 +991,117 @@
   <!-- HERO -->
   <section id="hero">
     <canvas id="neuralCanvas"></canvas>
-    <div class="hero-overlay"></div>
-    <div class="hero-inner">
-      <div class="hero-badge"><span class="badge-dot"></span><span data-en>Open to Work</span><span
-          data-es>Disponible</span></div>
-      <h1 class="hero-name">Julian David<br><span class="accent">Urrego</span></h1>
-      <p class="hero-typewriter"><span id="typeText"></span><span class="cursor"></span></p>
-      <p class="hero-bio" data-en>I build data analysis pipelines, predictive models, and interactive visualizations.
-        Turning raw data into clear, actionable insights.</p>
-      <p class="hero-bio" data-es>Construyo pipelines de analisis de datos, modelos predictivos y visualizaciones
-        interactivas. Convirtiendo datos brutos en insights accionables.</p>
-      <div class="hero-actions">
-        <a href="#projects" class="btn-glow" data-en>View Projects</a>
-        <a href="#projects" class="btn-glow" data-es>Ver Proyectos</a>
-        <a href="https://github.com/JulianDataScienceExplorerV2" target="_blank" class="btn-ghost">GitHub</a>
-        <a href="mailto:juliandavidurrego2011@gmail.com" class="btn-ghost" data-en>Contact</a>
-        <a href="mailto:juliandavidurrego2011@gmail.com" class="btn-ghost" data-es>Contacto</a>
+    <div class="hero-overlays">
+      <div class="grid-pat"></div>
+      <div class="vignette"></div>
+    </div>
+    <div class="hero-content">
+      <div class="float-badges">
+        <span class="fbadge a" data-en>Data Analyst</span><span class="fbadge a" data-es>Analista de Datos</span>
+        <span class="fbadge b">Python Developer</span>
+        <span class="fbadge c">Marketing Science</span>
       </div>
-      <div class="hero-stats">
-        <div class="stat-box"><span class="stat-val" id="statRepos">—</span><span class="stat-lab"
-            data-en>Repositories</span><span class="stat-lab" data-es>Repositorios</span></div>
-        <div class="stat-box"><span class="stat-val" id="statStars">—</span><span class="stat-lab" data-en>GitHub
-            Stars</span><span class="stat-lab" data-es>Estrellas</span></div>
-        <div class="stat-box"><span class="stat-val">3+</span><span class="stat-lab" data-en>Years Python</span><span
-            class="stat-lab" data-es>Anos Python</span></div>
+      <h1 class="hero-name">
+        Julian David<br>
+        <span class="line2">Urrego Lancheros</span>
+      </h1>
+      <p class="hero-subtitle">
+        <span class="prefix">&gt;&nbsp;</span>
+        <span id="typer"></span><span class="caret"></span>
+      </p>
+      <p class="hero-desc" data-en>Data analyst and Python developer specializing in Marketing Science — building
+        predictive models, statistical experiments, and data pipelines that turn business data into clear, measurable
+        insights.</p>
+      <p class="hero-desc" data-es>Analista de datos y desarrollador Python especializado en Marketing Science —
+        construyendo modelos predictivos, experimentos estadisticos y pipelines que convierten datos de negocio en
+        insights medibles.</p>
+      <div class="hero-ctas">
+        <a href="#projects" class="cta-primary" data-en>View Projects</a>
+        <a href="#projects" class="cta-primary" data-es>Ver Proyectos</a>
+        <a href="https://github.com/JulianDataScienceExplorerV2" target="_blank" class="cta-secondary">GitHub</a>
+        <a href="mailto:juliandavidurrego2011@gmail.com" class="cta-secondary" data-en>Contact</a>
+        <a href="mailto:juliandavidurrego2011@gmail.com" class="cta-secondary" data-es>Contacto</a>
+      </div>
+      <div class="stats-strip">
+        <div class="stat-cell"><span class="stat-n" id="sRepos">—</span><span class="stat-l"
+            data-en>Repositories</span><span class="stat-l" data-es>Repositorios</span></div>
+        <div class="stat-cell"><span class="stat-n" id="sStars">—</span><span class="stat-l" data-en>GitHub
+            Stars</span><span class="stat-l" data-es>Estrellas</span></div>
+        <div class="stat-cell"><span class="stat-n">3+</span><span class="stat-l" data-en>Years Python</span><span
+            class="stat-l" data-es>Anos Python</span></div>
       </div>
     </div>
   </section>
 
-  <!-- WHAT I DO -->
-  <section id="specialties">
-    <div class="container reveal">
+  <!-- SPECIALTIES -->
+  <section class="section" id="specialties">
+    <div class="wrap rv">
+      <p class="sec-kicker" data-en>What I do</p>
+      <p class="sec-kicker" data-es>Que hago</p>
+      <h2 class="sec-h" data-en>Expertise</h2>
+      <h2 class="sec-h" data-es>Especialidades</h2>
+      <p class="sec-sub" data-en>Three core disciplines I apply to every data project.</p>
+      <p class="sec-sub" data-es>Tres disciplinas que aplico en cada proyecto de datos.</p>
       <div class="spec-grid">
-        <div class="spec-card">
-          <div class="spec-icon cyan">
-            <svg viewBox="0 0 24 24">
-              <path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z" />
-            </svg>
-          </div>
-          <p class="spec-title" data-en>Exploratory Data Analysis</p>
-          <p class="spec-title" data-es>Analisis Exploratorio de Datos</p>
-          <p class="spec-desc" data-en>Statistical summaries, distribution analysis, correlation matrices, and time
-            series decomposition to uncover patterns in data.</p>
-          <p class="spec-desc" data-es>Resumenes estadisticos, analisis de distribucion, matrices de correlacion y
-            descomposicion de series de tiempo para descubrir patrones.</p>
+        <div class="spec-card c1">
+          <div class="spec-dot c1"></div>
+          <p class="spec-t" data-en>Marketing Science</p>
+          <p class="spec-t" data-es>Ciencia de Marketing</p>
+          <p class="spec-d" data-en>A/B testing, hypothesis testing (z-test, chi-square), campaign attribution, and
+            causal inference applied to marketing decisions.</p>
+          <p class="spec-d" data-es>Pruebas A/B, pruebas de hipotesis (z-test, chi-cuadrado), atribucion de campanas e
+            inferencia causal aplicados a decisiones de marketing.</p>
         </div>
-        <div class="spec-card">
-          <div class="spec-icon purple">
-            <svg viewBox="0 0 24 24">
-              <path d="M12 3C6.48 3 2 7.48 2 13s4.48 10 10 10 10-4.48 10-10S17.52 3 12 3zm-1 15v-4H7l5-8v4h4l-5 8z" />
-            </svg>
-          </div>
-          <p class="spec-title" data-en>Machine Learning</p>
-          <p class="spec-title" data-es>Aprendizaje Automatico</p>
-          <p class="spec-desc" data-en>Regression, classification, and model evaluation with Scikit-learn. Full
-            pipelines from preprocessing to metric analysis (R2, MAE, RMSE).</p>
-          <p class="spec-desc" data-es>Regresion, clasificacion y evaluacion de modelos con Scikit-learn. Pipelines
-            completos desde preprocesamiento hasta analisis de metricas.</p>
+        <div class="spec-card c2">
+          <div class="spec-dot c2"></div>
+          <p class="spec-t" data-en>Machine Learning</p>
+          <p class="spec-t" data-es>Aprendizaje Automatico</p>
+          <p class="spec-d" data-en>Regression, classification, time series forecasting, and model evaluation pipelines
+            with Scikit-learn and Statsmodels.</p>
+          <p class="spec-d" data-es>Regresion, clasificacion, prediccion de series de tiempo y pipelines de evaluacion
+            de modelos con Scikit-learn y Statsmodels.</p>
         </div>
-        <div class="spec-card">
-          <div class="spec-icon green">
-            <svg viewBox="0 0 24 24">
-              <path
-                d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z" />
-            </svg>
-          </div>
-          <p class="spec-title" data-en>Data Visualization</p>
-          <p class="spec-title" data-es>Visualizacion de Datos</p>
-          <p class="spec-desc" data-en>Interactive charts with Plotly, dashboards with Streamlit, and diagnostic plots
-            with Matplotlib for clear data storytelling.</p>
-          <p class="spec-desc" data-es>Graficos interactivos con Plotly, dashboards con Streamlit y graficos
-            diagnosticos con Matplotlib para comunicar datos claramente.</p>
+        <div class="spec-card c3">
+          <div class="spec-dot c3"></div>
+          <p class="spec-t" data-en>Data Visualization</p>
+          <p class="spec-t" data-es>Visualizacion de Datos</p>
+          <p class="spec-d" data-en>Interactive dashboards with Streamlit and Plotly, and clear analytical charts with
+            Matplotlib for data storytelling.</p>
+          <p class="spec-d" data-es>Dashboards interactivos con Streamlit y Plotly, y graficos analiticos con Matplotlib
+            para comunicar datos con claridad.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- PROJECTS -->
-  <section id="projects">
-    <div class="container reveal">
-      <p class="sec-label" data-en>Work</p>
-      <p class="sec-label" data-es>Trabajo</p>
-      <h2 class="sec-title" data-en>Projects</h2>
-      <h2 class="sec-title" data-es>Proyectos</h2>
+  <section class="section" id="projects">
+    <div class="wrap rv">
+      <p class="sec-kicker" data-en>Portfolio</p>
+      <p class="sec-kicker" data-es>Portafolio</p>
+      <h2 class="sec-h" data-en>Projects</h2>
+      <h2 class="sec-h" data-es>Proyectos</h2>
       <p class="sec-sub" data-en>Live from GitHub — updates automatically when a new repository is published.</p>
-      <p class="sec-sub" data-es>En vivo desde GitHub — se actualiza automaticamente con cada repositorio nuevo.</p>
-      <div class="project-grid" id="projectGrid">
+      <p class="sec-sub" data-es>En vivo desde GitHub — se actualiza automaticamente con cada nuevo repositorio publico.
+      </p>
+      <div class="proj-grid" id="projectGrid">
         <div class="skel">
-          <div class="skel-line" style="height:38px;width:38px;border-radius:9px"></div>
-          <div class="skel-line" style="height:13px;width:55%"></div>
-          <div class="skel-line" style="height:11px;width:88%"></div>
-          <div class="skel-line" style="height:11px;width:72%"></div>
+          <div class="skel-l" style="height:40px;width:40px;border-radius:10px"></div>
+          <div class="skel-l" style="height:13px;width:58%"></div>
+          <div class="skel-l" style="height:11px;width:90%"></div>
+          <div class="skel-l" style="height:11px;width:70%"></div>
         </div>
         <div class="skel">
-          <div class="skel-line" style="height:38px;width:38px;border-radius:9px"></div>
-          <div class="skel-line" style="height:13px;width:62%"></div>
-          <div class="skel-line" style="height:11px;width:80%"></div>
-          <div class="skel-line" style="height:11px;width:65%"></div>
+          <div class="skel-l" style="height:40px;width:40px;border-radius:10px"></div>
+          <div class="skel-l" style="height:13px;width:65%"></div>
+          <div class="skel-l" style="height:11px;width:82%"></div>
+          <div class="skel-l" style="height:11px;width:60%"></div>
         </div>
         <div class="skel">
-          <div class="skel-line" style="height:38px;width:38px;border-radius:9px"></div>
-          <div class="skel-line" style="height:13px;width:48%"></div>
-          <div class="skel-line" style="height:11px;width:90%"></div>
-          <div class="skel-line" style="height:11px;width:78%"></div>
+          <div class="skel-l" style="height:40px;width:40px;border-radius:10px"></div>
+          <div class="skel-l" style="height:13px;width:50%"></div>
+          <div class="skel-l" style="height:11px;width:88%"></div>
+          <div class="skel-l" style="height:11px;width:75%"></div>
         </div>
       </div>
       <p class="api-note" id="apiNote"></p>
@@ -991,86 +1109,68 @@
   </section>
 
   <!-- SKILLS -->
-  <section id="skills">
-    <div class="container reveal">
-      <p class="sec-label" data-en>Technical</p>
-      <p class="sec-label" data-es>Tecnico</p>
-      <h2 class="sec-title" data-en>Skills</h2>
-      <h2 class="sec-title" data-es>Habilidades</h2>
-      <p class="sec-sub" data-en>Tools and technologies applied across analysis, modeling, and visualization.</p>
-      <p class="sec-sub" data-es>Herramientas y tecnologias aplicadas en analisis, modelado y visualizacion.</p>
-      <div class="skills-wrap">
+  <section class="section" id="skills">
+    <div class="wrap rv">
+      <p class="sec-kicker" data-en>Technical Stack</p>
+      <p class="sec-kicker" data-es>Stack Tecnico</p>
+      <h2 class="sec-h" data-en>Skills</h2>
+      <h2 class="sec-h" data-es>Habilidades</h2>
+      <p class="sec-sub" data-en>Proficiency across the full data pipeline — from analysis to deployment.</p>
+      <p class="sec-sub" data-es>Dominio en todo el pipeline de datos — desde analisis hasta despliegue.</p>
+      <div class="skills-grid">
         <div>
-          <p class="skill-group-title" data-en>Data & ML</p>
-          <p class="skill-group-title" data-es>Datos y ML</p>
-          <div class="skill-bar-wrap">
-            <div class="skill-bar-head"><span class="skill-name">Python</span><span class="skill-pct">95%</span></div>
-            <div class="skill-track">
-              <div class="skill-fill fill-cyan" data-pct="95"></div>
+          <p class="sg-title" data-en>Core Languages & Data</p>
+          <p class="sg-title" data-es>Lenguajes y Datos</p>
+          <div class="skw">
+            <div class="skh"><span class="skn">Python</span><span class="skp">95%</span></div>
+            <div class="sk-track">
+              <div class="sk-fill f-c" data-p="95"></div>
             </div>
           </div>
-          <div class="skill-bar-wrap">
-            <div class="skill-bar-head"><span class="skill-name">Pandas / NumPy</span><span class="skill-pct">90%</span>
-            </div>
-            <div class="skill-track">
-              <div class="skill-fill fill-cyan" data-pct="90"></div>
-            </div>
-          </div>
-          <div class="skill-bar-wrap">
-            <div class="skill-bar-head"><span class="skill-name">Scikit-learn</span><span class="skill-pct">82%</span>
-            </div>
-            <div class="skill-track">
-              <div class="skill-fill fill-purple" data-pct="82"></div>
+          <div class="skw">
+            <div class="skh"><span class="skn">Pandas / NumPy</span><span class="skp">90%</span></div>
+            <div class="sk-track">
+              <div class="sk-fill f-c" data-p="90"></div>
             </div>
           </div>
-          <div class="skill-bar-wrap">
-            <div class="skill-bar-head"><span class="skill-name">Statsmodels</span><span class="skill-pct">75%</span>
-            </div>
-            <div class="skill-track">
-              <div class="skill-fill fill-purple" data-pct="75"></div>
+          <div class="skw">
+            <div class="skh"><span class="skn">SQL</span><span class="skp">78%</span></div>
+            <div class="sk-track">
+              <div class="sk-fill f-g" data-p="78"></div>
             </div>
           </div>
-          <div class="skill-bar-wrap">
-            <div class="skill-bar-head"><span class="skill-name">SQL</span><span class="skill-pct">78%</span></div>
-            <div class="skill-track">
-              <div class="skill-fill fill-green" data-pct="78"></div>
+          <div class="skw">
+            <div class="skh"><span class="skn">Go</span><span class="skp">55%</span></div>
+            <div class="sk-track">
+              <div class="sk-fill f-g" data-p="55"></div>
             </div>
           </div>
         </div>
         <div>
-          <p class="skill-group-title" data-en>Visualization & Tools</p>
-          <p class="skill-group-title" data-es>Visualizacion y Herramientas</p>
-          <div class="skill-bar-wrap">
-            <div class="skill-bar-head"><span class="skill-name">Plotly</span><span class="skill-pct">88%</span></div>
-            <div class="skill-track">
-              <div class="skill-fill fill-cyan" data-pct="88"></div>
+          <p class="sg-title" data-en>ML & Visualization</p>
+          <p class="sg-title" data-es>ML y Visualizacion</p>
+          <div class="skw">
+            <div class="skh"><span class="skn">Scikit-learn</span><span class="skp">85%</span></div>
+            <div class="sk-track">
+              <div class="sk-fill f-p" data-p="85"></div>
             </div>
           </div>
-          <div class="skill-bar-wrap">
-            <div class="skill-bar-head"><span class="skill-name">Matplotlib</span><span class="skill-pct">85%</span>
-            </div>
-            <div class="skill-track">
-              <div class="skill-fill fill-cyan" data-pct="85"></div>
-            </div>
-          </div>
-          <div class="skill-bar-wrap">
-            <div class="skill-bar-head"><span class="skill-name">Streamlit</span><span class="skill-pct">80%</span>
-            </div>
-            <div class="skill-track">
-              <div class="skill-fill fill-purple" data-pct="80"></div>
+          <div class="skw">
+            <div class="skh"><span class="skn">Statsmodels</span><span class="skp">78%</span></div>
+            <div class="sk-track">
+              <div class="sk-fill f-p" data-p="78"></div>
             </div>
           </div>
-          <div class="skill-bar-wrap">
-            <div class="skill-bar-head"><span class="skill-name">Git / GitHub</span><span class="skill-pct">85%</span>
-            </div>
-            <div class="skill-track">
-              <div class="skill-fill fill-green" data-pct="85"></div>
+          <div class="skw">
+            <div class="skh"><span class="skn">Plotly / Streamlit</span><span class="skp">88%</span></div>
+            <div class="sk-track">
+              <div class="sk-fill f-c" data-p="88"></div>
             </div>
           </div>
-          <div class="skill-bar-wrap">
-            <div class="skill-bar-head"><span class="skill-name">Go</span><span class="skill-pct">55%</span></div>
-            <div class="skill-track">
-              <div class="skill-fill fill-green" data-pct="55"></div>
+          <div class="skw">
+            <div class="skh"><span class="skn">Matplotlib</span><span class="skp">85%</span></div>
+            <div class="sk-track">
+              <div class="sk-fill f-pk" data-p="85"></div>
             </div>
           </div>
         </div>
@@ -1079,38 +1179,37 @@
   </section>
 
   <!-- ABOUT -->
-  <section id="about">
-    <div class="container reveal">
-      <p class="sec-label" data-en>Background</p>
-      <p class="sec-label" data-es>Trayectoria</p>
-      <h2 class="sec-title" data-en>About</h2>
-      <h2 class="sec-title" data-es>Acerca de mi</h2>
+  <section class="section" id="about">
+    <div class="wrap rv">
+      <p class="sec-kicker" data-en>Background</p>
+      <p class="sec-kicker" data-es>Trayectoria</p>
+      <h2 class="sec-h" data-en>About</h2>
+      <h2 class="sec-h" data-es>Acerca de mi</h2>
       <div class="about-grid">
-        <div class="about-text">
-          <p data-en><strong>Data analyst</strong> with hands-on experience building end-to-end analysis pipelines in
-            Python. I work across the full data workflow — cleaning, exploration, modeling, and interactive reporting.
-          </p>
-          <p data-es><strong>Analista de datos</strong> con experiencia practica construyendo pipelines de analisis en
-            Python. Trabajo en todo el flujo: limpieza, exploracion, modelado e informes interactivos.</p>
-          <p data-en>My projects focus on time series analysis, supervised machine learning, and hypothesis testing
-            applied to real business datasets — with clear, reproducible code.</p>
-          <p data-es>Mis proyectos se enfocan en series de tiempo, aprendizaje automatico supervisado y pruebas de
-            hipotesis aplicadas a datos de negocio reales, con codigo limpio y reproducible.</p>
+        <div class="atext">
+          <p data-en><strong>Julian David Urrego Lancheros</strong> is a data analyst and Python developer with a focus
+            on Marketing Science. He builds end-to-end analysis pipelines — from raw data ingestion to statistical
+            modeling and interactive dashboards — applied to real business problems.</p>
+          <p data-es><strong>Julian David Urrego Lancheros</strong> es analista de datos y desarrollador Python enfocado
+            en Marketing Science. Construye pipelines de analisis de extremo a extremo — desde la ingesta de datos hasta
+            el modelado estadistico y dashboards interactivos — aplicados a problemas reales de negocio.</p>
+          <p data-en>His work spans A/B testing frameworks, time series forecasting, regression-based sales prediction,
+            and LLM-powered desktop tools. Committed to clean, reproducible code and clear communication of results.</p>
+          <p data-es>Su trabajo abarca frameworks de pruebas A/B, prediccion de series de tiempo, modelos de regresion
+            para ventas y herramientas de escritorio con LLMs. Comprometido con codigo limpio, reproducible y
+            comunicacion clara de resultados.</p>
         </div>
         <div class="detail-list">
-          <div class="detail-row"><span class="detail-key" data-en>Location</span><span class="detail-key"
-              data-es>Ubicacion</span><span class="detail-val">Colombia</span></div>
-          <div class="detail-row"><span class="detail-key">Email</span><span class="detail-val"><a
-                href="mailto:juliandavidurrego2011@gmail.com">juliandavidurrego2011@gmail.com</a></span></div>
-          <div class="detail-row"><span class="detail-key">GitHub</span><span class="detail-val"><a
+          <div class="dr"><span class="dk">Name</span><span class="dv">Julian David Urrego Lancheros</span></div>
+          <div class="dr"><span class="dk">Email</span><span class="dv"><a
+                href="mailto:juliandavidurrego2011@gmail.com">juliandavidurrego2011<br>@gmail.com</a></span></div>
+          <div class="dr"><span class="dk">GitHub</span><span class="dv"><a
                 href="https://github.com/JulianDataScienceExplorerV2"
                 target="_blank">JulianDataScienceExplorerV2</a></span></div>
-          <div class="detail-row"><span class="detail-key" data-en>Focus</span><span class="detail-key"
-              data-es>Enfoque</span><span class="detail-val" data-en>Data Analysis · ML · Visualization</span><span
-              class="detail-val" data-es>Analisis de Datos · ML · Visualizacion</span></div>
-          <div class="detail-row"><span class="detail-key" data-en>Status</span><span class="detail-key"
-              data-es>Estado</span><span class="detail-val" style="color:var(--green)"><span
-                class="status-dot"></span><span data-en>Open to opportunities</span><span data-es>Abierto a
+          <div class="dr"><span class="dk">Focus</span><span class="dv" data-en>Marketing Science · Data Analysis ·
+              ML</span><span class="dv" data-es>Marketing Science · Analisis de Datos · ML</span></div>
+          <div class="dr"><span class="dk">Status</span><span class="dv" style="color:var(--green)"><span
+                class="live-dot"></span><span data-en>Open to opportunities</span><span data-es>Abierto a
                 oportunidades</span></span></div>
         </div>
       </div>
@@ -1118,198 +1217,168 @@
   </section>
 
   <!-- CONTACT -->
-  <section id="contact">
-    <div class="container reveal">
-      <div class="contact-box">
-        <div class="contact-text">
-          <h3 data-en>Open to work — let's connect</h3>
-          <h3 data-es>Disponible para trabajar — hablemos</h3>
-          <p data-en>Full-time, freelance, or collaboration — reach out.</p>
-          <p data-es>Tiempo completo, freelance o colaboracion — escribe.</p>
+  <section class="section" id="contact">
+    <div class="wrap rv">
+      <div class="cbox">
+        <div class="ct">
+          <h3 data-en>Let's build something together</h3>
+          <h3 data-es>Construyamos algo juntos</h3>
+          <p data-en>Open to full-time roles, freelance projects, and collaboration.</p>
+          <p data-es>Abierto a roles full-time, proyectos freelance y colaboraciones.</p>
         </div>
-        <div class="contact-actions">
-          <a href="mailto:juliandavidurrego2011@gmail.com" class="btn-glow" data-en>Send Email</a>
-          <a href="mailto:juliandavidurrego2011@gmail.com" class="btn-glow" data-es>Enviar Email</a>
-          <a href="https://github.com/JulianDataScienceExplorerV2" target="_blank" class="btn-ghost">GitHub</a>
+        <div class="cas">
+          <a href="mailto:juliandavidurrego2011@gmail.com" class="cta-primary" data-en>Send Email</a>
+          <a href="mailto:juliandavidurrego2011@gmail.com" class="cta-primary" data-es>Enviar Email</a>
+          <a href="https://github.com/JulianDataScienceExplorerV2" target="_blank" class="cta-secondary">GitHub</a>
         </div>
       </div>
     </div>
   </section>
 
   <footer>
-    <span data-en>Julian David Urrego &mdash; juliandatascienceexplorerv2.github.io</span>
-    <span data-es>Julian David Urrego &mdash; juliandatascienceexplorerv2.github.io</span>
+    <span>Julian David Urrego Lancheros &mdash; <span class="hi">juliandatascienceexplorerv2.github.io</span></span>
   </footer>
 
   <script>
-    // ── LANGUAGE TOGGLE ───────────────────────────────────────────────────────
+    // LANGUAGE
     let lang = "en";
-    document.getElementById("langBtn").addEventListener("click", () => {
+    const langBtn = document.getElementById("langBtn");
+    langBtn.addEventListener("click", () => {
       lang = lang === "en" ? "es" : "en";
       document.body.className = "lang-" + lang;
-      document.getElementById("langBtn").textContent = lang === "en" ? "ES" : "EN";
-      updateTypewriter();
+      langBtn.textContent = lang === "en" ? "ES" : "EN";
+      resetTyper();
     });
 
-    // ── SCROLL PROGRESS ───────────────────────────────────────────────────────
+    // SCROLL PROGRESS
     window.addEventListener("scroll", () => {
-      const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
-      document.getElementById("scrollBar").style.width = pct + "%";
-    });
+      document.getElementById("prog").style.width = (window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100) + "%";
+    }, { passive: true });
 
-    // ── TYPEWRITER ────────────────────────────────────────────────────────────
+    // TYPEWRITER
     const phrases = {
-      en: ["Data Analyst", "Python Developer", "ML Practitioner", "Time Series Analyst", "Data Visualization Expert"],
-      es: ["Analista de Datos", "Desarrollador Python", "Practicante de ML", "Analista de Series de Tiempo", "Experto en Visualizacion"]
+      en: ["Data Analyst", "Python Developer", "Marketing Science Specialist", "ML Practitioner", "Time Series Analyst"],
+      es: ["Analista de Datos", "Desarrollador Python", "Especialista en Marketing Science", "Practicante de ML", "Analista de Series de Tiempo"]
     };
-    let pIdx = 0, cIdx = 0, deleting = false, typeTimer = null;
-    function updateTypewriter() { pIdx = 0; cIdx = 0; deleting = false; clearTimeout(typeTimer); type() }
-    function type() {
-      const list = phrases[lang];
-      const full = list[pIdx];
-      document.getElementById("typeText").textContent = deleting ? full.slice(0, cIdx) : full.slice(0, cIdx);
-      if (!deleting && cIdx < full.length) { cIdx++; typeTimer = setTimeout(type, 65) }
-      else if (!deleting && cIdx === full.length) { typeTimer = setTimeout(() => { deleting = true; type() }, 2200) }
-      else if (deleting && cIdx > 0) { cIdx--; typeTimer = setTimeout(type, 35) }
-      else { deleting = false; pIdx = (pIdx + 1) % list.length; typeTimer = setTimeout(type, 400) }
+    let pi = 0, ci = 0, del = false, tt = null;
+    function resetTyper() { pi = 0; ci = 0; del = false; clearTimeout(tt); typer() }
+    function typer() {
+      const list = phrases[lang], full = list[pi];
+      document.getElementById("typer").textContent = full.slice(0, ci);
+      if (!del && ci < full.length) { ci++; tt = setTimeout(typer, 62) }
+      else if (!del && ci === full.length) { tt = setTimeout(() => { del = true; typer() }, 2400) }
+      else if (del && ci > 0) { ci--; tt = setTimeout(typer, 32) }
+      else { del = false; pi = (pi + 1) % list.length; tt = setTimeout(typer, 350) }
     }
-    type();
+    typer();
 
-    // ── SCROLL REVEAL ─────────────────────────────────────────────────────────
-    const revealObs = new IntersectionObserver(entries => entries.forEach(e => {
-      if (e.isIntersecting) e.target.classList.add("in");
-    }), { threshold: .1 });
-    document.querySelectorAll(".reveal").forEach(el => revealObs.observe(el));
+    // SCROLL REVEAL
+    const obs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add("in") }), { threshold: .08 });
+    document.querySelectorAll(".rv").forEach(el => obs.observe(el));
 
-    // ── SKILL BARS ────────────────────────────────────────────────────────────
-    const barObs = new IntersectionObserver(entries => entries.forEach(e => {
+    // SKILL BARS
+    const skObs = new IntersectionObserver(es => es.forEach(e => {
       if (e.isIntersecting) {
-        e.target.querySelectorAll(".skill-fill").forEach(bar => {
-          bar.style.width = bar.dataset.pct + "%";
-        });
-        barObs.unobserve(e.target);
+        e.target.querySelectorAll(".sk-fill").forEach(b => b.style.width = b.dataset.p + "%");
+        skObs.unobserve(e.target);
       }
-    }), { threshold: .3 });
+    }), { threshold: .25 });
     const skillSec = document.getElementById("skills");
-    if (skillSec) barObs.observe(skillSec);
+    if (skillSec) skObs.observe(skillSec);
 
-    // ── COUNTER ANIMATION ────────────────────────────────────────────────────
-    function animateCount(el, target, duration = 1200) {
-      const start = performance.now();
+    // COUNTER
+    function countUp(el, to, ms = 1100) {
+      const s = performance.now();
       function step(now) {
-        const t = Math.min((now - start) / duration, 1);
-        const ease = 1 - Math.pow(1 - t, 3);
-        el.textContent = Math.round(ease * target);
+        const t = Math.min((now - s) / ms, 1);
+        el.textContent = Math.round((1 - Math.pow(1 - t, 3)) * to);
         if (t < 1) requestAnimationFrame(step);
       }
       requestAnimationFrame(step);
     }
 
-    // ── NEURAL NETWORK CANVAS ────────────────────────────────────────────────
-    const canvas = document.getElementById("neuralCanvas");
-    const ctx = canvas.getContext("2d");
-    let W, H, nodes = [], signals = [];
-    const NODE_COUNT = 42, MAX_DIST = 160, SIG_SPEED = 1.2;
+    // NEURAL NETWORK
+    const C = document.getElementById("neuralCanvas"), X = C.getContext("2d");
+    let W, H, nodes = [], sigs = [];
+    const N = 50, MD = 170, SS = 1.4;
 
-    function resize() { W = canvas.width = canvas.offsetWidth; H = canvas.height = canvas.offsetHeight }
+    const COLORS = ["0,229,255", "168,85,247", "244,114,182"];
+
+    function resize() { W = C.width = C.offsetWidth; H = C.height = C.offsetHeight }
 
     function initNodes() {
-      nodes = [];
-      for (let i = 0; i < NODE_COUNT; i++) {
-        nodes.push({
-          x: Math.random() * W, y: Math.random() * H,
-          vx: (Math.random() - .5) * .4, vy: (Math.random() - .5) * .4,
-          r: Math.random() * 2 + 1.5,
-          pulse: Math.random() * Math.PI * 2,
-          pSpeed: Math.random() * .02 + .008
-        });
-      }
+      nodes = Array.from({ length: N }, () => ({
+        x: Math.random() * W, y: Math.random() * H,
+        vx: (Math.random() - .5) * .5, vy: (Math.random() - .5) * .5,
+        r: Math.random() * 2 + 1.5,
+        pulse: Math.random() * Math.PI * 2,
+        ps: Math.random() * .025 + .008,
+        col: COLORS[Math.floor(Math.random() * COLORS.length)]
+      }));
     }
 
-    function spawnSignal() {
-      if (signals.length > 30) return;
-      const i = Math.floor(Math.random() * nodes.length);
-      const j = Math.floor(Math.random() * nodes.length);
+    function spawnSig() {
+      if (sigs.length > 25) return;
+      const i = Math.floor(Math.random() * N), j = Math.floor(Math.random() * N);
       if (i === j) return;
       const dx = nodes[j].x - nodes[i].x, dy = nodes[j].y - nodes[i].y;
-      const dist = Math.sqrt(dx * dx + dy * dy);
-      if (dist > MAX_DIST) return;
-      signals.push({ from: i, to: j, t: 0, color: Math.random() > .5 ? "cyan" : "purple" });
+      if (Math.sqrt(dx * dx + dy * dy) > MD) return;
+      sigs.push({ fi: i, ti: j, t: 0, col: COLORS[Math.floor(Math.random() * COLORS.length)] });
     }
 
-    function drawFrame() {
-      ctx.clearRect(0, 0, W, H);
+    function draw() {
+      X.clearRect(0, 0, W, H);
+      nodes.forEach(n => { n.x += n.vx; n.y += n.vy; n.pulse += n.ps; if (n.x < 0 || n.x > W) n.vx *= -1; if (n.y < 0 || n.y > H) n.vy *= -1 });
 
-      // update nodes
-      nodes.forEach(n => {
-        n.x += n.vx; n.y += n.vy; n.pulse += n.pSpeed;
-        if (n.x < 0 || n.x > W) n.vx *= -1;
-        if (n.y < 0 || n.y > H) n.vy *= -1;
-      });
-
-      // draw connections
-      for (let i = 0; i < nodes.length; i++) {
-        for (let j = i + 1; j < nodes.length; j++) {
-          const dx = nodes[j].x - nodes[i].x, dy = nodes[j].y - nodes[i].y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < MAX_DIST) {
-            const alpha = (1 - dist / MAX_DIST) * 0.18;
-            ctx.beginPath();
-            ctx.moveTo(nodes[i].x, nodes[i].y);
-            ctx.lineTo(nodes[j].x, nodes[j].y);
-            ctx.strokeStyle = `rgba(0,217,255,${alpha})`;
-            ctx.lineWidth = .6;
-            ctx.stroke();
-          }
+      // edges
+      for (let i = 0; i < N; i++)for (let j = i + 1; j < N; j++) {
+        const dx = nodes[j].x - nodes[i].x, dy = nodes[j].y - nodes[i].y, d = Math.sqrt(dx * dx + dy * dy);
+        if (d < MD) {
+          const a = (1 - d / MD) * .2;
+          X.beginPath(); X.moveTo(nodes[i].x, nodes[i].y); X.lineTo(nodes[j].x, nodes[j].y);
+          X.strokeStyle = `rgba(0,229,255,${a})`; X.lineWidth = .7; X.stroke();
         }
       }
 
-      // draw signals
-      signals = signals.filter(s => {
-        s.t += SIG_SPEED / 120;
+      // signals
+      sigs = sigs.filter(s => {
+        s.t += SS / 100;
         if (s.t >= 1) return false;
-        const nx = nodes[s.from].x + (nodes[s.to].x - nodes[s.from].x) * s.t;
-        const ny = nodes[s.from].y + (nodes[s.to].y - nodes[s.from].y) * s.t;
-        const color = s.color === "cyan" ? "0,217,255" : "124,58,237";
-        ctx.beginPath();
-        ctx.arc(nx, ny, 2.5, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${color},0.9)`;
-        ctx.fill();
-        ctx.beginPath();
-        ctx.arc(nx, ny, 5, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${color},0.2)`;
-        ctx.fill();
+        const x = nodes[s.fi].x + (nodes[s.ti].x - nodes[s.fi].x) * s.t;
+        const y = nodes[s.fi].y + (nodes[s.ti].y - nodes[s.fi].y) * s.t;
+        X.beginPath(); X.arc(x, y, 3, 0, Math.PI * 2);
+        X.fillStyle = `rgba(${s.col},1)`; X.fill();
+        X.beginPath(); X.arc(x, y, 7, 0, Math.PI * 2);
+        X.fillStyle = `rgba(${s.col},.18)`; X.fill();
         return true;
       });
 
-      // draw nodes
+      // nodes
       nodes.forEach(n => {
-        const pulse = .5 + .5 * Math.sin(n.pulse);
-        const grd = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, n.r * 3);
-        grd.addColorStop(0, `rgba(0,217,255,${.6 + .4 * pulse})`);
-        grd.addColorStop(1, "rgba(0,217,255,0)");
-        ctx.beginPath();
-        ctx.arc(n.x, n.y, n.r * 2.5, 0, Math.PI * 2);
-        ctx.fillStyle = grd; ctx.fill();
-        ctx.beginPath();
-        ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(0,217,255,${.7 + .3 * pulse})`;
-        ctx.fill();
+        const p = .5 + .5 * Math.sin(n.pulse);
+        // glow
+        const g = X.createRadialGradient(n.x, n.y, 0, n.x, n.y, n.r * 4);
+        g.addColorStop(0, `rgba(${n.col},${.5 + .5 * p})`);
+        g.addColorStop(1, `rgba(${n.col},0)`);
+        X.beginPath(); X.arc(n.x, n.y, n.r * 4, 0, Math.PI * 2); X.fillStyle = g; X.fill();
+        // core
+        X.beginPath(); X.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+        X.fillStyle = `rgba(${n.col},${.7 + .3 * p})`; X.fill();
       });
 
-      if (Math.random() < .07) spawnSignal();
-      requestAnimationFrame(drawFrame);
+      if (Math.random() < .09) spawnSig();
+      requestAnimationFrame(draw);
     }
 
-    window.addEventListener("resize", () => { resize(); initNodes() });
-    resize(); initNodes(); drawFrame();
+    window.addEventListener("resize", () => { resize(); initNodes() }, { passive: true });
+    resize(); initNodes(); draw();
 
-    // ── GITHUB API ───────────────────────────────────────────────────────────
+    // GITHUB API
     const USERNAME = "JulianDataScienceExplorerV2";
     const PINNED = ["Chat-Interface-GUI-Ollama-Py", "Marketing-AB-Testing"];
-    const LANG_COLORS = { Python: "#3572A5", JavaScript: "#f1e05a", TypeScript: "#3178c6", Go: "#00ADD8", Java: "#b07219", HTML: "#e34c26", "Jupyter Notebook": "#DA5B0B" };
+    const LCOLS = { Python: "#3572A5", JavaScript: "#f1e05a", TypeScript: "#3178c6", Go: "#00ADD8", Java: "#b07219", HTML: "#e34c26", "Jupyter Notebook": "#DA5B0B" };
 
-    function timeAgo(iso) {
+    function ago(iso) {
       const s = (Date.now() - new Date(iso)) / 1000;
       if (s < 3600) return Math.floor(s / 60) + "m ago";
       if (s < 86400) return Math.floor(s / 3600) + "h ago";
@@ -1318,27 +1387,25 @@
       return Math.floor(s / 31536000) + "y ago";
     }
 
-    function buildCard(r, pinned) {
-      const stars = r.stargazers_count;
+    function card(r, pin) {
       const desc = r.description || "No description provided.";
       const topics = (r.topics || []).slice(0, 3);
-      const langColor = LANG_COLORS[r.language] || "#8b949e";
-      return `<a class="project-card" href="${r.html_url}" target="_blank" rel="noopener">
-    <div class="card-top">
-      <div class="card-icon-wrap"><svg viewBox="0 0 24 24"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg></div>
-      <div class="card-meta">
-        ${stars > 0 ? `<div class="stars-badge"><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 18.896l-7.416 4.517 1.48-8.279L.036 9.306l8.332-1.151z"/></svg>${stars}</div>` : ""}
-        ${pinned ? '<span class="pin-badge">pinned</span>' : ""}
+      return `<a class="proj-card" href="${r.html_url}" target="_blank" rel="noopener">
+    <div class="ctop">
+      <div class="cicon"><svg viewBox="0 0 24 24"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg></div>
+      <div class="cmeta">
+        ${r.stargazers_count > 0 ? `<div class="stars"><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 18.896l-7.416 4.517 1.48-8.279L.036 9.306l8.332-1.151z"/></svg>${r.stargazers_count}</div>` : ""}
+        ${pin ? '<span class="pin">pinned</span>' : ""}
       </div>
     </div>
     <p class="card-name">${r.name.replace(/[-_]/g, " ")}</p>
     <p class="card-desc">${desc}</p>
-    <div class="card-foot">
-      <div class="tag-row">
-        ${r.language ? `<span class="tag lang">${r.language}</span>` : ""}
+    <div class="cfoot">
+      <div class="tags">
+        ${r.language ? `<span class="tag lt">${r.language}</span>` : ""}
         ${topics.map(t => `<span class="tag">${t}</span>`).join("")}
       </div>
-      <span class="card-time">${timeAgo(r.updated_at)}</span>
+      <span class="ctime">${ago(r.updated_at)}</span>
     </div>
   </a>`;
     }
@@ -1354,14 +1421,15 @@
           if (ap !== bp) return bp - ap;
           return b.stargazers_count - a.stargazers_count;
         });
-        const totalStars = filtered.reduce((s, r) => s + r.stargazers_count, 0);
-        animateCount(document.getElementById("statRepos"), filtered.length);
-        animateCount(document.getElementById("statStars"), totalStars);
-        grid.innerHTML = filtered.map(r => buildCard(r, PINNED.includes(r.name))).join("");
+        const stars = filtered.reduce((s, r) => s + r.stargazers_count, 0);
+        countUp(document.getElementById("sRepos"), filtered.length);
+        countUp(document.getElementById("sStars"), stars);
+        grid.innerHTML = filtered.map(r => card(r, PINNED.includes(r.name))).join("");
         const rem = res.headers.get("X-RateLimit-Remaining");
-        document.getElementById("apiNote").textContent = `github api · ${filtered.length} repos · ${rem} requests remaining`;
+        document.getElementById("apiNote").textContent = `live via github api · ${filtered.length} repos · ${rem} req remaining`;
       } catch (e) {
-        grid.innerHTML = `<div class="skel" style="grid-column:1/-1;padding:2rem;text-align:center;color:var(--text-2)">Could not load repositories. <a href="https://github.com/${USERNAME}" style="color:var(--cyan)">View on GitHub</a></div>`;
+        grid.innerHTML = `<div class="skel" style="grid-column:1/-1;padding:2rem;text-align:center;color:var(--text-2)">
+      Could not load repositories. <a href="https://github.com/${USERNAME}" style="color:var(--cyan)">View on GitHub</a></div>`;
       }
     }
     loadRepos();
