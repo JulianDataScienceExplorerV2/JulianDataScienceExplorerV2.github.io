@@ -1,33 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Julian David Urrego — Data Analyst Portfolio</title>
-  <meta name="description" content="Data Analyst portfolio — Python, Machine Learning, Time Series, Data Visualization. / Portafolio de Analista de Datos — Python, Machine Learning, Series de Tiempo, Visualizacion." />
+  <meta name="description"
+    content="Data Analyst portfolio — Python, Machine Learning, Time Series, Data Visualization. / Portafolio de Analista de Datos." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     :root {
-      --bg:         #0d1117;
-      --surface:    #161b22;
-      --surface-2:  #21262d;
-      --border:     #30363d;
-      --accent:     #58a6ff;
+      --bg: #0d1117;
+      --surface: #161b22;
+      --surface-2: #21262d;
+      --border: #30363d;
+      --accent: #58a6ff;
       --accent-dim: #1f3a5c;
-      --green:      #3fb950;
-      --text-1:     #e6edf3;
-      --text-2:     #8b949e;
-      --text-3:     #484f58;
-      --radius:     8px;
-      --radius-lg:  12px;
+      --green: #3fb950;
+      --text-1: #e6edf3;
+      --text-2: #8b949e;
+      --text-3: #484f58;
+      --radius: 8px;
+      --radius-lg: 12px;
       --transition: 200ms ease;
     }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       font-family: "Inter", system-ui, sans-serif;
@@ -37,15 +49,29 @@
       font-size: 15px;
     }
 
-    /* ── Scrollbar ─────────────────────────────────────────────── */
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: var(--bg); }
-    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
 
-    /* ── Nav ───────────────────────────────────────────────────── */
+    ::-webkit-scrollbar-track {
+      background: var(--bg);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--border);
+      border-radius: 3px;
+    }
+
+    /* ── Nav ─────────────────────────────────────────────────── */
     nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       padding: 0 2rem;
       height: 56px;
       background: rgba(13, 17, 23, 0.85);
@@ -57,11 +83,12 @@
       font-family: "JetBrains Mono", monospace;
       font-size: 13px;
       color: var(--accent);
-      letter-spacing: 0.02em;
     }
 
     .nav-links {
-      display: flex; align-items: center; gap: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
       list-style: none;
     }
 
@@ -73,7 +100,9 @@
       transition: color var(--transition);
     }
 
-    .nav-links a:hover { color: var(--text-1); }
+    .nav-links a:hover {
+      color: var(--text-1);
+    }
 
     .lang-btn {
       background: var(--surface-2);
@@ -89,11 +118,19 @@
       transition: border-color var(--transition), color var(--transition);
     }
 
-    .lang-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .lang-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
 
-    /* ── Layout ────────────────────────────────────────────────── */
-    main { padding-top: 56px; }
-    section { padding: 5rem 0; }
+    /* ── Layout ──────────────────────────────────────────────── */
+    main {
+      padding-top: 56px;
+    }
+
+    section {
+      padding: 5rem 0;
+    }
 
     .container {
       max-width: 960px;
@@ -101,7 +138,6 @@
       padding: 0 2rem;
     }
 
-    /* ── Section label ─────────────────────────────────────────── */
     .section-label {
       font-family: "JetBrains Mono", monospace;
       font-size: 11px;
@@ -127,10 +163,11 @@
       margin-bottom: 3rem;
     }
 
-    /* ── Hero ──────────────────────────────────────────────────── */
+    /* ── Hero ────────────────────────────────────────────────── */
     #hero {
       min-height: calc(100vh - 56px);
-      display: flex; align-items: center;
+      display: flex;
+      align-items: center;
       border-bottom: 1px solid var(--border);
       position: relative;
       overflow: hidden;
@@ -138,20 +175,25 @@
 
     #hero::before {
       content: "";
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse 60% 50% at 70% 40%, rgba(88,166,255,.08) 0%, transparent 70%);
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 50% at 70% 40%, rgba(88, 166, 255, .08) 0%, transparent 70%);
       pointer-events: none;
     }
 
-    .hero-inner { max-width: 960px; margin: 0 auto; padding: 0 2rem; }
+    .hero-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
 
     .hero-tag {
       display: inline-block;
       font-family: "JetBrains Mono", monospace;
       font-size: 12px;
       color: var(--green);
-      background: rgba(63,185,80,.1);
-      border: 1px solid rgba(63,185,80,.25);
+      background: rgba(63, 185, 80, .1);
+      border: 1px solid rgba(63, 185, 80, .25);
       padding: 3px 10px;
       border-radius: 20px;
       margin-bottom: 1.5rem;
@@ -166,7 +208,9 @@
       margin-bottom: 0.75rem;
     }
 
-    .hero-name span { color: var(--accent); }
+    .hero-name span {
+      color: var(--accent);
+    }
 
     .hero-title {
       font-size: 1.1rem;
@@ -183,10 +227,16 @@
       margin-bottom: 2.5rem;
     }
 
-    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
 
     .btn-primary {
-      display: inline-flex; align-items: center; gap: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
       background: var(--accent);
       color: #0d1117;
       font-size: 13px;
@@ -197,10 +247,14 @@
       transition: opacity var(--transition);
     }
 
-    .btn-primary:hover { opacity: 0.85; }
+    .btn-primary:hover {
+      opacity: 0.85;
+    }
 
     .btn-secondary {
-      display: inline-flex; align-items: center; gap: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
       background: transparent;
       color: var(--text-1);
       font-size: 13px;
@@ -212,17 +266,22 @@
       transition: border-color var(--transition);
     }
 
-    .btn-secondary:hover { border-color: var(--text-2); }
+    .btn-secondary:hover {
+      border-color: var(--text-2);
+    }
 
-    /* ── Stats row ─────────────────────────────────────────────── */
     .hero-stats {
-      display: flex; gap: 2.5rem;
+      display: flex;
+      gap: 2.5rem;
       margin-top: 3.5rem;
       padding-top: 2rem;
       border-top: 1px solid var(--border);
     }
 
-    .stat-item { display: flex; flex-direction: column; }
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+    }
 
     .stat-value {
       font-size: 1.5rem;
@@ -231,10 +290,16 @@
       letter-spacing: -0.02em;
     }
 
-    .stat-label { font-size: 12px; color: var(--text-2); margin-top: 2px; }
+    .stat-label {
+      font-size: 12px;
+      color: var(--text-2);
+      margin-top: 2px;
+    }
 
-    /* ── Projects ──────────────────────────────────────────────── */
-    #projects { border-bottom: 1px solid var(--border); }
+    /* ── Projects grid ───────────────────────────────────────── */
+    #projects {
+      border-bottom: 1px solid var(--border);
+    }
 
     .project-grid {
       display: grid;
@@ -244,6 +309,33 @@
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
       overflow: hidden;
+    }
+
+    /* Skeleton loader */
+    .skeleton {
+      background: var(--surface);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .skel-line {
+      border-radius: 4px;
+      background: var(--surface-2);
+      animation: shimmer 1.4s infinite;
+    }
+
+    @keyframes shimmer {
+
+      0%,
+      100% {
+        opacity: 0.4;
+      }
+
+      50% {
+        opacity: 0.8;
+      }
     }
 
     .project-card {
@@ -256,30 +348,54 @@
       color: inherit;
     }
 
-    .project-card:hover { background: var(--surface-2); }
+    .project-card:hover {
+      background: var(--surface-2);
+    }
 
     .card-top {
-      display: flex; align-items: flex-start; justify-content: space-between;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
       margin-bottom: 0.75rem;
     }
 
     .card-icon {
-      width: 36px; height: 36px;
+      width: 36px;
+      height: 36px;
       border-radius: 8px;
       background: var(--accent-dim);
-      display: flex; align-items: center; justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       flex-shrink: 0;
     }
 
-    .card-icon svg { width: 18px; height: 18px; fill: var(--accent); }
+    .card-icon svg {
+      width: 18px;
+      height: 18px;
+      fill: var(--accent);
+    }
+
+    .card-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
     .card-stars {
-      display: flex; align-items: center; gap: 4px;
-      font-size: 12px; color: var(--text-2);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 12px;
+      color: var(--text-2);
       font-family: "JetBrains Mono", monospace;
     }
 
-    .card-stars svg { width: 13px; height: 13px; fill: #e3b341; }
+    .card-stars svg {
+      width: 13px;
+      height: 13px;
+      fill: #e3b341;
+    }
 
     .card-name {
       font-size: 14px;
@@ -298,11 +414,18 @@
     }
 
     .card-footer {
-      display: flex; align-items: center; justify-content: space-between;
-      flex-wrap: wrap; gap: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
     }
 
-    .card-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
 
     .tag {
       font-family: "JetBrains Mono", monospace;
@@ -313,26 +436,47 @@
       border: 1px solid var(--border);
       color: var(--text-2);
       letter-spacing: 0.03em;
-      text-transform: lowercase;
     }
 
-    .tag.primary {
-      border-color: rgba(88,166,255,.4);
+    .tag.lang-tag {
+      border-color: rgba(88, 166, 255, .35);
       color: var(--accent);
       background: var(--accent-dim);
     }
 
-    .card-lang {
-      display: flex; align-items: center; gap: 5px;
-      font-size: 11px; color: var(--text-2);
+    .card-updated {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 10px;
+      color: var(--text-3);
     }
 
-    .lang-dot { width: 9px; height: 9px; border-radius: 50%; }
-    .lang-python { background: #3572A5; }
-    .lang-go { background: #00ADD8; }
+    /* Pin badge */
+    .pin-badge {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 20px;
+      background: rgba(63, 185, 80, .12);
+      border: 1px solid rgba(63, 185, 80, .3);
+      color: var(--green);
+    }
 
-    /* ── Skills ────────────────────────────────────────────────── */
-    #skills { border-bottom: 1px solid var(--border); }
+    /* API note */
+    .api-note {
+      margin-top: 1rem;
+      font-size: 12px;
+      color: var(--text-3);
+      font-family: "JetBrains Mono", monospace;
+      text-align: right;
+    }
+
+    /* ── Skills ──────────────────────────────────────────────── */
+    #skills {
+      border-bottom: 1px solid var(--border);
+    }
 
     .skills-grid {
       display: grid;
@@ -357,7 +501,11 @@
       font-family: "JetBrains Mono", monospace;
     }
 
-    .skill-list { display: flex; flex-wrap: wrap; gap: 6px; }
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
 
     .skill-pill {
       font-size: 12px;
@@ -369,8 +517,10 @@
       font-weight: 500;
     }
 
-    /* ── About ─────────────────────────────────────────────────── */
-    #about { border-bottom: 1px solid var(--border); }
+    /* ── About ───────────────────────────────────────────────── */
+    #about {
+      border-bottom: 1px solid var(--border);
+    }
 
     .about-grid {
       display: grid;
@@ -379,7 +529,11 @@
       align-items: start;
     }
 
-    @media (max-width: 640px) { .about-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 640px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+    }
 
     .about-text p {
       color: var(--text-2);
@@ -388,12 +542,21 @@
       margin-bottom: 1rem;
     }
 
-    .about-text p strong { color: var(--text-1); font-weight: 600; }
+    .about-text p strong {
+      color: var(--text-1);
+      font-weight: 600;
+    }
 
-    .about-details { display: flex; flex-direction: column; gap: 0.75rem; }
+    .about-details {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
 
     .detail-row {
-      display: flex; align-items: center; gap: 0.75rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
       font-size: 13px;
     }
 
@@ -403,14 +566,26 @@
       color: var(--text-3);
       min-width: 80px;
       letter-spacing: 0.04em;
+      padding-top: 1px;
     }
 
-    .detail-val { color: var(--text-2); }
-    .detail-val a { color: var(--accent); text-decoration: none; }
-    .detail-val a:hover { text-decoration: underline; }
+    .detail-val {
+      color: var(--text-2);
+    }
 
-    /* ── Contact ───────────────────────────────────────────────── */
-    #contact { border-bottom: 1px solid var(--border); }
+    .detail-val a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .detail-val a:hover {
+      text-decoration: underline;
+    }
+
+    /* ── Contact ─────────────────────────────────────────────── */
+    #contact {
+      border-bottom: 1px solid var(--border);
+    }
 
     .contact-box {
       background: var(--surface);
@@ -431,9 +606,12 @@
       margin-bottom: 0.35rem;
     }
 
-    .contact-text p { font-size: 13px; color: var(--text-2); }
+    .contact-text p {
+      font-size: 13px;
+      color: var(--text-2);
+    }
 
-    /* ── Footer ────────────────────────────────────────────────── */
+    /* ── Footer ──────────────────────────────────────────────── */
     footer {
       padding: 2rem;
       text-align: center;
@@ -442,371 +620,365 @@
       font-family: "JetBrains Mono", monospace;
     }
 
-    /* ── Visibility helpers ────────────────────────────────────── */
-    [data-lang-en], [data-lang-es] { transition: opacity 0.15s ease; }
-    body.lang-es [data-lang-en] { display: none; }
-    body.lang-en [data-lang-es] { display: none; }
-
-    /* ── Responsive nav ────────────────────────────────────────── */
-    @media (max-width: 580px) {
-      .nav-links { display: none; }
-      .hero-stats { gap: 1.5rem; }
+    /* ── Language helpers ────────────────────────────────────── */
+    body.lang-es [data-lang-en] {
+      display: none;
     }
 
-    /* ── Fade-in animation ─────────────────────────────────────── */
-    .fade-in { opacity: 0; transform: translateY(18px); transition: opacity 0.5s ease, transform 0.5s ease; }
-    .fade-in.visible { opacity: 1; transform: none; }
+    body.lang-en [data-lang-es] {
+      display: none;
+    }
+
+    @media (max-width: 580px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero-stats {
+        gap: 1.5rem;
+      }
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: none;
+    }
   </style>
 </head>
+
 <body class="lang-en">
 
-<!-- ── Navigation ─────────────────────────────────────────────────────── -->
-<nav>
-  <span class="nav-brand">julian.dev</span>
-  <ul class="nav-links">
-    <li><a href="#projects"  data-lang-en>Projects</a><a href="#projects"  data-lang-es>Proyectos</a></li>
-    <li><a href="#skills"    data-lang-en>Skills</a><a href="#skills"      data-lang-es>Habilidades</a></li>
-    <li><a href="#about"     data-lang-en>About</a><a href="#about"        data-lang-es>Acerca de</a></li>
-    <li><a href="#contact"   data-lang-en>Contact</a><a href="#contact"    data-lang-es>Contacto</a></li>
-  </ul>
-  <button class="lang-btn" id="langToggle">ES</button>
-</nav>
+  <nav>
+    <span class="nav-brand">julian.dev</span>
+    <ul class="nav-links">
+      <li><a href="#projects" data-lang-en>Projects</a><a href="#projects" data-lang-es>Proyectos</a></li>
+      <li><a href="#skills" data-lang-en>Skills</a><a href="#skills" data-lang-es>Habilidades</a></li>
+      <li><a href="#about" data-lang-en>About</a><a href="#about" data-lang-es>Acerca de</a></li>
+      <li><a href="#contact" data-lang-en>Contact</a><a href="#contact" data-lang-es>Contacto</a></li>
+    </ul>
+    <button class="lang-btn" id="langToggle">ES</button>
+  </nav>
 
-<!-- ── Hero ───────────────────────────────────────────────────────────── -->
-<main>
-<section id="hero">
-  <div class="hero-inner">
-    <span class="hero-tag" data-lang-en>Open to work</span>
-    <span class="hero-tag" data-lang-es>Disponible para trabajar</span>
+  <main>
 
-    <h1 class="hero-name">Julian David<br><span>Urrego</span></h1>
+    <!-- ── Hero ──────────────────────────────────────────────────────────── -->
+    <section id="hero">
+      <div class="hero-inner">
+        <span class="hero-tag" data-lang-en>Open to work</span>
+        <span class="hero-tag" data-lang-es>Disponible para trabajar</span>
 
-    <p class="hero-title" data-lang-en>Data Analyst — Python · Machine Learning · Data Visualization</p>
-    <p class="hero-title" data-lang-es>Analista de Datos — Python · Machine Learning · Visualizacion de Datos</p>
+        <h1 class="hero-name">Julian David<br><span>Urrego</span></h1>
 
-    <p class="hero-bio" data-lang-en>
-      I build data analysis pipelines, predictive models, and interactive visualizations using Python and its data ecosystem. Focused on turning raw data into clear, actionable insights.
-    </p>
-    <p class="hero-bio" data-lang-es>
-      Construyo pipelines de analisis de datos, modelos predictivos y visualizaciones interactivas con Python y su ecosistema de datos. Enfocado en convertir datos brutos en insights claros y accionables.
-    </p>
+        <p class="hero-title" data-lang-en>Data Analyst — Python · Machine Learning · Data Visualization</p>
+        <p class="hero-title" data-lang-es>Analista de Datos — Python · Machine Learning · Visualizacion de Datos</p>
 
-    <div class="hero-actions">
-      <a href="#projects" class="btn-primary" data-lang-en>View Projects</a>
-      <a href="#projects" class="btn-primary" data-lang-es>Ver Proyectos</a>
-      <a href="https://github.com/JulianDataScienceExplorerV2" target="_blank" class="btn-secondary" data-lang-en>GitHub Profile</a>
-      <a href="https://github.com/JulianDataScienceExplorerV2" target="_blank" class="btn-secondary" data-lang-es>Perfil de GitHub</a>
-    </div>
+        <p class="hero-bio" data-lang-en>I build data analysis pipelines, predictive models, and interactive
+          visualizations using Python and its data ecosystem. Focused on turning raw data into clear, actionable
+          insights.</p>
+        <p class="hero-bio" data-lang-es>Construyo pipelines de analisis de datos, modelos predictivos y visualizaciones
+          interactivas con Python. Enfocado en convertir datos brutos en insights claros y accionables.</p>
 
-    <div class="hero-stats">
-      <div class="stat-item">
-        <span class="stat-value">5</span>
-        <span class="stat-label" data-lang-en>Public Repositories</span>
-        <span class="stat-label" data-lang-es>Repositorios Publicos</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-value">8</span>
-        <span class="stat-label" data-lang-en>GitHub Stars</span>
-        <span class="stat-label" data-lang-es>Estrellas en GitHub</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-value">3+</span>
-        <span class="stat-label" data-lang-en>Years with Python</span>
-        <span class="stat-label" data-lang-es>Anos con Python</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── Projects ────────────────────────────────────────────────────────── -->
-<section id="projects">
-  <div class="container fade-in">
-    <p class="section-label" data-lang-en>Work</p>
-    <p class="section-label" data-lang-es>Proyectos</p>
-    <h2 class="section-title" data-lang-en>Featured Projects</h2>
-    <h2 class="section-title" data-lang-es>Proyectos Destacados</h2>
-    <p class="section-sub" data-lang-en>A selection of data analysis, machine learning, and visualization projects built with Python.</p>
-    <p class="section-sub" data-lang-es>Una seleccion de proyectos de analisis de datos, machine learning y visualizacion construidos con Python.</p>
-
-    <div class="project-grid">
-
-      <!-- 1. Chat Interface -->
-      <a class="project-card" href="https://github.com/JulianDataScienceExplorerV2/Chat-Interface-GUI-Ollama-Py" target="_blank">
-        <div class="card-top">
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
-          </div>
-          <div class="card-stars">
-            <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 18.896l-7.416 4.517 1.48-8.279L.036 9.306l8.332-1.151z"/></svg>
-            8
-          </div>
+        <div class="hero-actions">
+          <a href="#projects" class="btn-primary" data-lang-en>View Projects</a>
+          <a href="#projects" class="btn-primary" data-lang-es>Ver Proyectos</a>
+          <a href="https://github.com/JulianDataScienceExplorerV2" target="_blank" class="btn-secondary">GitHub</a>
         </div>
-        <p class="card-name">Chat Interface GUI — Ollama</p>
-        <p class="card-desc" data-lang-en>Python desktop application for interacting with local language models via Ollama. Supports model selection, prompt input, and persistent conversation history.</p>
-        <p class="card-desc" data-lang-es>Aplicacion de escritorio en Python para interactuar con modelos de lenguaje locales via Ollama. Soporta seleccion de modelo, entrada de prompts e historial de conversacion.</p>
-        <div class="card-footer">
-          <div class="card-tags">
-            <span class="tag primary">python</span>
-            <span class="tag">ollama</span>
-            <span class="tag">llm</span>
-            <span class="tag">gui</span>
-          </div>
-          <div class="card-lang">
-            <span class="lang-dot lang-python"></span>
-            <span>Python</span>
-          </div>
-        </div>
-      </a>
 
-      <!-- 2. Marketing A/B Testing -->
-      <a class="project-card" href="https://github.com/JulianDataScienceExplorerV2/Marketing-AB-Testing" target="_blank">
-        <div class="card-top">
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14H7v-2h5v2zm5-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-value" id="stat-repos">—</span>
+            <span class="stat-label" data-lang-en>Public Repositories</span>
+            <span class="stat-label" data-lang-es>Repositorios Publicos</span>
           </div>
-        </div>
-        <p class="card-name">Marketing A/B Testing Dashboard</p>
-        <p class="card-desc" data-lang-en>Interactive dashboard for statistical analysis of marketing experiments. Applies hypothesis testing (z-test, chi-square) to evaluate campaign performance between control and treatment groups.</p>
-        <p class="card-desc" data-lang-es>Dashboard interactivo para el analisis estadistico de experimentos de marketing. Aplica pruebas de hipotesis (z-test, chi-cuadrado) para evaluar el rendimiento entre grupos de control y tratamiento.</p>
-        <div class="card-footer">
-          <div class="card-tags">
-            <span class="tag primary">python</span>
-            <span class="tag">statistics</span>
-            <span class="tag">streamlit</span>
-            <span class="tag">hypothesis-testing</span>
+          <div class="stat-item">
+            <span class="stat-value" id="stat-stars">—</span>
+            <span class="stat-label" data-lang-en>GitHub Stars</span>
+            <span class="stat-label" data-lang-es>Estrellas en GitHub</span>
           </div>
-          <div class="card-lang">
-            <span class="lang-dot lang-python"></span>
-            <span>Python</span>
+          <div class="stat-item">
+            <span class="stat-value">3+</span>
+            <span class="stat-label" data-lang-en>Years with Python</span>
+            <span class="stat-label" data-lang-es>Anos con Python</span>
           </div>
-        </div>
-      </a>
-
-      <!-- 3. Adidas Sales Analytics -->
-      <a class="project-card" href="https://github.com/JulianDataScienceExplorerV2/Adidas-Sales-Analytics" target="_blank">
-        <div class="card-top">
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24"><path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/></svg>
-          </div>
-        </div>
-        <p class="card-name">Adidas Sales Analytics</p>
-        <p class="card-desc" data-lang-en>Exploratory analysis and time series visualization of Adidas quarterly revenue. Includes autocorrelation analysis (ACF/PACF) and interactive Plotly charts to identify seasonality patterns.</p>
-        <p class="card-desc" data-lang-es>Analisis exploratorio y visualizacion de series de tiempo de los ingresos trimestrales de Adidas. Incluye analisis de autocorrelacion (ACF/PACF) y graficos interactivos con Plotly para identificar estacionalidad.</p>
-        <div class="card-footer">
-          <div class="card-tags">
-            <span class="tag primary">time-series</span>
-            <span class="tag">plotly</span>
-            <span class="tag">statsmodels</span>
-            <span class="tag">eda</span>
-          </div>
-          <div class="card-lang">
-            <span class="lang-dot lang-python"></span>
-            <span>Python</span>
-          </div>
-        </div>
-      </a>
-
-      <!-- 4. Sales Prediction -->
-      <a class="project-card" href="https://github.com/JulianDataScienceExplorerV2/Sales-Prediction-LinearRegression" target="_blank">
-        <div class="card-top">
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 3C6.48 3 2 7.48 2 13s4.48 10 10 10 10-4.48 10-10S17.52 3 12 3zm-1 15v-4H7l5-8v4h4l-5 8z"/></svg>
-          </div>
-        </div>
-        <p class="card-name">Sales Prediction — Linear Regression</p>
-        <p class="card-desc" data-lang-en>Predictive model that quantifies the impact of advertising spend (TV, Radio, Newspaper) on sales. Full pipeline: preprocessing, training, metric evaluation (R2, MAE, RMSE), and residual diagnostics.</p>
-        <p class="card-desc" data-lang-es>Modelo predictivo que cuantifica el impacto del presupuesto publicitario (TV, Radio, Periodico) en ventas. Pipeline completo: preprocesamiento, entrenamiento, metricas (R2, MAE, RMSE) y diagnostico de residuos.</p>
-        <div class="card-footer">
-          <div class="card-tags">
-            <span class="tag primary">machine-learning</span>
-            <span class="tag">scikit-learn</span>
-            <span class="tag">regression</span>
-          </div>
-          <div class="card-lang">
-            <span class="lang-dot lang-python"></span>
-            <span>Python</span>
-          </div>
-        </div>
-      </a>
-
-      <!-- 5. Python Data Foundations -->
-      <a class="project-card" href="https://github.com/JulianDataScienceExplorerV2/Python-Data-Foundations" target="_blank">
-        <div class="card-top">
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
-          </div>
-        </div>
-        <p class="card-name">Python Data Foundations</p>
-        <p class="card-desc" data-lang-en>Core Python patterns applied to data scenarios: aggregation with dicts, list comprehensions for transformation and filtering, and revenue calculations from transactional records.</p>
-        <p class="card-desc" data-lang-es>Patrones fundamentales de Python aplicados a datos: agregacion con diccionarios, comprensiones de listas para transformacion y filtrado, y calculo de ingresos desde registros transaccionales.</p>
-        <div class="card-footer">
-          <div class="card-tags">
-            <span class="tag primary">python</span>
-            <span class="tag">data-structures</span>
-            <span class="tag">data-wrangling</span>
-          </div>
-          <div class="card-lang">
-            <span class="lang-dot lang-python"></span>
-            <span>Python</span>
-          </div>
-        </div>
-      </a>
-
-    </div>
-  </div>
-</section>
-
-<!-- ── Skills ──────────────────────────────────────────────────────────── -->
-<section id="skills">
-  <div class="container fade-in">
-    <p class="section-label" data-lang-en>Technical</p>
-    <p class="section-label" data-lang-es>Tecnico</p>
-    <h2 class="section-title" data-lang-en>Skills</h2>
-    <h2 class="section-title" data-lang-es>Habilidades</h2>
-    <p class="section-sub" data-lang-en>Tools and technologies I use regularly in data analysis and development.</p>
-    <p class="section-sub" data-lang-es>Herramientas y tecnologias que uso regularmente en analisis de datos y desarrollo.</p>
-
-    <div class="skills-grid">
-      <div class="skill-group">
-        <p class="skill-group-title" data-lang-en>Languages</p>
-        <p class="skill-group-title" data-lang-es>Lenguajes</p>
-        <div class="skill-list">
-          <span class="skill-pill">Python</span>
-          <span class="skill-pill">SQL</span>
-          <span class="skill-pill">Go</span>
         </div>
       </div>
-      <div class="skill-group">
-        <p class="skill-group-title" data-lang-en>Data & ML</p>
-        <p class="skill-group-title" data-lang-es>Datos y ML</p>
-        <div class="skill-list">
-          <span class="skill-pill">Pandas</span>
-          <span class="skill-pill">NumPy</span>
-          <span class="skill-pill">Scikit-learn</span>
-          <span class="skill-pill">Statsmodels</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <p class="skill-group-title" data-lang-en>Visualization</p>
-        <p class="skill-group-title" data-lang-es>Visualizacion</p>
-        <div class="skill-list">
-          <span class="skill-pill">Plotly</span>
-          <span class="skill-pill">Matplotlib</span>
-          <span class="skill-pill">Streamlit</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <p class="skill-group-title">Tooling</p>
-        <div class="skill-list">
-          <span class="skill-pill">Git</span>
-          <span class="skill-pill">GitHub</span>
-          <span class="skill-pill">Jupyter</span>
-          <span class="skill-pill">VS Code</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- ── About ───────────────────────────────────────────────────────────── -->
-<section id="about">
-  <div class="container fade-in">
-    <p class="section-label" data-lang-en>Background</p>
-    <p class="section-label" data-lang-es>Trayectoria</p>
-    <h2 class="section-title" data-lang-en>About</h2>
-    <h2 class="section-title" data-lang-es>Acerca de mi</h2>
-
-    <div class="about-grid">
-      <div class="about-text">
-        <p data-lang-en>
-          <strong>Data analyst</strong> with hands-on experience building end-to-end analysis pipelines in Python. I work across the full data workflow — from cleaning and exploration to statistical modeling and interactive reporting.
+    <!-- ── Projects ───────────────────────────────────────────────────────── -->
+    <section id="projects">
+      <div class="container fade-in">
+        <p class="section-label" data-lang-en>Work</p>
+        <p class="section-label" data-lang-es>Trabajo</p>
+        <h2 class="section-title" data-lang-en>Projects</h2>
+        <h2 class="section-title" data-lang-es>Proyectos</h2>
+        <p class="section-sub" data-lang-en>Live from GitHub — updates automatically when a new repository is published.
         </p>
-        <p data-lang-es>
-          <strong>Analista de datos</strong> con experiencia practica construyendo pipelines de analisis de extremo a extremo en Python. Trabajo en todo el flujo de datos: desde limpieza y exploracion hasta modelado estadistico e informes interactivos.
-        </p>
-        <p data-lang-en>
-          My recent projects focus on time series analysis, supervised machine learning, and statistical hypothesis testing applied to real business datasets.
-        </p>
-        <p data-lang-es>
-          Mis proyectos recientes se centran en analisis de series de tiempo, aprendizaje automatico supervisado y pruebas de hipotesis estadisticas aplicadas a datasets de negocios reales.
-        </p>
+        <p class="section-sub" data-lang-es>En vivo desde GitHub — se actualiza automaticamente cuando se publica un
+          repositorio nuevo.</p>
+
+        <div class="project-grid" id="projectGrid">
+          <!-- Skeletons while loading -->
+          <div class="skeleton">
+            <div class="skel-line" style="height:36px;width:36px;border-radius:8px"></div>
+            <div class="skel-line" style="height:14px;width:60%"></div>
+            <div class="skel-line" style="height:12px;width:90%"></div>
+            <div class="skel-line" style="height:12px;width:80%"></div>
+          </div>
+          <div class="skeleton">
+            <div class="skel-line" style="height:36px;width:36px;border-radius:8px"></div>
+            <div class="skel-line" style="height:14px;width:55%"></div>
+            <div class="skel-line" style="height:12px;width:85%"></div>
+            <div class="skel-line" style="height:12px;width:70%"></div>
+          </div>
+          <div class="skeleton">
+            <div class="skel-line" style="height:36px;width:36px;border-radius:8px"></div>
+            <div class="skel-line" style="height:14px;width:65%"></div>
+            <div class="skel-line" style="height:12px;width:88%"></div>
+            <div class="skel-line" style="height:12px;width:75%"></div>
+          </div>
+        </div>
+        <p class="api-note" id="apiNote"></p>
       </div>
-      <div class="about-details">
-        <div class="detail-row">
-          <span class="detail-key" data-lang-en>Location</span>
-          <span class="detail-key" data-lang-es>Ubicacion</span>
-          <span class="detail-val">Colombia</span>
-        </div>
-        <div class="detail-row">
-          <span class="detail-key">Email</span>
-          <span class="detail-val"><a href="mailto:juliandavidurrego2011@gmail.com">juliandavidurrego2011@gmail.com</a></span>
-        </div>
-        <div class="detail-row">
-          <span class="detail-key">GitHub</span>
-          <span class="detail-val"><a href="https://github.com/JulianDataScienceExplorerV2" target="_blank">JulianDataScienceExplorerV2</a></span>
-        </div>
-        <div class="detail-row">
-          <span class="detail-key" data-lang-en>Focus</span>
-          <span class="detail-key" data-lang-es>Enfoque</span>
-          <span class="detail-val" data-lang-en>Data Analysis, ML, Visualization</span>
-          <span class="detail-val" data-lang-es>Analisis de Datos, ML, Visualizacion</span>
-        </div>
-        <div class="detail-row">
-          <span class="detail-key" data-lang-en>Status</span>
-          <span class="detail-key" data-lang-es>Estado</span>
-          <span class="detail-val" style="color: var(--green);" data-lang-en>Open to opportunities</span>
-          <span class="detail-val" style="color: var(--green);" data-lang-es>Abierto a oportunidades</span>
+    </section>
+
+    <!-- ── Skills ─────────────────────────────────────────────────────────── -->
+    <section id="skills">
+      <div class="container fade-in">
+        <p class="section-label" data-lang-en>Technical</p>
+        <p class="section-label" data-lang-es>Tecnico</p>
+        <h2 class="section-title" data-lang-en>Skills</h2>
+        <h2 class="section-title" data-lang-es>Habilidades</h2>
+        <p class="section-sub" data-lang-en>Tools and technologies I use regularly in data analysis and development.</p>
+        <p class="section-sub" data-lang-es>Herramientas y tecnologias que uso regularmente en analisis de datos y
+          desarrollo.</p>
+        <div class="skills-grid">
+          <div class="skill-group">
+            <p class="skill-group-title" data-lang-en>Languages</p>
+            <p class="skill-group-title" data-lang-es>Lenguajes</p>
+            <div class="skill-list"><span class="skill-pill">Python</span><span class="skill-pill">SQL</span><span
+                class="skill-pill">Go</span></div>
+          </div>
+          <div class="skill-group">
+            <p class="skill-group-title" data-lang-en>Data & ML</p>
+            <p class="skill-group-title" data-lang-es>Datos y ML</p>
+            <div class="skill-list"><span class="skill-pill">Pandas</span><span class="skill-pill">NumPy</span><span
+                class="skill-pill">Scikit-learn</span><span class="skill-pill">Statsmodels</span></div>
+          </div>
+          <div class="skill-group">
+            <p class="skill-group-title" data-lang-en>Visualization</p>
+            <p class="section-label" data-lang-es>Visualizacion</p>
+            <div class="skill-list"><span class="skill-pill">Plotly</span><span
+                class="skill-pill">Matplotlib</span><span class="skill-pill">Streamlit</span></div>
+          </div>
+          <div class="skill-group">
+            <p class="skill-group-title">Tooling</p>
+            <div class="skill-list"><span class="skill-pill">Git</span><span class="skill-pill">GitHub</span><span
+                class="skill-pill">Jupyter</span><span class="skill-pill">VS Code</span></div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- ── Contact ─────────────────────────────────────────────────────────── -->
-<section id="contact">
-  <div class="container fade-in">
-    <div class="contact-box">
-      <div class="contact-text">
-        <h3 data-lang-en>Open to work — let's connect</h3>
-        <h3 data-lang-es>Disponible para trabajar — hablemos</h3>
-        <p data-lang-en>Whether it's a full-time role, freelance project, or collaboration — reach out.</p>
-        <p data-lang-es>Ya sea un rol a tiempo completo, proyecto freelance o colaboracion — escribe.</p>
+    <!-- ── About ──────────────────────────────────────────────────────────── -->
+    <section id="about">
+      <div class="container fade-in">
+        <p class="section-label" data-lang-en>Background</p>
+        <p class="section-label" data-lang-es>Trayectoria</p>
+        <h2 class="section-title" data-lang-en>About</h2>
+        <h2 class="section-title" data-lang-es>Acerca de mi</h2>
+        <div class="about-grid">
+          <div class="about-text">
+            <p data-lang-en><strong>Data analyst</strong> with hands-on experience building end-to-end analysis
+              pipelines in Python. I work across the full data workflow — from cleaning and exploration to statistical
+              modeling and interactive reporting.</p>
+            <p data-lang-es><strong>Analista de datos</strong> con experiencia practica construyendo pipelines de
+              analisis de extremo a extremo en Python. Trabajo en todo el flujo de datos: desde limpieza y exploracion
+              hasta modelado estadistico e informes interactivos.</p>
+            <p data-lang-en>My projects focus on time series analysis, supervised machine learning, and statistical
+              hypothesis testing applied to real business datasets.</p>
+            <p data-lang-es>Mis proyectos se centran en analisis de series de tiempo, aprendizaje automatico supervisado
+              y pruebas de hipotesis estadisticas aplicadas a datos reales de negocio.</p>
+          </div>
+          <div class="about-details">
+            <div class="detail-row">
+              <span class="detail-key" data-lang-en>Location</span>
+              <span class="detail-key" data-lang-es>Ubicacion</span>
+              <span class="detail-val">Colombia</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-key">Email</span>
+              <span class="detail-val"><a
+                  href="mailto:juliandavidurrego2011@gmail.com">juliandavidurrego2011@gmail.com</a></span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-key">GitHub</span>
+              <span class="detail-val"><a href="https://github.com/JulianDataScienceExplorerV2"
+                  target="_blank">JulianDataScienceExplorerV2</a></span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-key" data-lang-en>Focus</span>
+              <span class="detail-key" data-lang-es>Enfoque</span>
+              <span class="detail-val" data-lang-en>Data Analysis · ML · Visualization</span>
+              <span class="detail-val" data-lang-es>Analisis de Datos · ML · Visualizacion</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-key" data-lang-en>Status</span>
+              <span class="detail-key" data-lang-es>Estado</span>
+              <span class="detail-val" style="color:var(--green)" data-lang-en>Open to opportunities</span>
+              <span class="detail-val" style="color:var(--green)" data-lang-es>Abierto a oportunidades</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
-        <a href="mailto:juliandavidurrego2011@gmail.com" class="btn-primary" data-lang-en>Send Email</a>
-        <a href="mailto:juliandavidurrego2011@gmail.com" class="btn-primary" data-lang-es>Enviar Email</a>
-        <a href="https://github.com/JulianDataScienceExplorerV2" target="_blank" class="btn-secondary" data-lang-en>GitHub</a>
-        <a href="https://github.com/JulianDataScienceExplorerV2" target="_blank" class="btn-secondary" data-lang-es>GitHub</a>
+    </section>
+
+    <!-- ── Contact ────────────────────────────────────────────────────────── -->
+    <section id="contact">
+      <div class="container fade-in">
+        <div class="contact-box">
+          <div class="contact-text">
+            <h3 data-lang-en>Open to work — let's connect</h3>
+            <h3 data-lang-es>Disponible para trabajar — hablemos</h3>
+            <p data-lang-en>Full-time, freelance, or collaboration — reach out.</p>
+            <p data-lang-es>Tiempo completo, freelance o colaboracion — escribe.</p>
+          </div>
+          <div style="display:flex;gap:.75rem;flex-wrap:wrap">
+            <a href="mailto:juliandavidurrego2011@gmail.com" class="btn-primary" data-lang-en>Send Email</a>
+            <a href="mailto:juliandavidurrego2011@gmail.com" class="btn-primary" data-lang-es>Enviar Email</a>
+            <a href="https://github.com/JulianDataScienceExplorerV2" target="_blank" class="btn-secondary">GitHub</a>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<footer>
-  <span data-lang-en>Built by Julian David Urrego &mdash; juliandatascienceexplorerv2.github.io</span>
-  <span data-lang-es>Construido por Julian David Urrego &mdash; juliandatascienceexplorerv2.github.io</span>
-</footer>
-</main>
+    <footer>
+      <span data-lang-en>Julian David Urrego &mdash; juliandatascienceexplorerv2.github.io</span>
+      <span data-lang-es>Julian David Urrego &mdash; juliandatascienceexplorerv2.github.io</span>
+    </footer>
+  </main>
 
-<script>
-  // Language toggle
-  const btn  = document.getElementById("langToggle");
-  const body = document.body;
-  let lang = "en";
+  <script>
+    // ── Language toggle ─────────────────────────────────────────────────────
+    const langBtn = document.getElementById("langToggle");
+    let lang = "en";
+    langBtn.addEventListener("click", () => {
+      lang = lang === "en" ? "es" : "en";
+      document.body.className = "lang-" + lang;
+      langBtn.textContent = lang === "en" ? "ES" : "EN";
+    });
 
-  btn.addEventListener("click", () => {
-    lang = lang === "en" ? "es" : "en";
-    body.className = "lang-" + lang;
-    btn.textContent = lang === "en" ? "ES" : "EN";
-  });
+    // ── Scroll fade-in ──────────────────────────────────────────────────────
+    const observer = new IntersectionObserver(
+      entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); }),
+      { threshold: 0.1 }
+    );
+    document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
 
-  // Scroll fade-in
-  const observer = new IntersectionObserver(
-    (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); }),
-    { threshold: 0.12 }
-  );
+    // ── GitHub API — fetch public repos ────────────────────────────────────
+    const USERNAME = "JulianDataScienceExplorerV2";
+    const PINNED = ["Chat-Interface-GUI-Ollama-Py", "Marketing-AB-Testing"];  // shown first
 
-  document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
-</script>
+    // Language icons for known lang colors
+    const LANG_COLORS = {
+      Python: "#3572A5", JavaScript: "#f1e05a", TypeScript: "#3178c6",
+      Go: "#00ADD8", Java: "#b07219", HTML: "#e34c26", CSS: "#563d7c",
+      "Jupyter Notebook": "#DA5B0B", Shell: "#89e051"
+    };
+
+    // SVG icons per repo topic / name keyword
+    const ICON_SVG = `<svg viewBox="0 0 24 24"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>`;
+
+    function relativeDate(iso) {
+      const diff = (Date.now() - new Date(iso)) / 1000;
+      if (diff < 60) return "just now";
+      if (diff < 3600) return Math.floor(diff / 60) + "m ago";
+      if (diff < 86400) return Math.floor(diff / 3600) + "h ago";
+      if (diff < 2592000) return Math.floor(diff / 86400) + "d ago";
+      if (diff < 31536000) return Math.floor(diff / 2592000) + "mo ago";
+      return Math.floor(diff / 31536000) + "y ago";
+    }
+
+    function buildCard(repo, pinned) {
+      const lang = repo.language || "";
+      const color = LANG_COLORS[lang] || "#8b949e";
+      const desc = repo.description || "No description provided.";
+      const stars = repo.stargazers_count;
+      const updated = relativeDate(repo.updated_at);
+      const topics = (repo.topics || []).slice(0, 3);
+
+      const starBadge = stars > 0 ? `
+      <div class="card-stars">
+        <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 18.896l-7.416 4.517 1.48-8.279L.036 9.306l8.332-1.151z"/></svg>
+        ${stars}
+      </div>` : "";
+
+      const pinBadge = pinned ? `<span class="pin-badge">pinned</span>` : "";
+
+      const topicTags = topics.map(t => `<span class="tag">${t}</span>`).join("");
+      const langTag = lang ? `<span class="tag lang-tag">${lang}</span>` : "";
+
+      return `
+      <a class="project-card" href="${repo.html_url}" target="_blank" rel="noopener">
+        <div class="card-top">
+          <div class="card-icon">${ICON_SVG}</div>
+          <div class="card-meta">
+            ${starBadge}
+            ${pinBadge}
+          </div>
+        </div>
+        <p class="card-name">${repo.name.replace(/-/g, " ").replace(/_/g, " ")}</p>
+        <p class="card-desc">${desc}</p>
+        <div class="card-footer">
+          <div class="card-tags">${langTag}${topicTags}</div>
+          <span class="card-updated">${updated}</span>
+        </div>
+      </a>`;
+    }
+
+    async function loadRepos() {
+      const grid = document.getElementById("projectGrid");
+      const note = document.getElementById("apiNote");
+
+      try {
+        const res = await fetch(`https://api.github.com/users/${USERNAME}/repos?per_page=100&sort=updated&type=public`);
+        const repos = await res.json();
+
+        // Filter out the portfolio repo itself and forks
+        const filtered = repos.filter(r => !r.fork && r.name !== `${USERNAME}.github.io`);
+
+        // Sort: pinned first, then by stars + update
+        filtered.sort((a, b) => {
+          const aPin = PINNED.includes(a.name) ? 1 : 0;
+          const bPin = PINNED.includes(b.name) ? 1 : 0;
+          if (aPin !== bPin) return bPin - aPin;
+          return b.stargazers_count - a.stargazers_count;
+        });
+
+        // Stats
+        const totalStars = filtered.reduce((sum, r) => sum + r.stargazers_count, 0);
+        document.getElementById("stat-repos").textContent = filtered.length;
+        document.getElementById("stat-stars").textContent = totalStars;
+
+        // Render cards
+        grid.innerHTML = filtered.map(r => buildCard(r, PINNED.includes(r.name))).join("");
+
+        // Rate limit info
+        const remaining = res.headers.get("X-RateLimit-Remaining");
+        note.textContent = `github api · ${filtered.length} repos · ${remaining} requests remaining`;
+
+      } catch (err) {
+        grid.innerHTML = `<div class="skeleton" style="grid-column:1/-1;padding:2rem;text-align:center;color:var(--text-2)">Could not load repositories. <a href="https://github.com/${USERNAME}" style="color:var(--accent)">View on GitHub</a></div>`;
+      }
+    }
+
+    loadRepos();
+  </script>
 </body>
+
 </html>
