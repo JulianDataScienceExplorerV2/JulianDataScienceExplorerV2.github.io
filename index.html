@@ -22,20 +22,24 @@
     }
 
     :root {
-      --bg: #04060f;
-      --cyan: #e8192c;
-      --cyan2: rgba(0, 229, 255, 0.12);
-      --cyan3: rgba(0, 229, 255, 0.06);
-      --purple: #ff6b35;
-      --purple2: rgba(168, 85, 247, 0.12);
-      --pink: #c41230;
-      --green: #ffb700;
-      --text-1: #f1f5ff;
-      --text-2: #8090b0;
-      --text-3: #2e3a50;
-      --border: rgba(0, 229, 255, 0.13);
-      --border-h: rgba(0, 229, 255, 0.4);
-      --r: 10px;
+      --bg: #07070a;
+      --r1: #e8192c;
+      /* primary red */
+      --r1a: rgba(232, 25, 44, 0.12);
+      --r1b: rgba(232, 25, 44, 0.06);
+      --r2: #ff6b35;
+      /* orange-red */
+      --r2a: rgba(255, 107, 53, 0.10);
+      --r3: #c41230;
+      /* deep crimson */
+      --gold: #ffb700;
+      /* accent gold — stars, live dot */
+      --text-1: #f2f2f5;
+      --text-2: #80808e;
+      --text-3: #2a2a35;
+      --bd: rgba(232, 25, 44, 0.16);
+      --bdh: rgba(232, 25, 44, 0.50);
+      --rr: 10px;
       --rl: 16px;
     }
 
@@ -61,11 +65,10 @@
     }
 
     ::-webkit-scrollbar-thumb {
-      background: rgba(0, 229, 255, .35);
+      background: rgba(232, 25, 44, .5);
       border-radius: 2px
     }
 
-    /* progress bar */
     #prog {
       position: fixed;
       top: 0;
@@ -73,11 +76,11 @@
       height: 2px;
       width: 0%;
       z-index: 300;
-      background: linear-gradient(90deg, var(--red), var(--orange), var(--crimson));
+      background: linear-gradient(90deg, var(--r1), var(--r2), var(--r3));
       transition: width .08s linear
     }
 
-    /* ── NAV ── */
+    /* NAV */
     nav {
       position: fixed;
       top: 0;
@@ -89,20 +92,20 @@
       align-items: center;
       justify-content: space-between;
       padding: 0 2.5rem;
-      background: rgba(4, 6, 15, .8);
+      background: rgba(7, 7, 10, .85);
       backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border)
+      border-bottom: 1px solid var(--bd)
     }
 
     .nav-logo {
       font-family: "JetBrains Mono", monospace;
       font-size: 14px;
-      color: var(--red);
+      color: var(--r1);
       letter-spacing: .04em
     }
 
-    .nav-logo span {
-      color: var(--orange)
+    .nav-logo .d {
+      color: var(--r2)
     }
 
     .nav-links {
@@ -120,13 +123,13 @@
     }
 
     .nav-links a:hover {
-      color: var(--red)
+      color: var(--r1)
     }
 
     .lang-btn {
-      background: var(--red2);
-      border: 1px solid var(--border);
-      color: var(--red);
+      background: var(--r1a);
+      border: 1px solid var(--bd);
+      color: var(--r1);
       font-family: "JetBrains Mono", monospace;
       font-size: 11px;
       font-weight: 700;
@@ -138,8 +141,8 @@
     }
 
     .lang-btn:hover {
-      background: rgba(0, 229, 255, .22);
-      border-color: var(--red)
+      background: rgba(232, 25, 44, .22);
+      border-color: var(--r1)
     }
 
     @media(max-width:600px) {
@@ -148,14 +151,14 @@
       }
     }
 
-    /* ── HERO ── */
+    /* HERO */
     #hero {
       position: relative;
       min-height: 100svh;
       display: flex;
       align-items: center;
       overflow: hidden;
-      border-bottom: 1px solid var(--border)
+      border-bottom: 1px solid var(--bd)
     }
 
     #neuralCanvas {
@@ -165,7 +168,6 @@
       height: 100%
     }
 
-    /* grid + vignette overlay */
     .hero-overlays {
       position: absolute;
       inset: 0;
@@ -175,14 +177,14 @@
     .grid-pat {
       position: absolute;
       inset: 0;
-      background-image: linear-gradient(rgba(0, 229, 255, .03) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 229, 255, .03) 1px, transparent 1px);
-      background-size: 60px 60px
+      background-image: linear-gradient(rgba(232, 25, 44, .04) 1px, transparent 1px), linear-gradient(90deg, rgba(232, 25, 44, .04) 1px, transparent 1px);
+      background-size: 55px 55px
     }
 
     .vignette {
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse 80% 80% at 15% 50%, rgba(4, 6, 15, .9) 30%, rgba(4, 6, 15, .4) 75%, rgba(4, 6, 15, .85) 100%)
+      background: radial-gradient(ellipse 85% 85% at 10% 50%, rgba(7, 7, 10, .94) 30%, rgba(7, 7, 10, .45) 70%, rgba(7, 7, 10, .88) 100%)
     }
 
     .hero-content {
@@ -191,49 +193,49 @@
       width: 100%;
       max-width: 1000px;
       margin: 0 auto;
-      padding: 120px 3rem 5rem
+      padding: 130px 3rem 5rem
     }
 
     /* floating badges */
-    .float-badges {
+    .fbadges {
       display: flex;
       flex-wrap: wrap;
       gap: .5rem;
       margin-bottom: 1.75rem
     }
 
-    .fbadge {
+    .fb {
       font-family: "JetBrains Mono", monospace;
       font-size: 11px;
       font-weight: 600;
-      padding: 4px 12px;
+      padding: 4px 13px;
       border-radius: 20px;
       letter-spacing: .05em;
-      animation: float-y 4s ease-in-out infinite
+      animation: floaty 4s ease-in-out infinite
     }
 
-    .fbadge.a {
-      background: rgba(0, 229, 255, .1);
-      border: 1px solid rgba(0, 229, 255, .3);
-      color: var(--red);
+    .fb.a {
+      background: rgba(232, 25, 44, .1);
+      border: 1px solid rgba(232, 25, 44, .35);
+      color: var(--r1);
       animation-delay: 0s
     }
 
-    .fbadge.b {
-      background: rgba(168, 85, 247, .1);
-      border: 1px solid rgba(168, 85, 247, .3);
-      color: var(--orange);
-      animation-delay: .8s
+    .fb.b {
+      background: rgba(255, 107, 53, .1);
+      border: 1px solid rgba(255, 107, 53, .35);
+      color: var(--r2);
+      animation-delay: .75s
     }
 
-    .fbadge.c {
-      background: rgba(0, 255, 157, .1);
-      border: 1px solid rgba(0, 255, 157, .3);
+    .fb.c {
+      background: rgba(255, 183, 0, .1);
+      border: 1px solid rgba(255, 183, 0, .35);
       color: var(--gold);
-      animation-delay: 1.6s
+      animation-delay: 1.5s
     }
 
-    @keyframes float-y {
+    @keyframes floaty {
 
       0%,
       100% {
@@ -246,23 +248,23 @@
     }
 
     .hero-name {
-      font-size: clamp(2.6rem, 6vw, 4.4rem);
+      font-size: clamp(2.8rem, 6vw, 4.6rem);
       font-weight: 800;
       letter-spacing: -.04em;
       line-height: 1.0;
-      margin-bottom: .3rem
+      margin-bottom: .25rem
     }
 
-    .hero-name .line2 {
-      background: linear-gradient(120deg, var(--red) 0%, var(--orange) 50%, var(--crimson) 100%);
+    .hero-name .grad {
+      background: linear-gradient(120deg, var(--r1) 0%, var(--r2) 55%, var(--gold) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
       background-size: 200%;
-      animation: grad-shift 5s ease infinite alternate
+      animation: gshift 5s ease infinite alternate
     }
 
-    @keyframes grad-shift {
+    @keyframes gshift {
       0% {
         background-position: 0%
       }
@@ -272,18 +274,18 @@
       }
     }
 
-    .hero-subtitle {
+    .hero-sub {
       font-family: "JetBrains Mono", monospace;
       font-size: .95rem;
-      color: var(--red);
+      color: var(--r1);
       margin: 1.1rem 0;
       display: flex;
       align-items: center;
       gap: .5rem;
-      min-height: 1.5rem
+      min-height: 1.6rem
     }
 
-    .hero-subtitle .prefix {
+    .hero-sub .pfx {
       color: var(--text-2)
     }
 
@@ -291,8 +293,8 @@
       display: inline-block;
       width: 2px;
       height: 1.1em;
-      background: var(--red);
-      margin-left: 1px;
+      background: var(--r1);
+      margin-left: 2px;
       animation: blink .65s step-end infinite;
       vertical-align: text-bottom;
       border-radius: 1px
@@ -325,63 +327,61 @@
       margin-bottom: 3.5rem
     }
 
-    .cta-primary {
+    .cta1 {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
       padding: 12px 26px;
-      border-radius: var(--r);
+      border-radius: var(--rr);
       font-size: 13px;
       font-weight: 700;
       text-decoration: none;
-      color: #04060f;
-      background: linear-gradient(135deg, var(--red), var(--orange));
-      box-shadow: 0 0 30px rgba(0, 229, 255, .3), 0 0 60px rgba(168, 85, 247, .15);
+      color: #fff;
+      background: linear-gradient(135deg, var(--r1), var(--r3));
+      box-shadow: 0 0 28px rgba(232, 25, 44, .35), 0 0 55px rgba(196, 18, 48, .15);
       transition: all .25s;
       letter-spacing: .02em
     }
 
-    .cta-primary:hover {
-      box-shadow: 0 0 50px rgba(0, 229, 255, .5), 0 0 80px rgba(168, 85, 247, .3);
+    .cta1:hover {
+      box-shadow: 0 0 45px rgba(232, 25, 44, .55), 0 0 80px rgba(196, 18, 48, .3);
       transform: translateY(-2px)
     }
 
-    .cta-secondary {
+    .cta2 {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
       padding: 12px 26px;
-      border-radius: var(--r);
+      border-radius: var(--rr);
       font-size: 13px;
       font-weight: 500;
       text-decoration: none;
       color: var(--text-1);
       background: rgba(255, 255, 255, .03);
-      border: 1px solid var(--border);
+      border: 1px solid var(--bd);
       backdrop-filter: blur(10px);
       transition: all .25s
     }
 
-    .cta-secondary:hover {
-      border-color: var(--border-h);
-      background: var(--red3);
+    .cta2:hover {
+      border-color: var(--bdh);
+      background: var(--r1b);
       transform: translateY(-1px)
     }
 
-    /* stats strip */
-    .stats-strip {
+    /* stats */
+    .stats {
       display: flex;
       gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
+      background: var(--bd);
+      border: 1px solid var(--bd);
       border-radius: var(--rl);
       overflow: hidden;
       width: fit-content
     }
 
-    .stat-cell {
+    .stat {
       padding: 1.25rem 1.75rem;
-      background: rgba(4, 6, 15, .7);
+      background: rgba(7, 7, 10, .75);
       backdrop-filter: blur(12px);
       display: flex;
       flex-direction: column;
@@ -393,7 +393,7 @@
       font-size: 2rem;
       font-weight: 700;
       line-height: 1;
-      background: linear-gradient(135deg, var(--red), var(--orange));
+      background: linear-gradient(135deg, var(--r1), var(--r2));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text
@@ -402,14 +402,13 @@
     .stat-l {
       font-size: 11px;
       color: var(--text-2);
-      margin-top: 4px;
-      letter-spacing: .02em
+      margin-top: 4px
     }
 
-    /* ── SPECIALTIES ── */
+    /* SECTIONS */
     .section {
       padding: 5.5rem 0;
-      border-bottom: 1px solid var(--border)
+      border-bottom: 1px solid var(--bd)
     }
 
     .wrap {
@@ -418,13 +417,13 @@
       padding: 0 3rem
     }
 
-    .sec-kicker {
+    .kicker {
       font-family: "JetBrains Mono", monospace;
       font-size: 11px;
       font-weight: 700;
       letter-spacing: .15em;
       text-transform: uppercase;
-      color: var(--red);
+      color: var(--r1);
       margin-bottom: .4rem
     }
 
@@ -435,7 +434,7 @@
       margin-bottom: .5rem
     }
 
-    .sec-sub {
+    .sec-s {
       font-size: 14px;
       color: var(--text-2);
       margin-bottom: 3rem;
@@ -443,23 +442,24 @@
       line-height: 1.7
     }
 
+    /* SPECIALTIES */
     .spec-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
       gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
+      background: var(--bd);
+      border: 1px solid var(--bd);
       border-radius: var(--rl);
       overflow: hidden
     }
 
     .spec-card {
       padding: 2rem 1.75rem;
-      background: rgba(4, 6, 15, .7);
+      background: rgba(7, 7, 10, .75);
       backdrop-filter: blur(10px);
-      transition: background .2s;
       position: relative;
-      overflow: hidden
+      overflow: hidden;
+      transition: background .2s
     }
 
     .spec-card::before {
@@ -467,51 +467,51 @@
       position: absolute;
       top: -40px;
       right: -40px;
-      width: 120px;
-      height: 120px;
+      width: 130px;
+      height: 130px;
       border-radius: 50%;
-      opacity: .07;
+      opacity: .06;
       transition: opacity .3s
     }
 
-    .spec-card.c1::before {
-      background: var(--red)
+    .spec-card.r::before {
+      background: var(--r1)
     }
 
-    .spec-card.c2::before {
-      background: var(--orange)
+    .spec-card.o::before {
+      background: var(--r2)
     }
 
-    .spec-card.c3::before {
+    .spec-card.g::before {
       background: var(--gold)
     }
 
     .spec-card:hover::before {
-      opacity: .18
+      opacity: .2
     }
 
     .spec-card:hover {
-      background: rgba(0, 229, 255, .04)
+      background: rgba(232, 25, 44, .04)
     }
 
-    .spec-dot {
+    .sdot {
       width: 10px;
       height: 10px;
       border-radius: 50%;
       margin-bottom: 1.25rem
     }
 
-    .spec-dot.c1 {
-      background: var(--red);
-      box-shadow: 0 0 12px var(--red)
+    .sdot.r {
+      background: var(--r1);
+      box-shadow: 0 0 12px var(--r1)
     }
 
-    .spec-dot.c2 {
-      background: var(--orange);
-      box-shadow: 0 0 12px var(--orange)
+    .sdot.o {
+      background: var(--r2);
+      box-shadow: 0 0 12px var(--r2)
     }
 
-    .spec-dot.c3 {
+    .sdot.g {
       background: var(--gold);
       box-shadow: 0 0 12px var(--gold)
     }
@@ -528,35 +528,34 @@
       line-height: 1.65
     }
 
-    /* ── PROJECTS ── */
+    /* PROJECTS */
     .proj-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
       gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
+      background: var(--bd);
+      border: 1px solid var(--bd);
       border-radius: var(--rl);
       overflow: hidden
     }
 
     .proj-card {
-      background: rgba(4, 6, 15, .7);
+      background: rgba(7, 7, 10, .75);
       backdrop-filter: blur(10px);
       padding: 1.6rem;
       display: flex;
       flex-direction: column;
       text-decoration: none;
       color: inherit;
-      transition: background .2s, box-shadow .2s;
-      position: relative
+      transition: background .2s
     }
 
     .proj-card:hover {
-      background: rgba(0, 229, 255, .05)
+      background: rgba(232, 25, 44, .05)
     }
 
-    .proj-card:hover .card-name {
-      color: var(--red)
+    .proj-card:hover .cname {
+      color: var(--r1)
     }
 
     .ctop {
@@ -570,8 +569,8 @@
       width: 40px;
       height: 40px;
       border-radius: 10px;
-      background: var(--red2);
-      border: 1px solid var(--border);
+      background: var(--r1a);
+      border: 1px solid var(--bd);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -581,7 +580,7 @@
     .cicon svg {
       width: 18px;
       height: 18px;
-      fill: var(--red)
+      fill: var(--r1)
     }
 
     .cmeta {
@@ -605,20 +604,20 @@
       fill: #fbbf24
     }
 
-    .pin {
+    .pinbadge {
       font-family: "JetBrains Mono", monospace;
       font-size: 9px;
       font-weight: 700;
       padding: 2px 8px;
       border-radius: 20px;
-      background: rgba(0, 255, 157, .1);
-      border: 1px solid rgba(0, 255, 157, .3);
-      color: var(--gold);
+      background: rgba(232, 25, 44, .1);
+      border: 1px solid rgba(232, 25, 44, .3);
+      color: var(--r1);
       letter-spacing: .06em;
       text-transform: uppercase
     }
 
-    .card-name {
+    .cname {
       font-size: 14px;
       font-weight: 600;
       color: var(--text-1);
@@ -627,7 +626,7 @@
       transition: color .2s
     }
 
-    .card-desc {
+    .cdesc {
       font-size: 12.5px;
       color: var(--text-2);
       line-height: 1.6;
@@ -654,14 +653,14 @@
       font-size: 10px;
       padding: 2px 8px;
       border-radius: 20px;
-      border: 1px solid var(--border);
+      border: 1px solid var(--bd);
       color: var(--text-2)
     }
 
     .tag.lt {
-      border-color: rgba(0, 229, 255, .35);
-      color: var(--red);
-      background: var(--red2)
+      border-color: rgba(232, 25, 44, .4);
+      color: var(--r1);
+      background: var(--r1a)
     }
 
     .ctime {
@@ -671,14 +670,14 @@
     }
 
     .skel {
-      background: rgba(4, 6, 15, .7);
+      background: rgba(7, 7, 10, .75);
       padding: 1.6rem;
       display: flex;
       flex-direction: column;
       gap: .875rem
     }
 
-    .skel-l {
+    .sl {
       border-radius: 4px;
       background: rgba(255, 255, 255, .05);
       animation: shim 1.6s ease-in-out infinite
@@ -704,20 +703,20 @@
       text-align: right
     }
 
-    /* ── SKILLS ── */
-    .skills-grid {
+    /* SKILLS */
+    .sg {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 2.5rem
     }
 
     @media(max-width:640px) {
-      .skills-grid {
+      .sg {
         grid-template-columns: 1fr
       }
     }
 
-    .sg-title {
+    .sg-t {
       font-family: "JetBrains Mono", monospace;
       font-size: 11px;
       font-weight: 700;
@@ -748,38 +747,34 @@
       color: var(--text-2)
     }
 
-    .sk-track {
+    .sk-tr {
       height: 3px;
       background: rgba(255, 255, 255, .06);
       border-radius: 2px;
       overflow: hidden
     }
 
-    .sk-fill {
+    .sk-f {
       height: 100%;
       border-radius: 2px;
       width: 0%;
       transition: width 1.3s cubic-bezier(.23, .92, .45, .98)
     }
 
-    .f-c {
-      background: linear-gradient(90deg, var(--red), rgba(0, 229, 255, .35))
+    .fr {
+      background: linear-gradient(90deg, var(--r1), rgba(232, 25, 44, .35))
     }
 
-    .f-p {
-      background: linear-gradient(90deg, var(--orange), rgba(168, 85, 247, .35))
+    .fo {
+      background: linear-gradient(90deg, var(--r2), rgba(255, 107, 53, .35))
     }
 
-    .f-g {
-      background: linear-gradient(90deg, var(--gold), rgba(0, 255, 157, .35))
+    .fg {
+      background: linear-gradient(90deg, var(--gold), rgba(255, 183, 0, .35))
     }
 
-    .f-pk {
-      background: linear-gradient(90deg, var(--crimson), rgba(244, 114, 182, .35))
-    }
-
-    /* ── ABOUT ── */
-    .about-grid {
+    /* ABOUT */
+    .ag {
       display: grid;
       grid-template-columns: 1.1fr 1fr;
       gap: 3rem;
@@ -787,28 +782,28 @@
     }
 
     @media(max-width:640px) {
-      .about-grid {
+      .ag {
         grid-template-columns: 1fr
       }
     }
 
-    .atext p {
+    .at p {
       font-size: 14px;
       color: var(--text-2);
       line-height: 1.85;
       margin-bottom: 1rem
     }
 
-    .atext strong {
+    .at strong {
       color: var(--text-1)
     }
 
-    .detail-list {
+    .dl {
       display: flex;
       flex-direction: column;
       gap: 1rem;
-      background: rgba(0, 229, 255, .03);
-      border: 1px solid var(--border);
+      background: var(--r1a);
+      border: 1px solid var(--bd);
       border-radius: var(--rl);
       padding: 1.5rem
     }
@@ -834,7 +829,7 @@
     }
 
     .dv a {
-      color: var(--red);
+      color: var(--r1);
       text-decoration: none
     }
 
@@ -842,18 +837,18 @@
       text-decoration: underline
     }
 
-    .live-dot {
+    .ldot {
       display: inline-block;
       width: 7px;
       height: 7px;
       border-radius: 50%;
-      background: var(--gold);
+      background: #00e676;
       margin-right: 7px;
-      box-shadow: 0 0 8px var(--gold);
-      animation: pulse-dot 2s ease-in-out infinite
+      box-shadow: 0 0 8px #00e676;
+      animation: pd 2s ease-in-out infinite
     }
 
-    @keyframes pulse-dot {
+    @keyframes pd {
 
       0%,
       100% {
@@ -862,16 +857,16 @@
       }
 
       50% {
-        transform: scale(.65);
+        transform: scale(.6);
         opacity: .5
       }
     }
 
-    /* ── CONTACT ── */
+    /* CONTACT */
     .cbox {
-      background: rgba(4, 6, 15, .6);
+      background: rgba(7, 7, 10, .7);
       backdrop-filter: blur(16px);
-      border: 1px solid var(--border);
+      border: 1px solid var(--bd);
       border-radius: var(--rl);
       padding: 3rem;
       display: flex;
@@ -891,7 +886,7 @@
       width: 260px;
       height: 260px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(168, 85, 247, .12), transparent 70%);
+      background: radial-gradient(circle, rgba(232, 25, 44, .1), transparent 70%);
       pointer-events: none
     }
 
@@ -903,7 +898,7 @@
       width: 200px;
       height: 200px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(0, 229, 255, .08), transparent 70%);
+      background: radial-gradient(circle, rgba(255, 107, 53, .06), transparent 70%);
       pointer-events: none
     }
 
@@ -934,14 +929,14 @@
       font-size: 11px;
       color: var(--text-3);
       letter-spacing: .04em;
-      border-top: 1px solid var(--border)
+      border-top: 1px solid var(--bd)
     }
 
-    footer span.hi {
-      color: var(--red)
+    footer .hi {
+      color: var(--r1)
     }
 
-    /* lang toggle */
+    /* lang */
     body.lang-es [data-en] {
       display: none
     }
@@ -950,7 +945,6 @@
       display: none
     }
 
-    /* reveal */
     .rv {
       opacity: 0;
       transform: translateY(28px);
@@ -961,14 +955,6 @@
       opacity: 1;
       transform: none
     }
-
-    .rv.delay1 {
-      transition-delay: .1s
-    }
-
-    .rv.delay2 {
-      transition-delay: .2s
-    }
   </style>
 </head>
 
@@ -976,9 +962,8 @@
 
   <div id="prog"></div>
 
-  <!-- NAV -->
   <nav>
-    <span class="nav-logo">&gt;<span> julian</span>.dev</span>
+    <span class="nav-logo">&gt;<span class="d"> julian</span>.dev</span>
     <ul class="nav-links">
       <li><a href="#projects" data-en>Projects</a><a href="#projects" data-es>Proyectos</a></li>
       <li><a href="#skills" data-en>Skills</a><a href="#skills" data-es>Habilidades</a></li>
@@ -988,7 +973,6 @@
     <button class="lang-btn" id="langBtn">ES</button>
   </nav>
 
-  <!-- HERO -->
   <section id="hero">
     <canvas id="neuralCanvas"></canvas>
     <div class="hero-overlays">
@@ -996,19 +980,16 @@
       <div class="vignette"></div>
     </div>
     <div class="hero-content">
-      <div class="float-badges">
-        <span class="fbadge a" data-en>Data Analyst</span><span class="fbadge a" data-es>Analista de Datos</span>
-        <span class="fbadge b">Python Developer</span>
-        <span class="fbadge c">Marketing Science</span>
+      <div class="fbadges">
+        <span class="fb a" data-en>Data Analyst</span><span class="fb a" data-es>Analista de Datos</span>
+        <span class="fb b">Python Developer</span>
+        <span class="fb c">Marketing Science</span>
       </div>
       <h1 class="hero-name">
         Julian David<br>
-        <span class="line2">Urrego Lancheros</span>
+        <span class="grad">Urrego Lancheros</span>
       </h1>
-      <p class="hero-subtitle">
-        <span class="prefix">&gt;&nbsp;</span>
-        <span id="typer"></span><span class="caret"></span>
-      </p>
+      <p class="hero-sub"><span class="pfx">&gt;&nbsp;</span><span id="typer"></span><span class="caret"></span></p>
       <p class="hero-desc" data-en>Data analyst and Python developer specializing in Marketing Science — building
         predictive models, statistical experiments, and data pipelines that turn business data into clear, measurable
         insights.</p>
@@ -1016,161 +997,157 @@
         construyendo modelos predictivos, experimentos estadisticos y pipelines que convierten datos de negocio en
         insights medibles.</p>
       <div class="hero-ctas">
-        <a href="#projects" class="cta-primary" data-en>View Projects</a>
-        <a href="#projects" class="cta-primary" data-es>Ver Proyectos</a>
-        <a href="https://github.com/JulianDataScienceExplorerV2" target="_blank" class="cta-secondary">GitHub</a>
-        <a href="mailto:juliandavidurrego2011@gmail.com" class="cta-secondary" data-en>Contact</a>
-        <a href="mailto:juliandavidurrego2011@gmail.com" class="cta-secondary" data-es>Contacto</a>
+        <a href="#projects" class="cta1" data-en>View Projects</a>
+        <a href="#projects" class="cta1" data-es>Ver Proyectos</a>
+        <a href="https://github.com/JulianDataScienceExplorerV2" target="_blank" class="cta2">GitHub</a>
+        <a href="mailto:juliandavidurrego2011@gmail.com" class="cta2" data-en>Contact</a>
+        <a href="mailto:juliandavidurrego2011@gmail.com" class="cta2" data-es>Contacto</a>
       </div>
-      <div class="stats-strip">
-        <div class="stat-cell"><span class="stat-n" id="sRepos">—</span><span class="stat-l"
-            data-en>Repositories</span><span class="stat-l" data-es>Repositorios</span></div>
-        <div class="stat-cell"><span class="stat-n" id="sStars">—</span><span class="stat-l" data-en>GitHub
-            Stars</span><span class="stat-l" data-es>Estrellas</span></div>
-        <div class="stat-cell"><span class="stat-n">5+</span><span class="stat-l" data-en>Years Python</span><span
+      <div class="stats">
+        <div class="stat"><span class="stat-n" id="sR">—</span><span class="stat-l" data-en>Repositories</span><span
+            class="stat-l" data-es>Repositorios</span></div>
+        <div class="stat"><span class="stat-n" id="sS">—</span><span class="stat-l" data-en>GitHub Stars</span><span
+            class="stat-l" data-es>Estrellas</span></div>
+        <div class="stat"><span class="stat-n">5+</span><span class="stat-l" data-en>Years Python</span><span
             class="stat-l" data-es>Anos Python</span></div>
       </div>
     </div>
   </section>
 
-  <!-- SPECIALTIES -->
   <section class="section" id="specialties">
     <div class="wrap rv">
-      <p class="sec-kicker" data-en>What I do</p>
-      <p class="sec-kicker" data-es>Que hago</p>
+      <p class="kicker" data-en>What I do</p>
+      <p class="kicker" data-es>Que hago</p>
       <h2 class="sec-h" data-en>Expertise</h2>
       <h2 class="sec-h" data-es>Especialidades</h2>
-      <p class="sec-sub" data-en>Three core disciplines I apply to every data project.</p>
-      <p class="sec-sub" data-es>Tres disciplinas que aplico en cada proyecto de datos.</p>
+      <p class="sec-s" data-en>Three core disciplines I apply to every data project.</p>
+      <p class="sec-s" data-es>Tres disciplinas que aplico en cada proyecto de datos.</p>
       <div class="spec-grid">
-        <div class="spec-card c1">
-          <div class="spec-dot c1"></div>
+        <div class="spec-card r">
+          <div class="sdot r"></div>
           <p class="spec-t" data-en>Marketing Science</p>
           <p class="spec-t" data-es>Ciencia de Marketing</p>
           <p class="spec-d" data-en>A/B testing, hypothesis testing (z-test, chi-square), campaign attribution, and
             causal inference applied to marketing decisions.</p>
-          <p class="spec-d" data-es>Pruebas A/B, pruebas de hipotesis (z-test, chi-cuadrado), atribucion de campanas e
-            inferencia causal aplicados a decisiones de marketing.</p>
+          <p class="spec-d" data-es>Pruebas A/B, pruebas de hipotesis, atribucion de campanas e inferencia causal
+            aplicados a decisiones de marketing.</p>
         </div>
-        <div class="spec-card c2">
-          <div class="spec-dot c2"></div>
+        <div class="spec-card o">
+          <div class="sdot o"></div>
           <p class="spec-t" data-en>Machine Learning</p>
           <p class="spec-t" data-es>Aprendizaje Automatico</p>
           <p class="spec-d" data-en>Regression, classification, time series forecasting, and model evaluation pipelines
             with Scikit-learn and Statsmodels.</p>
-          <p class="spec-d" data-es>Regresion, clasificacion, prediccion de series de tiempo y pipelines de evaluacion
-            de modelos con Scikit-learn y Statsmodels.</p>
+          <p class="spec-d" data-es>Regresion, clasificacion, prediccion de series de tiempo y evaluacion de modelos con
+            Scikit-learn y Statsmodels.</p>
         </div>
-        <div class="spec-card c3">
-          <div class="spec-dot c3"></div>
+        <div class="spec-card g">
+          <div class="sdot g"></div>
           <p class="spec-t" data-en>Data Visualization</p>
           <p class="spec-t" data-es>Visualizacion de Datos</p>
-          <p class="spec-d" data-en>Interactive dashboards with Streamlit and Plotly, and clear analytical charts with
-            Matplotlib for data storytelling.</p>
-          <p class="spec-d" data-es>Dashboards interactivos con Streamlit y Plotly, y graficos analiticos con Matplotlib
-            para comunicar datos con claridad.</p>
+          <p class="spec-d" data-en>Interactive dashboards with Streamlit and Plotly, and analytical charts with
+            Matplotlib for clear data storytelling.</p>
+          <p class="spec-d" data-es>Dashboards interactivos con Streamlit y Plotly, y graficos con Matplotlib para
+            comunicar datos con claridad.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PROJECTS -->
   <section class="section" id="projects">
     <div class="wrap rv">
-      <p class="sec-kicker" data-en>Portfolio</p>
-      <p class="sec-kicker" data-es>Portafolio</p>
+      <p class="kicker" data-en>Portfolio</p>
+      <p class="kicker" data-es>Portafolio</p>
       <h2 class="sec-h" data-en>Projects</h2>
       <h2 class="sec-h" data-es>Proyectos</h2>
-      <p class="sec-sub" data-en>Live from GitHub — updates automatically when a new repository is published.</p>
-      <p class="sec-sub" data-es>En vivo desde GitHub — se actualiza automaticamente con cada nuevo repositorio publico.
-      </p>
+      <p class="sec-s" data-en>Live from GitHub — updates automatically when a new public repository is published.</p>
+      <p class="sec-s" data-es>En vivo desde GitHub — se actualiza con cada nuevo repositorio publico.</p>
       <div class="proj-grid" id="projectGrid">
         <div class="skel">
-          <div class="skel-l" style="height:40px;width:40px;border-radius:10px"></div>
-          <div class="skel-l" style="height:13px;width:58%"></div>
-          <div class="skel-l" style="height:11px;width:90%"></div>
-          <div class="skel-l" style="height:11px;width:70%"></div>
+          <div class="sl" style="height:40px;width:40px;border-radius:10px"></div>
+          <div class="sl" style="height:13px;width:58%"></div>
+          <div class="sl" style="height:11px;width:90%"></div>
+          <div class="sl" style="height:11px;width:70%"></div>
         </div>
         <div class="skel">
-          <div class="skel-l" style="height:40px;width:40px;border-radius:10px"></div>
-          <div class="skel-l" style="height:13px;width:65%"></div>
-          <div class="skel-l" style="height:11px;width:82%"></div>
-          <div class="skel-l" style="height:11px;width:60%"></div>
+          <div class="sl" style="height:40px;width:40px;border-radius:10px"></div>
+          <div class="sl" style="height:13px;width:65%"></div>
+          <div class="sl" style="height:11px;width:82%"></div>
+          <div class="sl" style="height:11px;width:60%"></div>
         </div>
         <div class="skel">
-          <div class="skel-l" style="height:40px;width:40px;border-radius:10px"></div>
-          <div class="skel-l" style="height:13px;width:50%"></div>
-          <div class="skel-l" style="height:11px;width:88%"></div>
-          <div class="skel-l" style="height:11px;width:75%"></div>
+          <div class="sl" style="height:40px;width:40px;border-radius:10px"></div>
+          <div class="sl" style="height:13px;width:50%"></div>
+          <div class="sl" style="height:11px;width:88%"></div>
+          <div class="sl" style="height:11px;width:75%"></div>
         </div>
       </div>
       <p class="api-note" id="apiNote"></p>
     </div>
   </section>
 
-  <!-- SKILLS -->
   <section class="section" id="skills">
     <div class="wrap rv">
-      <p class="sec-kicker" data-en>Technical Stack</p>
-      <p class="sec-kicker" data-es>Stack Tecnico</p>
+      <p class="kicker" data-en>Technical Stack</p>
+      <p class="kicker" data-es>Stack Tecnico</p>
       <h2 class="sec-h" data-en>Skills</h2>
       <h2 class="sec-h" data-es>Habilidades</h2>
-      <p class="sec-sub" data-en>Proficiency across the full data pipeline — from analysis to deployment.</p>
-      <p class="sec-sub" data-es>Dominio en todo el pipeline de datos — desde analisis hasta despliegue.</p>
-      <div class="skills-grid">
+      <p class="sec-s" data-en>Proficiency across the full data pipeline — analysis, modeling, and visualization.</p>
+      <p class="sec-s" data-es>Dominio en todo el pipeline de datos — analisis, modelado y visualizacion.</p>
+      <div class="sg">
         <div>
-          <p class="sg-title" data-en>Core Languages & Data</p>
-          <p class="sg-title" data-es>Lenguajes y Datos</p>
+          <p class="sg-t" data-en>Languages & Data</p>
+          <p class="sg-t" data-es>Lenguajes y Datos</p>
           <div class="skw">
             <div class="skh"><span class="skn">Python</span><span class="skp">95%</span></div>
-            <div class="sk-track">
-              <div class="sk-fill f-c" data-p="95"></div>
+            <div class="sk-tr">
+              <div class="sk-f fr" data-p="95"></div>
             </div>
           </div>
           <div class="skw">
             <div class="skh"><span class="skn">Pandas / NumPy</span><span class="skp">90%</span></div>
-            <div class="sk-track">
-              <div class="sk-fill f-c" data-p="90"></div>
+            <div class="sk-tr">
+              <div class="sk-f fr" data-p="90"></div>
             </div>
           </div>
           <div class="skw">
             <div class="skh"><span class="skn">SQL</span><span class="skp">78%</span></div>
-            <div class="sk-track">
-              <div class="sk-fill f-g" data-p="78"></div>
+            <div class="sk-tr">
+              <div class="sk-f fo" data-p="78"></div>
             </div>
           </div>
           <div class="skw">
             <div class="skh"><span class="skn">Go</span><span class="skp">55%</span></div>
-            <div class="sk-track">
-              <div class="sk-fill f-g" data-p="55"></div>
+            <div class="sk-tr">
+              <div class="sk-f fg" data-p="55"></div>
             </div>
           </div>
         </div>
         <div>
-          <p class="sg-title" data-en>ML & Visualization</p>
-          <p class="sg-title" data-es>ML y Visualizacion</p>
+          <p class="sg-t" data-en>ML & Visualization</p>
+          <p class="sg-t" data-es>ML y Visualizacion</p>
           <div class="skw">
             <div class="skh"><span class="skn">Scikit-learn</span><span class="skp">85%</span></div>
-            <div class="sk-track">
-              <div class="sk-fill f-p" data-p="85"></div>
+            <div class="sk-tr">
+              <div class="sk-f fr" data-p="85"></div>
             </div>
           </div>
           <div class="skw">
             <div class="skh"><span class="skn">Statsmodels</span><span class="skp">78%</span></div>
-            <div class="sk-track">
-              <div class="sk-fill f-p" data-p="78"></div>
+            <div class="sk-tr">
+              <div class="sk-f fo" data-p="78"></div>
             </div>
           </div>
           <div class="skw">
             <div class="skh"><span class="skn">Plotly / Streamlit</span><span class="skp">88%</span></div>
-            <div class="sk-track">
-              <div class="sk-fill f-c" data-p="88"></div>
+            <div class="sk-tr">
+              <div class="sk-f fr" data-p="88"></div>
             </div>
           </div>
           <div class="skw">
             <div class="skh"><span class="skn">Matplotlib</span><span class="skp">85%</span></div>
-            <div class="sk-track">
-              <div class="sk-fill f-pk" data-p="85"></div>
+            <div class="sk-tr">
+              <div class="sk-f fg" data-p="85"></div>
             </div>
           </div>
         </div>
@@ -1178,45 +1155,42 @@
     </div>
   </section>
 
-  <!-- ABOUT -->
   <section class="section" id="about">
     <div class="wrap rv">
-      <p class="sec-kicker" data-en>Background</p>
-      <p class="sec-kicker" data-es>Trayectoria</p>
+      <p class="kicker" data-en>Background</p>
+      <p class="kicker" data-es>Trayectoria</p>
       <h2 class="sec-h" data-en>About</h2>
       <h2 class="sec-h" data-es>Acerca de mi</h2>
-      <div class="about-grid">
-        <div class="atext">
-          <p data-en><strong>Julian David Urrego Lancheros</strong> is a data analyst and Python developer with a focus
-            on Marketing Science. He builds end-to-end analysis pipelines — from raw data ingestion to statistical
-            modeling and interactive dashboards — applied to real business problems.</p>
+      <div class="ag">
+        <div class="at">
+          <p data-en><strong>Julian David Urrego Lancheros</strong> is a data analyst and Python developer focused on
+            Marketing Science. He builds end-to-end pipelines — from raw data ingestion to statistical modeling and
+            interactive dashboards — applied to real business problems.</p>
           <p data-es><strong>Julian David Urrego Lancheros</strong> es analista de datos y desarrollador Python enfocado
-            en Marketing Science. Construye pipelines de analisis de extremo a extremo — desde la ingesta de datos hasta
-            el modelado estadistico y dashboards interactivos — aplicados a problemas reales de negocio.</p>
+            en Marketing Science. Construye pipelines de extremo a extremo — desde la ingesta de datos hasta modelado
+            estadistico y dashboards interactivos.</p>
           <p data-en>His work spans A/B testing frameworks, time series forecasting, regression-based sales prediction,
             and LLM-powered desktop tools. Committed to clean, reproducible code and clear communication of results.</p>
-          <p data-es>Su trabajo abarca frameworks de pruebas A/B, prediccion de series de tiempo, modelos de regresion
-            para ventas y herramientas de escritorio con LLMs. Comprometido con codigo limpio, reproducible y
-            comunicacion clara de resultados.</p>
+          <p data-es>Su trabajo abarca frameworks A/B, prediccion de series de tiempo, modelos de regresion para ventas
+            y herramientas con LLMs. Comprometido con codigo limpio y comunicacion clara de resultados.</p>
         </div>
-        <div class="detail-list">
+        <div class="dl">
           <div class="dr"><span class="dk">Name</span><span class="dv">Julian David Urrego Lancheros</span></div>
           <div class="dr"><span class="dk">Email</span><span class="dv"><a
-                href="mailto:juliandavidurrego2011@gmail.com">juliandavidurrego2011<br>@gmail.com</a></span></div>
+                href="mailto:juliandavidurrego2011@gmail.com">juliandavidurrego2011@gmail.com</a></span></div>
           <div class="dr"><span class="dk">GitHub</span><span class="dv"><a
                 href="https://github.com/JulianDataScienceExplorerV2"
                 target="_blank">JulianDataScienceExplorerV2</a></span></div>
           <div class="dr"><span class="dk">Focus</span><span class="dv" data-en>Marketing Science · Data Analysis ·
-              ML</span><span class="dv" data-es>Marketing Science · Analisis de Datos · ML</span></div>
-          <div class="dr"><span class="dk">Status</span><span class="dv" style="color:var(--gold)"><span
-                class="live-dot"></span><span data-en>Open to opportunities</span><span data-es>Abierto a
+              ML</span><span class="dv" data-es>Marketing Science · Analisis · ML</span></div>
+          <div class="dr"><span class="dk">Status</span><span class="dv" style="color:#00e676"><span
+                class="ldot"></span><span data-en>Open to opportunities</span><span data-es>Abierto a
                 oportunidades</span></span></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
   <section class="section" id="contact">
     <div class="wrap rv">
       <div class="cbox">
@@ -1227,33 +1201,28 @@
           <p data-es>Abierto a roles full-time, proyectos freelance y colaboraciones.</p>
         </div>
         <div class="cas">
-          <a href="mailto:juliandavidurrego2011@gmail.com" class="cta-primary" data-en>Send Email</a>
-          <a href="mailto:juliandavidurrego2011@gmail.com" class="cta-primary" data-es>Enviar Email</a>
-          <a href="https://github.com/JulianDataScienceExplorerV2" target="_blank" class="cta-secondary">GitHub</a>
+          <a href="mailto:juliandavidurrego2011@gmail.com" class="cta1" data-en>Send Email</a>
+          <a href="mailto:juliandavidurrego2011@gmail.com" class="cta1" data-es>Enviar Email</a>
+          <a href="https://github.com/JulianDataScienceExplorerV2" target="_blank" class="cta2">GitHub</a>
         </div>
       </div>
     </div>
   </section>
 
-  <footer>
-    <span>Julian David Urrego Lancheros &mdash; <span class="hi">juliandatascienceexplorerv2.github.io</span></span>
-  </footer>
+  <footer>Julian David Urrego Lancheros &mdash; <span class="hi">juliandatascienceexplorerv2.github.io</span></footer>
 
   <script>
     // LANGUAGE
     let lang = "en";
-    const langBtn = document.getElementById("langBtn");
-    langBtn.addEventListener("click", () => {
+    document.getElementById("langBtn").addEventListener("click", () => {
       lang = lang === "en" ? "es" : "en";
       document.body.className = "lang-" + lang;
-      langBtn.textContent = lang === "en" ? "ES" : "EN";
-      resetTyper();
+      document.getElementById("langBtn").textContent = lang === "en" ? "ES" : "EN";
+      pi = 0; ci = 0; del = false; clearTimeout(tt); typer();
     });
 
     // SCROLL PROGRESS
-    window.addEventListener("scroll", () => {
-      document.getElementById("prog").style.width = (window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100) + "%";
-    }, { passive: true });
+    window.addEventListener("scroll", () => { document.getElementById("prog").style.width = (window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100) + "%" }, { passive: true });
 
     // TYPEWRITER
     const phrases = {
@@ -1261,131 +1230,87 @@
       es: ["Analista de Datos", "Desarrollador Python", "Especialista en Marketing Science", "Practicante de ML", "Analista de Series de Tiempo"]
     };
     let pi = 0, ci = 0, del = false, tt = null;
-    function resetTyper() { pi = 0; ci = 0; del = false; clearTimeout(tt); typer() }
     function typer() {
       const list = phrases[lang], full = list[pi];
       document.getElementById("typer").textContent = full.slice(0, ci);
       if (!del && ci < full.length) { ci++; tt = setTimeout(typer, 62) }
       else if (!del && ci === full.length) { tt = setTimeout(() => { del = true; typer() }, 2400) }
-      else if (del && ci > 0) { ci--; tt = setTimeout(typer, 32) }
+      else if (del && ci > 0) { ci--; tt = setTimeout(typer, 30) }
       else { del = false; pi = (pi + 1) % list.length; tt = setTimeout(typer, 350) }
     }
     typer();
 
-    // SCROLL REVEAL
+    // REVEAL
     const obs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add("in") }), { threshold: .08 });
     document.querySelectorAll(".rv").forEach(el => obs.observe(el));
 
     // SKILL BARS
     const skObs = new IntersectionObserver(es => es.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.querySelectorAll(".sk-fill").forEach(b => b.style.width = b.dataset.p + "%");
-        skObs.unobserve(e.target);
-      }
+      if (e.isIntersecting) { e.target.querySelectorAll(".sk-f").forEach(b => b.style.width = b.dataset.p + "%"); skObs.unobserve(e.target); }
     }), { threshold: .25 });
-    const skillSec = document.getElementById("skills");
-    if (skillSec) skObs.observe(skillSec);
+    const ss = document.getElementById("skills"); if (ss) skObs.observe(ss);
 
     // COUNTER
-    function countUp(el, to, ms = 1100) {
+    function countUp(el, to) {
       const s = performance.now();
-      function step(now) {
-        const t = Math.min((now - s) / ms, 1);
-        el.textContent = Math.round((1 - Math.pow(1 - t, 3)) * to);
-        if (t < 1) requestAnimationFrame(step);
-      }
-      requestAnimationFrame(step);
+      (function step(now) { const t = Math.min((now - s) / 1100, 1); el.textContent = Math.round((1 - Math.pow(1 - t, 3)) * to); if (t < 1) requestAnimationFrame(step) })(performance.now());
     }
 
-    // NEURAL NETWORK
+    // NEURAL NETWORK — red / orange / crimson palette
     const C = document.getElementById("neuralCanvas"), X = C.getContext("2d");
     let W, H, nodes = [], sigs = [];
-    const N = 50, MD = 170, SS = 1.4;
-
-    const COLORS = ["232,25,44", "255,107,53", "196,18,48"];
+    const COLS = ["232,25,44", "255,107,53", "196,18,48"];
+    const N = 48, MD = 165, SS = 1.3;
 
     function resize() { W = C.width = C.offsetWidth; H = C.height = C.offsetHeight }
-
-    function initNodes() {
-      nodes = Array.from({ length: N }, () => ({
-        x: Math.random() * W, y: Math.random() * H,
-        vx: (Math.random() - .5) * .5, vy: (Math.random() - .5) * .5,
-        r: Math.random() * 2 + 1.5,
-        pulse: Math.random() * Math.PI * 2,
-        ps: Math.random() * .025 + .008,
-        col: COLORS[Math.floor(Math.random() * COLORS.length)]
-      }));
-    }
+    function initN() { nodes = Array.from({ length: N }, () => ({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * .45, vy: (Math.random() - .5) * .45, r: Math.random() * 2 + 1.5, pulse: Math.random() * Math.PI * 2, ps: Math.random() * .025 + .008, col: COLS[Math.floor(Math.random() * COLS.length)] })) }
 
     function spawnSig() {
-      if (sigs.length > 25) return;
+      if (sigs.length > 22) return;
       const i = Math.floor(Math.random() * N), j = Math.floor(Math.random() * N);
       if (i === j) return;
       const dx = nodes[j].x - nodes[i].x, dy = nodes[j].y - nodes[i].y;
       if (Math.sqrt(dx * dx + dy * dy) > MD) return;
-      sigs.push({ fi: i, ti: j, t: 0, col: COLORS[Math.floor(Math.random() * COLORS.length)] });
+      sigs.push({ fi: i, ti: j, t: 0, col: COLS[Math.floor(Math.random() * COLS.length)] });
     }
 
     function draw() {
       X.clearRect(0, 0, W, H);
       nodes.forEach(n => { n.x += n.vx; n.y += n.vy; n.pulse += n.ps; if (n.x < 0 || n.x > W) n.vx *= -1; if (n.y < 0 || n.y > H) n.vy *= -1 });
 
-      // edges
       for (let i = 0; i < N; i++)for (let j = i + 1; j < N; j++) {
         const dx = nodes[j].x - nodes[i].x, dy = nodes[j].y - nodes[i].y, d = Math.sqrt(dx * dx + dy * dy);
-        if (d < MD) {
-          const a = (1 - d / MD) * .2;
-          X.beginPath(); X.moveTo(nodes[i].x, nodes[i].y); X.lineTo(nodes[j].x, nodes[j].y);
-          X.strokeStyle = `rgba(232,25,44,${a})`; X.lineWidth = .7; X.stroke();
-        }
+        if (d < MD) { X.beginPath(); X.moveTo(nodes[i].x, nodes[i].y); X.lineTo(nodes[j].x, nodes[j].y); X.strokeStyle = `rgba(232,25,44,${(1 - d / MD) * .18})`; X.lineWidth = .65; X.stroke() }
       }
 
-      // signals
       sigs = sigs.filter(s => {
-        s.t += SS / 100;
-        if (s.t >= 1) return false;
+        s.t += SS / 100; if (s.t >= 1) return false;
         const x = nodes[s.fi].x + (nodes[s.ti].x - nodes[s.fi].x) * s.t;
         const y = nodes[s.fi].y + (nodes[s.ti].y - nodes[s.fi].y) * s.t;
-        X.beginPath(); X.arc(x, y, 3, 0, Math.PI * 2);
-        X.fillStyle = `rgba(${s.col},1)`; X.fill();
-        X.beginPath(); X.arc(x, y, 7, 0, Math.PI * 2);
-        X.fillStyle = `rgba(${s.col},.18)`; X.fill();
+        X.beginPath(); X.arc(x, y, 3, 0, Math.PI * 2); X.fillStyle = `rgba(${s.col},1)`; X.fill();
+        X.beginPath(); X.arc(x, y, 7, 0, Math.PI * 2); X.fillStyle = `rgba(${s.col},.18)`; X.fill();
         return true;
       });
 
-      // nodes
       nodes.forEach(n => {
         const p = .5 + .5 * Math.sin(n.pulse);
-        // glow
         const g = X.createRadialGradient(n.x, n.y, 0, n.x, n.y, n.r * 4);
-        g.addColorStop(0, `rgba(${n.col},${.5 + .5 * p})`);
-        g.addColorStop(1, `rgba(${n.col},0)`);
+        g.addColorStop(0, `rgba(${n.col},${.5 + .5 * p})`); g.addColorStop(1, `rgba(${n.col},0)`);
         X.beginPath(); X.arc(n.x, n.y, n.r * 4, 0, Math.PI * 2); X.fillStyle = g; X.fill();
-        // core
-        X.beginPath(); X.arc(n.x, n.y, n.r, 0, Math.PI * 2);
-        X.fillStyle = `rgba(${n.col},${.7 + .3 * p})`; X.fill();
+        X.beginPath(); X.arc(n.x, n.y, n.r, 0, Math.PI * 2); X.fillStyle = `rgba(${n.col},${.7 + .3 * p})`; X.fill();
       });
 
       if (Math.random() < .09) spawnSig();
       requestAnimationFrame(draw);
     }
 
-    window.addEventListener("resize", () => { resize(); initNodes() }, { passive: true });
-    resize(); initNodes(); draw();
+    window.addEventListener("resize", () => { resize(); initN() }, { passive: true });
+    resize(); initN(); draw();
 
-    // GITHUB API
+    // GITHUB
     const USERNAME = "JulianDataScienceExplorerV2";
     const PINNED = ["Chat-Interface-GUI-Ollama-Py", "Marketing-AB-Testing"];
-    const LCOLS = { Python: "#3572A5", JavaScript: "#f1e05a", TypeScript: "#3178c6", Go: "#e8192c", Java: "#b07219", HTML: "#e34c26", "Jupyter Notebook": "#DA5B0B" };
-
-    function ago(iso) {
-      const s = (Date.now() - new Date(iso)) / 1000;
-      if (s < 3600) return Math.floor(s / 60) + "m ago";
-      if (s < 86400) return Math.floor(s / 3600) + "h ago";
-      if (s < 2592000) return Math.floor(s / 86400) + "d ago";
-      if (s < 31536000) return Math.floor(s / 2592000) + "mo ago";
-      return Math.floor(s / 31536000) + "y ago";
-    }
+    function ago(iso) { const s = (Date.now() - new Date(iso)) / 1000; if (s < 3600) return Math.floor(s / 60) + "m ago"; if (s < 86400) return Math.floor(s / 3600) + "h ago"; if (s < 2592000) return Math.floor(s / 86400) + "d ago"; if (s < 31536000) return Math.floor(s / 2592000) + "mo ago"; return Math.floor(s / 31536000) + "y ago" }
 
     function card(r, pin) {
       const desc = r.description || "No description provided.";
@@ -1395,16 +1320,13 @@
       <div class="cicon"><svg viewBox="0 0 24 24"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg></div>
       <div class="cmeta">
         ${r.stargazers_count > 0 ? `<div class="stars"><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 18.896l-7.416 4.517 1.48-8.279L.036 9.306l8.332-1.151z"/></svg>${r.stargazers_count}</div>` : ""}
-        ${pin ? '<span class="pin">pinned</span>' : ""}
+        ${pin ? '<span class="pinbadge">pinned</span>' : ""}
       </div>
     </div>
-    <p class="card-name">${r.name.replace(/[-_]/g, " ")}</p>
-    <p class="card-desc">${desc}</p>
+    <p class="cname">${r.name.replace(/[-_]/g, " ")}</p>
+    <p class="cdesc">${desc}</p>
     <div class="cfoot">
-      <div class="tags">
-        ${r.language ? `<span class="tag lt">${r.language}</span>` : ""}
-        ${topics.map(t => `<span class="tag">${t}</span>`).join("")}
-      </div>
+      <div class="tags">${r.language ? `<span class="tag lt">${r.language}</span>` : ""} ${topics.map(t => `<span class="tag">${t}</span>`).join("")}</div>
       <span class="ctime">${ago(r.updated_at)}</span>
     </div>
   </a>`;
@@ -1416,20 +1338,13 @@
         const res = await fetch(`https://api.github.com/users/${USERNAME}/repos?per_page=100&sort=updated&type=public`);
         const repos = await res.json();
         const filtered = repos.filter(r => !r.fork && r.name !== `${USERNAME}.github.io`);
-        filtered.sort((a, b) => {
-          const ap = PINNED.includes(a.name) ? 1 : 0, bp = PINNED.includes(b.name) ? 1 : 0;
-          if (ap !== bp) return bp - ap;
-          return b.stargazers_count - a.stargazers_count;
-        });
-        const stars = filtered.reduce((s, r) => s + r.stargazers_count, 0);
-        countUp(document.getElementById("sRepos"), filtered.length);
-        countUp(document.getElementById("sStars"), stars);
+        filtered.sort((a, b) => { const ap = PINNED.includes(a.name) ? 1 : 0, bp = PINNED.includes(b.name) ? 1 : 0; if (ap !== bp) return bp - ap; return b.stargazers_count - a.stargazers_count });
+        countUp(document.getElementById("sR"), filtered.length);
+        countUp(document.getElementById("sS"), filtered.reduce((s, r) => s + r.stargazers_count, 0));
         grid.innerHTML = filtered.map(r => card(r, PINNED.includes(r.name))).join("");
-        const rem = res.headers.get("X-RateLimit-Remaining");
-        document.getElementById("apiNote").textContent = `live via github api · ${filtered.length} repos · ${rem} req remaining`;
+        document.getElementById("apiNote").textContent = `live via github api · ${filtered.length} repos · ${res.headers.get("X-RateLimit-Remaining")} req remaining`;
       } catch (e) {
-        grid.innerHTML = `<div class="skel" style="grid-column:1/-1;padding:2rem;text-align:center;color:var(--text-2)">
-      Could not load repositories. <a href="https://github.com/${USERNAME}" style="color:var(--red)">View on GitHub</a></div>`;
+        grid.innerHTML = `<div class="skel" style="grid-column:1/-1;padding:2rem;text-align:center;color:var(--text-2)">Could not load repositories. <a href="https://github.com/${USERNAME}" style="color:var(--r1)">View on GitHub</a></div>`;
       }
     }
     loadRepos();
