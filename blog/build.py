@@ -273,6 +273,18 @@ def md_to_html(raw):
             alt, src = image.group(1), image.group(2)
             caption = f"<figcaption>{alt}</figcaption>" if alt else ""
             out.append(f'<figure><img src="{src}" alt="{alt}" loading="lazy" decoding="async" />{caption}</figure>')
+        elif stripped.startswith("|") and stripped.endswith("|"):
+            flush_paragraph()
+            close_list()
+            rows = []
+            while i < len(lines) and lines[i].strip().startswith("|") and lines[i].strip().endswith("|"):
+                rows.append([cell.strip() for cell in lines[i].strip().strip("|").split("|")])
+                i += 1
+            i -= 1
+            if len(rows) >= 2 and all(set(cell) <= set("-: ") and cell for cell in rows[1]):
+                head = "".join(f"<th>{inline(cell)}</th>" for cell in rows[0])
+                body = "".join("<tr>" + "".join(f"<td>{inline(cell)}</td>" for cell in row) + "</tr>" for row in rows[2:])
+                out.append(f"<table><thead><tr>{head}</tr></thead><tbody>{body}</tbody></table>")
         elif re.match(r"^### ", stripped):
             flush_paragraph()
             close_list()

@@ -1174,3 +1174,30 @@
 .lang-suggest[hidden] {
   display: none
 }
+
+/* POST TABLES */
+.post table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.6rem 0;
+  font-size: 13.5px
+}
+
+.post th,
+.post td {
+  border: 1px solid var(--bd);
+  padding: .6rem .85rem;
+  text-align: left;
+  color: var(--text-2);
+  vertical-align: top
+}
+
+.post th {
+  background: rgba(255, 255, 255, .04);
+  color: var(--text-1);
+  font-weight: 700
+}
+
+.post table strong {
+  color: var(--text-1)
+}
