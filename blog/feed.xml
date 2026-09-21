@@ -5,8 +5,15 @@
     <link>https://juliandatascienceexplorerv2.github.io/blog/</link>
     <description>IA aplicada, marketing science y datos para negocios en LATAM.</description>
     <language>es</language>
-    <lastBuildDate>Mon, 21 Sep 2026 22:10:43 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 21 Sep 2026 22:21:27 +0000</lastBuildDate>
     <atom:link href="https://juliandatascienceexplorerv2.github.io/blog/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Agentes de IA sobre BigQuery: Cómo armar un bot que responde preguntas de tu data de marketing en 3 segundos</title>
+      <link>https://juliandatascienceexplorerv2.github.io/blog/agentes-ia-bigquery-marketing.html</link>
+      <guid>https://juliandatascienceexplorerv2.github.io/blog/agentes-ia-bigquery-marketing.html</guid>
+      <description>Descubre cómo conectar un LLM con Google Cloud BigQuery para crear un agente de Text-to-SQL seguro, de bajo costo y con insights ejecutivos de campañas en segundos.</description>
+      <pubDate>Tue, 22 Sep 2026 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>Gemini vs ChatGPT para analizar datos de marketing: El test de estrés con datos de campañas</title>
       <link>https://juliandatascienceexplorerv2.github.io/blog/gemini-vs-chatgpt-analisis-datos-marketing.html</link>

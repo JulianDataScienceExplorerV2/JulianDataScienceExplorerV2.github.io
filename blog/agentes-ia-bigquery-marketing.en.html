@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Agents on BigQuery: How to Build a Bot That Answers Marketing Data Queries in 3 Seconds — Julian David Urrego Lancheros</title>
+<meta name="description" content="Discover how to connect an LLM to Google Cloud BigQuery to build a secure, low-cost Text-to-SQL marketing agent delivering executive campaign insights in seconds." />
+<meta name="theme-color" content="#07070a" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HNVFP6S0ZD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HNVFP6S0ZD');
+</script>
+<link rel="canonical" href="https://juliandatascienceexplorerv2.github.io/blog/agentes-ia-bigquery-marketing.en.html" />
+<link rel="alternate" hreflang="es" href="https://juliandatascienceexplorerv2.github.io/blog/agentes-ia-bigquery-marketing.html" />
+<link rel="alternate" hreflang="en" href="https://juliandatascienceexplorerv2.github.io/blog/agentes-ia-bigquery-marketing.en.html" />
+<link rel="alternate" hreflang="pt" href="https://juliandatascienceexplorerv2.github.io/blog/agentes-ia-bigquery-marketing.pt.html" />
+<link rel="alternate" hreflang="x-default" href="https://juliandatascienceexplorerv2.github.io/blog/agentes-ia-bigquery-marketing.html" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://juliandatascienceexplorerv2.github.io/blog/agentes-ia-bigquery-marketing.en.html" />
+<meta property="og:title" content="AI Agents on BigQuery: How to Build a Bot That Answers Marketing Data Queries in 3 Seconds" />
+<meta property="og:description" content="Discover how to connect an LLM to Google Cloud BigQuery to build a secure, low-cost Text-to-SQL marketing agent delivering executive campaign insights in seconds." />
+<meta property="og:image" content="https://juliandatascienceexplorerv2.github.io/og-image.png" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="AI Agents on BigQuery: How to Build a Bot That Answers Marketing Data Queries in 3 Seconds" />
+<meta name="twitter:description" content="Discover how to connect an LLM to Google Cloud BigQuery to build a secure, low-cost Text-to-SQL marketing agent delivering executive campaign insights in seconds." />
+<meta name="twitter:image" content="https://juliandatascienceexplorerv2.github.io/og-image.png" />
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/style.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "AI Agents on BigQuery: How to Build a Bot That Answers Marketing Data Queries in 3 Seconds",
+      "description": "Discover how to connect an LLM to Google Cloud BigQuery to build a secure, low-cost Text-to-SQL marketing agent delivering executive campaign insights in seconds.",
+      "datePublished": "2026-09-22",
+      "dateModified": "2026-09-22",
+      "inLanguage": "en",
+      "author": {
+        "@type": "Person",
+        "name": "Julian David Urrego Lancheros",
+        "url": "https://juliandatascienceexplorerv2.github.io"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Julian David Urrego Lancheros"
+      },
+      "mainEntityOfPage": "https://juliandatascienceexplorerv2.github.io/blog/agentes-ia-bigquery-marketing.en.html",
+      "image": "https://juliandatascienceexplorerv2.github.io/og-image.png"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can the bot accidentally modify or delete warehouse data?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, provided the Google Cloud Service Account linked to the agent holds strictly BigQuery Data Viewer and BigQuery Job User roles. Without write or administrative privileges, modifying or dropping tables is impossible."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does it cost to run an AI BigQuery agent monthly?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For an agency or growth team executing 200 to 500 ad-hoc queries per month over partitioned tables, total Google Cloud infrastructure costs (BigQuery processing plus LLM tokens) typically range between $5 and $15 USD per month."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can this agent integrate into Slack or Microsoft Teams?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The solution deploys as a lightweight Python micro-service (FastAPI or Google Cloud Functions) connecting via Webhooks to Slack apps, Microsoft Teams bots, or custom internal portals."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Looking to deploy an AI Agent over your warehouse?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Building a notebook prototype takes an afternoon; but engineering an enterprise-ready AI Agent on BigQuery—complete with GCP cost controls, data guardrails, and Slack integration—requires tailored data architecture.  If you want to implement this system in your agency or growth team, reach out and let's discuss your data infrastructure."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="../" style="text-decoration:none">&gt;<span class="d"> julian</span>.dev</a>
+  <ul class="nav-links">
+    <li><a href="../">Portfolio</a></li>
+    <li><a href="../blog/">Blog</a></li>
+  </ul>
+</nav>
+
+<div class="section" style="padding-top:7rem">
+  <div class="wrap" style="max-width:760px">
+    <p class="kicker"><a href="../blog/" style="color:inherit;text-decoration:none">← Back to blog</a></p>
+    <h1 class="sec-h" style="font-size:2rem;line-height:1.2">AI Agents on BigQuery: How to Build a Bot That Answers Marketing Data Queries in 3 Seconds</h1>
+    <p class="post-meta">22 Sep 2026 · 6 min read · <span class="tag">AI</span> <span class="tag">BigQuery</span> <span class="tag">Agents</span> <span class="tag">Python</span> <span class="tag">SQL</span> <span class="tag">Marketing</span> <span class="lang-switch"><a href="agentes-ia-bigquery-marketing.html">🇨🇴 ES</a> · <a href="agentes-ia-bigquery-marketing.en.html" class="active">🇺🇸 EN</a> · <a href="agentes-ia-bigquery-marketing.pt.html">🇧🇷 PT</a></span></p>
+    <article class="post">
+<p>It is a scenario that happens every week in agency and growth teams: the CMO or Media Director pops into Slack and asks: <strong>"Which channel had the highest ROAS last week, and how does Meta's CPA compare against Google?"</strong>.</p>
+<p>The BI specialist or media buyer has to pause their workflow, open the <strong>Google BigQuery</strong> console, locate the dataset, write a 25-line SQL query with aggregations, wait for execution, paste the output into a spreadsheet, and write a summary. Twenty minutes later, they finally answer.</p>
+<p>What if an <strong>AI Agent connected directly to your BigQuery warehouse</strong> could answer that exact question in natural language, backed by mathematically exact numbers and an automated chart, in under 3 seconds?</p>
+<blockquote><p><strong>30-Second Verdict:</strong><br />- <strong>The danger of naive Text-to-SQL:</strong> Connecting an off-the-shelf chatbot directly to your database without intermediary guardrails is a recipe for disaster: it generates unoptimized queries scanning full terabytes (blowing through Google Cloud budgets) or hallucinates non-existent tables.<br />- <strong>The production solution:</strong> A <strong>decoupled 4-layer architecture</strong> with strict IAM Read-Only permissions, a syntax validation linter using BigQuery's <em>Dry Run</em> to audit cost before execution, and deterministic computing in BigQuery.<br />- <strong>The outcome:</strong> Anyone on your team can query millions of paid ad rows via Slack or WhatsApp without writing a single line of SQL, at less than $0.003 USD per query.</p></blockquote>
+<p>Here is how the architecture is engineered so you can implement this pattern safely.</p>
+<h2>Why Traditional Dashboards Are No Longer Enough</h2>
+<p>Dashboards in <strong>Looker Studio, Tableau, or Power BI</strong> are great for routine monitoring: checking whether weekly spend pacing is on track or if overall CTR is healthy.</p>
+<p>The bottleneck occurs with <strong>ad-hoc business questions</strong>:</p>
+<ul>
+<li><em>"Which video creatives achieved the highest conversion rate during Black Friday?"</em></li>
+<li><em>"How did acquisition costs (CPA) trend in Brazil compared to Mexico over pay periods?"</em></li>
+<li><em>"How much did we invest in top-of-funnel prospecting vs retargeting last quarter?"</em></li>
+</ul>
+<p>Building a new widget on a dashboard for every isolated question clutters the interface and burns data team hours. This is where an <strong>AI Data Agent</strong> redefines the workflow.</p>
+<h2>The 4-Layer Architecture: From Natural Language to BigQuery</h2>
+<p>In enterprise production environments, an AI agent is never given unrestricted database credentials. It operates within a <strong>controlled 4-stage pipeline</strong>:</p>
+<figure><img src="../assets/img/bigquery-agent-architecture.webp" alt="Architecture of an AI Marketing Agent on Google BigQuery" loading="lazy" decoding="async" /><figcaption>Architecture of an AI Marketing Agent on Google BigQuery</figcaption></figure>
+<h3>1. Business Interface Layer</h3>
+<p>The user asks questions in their existing workplace tool: Slack, Microsoft Teams, or an internal portal, without needing to know SQL dialect or schema schemas.</p>
+<h3>2. Semantic &amp; Translation Layer (The LLM)</h3>
+<p>Powered by high-reasoning models (such as Gemini 3 or Claude). Rather than exposing raw customer records, the model receives only the <strong>Schema Dictionary Context</strong>:</p>
+<ul>
+<li>Key table definitions (<code>campaigns_performance</code>, <code>conversions_attribution</code>).</li>
+<li>Strict metric definitions (e.g., <em>"ROAS is revenue divided by spend, never the average of the ratio column"</em>).</li>
+<li>Partitioning fields (typically <code>event_date</code>).</li>
+</ul>
+<p>With this boundary, the model translates user intent into clean, optimized GoogleSQL.</p>
+<h3>3. Guardrails &amp; Safety Layer (The Python Validator)</h3>
+<p>The step most internet tutorials overlook, yet the most critical:</p>
+<ul>
+<li><strong>Enforced Read-Only:</strong> A Python linter immediately rejects any generated query containing statements like <code>DROP</code>, <code>DELETE</code>, <code>UPDATE</code>, <code>INSERT</code>, or <code>ALTER</code>.</li>
+<li><strong>Dry Run Cost Auditing:</strong> Before executing on live tables, the query runs with <code>dry_run = True</code>. BigQuery calculates exactly how many bytes will be billed <strong>at zero cost</strong>. If a query attempts to scan more than 500 MB (because a date filter was omitted), the agent flags it and asks the user to refine the timeframe.</li>
+</ul>
+<h3>4. Deterministic Execution &amp; Insight Synthesis</h3>
+<p>BigQuery processes the query over millions of rows in milliseconds. The clean tabular output returns to the agent, which drafts an executive takeaway and renders an interactive chart.</p>
+<h2>How It Looks in Practice (Live Demo)</h2>
+<p>Here is a real interaction between a Media Director and the data agent:</p>
+<figure><img src="../assets/img/bigquery-agent-chat-demo.webp" alt="Chat demo of a Marketing Data Agent connected to BigQuery" loading="lazy" decoding="async" /><figcaption>Chat demo of a Marketing Data Agent connected to BigQuery</figcaption></figure>
+<p>Notice the workflow:</p>
+<ol>
+<li>The question is asked in plain conversational language.</li>
+<li>The agent generates partitioned SQL adhering to date parameters.</li>
+<li>BigQuery scans only <strong>14.2 MB in 1.4 seconds</strong>.</li>
+<li>The output provides deterministic figures (Meta ROAS 4.32x vs Google ROAS 3.78x) alongside an actionable tactical takeaway.</li>
+</ol>
+<h2>Benchmark: Naive Bot vs. Production Agent</h2>
+<p>Connecting an LLM directly to a database without safeguards creates huge liabilities. Here is how a production architecture compares:</p>
+<figure><img src="../assets/img/bigquery-guardrails-benchmark.webp" alt="Benchmark: Naive AI Bot vs Production Agent on BigQuery" loading="lazy" decoding="async" /><figcaption>Benchmark: Naive AI Bot vs Production Agent on BigQuery</figcaption></figure>
+<table><thead><tr><th>Evaluation Factor</th><th>Naive Bot (Basic Text-to-SQL)</th><th>Production Agent (Controlled Architecture)</th></tr></thead><tbody><tr><td><strong>Query Cost in GCP</strong></td><td><strong>$1.50 to $3.00 USD</strong> (unbounded 400+ GB scans)</td><td><strong>&lt; $0.003 USD</strong> (enforced partitioning and clusters)</td></tr><tr><td><strong>Response Time</strong></td><td>10 to 20 seconds (Slack timeout risks)</td><td><strong>1 to 2 seconds</strong> (instant delivery)</td></tr><tr><td><strong>Data Security</strong></td><td>Vulnerable to hallucinated schema and injection</td><td><strong>100% Secure</strong> (enforced IAM Read-Only roles)</td></tr><tr><td><strong>Mathematical Accuracy</strong></td><td>70% (prone to ratio estimation errors)</td><td><strong>100% Exact</strong> (all math computed by BigQuery)</td></tr></tbody></table>
+<h2>Key Technical Challenges for Production Teams</h2>
+<p>Deploying an agent like this delivers huge efficiency gains, but requires disciplined data engineering:</p>
+<ol>
+<li><strong>Multi-Channel Taxonomy:</strong> If Meta labels spend as <code>spend</code>, Google Ads uses <code>cost</code>, and TikTok uses <code>stat_cost</code>, your BigQuery lakehouse needs normalized views so the model queries standardized dimensions.</li>
+<li><strong>Partitioning Strategy:</strong> Tables must be partitioned by day (<code>PARTITION BY DATE(date)</code>) and clustered by channel to keep query charges fractions of a cent.</li>
+<li><strong>Query Caching:</strong> Common team questions asked during morning standups should resolve via memory cache without incurring repeated warehouse costs.</li>
+<li><strong>Credential Isolation:</strong> Service account keys must follow the principle of least privilege (<em>Least Privilege IAM</em>).</li>
+</ol>
+<h2>Frequently Asked Questions</h2>
+<h3>Can the bot accidentally modify or delete warehouse data?</h3>
+<p>No, provided the Google Cloud Service Account linked to the agent holds strictly <code>BigQuery Data Viewer</code> and <code>BigQuery Job User</code> roles. Without write or administrative privileges, modifying or dropping tables is impossible.</p>
+<h3>How much does it cost to run an AI BigQuery agent monthly?</h3>
+<p>For an agency or growth team executing 200 to 500 ad-hoc queries per month over partitioned tables, total Google Cloud infrastructure costs (BigQuery processing plus LLM tokens) typically range between <strong>$5 and $15 USD per month</strong>.</p>
+<h3>Can this agent integrate into Slack or Microsoft Teams?</h3>
+<p>Yes. The solution deploys as a lightweight Python micro-service (FastAPI or Google Cloud Functions) connecting via Webhooks to Slack apps, Microsoft Teams bots, or custom internal portals.</p>
+<h2>Conclusion</h2>
+<p>The true value of artificial intelligence in marketing analytics is not replacing data scientists or BI engineers; it is <strong>democratizing instant answers</strong>.</p>
+<p>When leadership can query warehouse data in 3 seconds, meetings stop being debates about whose spreadsheet has the right number and become strategic discussions on how to scale the business.</p>
+<p>---</p>
+<h3>Looking to deploy an AI Agent over your warehouse?</h3>
+<p>Building a notebook prototype takes an afternoon; but engineering an <strong>enterprise-ready AI Agent on BigQuery</strong>—complete with GCP cost controls, data guardrails, and Slack integration—requires tailored data architecture.</p>
+<p>If you want to implement this system in your agency or growth team, <a href="../#contact">reach out</a> and let's discuss your data infrastructure.</p>
+    </article>
+    <div class="dl" style="margin-top:3rem">
+      <p style="font-size:14px;color:var(--text-2);line-height:1.7">
+        Did this post help you, or do you want something like this for your team? Reach out and let's talk.
+      </p>
+      <div style="display:flex;gap:.75rem;flex-wrap:wrap">
+        <a class="cta1" href="../#contact">Contact me</a>
+        <a class="cta2" href="../">View portfolio</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>Julian David Urrego Lancheros &mdash; <span class="hi">juliandatascienceexplorerv2.github.io</span></footer>
+<div id="langSuggest" class="lang-suggest" hidden>
+  <span id="langSuggestText"></span>
+  <a id="langSuggestLink" href="#"></a>
+  <button type="button" aria-label="Cerrar" onclick="this.parentNode.hidden = true">&times;</button>
+</div>
+<script>
+(function () {
+  var data = {"en": {"url": "agentes-ia-bigquery-marketing.en.html", "label": "This post is also available in English", "cta": "Read in English 🇺🇸"}, "es": {"url": "agentes-ia-bigquery-marketing.html", "label": "Este artículo también está disponible en español", "cta": "Leer en español 🇨🇴"}, "pt": {"url": "agentes-ia-bigquery-marketing.pt.html", "label": "Este post também está disponível em português", "cta": "Ler em português 🇧🇷"}};
+  var current = "en";
+  var stored = null;
+  try { stored = localStorage.getItem("lang") } catch (error) {}
+  var pick = stored;
+  if (!pick) {
+    var candidates = (navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ""]).map(function (code) { return code.toLowerCase() });
+    for (var i = 0; i < candidates.length; i++) {
+      var code = candidates[i];
+      if (code.indexOf("es") === 0) { pick = "es"; break }
+      if (code.indexOf("pt") === 0) { pick = "pt"; break }
+      if (code.indexOf("en") === 0) { pick = "en"; break }
+    }
+  }
+  if (!pick) {
+    var tz = "";
+    try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "" } catch (error) {}
+    pick = /^America\/(Sao_Paulo|Bahia|Fortaleza|Recife|Belem|Manaus|Cuiaba|Campo_Grande|Maceio|Joao_Pessoa|Araguaina|Porto_Velho|Rio_Branco|Boa_Vista|Noronha|Santarem)$/.test(tz) ? "pt" : (tz.indexOf("America/") === 0 ? "es" : "en");
+  }
+  if (pick && pick !== current && data[pick]) {
+    document.getElementById("langSuggestText").textContent = data[pick].label;
+    var link = document.getElementById("langSuggestLink");
+    link.href = data[pick].url;
+    link.textContent = data[pick].cta;
+    document.getElementById("langSuggest").hidden = false;
+  }
+})();
+</script>
+</body>
+</html>
