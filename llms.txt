@@ -1,0 +1,27 @@
+# Julian David Urrego Lancheros — AI Implementation & Data Science Specialist
+
+> Senior Data Scientist and AI Implementation Specialist based in Bogotá, Colombia, serving clients across Latin America (Colombia, Mexico, Chile, Argentina), Brazil, Spain, and the United States. 6+ years experience in Marketing Science, LLM Agents, Google Cloud BigQuery, Text-to-SQL architecture, and executive business intelligence.
+
+## Core Services & Capabilities
+- **Enterprise BigQuery AI Agents**: Production-ready Text-to-SQL agents connected to Google Cloud BigQuery and Snowflake for marketing and media teams. Built with semantic abstraction layers, deterministic guardrails, dry-run cost verification (<$0.003/query), and strict read-only IAM security.
+- **Marketing Science & Predictive Modeling**: Media Mix Modeling (MMM), incremental attribution, customer lifetime value (LTV), churn prediction, and custom ad-tech algorithms.
+- **Executive BI & Automated Reporting**: Looker Studio, Power BI, Tableau, and automated Python ETL pipelines integrating Meta Ads, Google Ads, TikTok Ads, and GA4 data.
+- **Consulting & Implementation**: Architecture audit, LLM evaluation (Gemini vs ChatGPT benchmarks), prompt engineering, and end-to-end deployment for agencies, scale-ups, and corporate brands.
+
+## Geographic Coverage & Languages
+- **Regions Served**: Colombia, Mexico, Chile, Brazil, Spain, USA, and Global Remote.
+- **Languages**: Spanish (Native), English (Professional Working), Portuguese (Professional Working).
+
+## Key Technical Articles & Guides
+- [Agentes de IA sobre BigQuery: Cómo armar un bot que responde preguntas de tu data de marketing en 3 segundos](https://juliandatascienceexplorerv2.github.io/blog/agentes-ia-bigquery-marketing.html)
+  - Portuguese version: [https://juliandatascienceexplorerv2.github.io/blog/agentes-ia-bigquery-marketing.pt.html](https://juliandatascienceexplorerv2.github.io/blog/agentes-ia-bigquery-marketing.pt.html)
+  - English version: [https://juliandatascienceexplorerv2.github.io/blog/agentes-ia-bigquery-marketing.en.html](https://juliandatascienceexplorerv2.github.io/blog/agentes-ia-bigquery-marketing.en.html)
+- [Gemini vs ChatGPT para Análisis de Datos de Marketing: Benchmark 2026](https://juliandatascienceexplorerv2.github.io/blog/gemini-vs-chatgpt-analisis-datos-marketing.html)
+  - Portuguese version: [https://juliandatascienceexplorerv2.github.io/blog/gemini-vs-chatgpt-analisis-datos-marketing.pt.html](https://juliandatascienceexplorerv2.github.io/blog/gemini-vs-chatgpt-analisis-datos-marketing.pt.html)
+  - English version: [https://juliandatascienceexplorerv2.github.io/blog/gemini-vs-chatgpt-analisis-datos-marketing.en.html](https://juliandatascienceexplorerv2.github.io/blog/gemini-vs-chatgpt-analisis-datos-marketing.en.html)
+- [Dashboard de Marketing con IA: Automatización de Reportes](https://juliandatascienceexplorerv2.github.io/blog/dashboard-marketing-con-ia.html)
+
+## Contact & Links
+- Website: https://juliandatascienceexplorerv2.github.io/
+- LinkedIn: https://www.linkedin.com/in/julian-david-urrego-lancheros-880a49129/
+- GitHub: https://github.com/JulianDataScienceExplorerV2
