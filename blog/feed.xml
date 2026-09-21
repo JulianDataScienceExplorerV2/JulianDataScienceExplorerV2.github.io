@@ -5,13 +5,13 @@
     <link>https://juliandatascienceexplorerv2.github.io/blog/</link>
     <description>IA aplicada, marketing science y datos para negocios en LATAM.</description>
     <language>es</language>
-    <lastBuildDate>Mon, 21 Sep 2026 20:53:41 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 21 Sep 2026 21:15:00 +0000</lastBuildDate>
     <atom:link href="https://juliandatascienceexplorerv2.github.io/blog/feed.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>"Gemini vs ChatGPT para analizar datos de marketing (2026)"</title>
+      <title>Gemini vs ChatGPT para analizar datos de marketing: El test de estrés con datos de campañas</title>
       <link>https://juliandatascienceexplorerv2.github.io/blog/gemini-vs-chatgpt-analisis-datos-marketing.html</link>
       <guid>https://juliandatascienceexplorerv2.github.io/blog/gemini-vs-chatgpt-analisis-datos-marketing.html</guid>
-      <description>"¿Cuál IA usar para analizar tus campañas? Comparo Gemini y ChatGPT con datos de búsqueda reales de Google Trends Colombia, criterios para marketing y una prueba aplicada con archivos reales."</description>
+      <description>¿Cuál IA analiza mejor tus campañas? Evaluamos Gemini y ChatGPT con un dataset multicanal de 90 días generado en Python, datos de búsqueda de Google Trends Colombia y pruebas de estrés de cálculo aritmético.</description>
       <pubDate>Mon, 21 Sep 2026 00:00:00 +0000</pubDate>
     </item>
     <item>

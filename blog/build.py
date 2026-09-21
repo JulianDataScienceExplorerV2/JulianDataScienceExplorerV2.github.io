@@ -218,7 +218,10 @@ def parse_front_matter(text):
             for line in parts[1].strip().splitlines():
                 if ":" in line:
                     key, _, value = line.partition(":")
-                    meta[key.strip()] = value.strip()
+                    val = value.strip()
+                    if (val.startswith('"') and val.endswith('"')) or (val.startswith("'") and val.endswith("'")):
+                        val = val[1:-1]
+                    meta[key.strip()] = val
             body = parts[2].strip()
     return meta, body
 
@@ -311,10 +314,32 @@ def md_to_html(raw):
                 out.append("<ol>")
                 list_open = "ol"
             out.append("<li>" + inline(re.sub(r"^\d+\. ", "", stripped)) + "</li>")
-        elif stripped.startswith("> "):
+        elif stripped.startswith(("&gt; ", "> ")):
             flush_paragraph()
             close_list()
-            out.append("<blockquote><p>" + inline(stripped[2:]) + "</p></blockquote>")
+            quote_lines = []
+            while i < len(lines) and (lines[i].strip().startswith(("&gt; ", "> ")) or lines[i].strip() in ("&gt;", ">")):
+                l_str = lines[i].strip()
+                if l_str.startswith("&gt; "):
+                    quote_lines.append(l_str[5:])
+                elif l_str.startswith("> "):
+                    quote_lines.append(l_str[2:])
+                else:
+                    quote_lines.append("")
+                i += 1
+            i -= 1
+            inner_paras = []
+            curr = []
+            for ql in quote_lines:
+                if ql == "":
+                    if curr:
+                        inner_paras.append("<p>" + "<br />".join(inline(c) for c in curr) + "</p>")
+                        curr = []
+                else:
+                    curr.append(ql)
+            if curr:
+                inner_paras.append("<p>" + "<br />".join(inline(c) for c in curr) + "</p>")
+            out.append("<blockquote>" + "".join(inner_paras) + "</blockquote>")
         elif stripped == "":
             flush_paragraph()
             close_list()
@@ -374,6 +399,19 @@ def local_url(group, lang):
     return f"{group['slug']}.{lang}.html"
 
 
+def extract_faqs(body):
+    faqs = []
+    pattern = re.compile(r"^###\s+([¿\?].+?)\s*\n+(.+?)(?=\n+###|\n+##|\Z)", re.M | re.S)
+    for match in pattern.finditer(body):
+        q = match.group(1).strip()
+        ans = match.group(2).strip()
+        clean_ans = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", ans)
+        clean_ans = re.sub(r"[*_`]", "", clean_ans).replace("\n", " ").strip()
+        if len(clean_ans) > 20:
+            faqs.append((q, clean_ans))
+    return faqs
+
+
 def render_post(group, lang):
     post = group["translations"][lang]
     ui = UI[lang]
@@ -390,15 +428,45 @@ def render_post(group, lang):
             active = ' class="active"' if code == lang else ""
             lang_link_parts.append(f'<a href="{local_url(group, code)}"{active}>{LANG_LABELS[code]}</a>')
     lang_links = " · ".join(lang_link_parts)
-    jsonld = BLOCK_JSONLD.format(
-        title=post["title"].replace('"', "'"),
-        description=post["description"].replace('"', "'"),
-        date=post["date"],
-        lang=lang,
-        author=AUTHOR,
-        site=SITE,
-        url=url,
-    )
+    
+    faqs = extract_faqs(post["body"])
+    posting_entity = {
+        "@type": "BlogPosting",
+        "headline": post["title"],
+        "description": post["description"],
+        "datePublished": post["date"],
+        "dateModified": post["date"],
+        "inLanguage": lang,
+        "author": {
+            "@type": "Person",
+            "name": AUTHOR,
+            "url": SITE
+        },
+        "publisher": {
+            "@type": "Person",
+            "name": AUTHOR
+        },
+        "mainEntityOfPage": url,
+        "image": f"{SITE}/og-image.png"
+    }
+    if faqs:
+        faq_entity = {
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": q,
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": a
+                    }
+                } for q, a in faqs
+            ]
+        }
+        jsonld = json.dumps({"@context": "https://schema.org", "@graph": [posting_entity, faq_entity]}, ensure_ascii=False, indent=2)
+    else:
+        jsonld = json.dumps({"@context": "https://schema.org", **posting_entity}, ensure_ascii=False, indent=2)
+
     locales = {"es": "es_CO", "en": "en_US", "pt": "pt_BR"}
     links = {
         code: {"url": local_url(group, code), "label": SUGGEST[code]["label"], "cta": SUGGEST[code]["cta"]}
