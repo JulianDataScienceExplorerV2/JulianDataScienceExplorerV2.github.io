@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Gemini vs ChatGPT for Marketing Data Analysis: Stress-Tested on Real Campaign Data — Julian David Urrego Lancheros</title>
+<meta name="description" content="Which AI is better for analyzing marketing campaigns? We tested Gemini and ChatGPT on a 90-day multi-channel Python dataset, Google Trends data, and math stress tests." />
+<meta name="theme-color" content="#07070a" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HNVFP6S0ZD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HNVFP6S0ZD');
+</script>
+<link rel="canonical" href="https://juliandatascienceexplorerv2.github.io/blog/gemini-vs-chatgpt-analisis-datos-marketing.en.html" />
+<link rel="alternate" hreflang="es" href="https://juliandatascienceexplorerv2.github.io/blog/gemini-vs-chatgpt-analisis-datos-marketing.html" />
+<link rel="alternate" hreflang="en" href="https://juliandatascienceexplorerv2.github.io/blog/gemini-vs-chatgpt-analisis-datos-marketing.en.html" />
+<link rel="alternate" hreflang="pt" href="https://juliandatascienceexplorerv2.github.io/blog/gemini-vs-chatgpt-analisis-datos-marketing.pt.html" />
+<link rel="alternate" hreflang="x-default" href="https://juliandatascienceexplorerv2.github.io/blog/gemini-vs-chatgpt-analisis-datos-marketing.html" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://juliandatascienceexplorerv2.github.io/blog/gemini-vs-chatgpt-analisis-datos-marketing.en.html" />
+<meta property="og:title" content="Gemini vs ChatGPT for Marketing Data Analysis: Stress-Tested on Real Campaign Data" />
+<meta property="og:description" content="Which AI is better for analyzing marketing campaigns? We tested Gemini and ChatGPT on a 90-day multi-channel Python dataset, Google Trends data, and math stress tests." />
+<meta property="og:image" content="https://juliandatascienceexplorerv2.github.io/og-image.png" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Gemini vs ChatGPT for Marketing Data Analysis: Stress-Tested on Real Campaign Data" />
+<meta name="twitter:description" content="Which AI is better for analyzing marketing campaigns? We tested Gemini and ChatGPT on a 90-day multi-channel Python dataset, Google Trends data, and math stress tests." />
+<meta name="twitter:image" content="https://juliandatascienceexplorerv2.github.io/og-image.png" />
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/style.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Gemini vs ChatGPT for Marketing Data Analysis: Stress-Tested on Real Campaign Data",
+      "description": "Which AI is better for analyzing marketing campaigns? We tested Gemini and ChatGPT on a 90-day multi-channel Python dataset, Google Trends data, and math stress tests.",
+      "datePublished": "2026-09-21",
+      "dateModified": "2026-09-21",
+      "inLanguage": "en",
+      "author": {
+        "@type": "Person",
+        "name": "Julian David Urrego Lancheros",
+        "url": "https://juliandatascienceexplorerv2.github.io"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Julian David Urrego Lancheros"
+      },
+      "mainEntityOfPage": "https://juliandatascienceexplorerv2.github.io/blog/gemini-vs-chatgpt-analisis-datos-marketing.en.html",
+      "image": "https://juliandatascienceexplorerv2.github.io/og-image.png"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can ChatGPT calculate campaign ROAS without making arithmetic mistakes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Only when using its Python execution environment (Advanced Data Analysis). If ChatGPT calculates ROAS in plain text without executing code, the error rate exceeds 28%, typically by averaging individual row ratios instead of dividing total revenue by total spend."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which AI model is the most affordable for automated client reporting?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For automated pipelines using Python scripts and APIs, the Gemini family (specifically Gemini Flash) provides one of the best cost-to-performance ratios available, processing millions of campaign tokens at a fraction of competitors' costs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it safe to upload client campaign data to ChatGPT or Gemini?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "On standard free accounts, default terms permit providers to use conversations for model training. For sensitive marketing budgets, you must opt out of data training in settings or use enterprise tiers (Google Workspace with Gemini, OpenAI Team/Enterprise, or API connections)."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="../" style="text-decoration:none">&gt;<span class="d"> julian</span>.dev</a>
+  <ul class="nav-links">
+    <li><a href="../">Portfolio</a></li>
+    <li><a href="../blog/">Blog</a></li>
+  </ul>
+</nav>
+
+<div class="section" style="padding-top:7rem">
+  <div class="wrap" style="max-width:760px">
+    <p class="kicker"><a href="../blog/" style="color:inherit;text-decoration:none">← Back to blog</a></p>
+    <h1 class="sec-h" style="font-size:2rem;line-height:1.2">Gemini vs ChatGPT for Marketing Data Analysis: Stress-Tested on Real Campaign Data</h1>
+    <p class="post-meta">21 Sep 2026 · 9 min read · <span class="tag">AI</span> <span class="tag">Gemini</span> <span class="tag">ChatGPT</span> <span class="tag">Marketing</span> <span class="tag">Data</span> <span class="tag">Python</span> <span class="lang-switch"><a href="gemini-vs-chatgpt-analisis-datos-marketing.html">🇨🇴 ES</a> · <a href="gemini-vs-chatgpt-analisis-datos-marketing.en.html" class="active">🇺🇸 EN</a> · <a href="gemini-vs-chatgpt-analisis-datos-marketing.pt.html">🇧🇷 PT</a></span></p>
+    <article class="post">
+<p>It is the most common question I get from media buyers and marketing leaders on LinkedIn: <strong>"Should I use Gemini or ChatGPT to analyze my campaign reports and performance data?"</strong>. The short answer is that both are remarkable, but in marketing analytics, the line between an executive-ready report and a financial disaster comes down to three variables: <strong>where your data lives, what engine executes the calculations, and how well it integrates with your analytics stack.</strong></p>
+<blockquote><p><strong>30-Second Verdict (TL;DR):</strong><br />- <strong>Never let an LLM do math in free text:</strong> When asking ChatGPT or Gemini to calculate ratio metrics (ROAS, CTR, CPA) without code execution, the error rate exceeds <strong>28%</strong> due to the "average of averages" trap. With Python/Pandas enabled, calculation error is <strong>0%</strong>.<br />- <strong>Choose Gemini</strong> if your day-to-day operations live inside the Google ecosystem (Google Sheets, BigQuery, GA4, Looker Studio), you need to ingest multi-year data via its million-token context window, or you need the most cost-effective API (Gemini Flash) to automate client reports.<br />- <strong>Choose ChatGPT</strong> if your workflow is ad-hoc exploratory analysis directly in the chat without external code, leveraging the maturity and stability of its native Advanced Data Analysis Python environment.</p></blockquote>
+<p>Before diving into the architecture, let's examine search trends.</p>
+<h2>What People Are Searching For (Google Trends)</h2>
+<p>To see whether this was just noise in my network, I extracted raw 12-month search data from <strong>Google Trends</strong>:</p>
+<figure><img src="../assets/img/trends-interest-co.webp" alt="Search interest: ChatGPT, Gemini, and Claude over the last 12 months (Google Trends)" loading="lazy" decoding="async" /><figcaption>Search interest: ChatGPT, Gemini, and Claude over the last 12 months (Google Trends)</figcaption></figure>
+<figure><img src="../assets/img/trends-averages-co.webp" alt="12-month average search interest: ChatGPT 68.4, Gemini 30.5, Claude 7.3" loading="lazy" decoding="async" /><figcaption>12-month average search interest: ChatGPT 68.4, Gemini 30.5, Claude 7.3</figcaption></figure>
+<p>Three clear takeaways:</p>
+<ol>
+<li><strong>ChatGPT dominates brand awareness</strong> (68.4 average search interest), serving as the default tool for non-technical teams.</li>
+<li><strong>Gemini is accelerating quickly</strong> (30.5 average interest), showing consistent growth fueled by Gemini 3 updates and deep Google Workspace integration.</li>
+<li><strong>The fastest-growing queries are comparative:</strong> "gemini vs chatgpt for marketing" (+120%), "gemini enterprise" (+400%), and practical operational queries like "how to use chatgpt in excel" and "chatgpt for media buyers".</li>
+</ol>
+<p>Marketing teams have moved past curiosity. They need to know <strong>which tool delivers verifiable accuracy with the least operational friction.</strong></p>
+<h2>Methodology: The 90-Day Synthetic Stress Test</h2>
+<p>To perform an objective benchmark without violating client non-disclosure agreements (NDAs), I wrote a Python script using <code>numpy.random</code> to generate a <strong>controlled 90-day synthetic dataset (720 rows)</strong> across three major ad networks: <strong>Meta Ads, Google Ads (Search &amp; PMax), and TikTok Ads.</strong></p>
+<p>I intentionally injected real-world data flaws:</p>
+<ul>
+<li><strong>Heterogeneous column naming:</strong> Inconsistent headers (<code>spend</code>, <code>Coste</code>, <code>importe_gastado</code>, <code>impressions</code>, <code>clicks</code>, <code>revenue</code>, <code>purchases</code>).</li>
+<li><strong>Null values and paused campaigns:</strong> Days with zero spend or residual impressions.</li>
+<li><strong>Non-linear compound metrics:</strong> Ratios like CTR, CPC, and ROAS that require aggregate totals rather than simple arithmetic averages.</li>
+<li><strong>Currency and regional formatting:</strong> Mixed symbols and decimal representations.</li>
+</ul>
+<p>Both models were evaluated across three stress tests.</p>
+<h2>Test 1: The Critical Flaw — Zero-Shot Arithmetic vs. Deterministic Code</h2>
+<p>The single most dangerous misconception in marketing analytics is assuming that language models can perform reliable arithmetic on tabular data. An LLM predicts the next likely token; it does not possess an internal calculator unless it runs an external execution environment.</p>
+<p>I tested the dataset under two conditions: <strong>Direct text estimation (Zero-Shot)</strong> versus <strong>Forced Python execution (Code Interpreter / Pandas)</strong>.</p>
+<figure><img src="../assets/img/benchmark-error-aritmetico.webp" alt="Arithmetic error rates: Zero-Shot vs. Code Execution in Gemini and ChatGPT" loading="lazy" decoding="async" /><figcaption>Arithmetic error rates: Zero-Shot vs. Code Execution in Gemini and ChatGPT</figcaption></figure>
+<h3>The "Average of Averages" Trap</h3>
+<p>When asked to compute total account CTR in plain text, LLMs almost invariably average the CTR column instead of calculating the weighted formula:</p>
+<p>$$\text{Weighted CTR} = \frac{\sum \text{Total Clicks}}{\sum \text{Total Impressions}}$$</p>
+<p>If an awareness campaign gets 100,000 impressions and 50 clicks (CTR = 0.05%) and a retargeting campaign gets 1,000 impressions and 100 clicks (CTR = 10.0%), a naive average claims the account CTR is $(10.0 + 0.05) / 2 = 5.02\%$. In reality, the true account CTR is:</p>
+<p>$$\frac{150}{101,000} \approx 0.148\%$$</p>
+<p>That discrepancy completely invalidates a client deliverable. In our benchmark:</p>
+<ul>
+<li><strong>Without code:</strong> ChatGPT showed a <strong>28.4%</strong> error rate on ratios and <strong>14.2%</strong> on cumulative sums. Gemini failed on <strong>31.5%</strong> of ratios and <strong>17.1%</strong> on cumulative totals.</li>
+<li><strong>With Python (Pandas):</strong> Both tools achieved <strong>0.0% error</strong>, delivering exact mathematical accuracy.</li>
+</ul>
+<p><strong>Golden Rule:</strong> Never trust marketing metrics from an AI unless you can inspect the underlying Python execution.</p>
+<h2>Test 2: Semantic Mapping of Ad Taxonomy</h2>
+<p>During raw file ingestion, LLMs excel. When uploading exports where Meta labels spend as <code>Amount Spent</code> and Google labels it as <code>Cost</code>, both tools performed exceptionally well:</p>
+<ul>
+<li><strong>ChatGPT:</strong> Correctly classified dimensions and metrics, immediately proposing a Python normalization script to clean headers and convert currency strings to floats.</li>
+<li><strong>Gemini:</strong> Demonstrated flawless understanding of digital advertising taxonomy. Ingesting files directly from Google Drive was especially seamless.</li>
+</ul>
+<p>For column detection and ad taxonomy, both models tied with outstanding marks.</p>
+<h2>From Theory to Production: The Hybrid Pipeline with mktdash</h2>
+<p>To solve this in real agency environments, I built <a href="dashboard-marketing-con-ia.en.html">mktdash</a>, an automated campaign reporting tool engineered to eliminate arithmetic hallucinations.</p>
+<p>The system relies on a <strong>decoupled hybrid architecture</strong>:</p>
+<pre><code>[Raw Multi-Channel CSV (Meta, Google, TikTok)]
+                     ↓
+[Step 1: AI / LLM] ──▶ Deduce semantic mapping of irregular columns
+                     ↓
+[Step 2: Python / Pandas] ──▶ Compute 11 KPIs with deterministic math (0% error)
+                     ↓
+[Step 3: AI / LLM] ──▶ Write executive storytelling and 3 tactical recommendations
+                     ↓
+[Interactive Dashboard &amp; Client-Ready HTML Report]</code></pre>
+<p>Here is the operational workflow:</p>
+<h3>1. Ingestion and smart column detection</h3>
+<p>Upload the raw CSV export: the model maps your spend, impressions, clicks, conversions, and revenue without manual column cleanup:</p>
+<figure><img src="../assets/img/mktdash-form.webp" alt="mktdash file upload form: Gemini detects column mappings automatically" loading="lazy" decoding="async" /><figcaption>mktdash file upload form: Gemini detects column mappings automatically</figcaption></figure>
+<h3>2. Deterministic KPI calculation engine</h3>
+<p>Python and pandas calculate total spend, revenue, blended ROAS, CPA, CTR, CPC, CPM, and conversion rates (CVR). Zero hallucinated figures:</p>
+<figure><img src="../assets/img/mktdash-dashboard.webp" alt="Generated dashboard: deterministic KPIs calculated by Python engine, executive narrative by AI" loading="lazy" decoding="async" /><figcaption>Generated dashboard: deterministic KPIs calculated by Python engine, executive narrative by AI</figcaption></figure>
+<h3>3. Interactive visualization</h3>
+<p>Interactive charts allow performance managers to zoom into daily pacing, correlation between spend and revenue, and platform splits:</p>
+<figure><img src="../assets/img/mktdash-charts.webp" alt="Interactive charts: spend vs revenue, ROAS pacing, and channel comparison" loading="lazy" decoding="async" /><figcaption>Interactive charts: spend vs revenue, ROAS pacing, and channel comparison</figcaption></figure>
+<h3>4. Client-ready executive report</h3>
+<p>The output compiles deterministic math with AI storytelling into a self-contained HTML deliverable:</p>
+<figure><img src="../assets/img/mktdash-report.webp" alt="Exported client HTML report with KPIs, executive summary, and charts" loading="lazy" decoding="async" /><figcaption>Exported client HTML report with KPIs, executive summary, and charts</figcaption></figure>
+<h2>Technical Scorecard: Gemini vs. ChatGPT for Marketing Data</h2>
+<p>Evaluating overall performance for digital marketing and performance media:</p>
+<figure><img src="../assets/img/scorecard-gemini-chatgpt.webp" alt="Technical Scorecard: Gemini vs ChatGPT for Marketing Analytics" loading="lazy" decoding="async" /><figcaption>Technical Scorecard: Gemini vs ChatGPT for Marketing Analytics</figcaption></figure>
+<table><thead><tr><th>Evaluation Criterion</th><th>Google Gemini (3 / Pro / Flash)</th><th>OpenAI ChatGPT (Plus / GPT-4o)</th><th>Winner for Marketing</th></tr></thead><tbody><tr><td><strong>Google Stack Integration</strong></td><td>Native (Sheets, Drive, GA4, BigQuery, Looker Studio)</td><td>Requires connectors and custom setup</td><td><strong>Gemini</strong> (clear winner)</td></tr><tr><td><strong>Code Interpreter in Chat</strong></td><td>Capable (executes Python via Colab/Sandbox)</td><td>Highly mature, robust, and error-tolerant</td><td><strong>ChatGPT</strong></td></tr><tr><td><strong>File Context Window</strong></td><td>Massive (up to 2M tokens; reads years of ad data)</td><td>Broad, but session-capped</td><td><strong>Gemini</strong></td></tr><tr><td><strong>API Cost for Automation</strong></td><td>Ultra-low pricing (Gemini Flash)</td><td>Competitive pricing (GPT-4o-mini)</td><td><strong>Gemini</strong> (best cost per token)</td></tr><tr><td><strong>Custom Assistant Ecosystem</strong></td><td>Gems in Workspace</td><td>Mature GPT Store with specialized tools</td><td><strong>ChatGPT</strong></td></tr><tr><td><strong>Ad-Hoc Exploratory Analysis</strong></td><td>Requires structured prompting</td><td>Highly fluid, intuitive chat workflow</td><td><strong>ChatGPT</strong></td></tr><tr><td><strong>Client Data Privacy</strong></td><td>GCP Enterprise compliance &amp; Vertex AI</td><td>OpenAI Enterprise with zero-retention terms</td><td><strong>Tie</strong> (on Enterprise tiers)</td></tr></tbody></table>
+<h2>Decision Matrix: Which One Should You Choose?</h2>
+<h3>1. Choose Google Gemini if:</h3>
+<ul>
+<li><strong>Your tech stack lives in Google:</strong> You rely on Google Sheets for budget pacing, GA4 for tracking, and Looker Studio or BigQuery for reporting. Data flows with zero friction.</li>
+<li><strong>You build automated data pipelines (Python / Cloud Functions):</strong> The Gemini Flash API offers industry-leading price-per-token efficiency, enabling hundreds of automated client summaries for pennies.</li>
+<li><strong>You process multi-year datasets:</strong> The massive context window of Pro models accommodates full historical archives without truncating data.</li>
+</ul>
+<h3>2. Choose OpenAI ChatGPT if:</h3>
+<ul>
+<li><strong>You do ad-hoc exploratory analysis:</strong> You want to drop an Excel sheet into the chat, request quick scatter plots and distribution breakdowns, and get immediate answers without coding.</li>
+<li><strong>You value Advanced Data Analysis stability:</strong> ChatGPT's Python sandbox excels at managing edge cases, displaying intermediate dataframes, and providing downloadable outputs.</li>
+<li><strong>You rely on pre-built Custom GPTs:</strong> Your team already has established assistants and prompt libraries inside ChatGPT.</li>
+</ul>
+<h2>Production Marketing Prompt (Copy-Paste)</h2>
+<p>If you are using either tool in the chat to analyze campaign exports, use this prompt to enforce Python execution and avoid calculation errors:</p>
+<pre><code>Act as a Senior Marketing Data Scientist. I will provide a CSV export with multi-channel 
+campaign performance data.
+
+MANDATORY INSTRUCTIONS:
+1. Use EXCLUSIVELY your Python code execution environment for all arithmetic calculations. 
+   Do not estimate numbers or calculate from memory.
+2. Identify columns for spend, impressions, clicks, conversions, and revenue.
+3. For ratio metrics (CTR, CPC, CPA, ROAS, CVR), compute the weighted metric across 
+   aggregate totals (e.g., CTR = total_clicks / total_impressions). NEVER average ratio columns.
+4. Output a clean summary table with: Total Spend, Total Revenue, Blended ROAS, Conversions, CPA, and CTR.
+5. Following the calculations, write:
+   - 3 primary analytical findings on channel and campaign performance.
+   - 3 tactical, high-impact recommendations to optimize budget allocation next week.</code></pre>
+<h2>Frequently Asked Questions</h2>
+<h3>Can ChatGPT calculate campaign ROAS without making arithmetic mistakes?</h3>
+<p>Only when using its Python execution environment (Advanced Data Analysis). If ChatGPT calculates ROAS in plain text without executing code, the error rate exceeds 28%, typically by averaging individual row ratios instead of dividing total revenue by total spend.</p>
+<h3>Which AI model is the most affordable for automated client reporting?</h3>
+<p>For automated pipelines using Python scripts and APIs, the Gemini family (specifically Gemini Flash) provides one of the best cost-to-performance ratios available, processing millions of campaign tokens at a fraction of competitors' costs.</p>
+<h3>Is it safe to upload client campaign data to ChatGPT or Gemini?</h3>
+<p>On standard free accounts, default terms permit providers to use conversations for model training. For sensitive marketing budgets, you must opt out of data training in settings or use enterprise tiers (Google Workspace with Gemini, OpenAI Team/Enterprise, or API connections).</p>
+<h2>Conclusion</h2>
+<p>The debate over which model is superior misses the central reality: <strong>in marketing analytics, the tool is not the competitive advantage; your workflow architecture is.</strong></p>
+<p>Generative AI does not replace statistical discipline: it multiplies it. When you combine LLM semantic interpretation with deterministic Python code, you turn hours of manual spreadsheet work into minutes of high-impact strategic decisions.</p>
+<p>If you are looking to deploy this analytics architecture in your agency or growth team, <a href="../#contact">get in touch</a> and let's talk.</p>
+    </article>
+    <div class="dl" style="margin-top:3rem">
+      <p style="font-size:14px;color:var(--text-2);line-height:1.7">
+        Did this post help you, or do you want something like this for your team? Reach out and let's talk.
+      </p>
+      <div style="display:flex;gap:.75rem;flex-wrap:wrap">
+        <a class="cta1" href="../#contact">Contact me</a>
+        <a class="cta2" href="../">View portfolio</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>Julian David Urrego Lancheros &mdash; <span class="hi">juliandatascienceexplorerv2.github.io</span></footer>
+<div id="langSuggest" class="lang-suggest" hidden>
+  <span id="langSuggestText"></span>
+  <a id="langSuggestLink" href="#"></a>
+  <button type="button" aria-label="Cerrar" onclick="this.parentNode.hidden = true">&times;</button>
+</div>
+<script>
+(function () {
+  var data = {"en": {"url": "gemini-vs-chatgpt-analisis-datos-marketing.en.html", "label": "This post is also available in English", "cta": "Read in English 🇺🇸"}, "es": {"url": "gemini-vs-chatgpt-analisis-datos-marketing.html", "label": "Este artículo también está disponible en español", "cta": "Leer en español 🇨🇴"}, "pt": {"url": "gemini-vs-chatgpt-analisis-datos-marketing.pt.html", "label": "Este post também está disponível em português", "cta": "Ler em português 🇧🇷"}};
+  var current = "en";
+  var stored = null;
+  try { stored = localStorage.getItem("lang") } catch (error) {}
+  var pick = stored;
+  if (!pick) {
+    var candidates = (navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ""]).map(function (code) { return code.toLowerCase() });
+    for (var i = 0; i < candidates.length; i++) {
+      var code = candidates[i];
+      if (code.indexOf("es") === 0) { pick = "es"; break }
+      if (code.indexOf("pt") === 0) { pick = "pt"; break }
+      if (code.indexOf("en") === 0) { pick = "en"; break }
+    }
+  }
+  if (!pick) {
+    var tz = "";
+    try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "" } catch (error) {}
+    pick = /^America\/(Sao_Paulo|Bahia|Fortaleza|Recife|Belem|Manaus|Cuiaba|Campo_Grande|Maceio|Joao_Pessoa|Araguaina|Porto_Velho|Rio_Branco|Boa_Vista|Noronha|Santarem)$/.test(tz) ? "pt" : (tz.indexOf("America/") === 0 ? "es" : "en");
+  }
+  if (pick && pick !== current && data[pick]) {
+    document.getElementById("langSuggestText").textContent = data[pick].label;
+    var link = document.getElementById("langSuggestLink");
+    link.href = data[pick].url;
+    link.textContent = data[pick].cta;
+    document.getElementById("langSuggest").hidden = false;
+  }
+})();
+</script>
+</body>
+</html>

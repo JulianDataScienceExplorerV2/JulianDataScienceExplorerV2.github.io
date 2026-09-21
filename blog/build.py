@@ -419,7 +419,7 @@ def local_url(group, lang):
 
 def extract_faqs(body):
     faqs = []
-    pattern = re.compile(r"^###\s+([¿\?].+?)\s*\n+(.+?)(?=\n+###|\n+##|\Z)", re.M | re.S)
+    pattern = re.compile(r"^###\s+([^#\n]+?\?)\s*\n+(.+?)(?=\n+###|\n+##|\Z)", re.M | re.S)
     for match in pattern.finditer(body):
         q = match.group(1).strip()
         ans = match.group(2).strip()
