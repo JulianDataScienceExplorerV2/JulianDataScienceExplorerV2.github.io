@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog de Julian Urrego — IA aplicada y datos</title>
+    <link>https://juliandatascienceexplorerv2.github.io/blog/</link>
+    <description>IA aplicada, marketing science y datos para negocios en LATAM.</description>
+    <language>es</language>
+    <lastBuildDate>Mon, 21 Sep 2026 19:28:09 +0000</lastBuildDate>
+    <atom:link href="https://juliandatascienceexplorerv2.github.io/blog/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cómo generé un dashboard de marketing con IA en 2 minutos</title>
+      <link>https://juliandatascienceexplorerv2.github.io/blog/dashboard-marketing-con-ia.html</link>
+      <guid>https://juliandatascienceexplorerv2.github.io/blog/dashboard-marketing-con-ia.html</guid>
+      <description>Construí una herramienta que convierte un CSV de campañas en un dashboard listo para el cliente, con análisis escrito por IA. Así funciona y así lo replicas.</description>
+      <pubDate>Thu, 17 Sep 2026 00:00:00 +0000</pubDate>
+    </item>
+  </channel>
+</rss>
