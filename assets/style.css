@@ -239,12 +239,40 @@
       }
     }
 
+    .hero-glow {
+      position: absolute;
+      top: 130px;
+      left: 10px;
+      width: 580px;
+      height: 320px;
+      max-width: 90vw;
+      background: radial-gradient(ellipse 65% 55% at 45% 45%, rgba(232, 25, 44, 0.22) 0%, rgba(255, 107, 53, 0.12) 40%, transparent 72%);
+      filter: blur(55px);
+      pointer-events: none;
+      z-index: -1;
+      border-radius: 50%;
+      animation: glowFloat 8s ease-in-out infinite alternate;
+    }
+
+    @keyframes glowFloat {
+      0% {
+        transform: translate(0, 0) scale(0.95);
+        opacity: 0.75;
+      }
+      100% {
+        transform: translate(30px, -12px) scale(1.06);
+        opacity: 1;
+      }
+    }
+
     .hero-name {
+      position: relative;
       font-size: clamp(2.8rem, 6vw, 4.6rem);
       font-weight: 800;
       letter-spacing: -.04em;
       line-height: 1.0;
-      margin-bottom: .25rem
+      margin-bottom: .25rem;
+      text-shadow: 0 4px 30px rgba(0, 0, 0, 0.7);
     }
 
     .hero-name .grad {
