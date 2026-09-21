@@ -51,6 +51,15 @@ POST_TEMPLATE = """<!DOCTYPE html>
 <title>{title} — Julian David Urrego Lancheros</title>
 <meta name="description" content="{description}" />
 <meta name="theme-color" content="#07070a" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HNVFP6S0ZD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){{dataLayer.push(arguments);}}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HNVFP6S0ZD');
+</script>
 <link rel="canonical" href="{url}" />
 {alternates}
 <meta property="og:type" content="article" />
@@ -115,6 +124,15 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 <title>Blog — Julian David Urrego Lancheros</title>
 <meta name="description" content="IA aplicada, marketing science y datos para negocios en LATAM. Guías prácticas con ejemplos y código." />
 <meta name="theme-color" content="#07070a" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HNVFP6S0ZD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){{dataLayer.push(arguments);}}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HNVFP6S0ZD');
+</script>
 <link rel="canonical" href="{site}/blog/" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="{site}/blog/" />

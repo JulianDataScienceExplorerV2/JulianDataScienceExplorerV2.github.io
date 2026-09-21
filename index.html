@@ -8,6 +8,15 @@
   <meta name="description"
     content="Data Scientist and BI Specialist focused on Machine Learning and AI implementation. 6+ years turning marketing, media, and sales data into predictive models, LLM automations, and executive dashboards — Python, SQL, BigQuery, Power BI, Tableau, Datorama." />
   <meta name="theme-color" content="#07070a" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HNVFP6S0ZD"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-HNVFP6S0ZD');
+  </script>
   <link rel="canonical" href="https://juliandatascienceexplorerv2.github.io/" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://juliandatascienceexplorerv2.github.io/" />
@@ -450,6 +459,9 @@
       lang = event.target.value;
       localStorage.setItem("lang", lang);
       applyLang();
+      if (typeof gtag === "function") {
+        gtag("event", "language_switch", { language: lang });
+      }
       pi = 0; ci = 0; del = false; clearTimeout(tt); typer();
     });
 
@@ -766,6 +778,23 @@
         grid.innerHTML = `<div class="skel" style="grid-column:1/-1;padding:2rem;text-align:center;color:var(--text-2)">Could not load repositories. <a href="https://github.com/${USERNAME}" style="color:var(--r1)">View on GitHub</a></div>`;
       }
     }
+    // GA4 Custom Event Tracking
+    document.querySelectorAll('a[href*="linkedin.com"], a[href*="github.com"]').forEach(link => {
+      link.addEventListener("click", () => {
+        const dest = link.href.includes("linkedin.com") ? "linkedin" : "github";
+        if (typeof gtag === "function") {
+          gtag("event", "outbound_click", { destination: dest, url: link.href });
+        }
+      });
+    });
+    document.querySelectorAll('a[href^="mailto:"], a[href*="#contact"]').forEach(link => {
+      link.addEventListener("click", () => {
+        if (typeof gtag === "function") {
+          gtag("event", "contact_intent", { target: link.getAttribute("href") });
+        }
+      });
+    });
+
     loadRepos();
   </script>
 </body>
