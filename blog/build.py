@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import html
+import json
 import os
 import re
 from datetime import datetime, timezone
@@ -11,7 +12,7 @@ BLOG_DIR = os.path.join(ROOT, "blog")
 SITE = "https://juliandatascienceexplorerv2.github.io"
 AUTHOR = "Julian David Urrego Lancheros"
 LANGS = ["es", "en", "pt"]
-LANG_LABELS = {"es": "ES", "en": "EN", "pt": "PT"}
+LANG_LABELS = {"es": "🇨🇴 ES", "en": "🇺🇸 EN", "pt": "🇧🇷 PT"}
 LANG_NAMES = {"es": "Español", "en": "English", "pt": "Português"}
 MONTHS = {
     "es": ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"],
@@ -101,6 +102,7 @@ POST_TEMPLATE = """<!DOCTYPE html>
 </div>
 
 <footer>Julian David Urrego Lancheros &mdash; <span class="hi">juliandatascienceexplorerv2.github.io</span></footer>
+{lang_suggest}
 </body>
 </html>
 """
@@ -163,6 +165,48 @@ POST_CARD = """      <a class="proj-card" href="{url}">
 """
 
 BLOCK_JSONLD = """{{"@context":"https://schema.org","@type":"BlogPosting","headline":"{title}","description":"{description}","datePublished":"{date}","dateModified":"{date}","inLanguage":"{lang}","author":{{"@type":"Person","name":"{author}","url":"{site}"}},"publisher":{{"@type":"Person","name":"{author}"}},"mainEntityOfPage":"{url}","image":"{site}/og-image.png"}}"""
+
+SUGGEST = {
+    "es": {"label": "Este artículo también está disponible en español", "cta": "Leer en español 🇨🇴"},
+    "en": {"label": "This post is also available in English", "cta": "Read in English 🇺🇸"},
+    "pt": {"label": "Este post também está disponível em português", "cta": "Ler em português 🇧🇷"},
+}
+
+LANG_SUGGEST_SCRIPT = r"""<div id="langSuggest" class="lang-suggest" hidden>
+  <span id="langSuggestText"></span>
+  <a id="langSuggestLink" href="#"></a>
+  <button type="button" aria-label="Cerrar" onclick="this.parentNode.hidden = true">&times;</button>
+</div>
+<script>
+(function () {
+  var data = __LINKS__;
+  var current = "__CURRENT__";
+  var stored = null;
+  try { stored = localStorage.getItem("lang") } catch (error) {}
+  var pick = stored;
+  if (!pick) {
+    var candidates = (navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ""]).map(function (code) { return code.toLowerCase() });
+    for (var i = 0; i < candidates.length; i++) {
+      var code = candidates[i];
+      if (code.indexOf("es") === 0) { pick = "es"; break }
+      if (code.indexOf("pt") === 0) { pick = "pt"; break }
+      if (code.indexOf("en") === 0) { pick = "en"; break }
+    }
+  }
+  if (!pick) {
+    var tz = "";
+    try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "" } catch (error) {}
+    pick = /^America\/(Sao_Paulo|Bahia|Fortaleza|Recife|Belem|Manaus|Cuiaba|Campo_Grande|Maceio|Joao_Pessoa|Araguaina|Porto_Velho|Rio_Branco|Boa_Vista|Noronha|Santarem)$/.test(tz) ? "pt" : (tz.indexOf("America/") === 0 ? "es" : "en");
+  }
+  if (pick && pick !== current && data[pick]) {
+    document.getElementById("langSuggestText").textContent = data[pick].label;
+    var link = document.getElementById("langSuggestLink");
+    link.href = data[pick].url;
+    link.textContent = data[pick].cta;
+    document.getElementById("langSuggest").hidden = false;
+  }
+})();
+</script>"""
 
 
 def parse_front_matter(text):
@@ -344,6 +388,11 @@ def render_post(group, lang):
         url=url,
     )
     locales = {"es": "es_CO", "en": "en_US", "pt": "pt_BR"}
+    links = {
+        code: {"url": local_url(group, code), "label": SUGGEST[code]["label"], "cta": SUGGEST[code]["cta"]}
+        for code in group["translations"]
+    }
+    lang_suggest = LANG_SUGGEST_SCRIPT.replace("__LINKS__", json.dumps(links, ensure_ascii=False)).replace("__CURRENT__", lang)
     page = POST_TEMPLATE.format(
         base="../",
         lang=lang,
@@ -366,6 +415,7 @@ def render_post(group, lang):
         cta=ui["cta"],
         contact=ui["contact"],
         portfolio=ui["portfolio"],
+        lang_suggest=lang_suggest,
     )
     with open(os.path.join(BLOG_DIR, local_url(group, lang)), "w", encoding="utf-8") as handle:
         handle.write(page)

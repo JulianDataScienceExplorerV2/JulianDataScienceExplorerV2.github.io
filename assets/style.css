@@ -122,7 +122,14 @@
       border-radius: 20px;
       cursor: pointer;
       letter-spacing: .1em;
-      transition: all .2s
+      transition: all .2s;
+      appearance: none;
+      -webkit-appearance: none
+    }
+
+    .lang-btn option {
+      background: var(--bg);
+      color: var(--text-1)
     }
 
     .lang-btn:hover {
@@ -922,11 +929,18 @@
     }
 
     /* lang */
-    body.lang-es [data-en] {
+    body.lang-es [data-en],
+    body.lang-es [data-pt] {
       display: none
     }
 
-    body.lang-en [data-es] {
+    body.lang-en [data-es],
+    body.lang-en [data-pt] {
+      display: none
+    }
+
+    body.lang-pt [data-en],
+    body.lang-pt [data-es] {
       display: none
     }
 
@@ -1084,7 +1098,9 @@
 
 .lang-switch {
   margin-left: .75rem;
-  letter-spacing: .08em
+  letter-spacing: .08em;
+  display: inline-block;
+  white-space: nowrap
 }
 
 .lang-switch a {
@@ -1113,4 +1129,48 @@
   color: var(--text-3);
   margin-top: .6rem;
   text-align: center
+}
+
+/* LANG SUGGEST BANNER */
+.lang-suggest {
+  position: fixed;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  z-index: 400;
+  background: #1b1b1f;
+  border: 1px solid var(--bdh);
+  border-radius: 999px;
+  padding: 9px 20px;
+  font-size: 12.5px;
+  color: var(--text-2);
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, .45)
+}
+
+.lang-suggest a {
+  color: var(--r1);
+  font-weight: 700;
+  text-decoration: none
+}
+
+.lang-suggest a:hover {
+  text-decoration: underline
+}
+
+.lang-suggest button {
+  background: none;
+  border: none;
+  color: var(--text-3);
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+  padding: 0 0 0 4px
+}
+
+.lang-suggest[hidden] {
+  display: none
 }

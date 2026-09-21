@@ -43,7 +43,7 @@
   <div class="wrap" style="max-width:760px">
     <p class="kicker"><a href="../blog/" style="color:inherit;text-decoration:none">← Volver al blog</a></p>
     <h1 class="sec-h" style="font-size:2rem;line-height:1.2">Cómo generé un dashboard de marketing con IA en 2 minutos</h1>
-    <p class="post-meta">17 sep 2026 · 3 min de lectura · <span class="tag">IA</span> <span class="tag">Marketing</span> <span class="tag">Automatización</span> <span class="tag">Python</span> <span class="lang-switch"><a href="dashboard-marketing-con-ia.html" class="active">ES</a> · <a href="dashboard-marketing-con-ia.en.html">EN</a> · <a href="dashboard-marketing-con-ia.pt.html">PT</a></span></p>
+    <p class="post-meta">17 sep 2026 · 3 min de lectura · <span class="tag">IA</span> <span class="tag">Marketing</span> <span class="tag">Automatización</span> <span class="tag">Python</span> <span class="lang-switch"><a href="dashboard-marketing-con-ia.html" class="active">🇨🇴 ES</a> · <a href="dashboard-marketing-con-ia.en.html">🇺🇸 EN</a> · <a href="dashboard-marketing-con-ia.pt.html">🇧🇷 PT</a></span></p>
     <article class="post">
 <p>En agencia, el reporte mensual es siempre el mismo ritual: abres el export de Meta, el de Google, pegas todo en Excel, armas las tablas dinámicas, revisas que los números cuadren, haces los gráficos y escribes el análisis. Tres horas después tienes algo que el cliente mira cinco minutos.</p>
 <p>Construí una herramienta para eliminar ese ritual: <strong>mktdash</strong>. Subes el archivo de campañas y en segundos tienes KPIs, gráficos y un resumen ejecutivo escrito por IA, todo exportable en un solo HTML con la marca de tu agencia.</p>
@@ -92,5 +92,40 @@
 </div>
 
 <footer>Julian David Urrego Lancheros &mdash; <span class="hi">juliandatascienceexplorerv2.github.io</span></footer>
+<div id="langSuggest" class="lang-suggest" hidden>
+  <span id="langSuggestText"></span>
+  <a id="langSuggestLink" href="#"></a>
+  <button type="button" aria-label="Cerrar" onclick="this.parentNode.hidden = true">&times;</button>
+</div>
+<script>
+(function () {
+  var data = {"en": {"url": "dashboard-marketing-con-ia.en.html", "label": "This post is also available in English", "cta": "Read in English 🇺🇸"}, "es": {"url": "dashboard-marketing-con-ia.html", "label": "Este artículo también está disponible en español", "cta": "Leer en español 🇨🇴"}, "pt": {"url": "dashboard-marketing-con-ia.pt.html", "label": "Este post também está disponível em português", "cta": "Ler em português 🇧🇷"}};
+  var current = "es";
+  var stored = null;
+  try { stored = localStorage.getItem("lang") } catch (error) {}
+  var pick = stored;
+  if (!pick) {
+    var candidates = (navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ""]).map(function (code) { return code.toLowerCase() });
+    for (var i = 0; i < candidates.length; i++) {
+      var code = candidates[i];
+      if (code.indexOf("es") === 0) { pick = "es"; break }
+      if (code.indexOf("pt") === 0) { pick = "pt"; break }
+      if (code.indexOf("en") === 0) { pick = "en"; break }
+    }
+  }
+  if (!pick) {
+    var tz = "";
+    try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "" } catch (error) {}
+    pick = /^America\/(Sao_Paulo|Bahia|Fortaleza|Recife|Belem|Manaus|Cuiaba|Campo_Grande|Maceio|Joao_Pessoa|Araguaina|Porto_Velho|Rio_Branco|Boa_Vista|Noronha|Santarem)$/.test(tz) ? "pt" : (tz.indexOf("America/") === 0 ? "es" : "en");
+  }
+  if (pick && pick !== current && data[pick]) {
+    document.getElementById("langSuggestText").textContent = data[pick].label;
+    var link = document.getElementById("langSuggestLink");
+    link.href = data[pick].url;
+    link.textContent = data[pick].cta;
+    document.getElementById("langSuggest").hidden = false;
+  }
+})();
+</script>
 </body>
 </html>
