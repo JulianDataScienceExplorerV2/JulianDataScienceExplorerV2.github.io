@@ -10,6 +10,37 @@ POSTS_DIR = os.path.join(ROOT, "posts")
 BLOG_DIR = os.path.join(ROOT, "blog")
 SITE = "https://juliandatascienceexplorerv2.github.io"
 AUTHOR = "Julian David Urrego Lancheros"
+LANGS = ["es", "en", "pt"]
+LANG_LABELS = {"es": "ES", "en": "EN", "pt": "PT"}
+LANG_NAMES = {"es": "Español", "en": "English", "pt": "Português"}
+MONTHS = {
+    "es": ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"],
+    "en": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+    "pt": ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"],
+}
+UI = {
+    "es": {
+        "home": "Portafolio", "blog": "Blog", "back": "← Volver al blog",
+        "reading": "min de lectura", "contact": "Contacto", "portfolio": "Ver portafolio",
+        "cta": "¿Te sirvió este post o quieres algo así en tu equipo? Escríbeme y lo conversamos.",
+        "index_title": "IA aplicada y datos para negocios",
+        "index_desc": "Guías prácticas, experimentos y aprendizajes sobre IA, automatización y analítica en LATAM. Con ejemplos reales, no teoría.",
+    },
+    "en": {
+        "home": "Portfolio", "blog": "Blog", "back": "← Back to blog",
+        "reading": "min read", "contact": "Contact me", "portfolio": "View portfolio",
+        "cta": "Did this post help you, or do you want something like this for your team? Reach out and let's talk.",
+        "index_title": "Applied AI and data for business",
+        "index_desc": "Practical guides, experiments, and lessons on AI, automation, and analytics in LATAM. Real examples, not theory.",
+    },
+    "pt": {
+        "home": "Portfólio", "blog": "Blog", "back": "← Voltar ao blog",
+        "reading": "min de leitura", "contact": "Fale comigo", "portfolio": "Ver portfólio",
+        "cta": "Este post te ajudou ou você quer algo assim na sua equipe? Me escreve e conversamos.",
+        "index_title": "IA aplicada e dados para negócios",
+        "index_desc": "Guias práticos, experimentos e aprendizados sobre IA, automação e analytics na América Latina. Com exemplos reais, sem teoria.",
+    },
+}
 
 POST_TEMPLATE = """<!DOCTYPE html>
 <html lang="{lang}">
@@ -20,11 +51,13 @@ POST_TEMPLATE = """<!DOCTYPE html>
 <meta name="description" content="{description}" />
 <meta name="theme-color" content="#07070a" />
 <link rel="canonical" href="{url}" />
+{alternates}
 <meta property="og:type" content="article" />
 <meta property="og:url" content="{url}" />
 <meta property="og:title" content="{title}" />
 <meta property="og:description" content="{description}" />
 <meta property="og:image" content="{site}/og-image.png" />
+<meta property="og:locale" content="{locale}" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="{title}" />
 <meta name="twitter:description" content="{description}" />
@@ -49,19 +82,19 @@ POST_TEMPLATE = """<!DOCTYPE html>
 
 <div class="section" style="padding-top:7rem">
   <div class="wrap" style="max-width:760px">
-    <p class="kicker"><a href="{base}blog/" style="color:inherit;text-decoration:none">&larr; Volver al blog</a></p>
+    <p class="kicker"><a href="{base}blog/" style="color:inherit;text-decoration:none">{back}</a></p>
     <h1 class="sec-h" style="font-size:2rem;line-height:1.2">{title}</h1>
-    <p class="sec-s" style="margin-bottom:2rem">{date_label} · {reading} min · {tags}</p>
+    <p class="post-meta">{date_label} · {reading} {reading_label} · {tags} <span class="lang-switch">{lang_links}</span></p>
     <article class="post">
 {content}
     </article>
     <div class="dl" style="margin-top:3rem">
       <p style="font-size:14px;color:var(--text-2);line-height:1.7">
-        {cta_text}
+        {cta}
       </p>
       <div style="display:flex;gap:.75rem;flex-wrap:wrap">
-        <a class="cta1" href="{base}#contact">{cta_label}</a>
-        <a class="cta2" href="{base}">{portfolio_label}</a>
+        <a class="cta1" href="{base}#contact">{contact}</a>
+        <a class="cta2" href="{base}">{portfolio}</a>
       </div>
     </div>
   </div>
@@ -106,7 +139,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   <div class="wrap">
     <p class="kicker">Blog</p>
     <h1 class="sec-h">IA aplicada y datos para negocios</h1>
-    <p class="sec-s">Guías prácticas, experimentos y aprendizajes sobre IA, automatización y analítica en LATAM. Con ejemplos reales, no teoría.</p>
+    <p class="sec-s">Guías prácticas, experimentos y aprendizajes sobre IA, automatización y analítica en LATAM. Con ejemplos reales, no teoría. Disponible en <strong>español</strong>, <strong>english</strong> and <strong>português</strong>.</p>
     <div class="post-list">
 {cards}
     </div>
@@ -121,17 +154,15 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 POST_CARD = """      <a class="proj-card" href="{url}">
         <div class="ctop">
           <div class="cicon"><svg viewBox="0 0 24 24"><path d="M4 4h16v2H4zM4 9h10v2H4zM4 14h16v2H4zM4 19h10v2H4z"/></svg></div>
-          <span class="ctime">{date_label}</span>
+          <div class="cmeta">{lang_badges}<span class="ctime">{date_label}</span></div>
         </div>
         <p class="cname">{title}</p>
         <p class="cdesc">{description}</p>
-        <div class="cfoot"><div class="tags">{tags_html}</div><span class="ctime">{reading} min</span></div>
+        <div class="cfoot"><div class="tags">{tags_html}</div><span class="ctime">{reading} {reading_label}</span></div>
       </a>
 """
 
 BLOCK_JSONLD = """{{"@context":"https://schema.org","@type":"BlogPosting","headline":"{title}","description":"{description}","datePublished":"{date}","dateModified":"{date}","inLanguage":"{lang}","author":{{"@type":"Person","name":"{author}","url":"{site}"}},"publisher":{{"@type":"Person","name":"{author}"}},"mainEntityOfPage":"{url}","image":"{site}/og-image.png"}}"""
-
-MONTHS = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"]
 
 
 def parse_front_matter(text):
@@ -182,6 +213,7 @@ def md_to_html(raw):
     while i < len(lines):
         line = lines[i]
         stripped = line.strip()
+        image = re.match(r"^!\[([^\]]*)\]\(([^)\s]+)\)$", stripped)
         if stripped.startswith("```"):
             flush_paragraph()
             close_list()
@@ -191,6 +223,12 @@ def md_to_html(raw):
                 code.append(lines[i])
                 i += 1
             out.append("<pre><code>" + "\n".join(code) + "</code></pre>")
+        elif image:
+            flush_paragraph()
+            close_list()
+            alt, src = image.group(1), image.group(2)
+            caption = f"<figcaption>{alt}</figcaption>" if alt else ""
+            out.append(f'<figure><img src="{src}" alt="{alt}" loading="lazy" decoding="async" />{caption}</figure>')
         elif re.match(r"^### ", stripped):
             flush_paragraph()
             close_list()
@@ -236,93 +274,133 @@ def reading_time(body):
     return max(1, round(len(body.split()) / 200))
 
 
-def date_label(date_str):
+def date_label(date_str, lang):
     parsed = datetime.strptime(date_str, "%Y-%m-%d")
-    return f"{parsed.day} {MONTHS[parsed.month - 1]} {parsed.year}"
+    return f"{parsed.day} {MONTHS[lang][parsed.month - 1]} {parsed.year}"
 
 
-def load_posts():
-    posts = []
+def load_groups():
+    groups = {}
     for filename in sorted(os.listdir(POSTS_DIR)):
-        if not filename.endswith(".md"):
+        match = re.match(r"^(\d{4}-\d{2}-\d{2})-(.+?)(?:\.(es|en|pt))?\.md$", filename)
+        if not match:
             continue
+        file_date, slug, lang = match.group(1), match.group(2), match.group(3) or "es"
         with open(os.path.join(POSTS_DIR, filename), encoding="utf-8") as handle:
             meta, body = parse_front_matter(handle.read())
-        match = re.match(r"^(\d{4}-\d{2}-\d{2})-(.+)\.md$", filename)
-        if match:
-            date, slug = match.group(1), match.group(2)
-        else:
-            date = meta.get("date", datetime.now().strftime("%Y-%m-%d"))
-            slug = re.sub(r"[^a-z0-9]+", "-", meta.get("title", filename).lower()).strip("-")
-        posts.append({
+        lang = meta.get("lang", lang)
+        groups.setdefault(slug, {"slug": slug, "date": meta.get("date", file_date), "translations": {}})
+        groups[slug]["translations"][lang] = {
             "title": meta.get("title", slug.replace("-", " ").title()),
             "description": meta.get("description", ""),
-            "date": meta.get("date", date),
-            "lang": meta.get("lang", "es"),
+            "date": meta.get("date", file_date),
             "tags": [tag.strip() for tag in meta.get("tags", "").split(",") if tag.strip()],
-            "slug": slug,
             "body": body,
-        })
-    posts.sort(key=lambda post: post["date"], reverse=True)
-    return posts
+        }
+    ordered = sorted(groups.values(), key=lambda group: group["date"], reverse=True)
+    for group in ordered:
+        if "es" in group["translations"]:
+            group["default"] = "es"
+        else:
+            group["default"] = next(iter(group["translations"]))
+    return ordered
 
 
-def render_post(post):
-    url = f"{SITE}/blog/{post['slug']}.html"
+def post_url(group, lang):
+    if lang == group["default"]:
+        return f"{SITE}/blog/{group['slug']}.html"
+    return f"{SITE}/blog/{group['slug']}.{lang}.html"
+
+
+def local_url(group, lang):
+    if lang == group["default"]:
+        return f"{group['slug']}.html"
+    return f"{group['slug']}.{lang}.html"
+
+
+def render_post(group, lang):
+    post = group["translations"][lang]
+    ui = UI[lang]
+    url = post_url(group, lang)
     tags_html = " ".join(f'<span class="tag">{esc(tag)}</span>' for tag in post["tags"])
+    alternates = "\n".join(
+        f'<link rel="alternate" hreflang="{code}" href="{post_url(group, code)}" />'
+        for code in LANGS if code in group["translations"]
+    )
+    alternates += f'\n<link rel="alternate" hreflang="x-default" href="{post_url(group, group["default"])}" />'
+    lang_link_parts = []
+    for code in LANGS:
+        if code in group["translations"]:
+            active = ' class="active"' if code == lang else ""
+            lang_link_parts.append(f'<a href="{local_url(group, code)}"{active}>{LANG_LABELS[code]}</a>')
+    lang_links = " · ".join(lang_link_parts)
     jsonld = BLOCK_JSONLD.format(
         title=post["title"].replace('"', "'"),
         description=post["description"].replace('"', "'"),
         date=post["date"],
-        lang=post["lang"],
+        lang=lang,
         author=AUTHOR,
         site=SITE,
         url=url,
     )
+    locales = {"es": "es_CO", "en": "en_US", "pt": "pt_BR"}
     page = POST_TEMPLATE.format(
         base="../",
-        lang=post["lang"],
-        home="Portafolio",
-        blog="Blog",
+        lang=lang,
+        home=ui["home"],
+        blog=ui["blog"],
+        back=ui["back"],
         title=esc(post["title"]),
         description=esc(post["description"]),
-        date_label=date_label(post["date"]),
+        date_label=date_label(post["date"], lang),
         reading=reading_time(post["body"]),
+        reading_label=ui["reading"],
         tags=tags_html,
+        lang_links=lang_links,
+        alternates=alternates,
+        locale=locales.get(lang, "es_CO"),
         content=md_to_html(post["body"]),
         url=url,
         site=SITE,
         jsonld=jsonld,
-        cta_text="¿Te sirvió este post o quieres algo así en tu equipo? Escríbeme y lo conversamos.",
-        cta_label="Contacto",
-        portfolio_label="Ver portafolio",
+        cta=ui["cta"],
+        contact=ui["contact"],
+        portfolio=ui["portfolio"],
     )
-    with open(os.path.join(BLOG_DIR, f"{post['slug']}.html"), "w", encoding="utf-8") as handle:
+    with open(os.path.join(BLOG_DIR, local_url(group, lang)), "w", encoding="utf-8") as handle:
         handle.write(page)
 
 
-def render_index(posts):
-    cards = "\n".join(
-        POST_CARD.format(
-            url=f"{post['slug']}.html",
-            title=esc(post["title"]),
-            description=esc(post["description"]),
-            date_label=date_label(post["date"]),
-            reading=reading_time(post["body"]),
-            tags_html=" ".join(f'<span class="tag">{esc(tag)}</span>' for tag in post["tags"]),
+def render_index(groups):
+    cards = []
+    for group in groups:
+        post = group["translations"][group["default"]]
+        badges = " ".join(
+            f'<span class="pinbadge">{LANG_LABELS[code]}</span>' for code in LANGS if code in group["translations"]
         )
-        for post in posts
-    )
-    page = INDEX_TEMPLATE.format(cards=cards, site=SITE)
+        cards.append(
+            POST_CARD.format(
+                url=local_url(group, group["default"]),
+                title=esc(post["title"]),
+                description=esc(post["description"]),
+                date_label=date_label(group["date"], "es"),
+                reading=reading_time(post["body"]),
+                reading_label=UI["es"]["reading"],
+                tags_html=" ".join(f'<span class="tag">{esc(tag)}</span>' for tag in post["tags"]),
+                lang_badges=badges,
+            )
+        )
+    page = INDEX_TEMPLATE.format(cards="\n".join(cards), site=SITE)
     with open(os.path.join(BLOG_DIR, "index.html"), "w", encoding="utf-8") as handle:
         handle.write(page)
 
 
-def render_feed(posts):
+def render_feed(groups):
     items = []
-    for post in posts:
-        url = f"{SITE}/blog/{post['slug']}.html"
-        published = datetime.strptime(post["date"], "%Y-%m-%d").replace(tzinfo=timezone.utc)
+    for group in groups:
+        post = group["translations"][group["default"]]
+        url = post_url(group, group["default"])
+        published = datetime.strptime(group["date"], "%Y-%m-%d").replace(tzinfo=timezone.utc)
         items.append(
             "    <item>\n"
             f"      <title>{esc(post['title'])}</title>\n"
@@ -350,15 +428,18 @@ def render_feed(posts):
         handle.write(feed)
 
 
-def render_sitemap(posts):
+def render_sitemap(groups):
     today = datetime.now().strftime("%Y-%m-%d")
-    latest = posts[0]["date"] if posts else today
+    latest = groups[0]["date"] if groups else today
     urls = [
         ("/", latest, "weekly", "1.0"),
         ("/blog/", latest, "weekly", "0.8"),
     ]
-    for post in posts:
-        urls.append((f"/blog/{post['slug']}.html", post["date"], "monthly", "0.7"))
+    for group in groups:
+        for lang in LANGS:
+            if lang in group["translations"]:
+                path = f"/blog/{local_url(group, lang)}"
+                urls.append((path, group["date"], "monthly", "0.7"))
     entries = "\n".join(
         "  <url>\n"
         f"    <loc>{SITE}{path}</loc>\n"
@@ -377,24 +458,31 @@ def render_sitemap(posts):
         handle.write(sitemap)
 
 
-def render_home_section(posts):
+def render_home_section(groups):
     path = os.path.join(ROOT, "index.html")
     with open(path, encoding="utf-8") as handle:
         page = handle.read()
-    cards = "\n".join(
-        POST_CARD.format(
-            url=f"blog/{post['slug']}.html",
-            title=esc(post["title"]),
-            description=esc(post["description"]),
-            date_label=date_label(post["date"]),
-            reading=reading_time(post["body"]),
-            tags_html=" ".join(f'<span class="tag">{esc(tag)}</span>' for tag in post["tags"]),
+    cards = []
+    for group in groups[:3]:
+        post = group["translations"][group["default"]]
+        badges = " ".join(
+            f'<span class="pinbadge">{LANG_LABELS[code]}</span>' for code in LANGS if code in group["translations"]
         )
-        for post in posts[:3]
-    )
+        cards.append(
+            POST_CARD.format(
+                url=f"blog/{local_url(group, group['default'])}",
+                title=esc(post["title"]),
+                description=esc(post["description"]),
+                date_label=date_label(group["date"], "es"),
+                reading=reading_time(post["body"]),
+                reading_label=UI["es"]["reading"],
+                tags_html=" ".join(f'<span class="tag">{esc(tag)}</span>' for tag in post["tags"]),
+                lang_badges=badges,
+            )
+        )
     updated = re.sub(
         r"(<!-- POSTS:START -->)(.*?)(<!-- POSTS:END -->)",
-        lambda match: match.group(1) + "\n" + cards + "\n        " + match.group(3),
+        lambda match: match.group(1) + "\n" + "\n".join(cards) + "\n        " + match.group(3),
         page,
         flags=re.S,
     )
@@ -404,14 +492,17 @@ def render_home_section(posts):
 
 def main():
     os.makedirs(BLOG_DIR, exist_ok=True)
-    posts = load_posts()
-    for post in posts:
-        render_post(post)
-    render_index(posts)
-    render_feed(posts)
-    render_sitemap(posts)
-    render_home_section(posts)
-    print(f"OK · {len(posts)} posts · blog/ + feed.xml + sitemap.xml + home actualizados")
+    groups = load_groups()
+    for group in groups:
+        for lang in LANGS:
+            if lang in group["translations"]:
+                render_post(group, lang)
+    render_index(groups)
+    render_feed(groups)
+    render_sitemap(groups)
+    render_home_section(groups)
+    total = sum(len(group["translations"]) for group in groups)
+    print(f"OK · {len(groups)} posts · {total} versiones (ES/EN/PT) · blog/ + feed + sitemap + home")
 
 
 if __name__ == "__main__":

@@ -2,6 +2,7 @@
 title: Cómo generé un dashboard de marketing con IA en 2 minutos
 description: Construí una herramienta que convierte un CSV de campañas en un dashboard listo para el cliente, con análisis escrito por IA. Así funciona y así lo replicas.
 date: 2026-09-17
+lang: es
 tags: IA, Marketing, Automatización, Python
 ---
 
@@ -15,6 +16,24 @@ Hacer un gráfico es fácil. El problema es todo lo que pasa **antes**: cada pla
 
 Ahí la IA es perfecta para una mitad del trabajo y peligrosa para la otra.
 
+## Cómo se ve
+
+Así es el flujo completo, con capturas reales de la herramienta:
+
+![Pegas tu API key de Gemini (opcional), eliges la marca y subes el CSV o Excel, o usas los datos demo](../assets/img/mktdash-form.webp)
+
+El resultado: once KPIs calculados por el motor determinista y, si hay API key, el resumen ejecutivo escrito por IA.
+
+![Dashboard generado: inversión, ingresos, ROAS, conversiones, CPA, CTR, CPC, CPM y CVR sobre 90 días de datos demo](../assets/img/mktdash-dashboard.webp)
+
+Los gráficos se renderizan en el navegador y siguen siendo interactivos: puedes hacer zoom, filtrar y leer cada punto.
+
+![Gráficos interactivos: inversión vs ingresos, evolución de ROAS, comparativo por canal, top campañas y funnel de conversión](../assets/img/mktdash-charts.webp)
+
+Y todo se exporta como un reporte HTML autocontenido, con la marca del cliente, listo para enviar por correo o imprimir como PDF.
+
+![Reporte HTML exportado con KPIs, resumen ejecutivo y todos los gráficos](../assets/img/mktdash-report.webp)
+
 ## La arquitectura: IA para entender, código para calcular
 
 El error común es pedirle a un modelo que "genere el dashboard". Los modelos de lenguaje escriben texto convincente, pero no son confiables para calcular. Un ROAS mal calculado en un reporte de cliente es un problema serio.
@@ -25,17 +44,6 @@ Por eso separé responsabilidades:
 - **Python calcula todo**: el motor en pandas computa inversión, ingresos, ROAS, conversiones, CPA, CTR, CPC, CPM, CVR. Los gráficos salen con Plotly. Cero números inventados.
 
 La regla es simple: **la IA interpreta y narra; el código calcula**. Si el modelo falla o no hay API key, el sistema sigue funcionando con detección de columnas por nombre y sin resumen.
-
-## Qué genera
-
-Con un CSV de 90 días de Meta, Google y TikTok, la herramienta produce:
-
-- Once KPIs con formato listo para presentar.
-- Inversión vs ingresos en el tiempo, evolución de eficiencia, comparativo por canal, top campañas y funnel de conversión.
-- Un resumen ejecutivo de cinco bullets con hallazgos y acciones.
-- Un reporte HTML autocontenido que puedes enviar por correo o imprimir como PDF.
-
-El motor es determinista: el mismo archivo produce siempre los mismos números. Eso es lo que te permite defenderlo frente a un cliente.
 
 ## Lo que aprendí construyéndolo
 

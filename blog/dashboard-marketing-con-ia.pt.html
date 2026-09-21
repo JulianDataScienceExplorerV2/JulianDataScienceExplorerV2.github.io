@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Como gerei um dashboard de marketing com IA em 2 minutos — Julian David Urrego Lancheros</title>
+<meta name="description" content="Construí uma ferramenta que transforma um CSV de campanhas em um dashboard pronto para o cliente, com análise escrita por IA. Veja como funciona e como replicar." />
+<meta name="theme-color" content="#07070a" />
+<link rel="canonical" href="https://juliandatascienceexplorerv2.github.io/blog/dashboard-marketing-con-ia.pt.html" />
+<link rel="alternate" hreflang="es" href="https://juliandatascienceexplorerv2.github.io/blog/dashboard-marketing-con-ia.html" />
+<link rel="alternate" hreflang="en" href="https://juliandatascienceexplorerv2.github.io/blog/dashboard-marketing-con-ia.en.html" />
+<link rel="alternate" hreflang="pt" href="https://juliandatascienceexplorerv2.github.io/blog/dashboard-marketing-con-ia.pt.html" />
+<link rel="alternate" hreflang="x-default" href="https://juliandatascienceexplorerv2.github.io/blog/dashboard-marketing-con-ia.html" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://juliandatascienceexplorerv2.github.io/blog/dashboard-marketing-con-ia.pt.html" />
+<meta property="og:title" content="Como gerei um dashboard de marketing com IA em 2 minutos" />
+<meta property="og:description" content="Construí uma ferramenta que transforma um CSV de campanhas em um dashboard pronto para o cliente, com análise escrita por IA. Veja como funciona e como replicar." />
+<meta property="og:image" content="https://juliandatascienceexplorerv2.github.io/og-image.png" />
+<meta property="og:locale" content="pt_BR" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Como gerei um dashboard de marketing com IA em 2 minutos" />
+<meta name="twitter:description" content="Construí uma ferramenta que transforma um CSV de campanhas em um dashboard pronto para o cliente, com análise escrita por IA. Veja como funciona e como replicar." />
+<meta name="twitter:image" content="https://juliandatascienceexplorerv2.github.io/og-image.png" />
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/style.css" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"Como gerei um dashboard de marketing com IA em 2 minutos","description":"Construí uma ferramenta que transforma um CSV de campanhas em um dashboard pronto para o cliente, com análise escrita por IA. Veja como funciona e como replicar.","datePublished":"2026-09-17","dateModified":"2026-09-17","inLanguage":"pt","author":{"@type":"Person","name":"Julian David Urrego Lancheros","url":"https://juliandatascienceexplorerv2.github.io"},"publisher":{"@type":"Person","name":"Julian David Urrego Lancheros"},"mainEntityOfPage":"https://juliandatascienceexplorerv2.github.io/blog/dashboard-marketing-con-ia.pt.html","image":"https://juliandatascienceexplorerv2.github.io/og-image.png"}
+</script>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="../" style="text-decoration:none">&gt;<span class="d"> julian</span>.dev</a>
+  <ul class="nav-links">
+    <li><a href="../">Portfólio</a></li>
+    <li><a href="../blog/">Blog</a></li>
+  </ul>
+</nav>
+
+<div class="section" style="padding-top:7rem">
+  <div class="wrap" style="max-width:760px">
+    <p class="kicker"><a href="../blog/" style="color:inherit;text-decoration:none">← Voltar ao blog</a></p>
+    <h1 class="sec-h" style="font-size:2rem;line-height:1.2">Como gerei um dashboard de marketing com IA em 2 minutos</h1>
+    <p class="post-meta">17 set 2026 · 3 min de leitura · <span class="tag">IA</span> <span class="tag">Marketing</span> <span class="tag">Automação</span> <span class="tag">Python</span> <span class="lang-switch"><a href="dashboard-marketing-con-ia.html">ES</a> · <a href="dashboard-marketing-con-ia.en.html">EN</a> · <a href="dashboard-marketing-con-ia.pt.html" class="active">PT</a></span></p>
+    <article class="post">
+<p>Em agência, o relatório mensal é sempre o mesmo ritual: abrir o export do Meta, o do Google, colar tudo no Excel, montar tabelas dinâmicas, conferir se os números batem, fazer os gráficos e escrever a análise. Três horas depois você tem algo que o cliente olha por cinco minutos.</p>
+<p>Construí uma ferramenta para acabar com esse ritual: <strong>mktdash</strong>. Você envia o arquivo de campanhas e em segundos tem KPIs, gráficos e um resumo executivo escrito por IA, tudo exportável em um único HTML com a marca da sua agência.</p>
+<h2>O problema real não é fazer gráficos</h2>
+<p>Fazer um gráfico é fácil. O problema é tudo o que acontece <strong>antes</strong>: cada plataforma exporta colunas com nomes diferentes, em português, inglês ou espanhol, e cada cliente pede métricas diferentes. A parte cara do relatório é a tradução: entender qual coluna é o quê, calcular os KPIs corretos e contar a história com esses números.</p>
+<p>É aí que a IA é perfeita para metade do trabalho e perigosa para a outra metade.</p>
+<h2>Como é na prática</h2>
+<p>Este é o fluxo completo, com capturas reais da ferramenta:</p>
+<figure><img src="../assets/img/mktdash-form.webp" alt="Cole sua API key do Gemini (opcional), escolha a marca e envie o CSV ou Excel — ou use os dados de demonstração" loading="lazy" decoding="async" /><figcaption>Cole sua API key do Gemini (opcional), escolha a marca e envie o CSV ou Excel — ou use os dados de demonstração</figcaption></figure>
+<p>O resultado: onze KPIs calculados pelo motor determinístico e, com API key, o resumo executivo escrito por IA.</p>
+<figure><img src="../assets/img/mktdash-dashboard.webp" alt="Dashboard gerado: investimento, receita, ROAS, conversões, CPA, CTR, CPC, CPM e CVR sobre 90 dias de dados demo" loading="lazy" decoding="async" /><figcaption>Dashboard gerado: investimento, receita, ROAS, conversões, CPA, CTR, CPC, CPM e CVR sobre 90 dias de dados demo</figcaption></figure>
+<p>Os gráficos são renderizados no navegador e continuam interativos: zoom, hover e leitura de cada ponto.</p>
+<figure><img src="../assets/img/mktdash-charts.webp" alt="Gráficos interativos: investimento vs receita, evolução do ROAS, comparação por canal, top campanhas e funil de conversão" loading="lazy" decoding="async" /><figcaption>Gráficos interativos: investimento vs receita, evolução do ROAS, comparação por canal, top campanhas e funil de conversão</figcaption></figure>
+<p>E tudo é exportado como um relatório HTML autocontido, com a marca do cliente, pronto para enviar por e-mail ou imprimir como PDF.</p>
+<figure><img src="../assets/img/mktdash-report.webp" alt="Relatório HTML exportado com KPIs, resumo executivo e todos os gráficos" loading="lazy" decoding="async" /><figcaption>Relatório HTML exportado com KPIs, resumo executivo e todos os gráficos</figcaption></figure>
+<h2>A arquitetura: IA para entender, código para calcular</h2>
+<p>O erro comum é pedir para um modelo "gerar o dashboard". Modelos de linguagem escrevem texto convincente, mas não são confiáveis para calcular. Um ROAS errado em um relatório de cliente é um problema sério.</p>
+<p>Por isso separei as responsabilidades:</p>
+<ul>
+<li><strong>O Gemini faz o que faz bem</strong>: lê os nomes das suas colunas mais cinco linhas de amostra e deduz o mapeamento (por exemplo, que "Inversión" é o investimento e "Campaña" é a dimensão). Depois lê a tabela de KPIs já calculados e escreve o resumo executivo.</li>
+<li><strong>O Python calcula tudo</strong>: o motor em pandas computa investimento, receita, ROAS, conversões, CPA, CTR, CPC, CPM e CVR. Os gráficos saem com Plotly. Zero números inventados.</li>
+</ul>
+<p>A regra é simples: <strong>a IA interpreta e narra; o código calcula</strong>. Se o modelo falhar ou não houver API key, o sistema continua funcionando com detecção de colunas por nome e sem resumo.</p>
+<h2>O que aprendi construindo</h2>
+<ol>
+<li><strong>Nomes de colunas são um caos.</strong> O mesmo dado se chama <code>spend</code>, <code>Cost</code>, <code>Inversión</code> ou <code>importe_gastado</code>. Um bom mapeamento resolve 80% da fricção de adoção.</li>
+<li><strong>As pessoas não confiam no que não podem editar.</strong> Mostrar qual coluna foi mapeada para qual campo (e permitir corrigir) vale mais do que qualquer promessa de precisão.</li>
+<li><strong>Os dados vêm sujos.</strong> Moedas com símbolos, vírgulas como decimais, datas em formatos diferentes. A validação é metade do trabalho.</li>
+<li><strong>O resumo executivo é o que vende.</strong> Os gráficos já existiam na plataforma de anúncios; a tradução para decisões é o que economiza tempo.</li>
+</ol>
+<h2>Como replicar</h2>
+<p>O stack é curto: Python, pandas, Plotly e a API do Gemini. A versão local tem cerca de 400 linhas mais o motor de métricas; a versão web adiciona FastAPI e Next.js.</p>
+<p>Se você quer montar algo assim na sua agência ou equipe, precisa de três coisas: um export limpo de campanhas, uma API key do Gemini e decidir quais KPIs importam para o seu cliente. O resto é encanamento.</p>
+<p>Se isso te for útil, publico aqui as decisões técnicas e de negócio por trás do que construo. E se quiser levar isso para a sua equipe, me escreva.</p>
+    </article>
+    <div class="dl" style="margin-top:3rem">
+      <p style="font-size:14px;color:var(--text-2);line-height:1.7">
+        Este post te ajudou ou você quer algo assim na sua equipe? Me escreve e conversamos.
+      </p>
+      <div style="display:flex;gap:.75rem;flex-wrap:wrap">
+        <a class="cta1" href="../#contact">Fale comigo</a>
+        <a class="cta2" href="../">Ver portfólio</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>Julian David Urrego Lancheros &mdash; <span class="hi">juliandatascienceexplorerv2.github.io</span></footer>
+</body>
+</html>
