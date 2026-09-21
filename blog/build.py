@@ -493,6 +493,11 @@ LSI_KEYWORDS = {
         "pt": "Dashboard de marketing com IA, Automação de relatórios de marketing, Python para marketing digital, Power BI Looker Studio IA Brasil",
         "en": "AI Marketing Dashboard, Automated Marketing Reports, Python for Digital Marketing, Power BI Looker Studio AI",
     },
+    "seguridad-agentes-ia-responsabilidad-ingenieria": {
+        "es": "Seguridad en agentes de IA, Prompt Injection en producción, Guardrails de IA, Arquitectura Zero-Trust LLM, Ciberseguridad Agentes Autónomos, Andrew Ng seguridad IA, Sandboxing LLM, Human in the loop IA",
+        "pt": "Segurança em agentes de IA, Prompt Injection em produção, Guardrails de IA, Arquitetura Zero-Trust LLM, Cibersegurança Agentes Autônomos, Andrew Ng segurança IA, Sandboxing LLM Brasil",
+        "en": "AI Agent Security, Prompt Injection in Production, AI Guardrails, Zero-Trust LLM Architecture, Autonomous Agents Cybersecurity, Andrew Ng AI Safety, Sandboxing LLMs",
+    },
 }
 
 
