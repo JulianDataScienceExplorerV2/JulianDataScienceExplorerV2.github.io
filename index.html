@@ -492,19 +492,29 @@
     const REDUCED = matchMedia("(prefers-reduced-motion: reduce)").matches;
     let heroVisible = true;
     const COLS = ["232,25,44", "255,107,53", "196,18,48"];
-    let N = 20;
+    let N = 22;
 
     function resize() {
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
       W = C.offsetWidth; H = C.offsetHeight;
       C.width = W * dpr; C.height = H * dpr;
       X.setTransform(dpr, 0, 0, dpr, 0, 0);
-      N = W < 640 ? 10 : 20;
+      N = W < 640 ? 11 : 22;
     }
+
+    const pointer = { x: 0, y: 0, active: false };
+    window.addEventListener("pointermove", event => {
+      const rect = C.getBoundingClientRect();
+      pointer.x = event.clientX - rect.left;
+      pointer.y = event.clientY - rect.top;
+      pointer.active = pointer.x >= 0 && pointer.y >= 0 && pointer.x <= W && pointer.y <= H;
+    }, { passive: true });
+    window.addEventListener("pointerleave", () => { pointer.active = false });
+    window.addEventListener("pointerup", event => { if (event.pointerType !== "mouse") pointer.active = false });
 
     function makeAtom() {
       const angle = Math.random() * Math.PI * 2;
-      const speed = .1 + Math.random() * .25;
+      const speed = .12 + Math.random() * .3;
       const count = 1 + Math.floor(Math.random() * 2);
       const orbits = Array.from({ length: count }, () => ({
         a: Math.random() * Math.PI * 2,
@@ -512,13 +522,22 @@
         r: 5 + Math.random() * 7,
         size: .8 + Math.random() * .7
       }));
+      let spawnX = Math.random() * W;
+      let spawnY = Math.random() * H;
+      if (pointer.active) {
+        for (let attempt = 0; attempt < 6; attempt++) {
+          if (Math.sqrt((spawnX - pointer.x) * (spawnX - pointer.x) + (spawnY - pointer.y) * (spawnY - pointer.y)) > 150) break;
+          spawnX = Math.random() * W;
+          spawnY = Math.random() * H;
+        }
+      }
       return {
-        x: Math.random() * W,
-        y: Math.random() * H,
+        x: spawnX,
+        y: spawnY,
         vx: Math.cos(angle) * speed,
         vy: Math.sin(angle) * speed,
         r: 1.4 + Math.random() * 1.2,
-        rad: Math.max.apply(null, orbits.map(orbit => orbit.r)) + 5,
+        rad: Math.max.apply(null, orbits.map(orbit => orbit.r)) + 8,
         orbits: orbits,
         col: COLS[Math.floor(Math.random() * COLS.length)],
         alpha: REDUCED ? 1 : 0
@@ -545,6 +564,14 @@
         atom.x += atom.vx;
         atom.y += atom.vy;
         atom.orbits.forEach(orbit => { orbit.a += orbit.s });
+        if (pointer.active) {
+          const px = atom.x - pointer.x, py = atom.y - pointer.y;
+          if (Math.sqrt(px * px + py * py) < atom.rad + 6) {
+            spawnBurst(atom.x, atom.y, atom.col);
+            Object.assign(atom, makeAtom());
+            return;
+          }
+        }
         if (atom.x < -margin) atom.x = W + margin;
         if (atom.x > W + margin) atom.x = -margin;
         if (atom.y < -margin) atom.y = H + margin;
