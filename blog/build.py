@@ -98,7 +98,7 @@ POST_TEMPLATE = """<!DOCTYPE html>
   <div class="wrap" style="max-width:760px">
     <p class="kicker"><a href="{base}blog/" style="color:inherit;text-decoration:none">{back}</a></p>
     <h1 class="sec-h" style="font-size:2rem;line-height:1.2">{title}</h1>
-    <p class="post-meta">{date_label} · {reading} {reading_label} · {tags} <span class="lang-switch">{lang_links}</span></p>
+    <p class="post-meta">{date_label} · {reading} {reading_label} · {tags}</p>
     <article class="post">
 {content}
     </article>
@@ -221,7 +221,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 POST_CARD = """      <a class="proj-card" href="{url}">
         <div class="ctop">
           <div class="cicon"><svg viewBox="0 0 24 24"><path d="M4 4h16v2H4zM4 9h10v2H4zM4 14h16v2H4zM4 19h10v2H4z"/></svg></div>
-          <div class="cmeta">{lang_badges}<span class="ctime">{date_label}</span></div>
+          <div class="cmeta"><span class="ctime">{date_label}</span></div>
         </div>
         <p class="cname">{title}</p>
         <p class="cdesc">{description}</p>
@@ -232,9 +232,9 @@ POST_CARD = """      <a class="proj-card" href="{url}">
 BLOCK_JSONLD = """{{"@context":"https://schema.org","@type":"BlogPosting","headline":"{title}","description":"{description}","datePublished":"{date}","dateModified":"{date}","inLanguage":"{lang}","author":{{"@type":"Person","name":"{author}","url":"{site}"}},"publisher":{{"@type":"Person","name":"{author}"}},"mainEntityOfPage":"{url}","image":"{site}/og-image.png"}}"""
 
 SUGGEST = {
-    "es": {"label": "Este artículo también está disponible en español", "cta": "Leer en español 🇨🇴"},
-    "en": {"label": "This post is also available in English", "cta": "Read in English 🇺🇸"},
-    "pt": {"label": "Este post também está disponível em português", "cta": "Ler em português 🇧🇷"},
+    "es": {"label": "Este artículo también está disponible en español", "cta": "Leer en español"},
+    "en": {"label": "This post is also available in English", "cta": "Read in English"},
+    "pt": {"label": "Este post também está disponível em português", "cta": "Ler em português"},
 }
 
 LANG_SUGGEST_SCRIPT = r"""<div id="langSuggest" class="lang-suggest" hidden>
@@ -628,7 +628,6 @@ def render_post(group, lang):
         reading=reading_time(post["body"]),
         reading_label=ui["reading"],
         tags=tags_html,
-        lang_links=lang_links,
         alternates=alternates,
         locale=locales.get(lang, "es_CO"),
         og_locales_alternate=og_locales_alternate,
@@ -649,9 +648,6 @@ def render_index(groups):
     cards = []
     for group in groups:
         post = group["translations"][group["default"]]
-        badges = " ".join(
-            f'<span class="pinbadge">{LANG_LABELS[code]}</span>' for code in LANGS if code in group["translations"]
-        )
         cards.append(
             POST_CARD.format(
                 url=local_url(group, group["default"]),
@@ -661,7 +657,6 @@ def render_index(groups):
                 reading=reading_time(post["body"]),
                 reading_label=UI["es"]["reading"],
                 tags_html=" ".join(f'<span class="tag">{esc(tag)}</span>' for tag in post["tags"]),
-                lang_badges=badges,
             )
         )
     page = INDEX_TEMPLATE.format(cards="\n".join(cards), site=SITE)
@@ -771,9 +766,6 @@ def render_home_section(groups):
     cards = []
     for group in groups[:3]:
         post = group["translations"][group["default"]]
-        badges = " ".join(
-            f'<span class="pinbadge">{LANG_LABELS[code]}</span>' for code in LANGS if code in group["translations"]
-        )
         cards.append(
             POST_CARD.format(
                 url=f"blog/{local_url(group, group['default'])}",
@@ -783,7 +775,6 @@ def render_home_section(groups):
                 reading=reading_time(post["body"]),
                 reading_label=UI["es"]["reading"],
                 tags_html=" ".join(f'<span class="tag">{esc(tag)}</span>' for tag in post["tags"]),
-                lang_badges=badges,
             )
         )
     updated = re.sub(

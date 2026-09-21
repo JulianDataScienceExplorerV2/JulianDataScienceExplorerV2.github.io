@@ -1,7 +1,7 @@
 ---
 title: How I generated a marketing dashboard with AI in 2 minutes
 description: I built a tool that turns a campaign CSV into a client-ready dashboard with AI-written insights. Here is how it works and how you can replicate it.
-date: 2026-09-17
+date: 2025-08-14
 lang: en
 tags: AI, Marketing, Automation, Python
 ---

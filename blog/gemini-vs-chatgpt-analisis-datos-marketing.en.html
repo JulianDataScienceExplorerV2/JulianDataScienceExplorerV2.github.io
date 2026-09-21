@@ -49,8 +49,8 @@
       "@id": "https://juliandatascienceexplorerv2.github.io/blog/gemini-vs-chatgpt-analisis-datos-marketing.en.html#article",
       "headline": "Gemini vs ChatGPT for Marketing Data Analysis: Stress-Tested on Real Campaign Data",
       "description": "Which AI is better for analyzing marketing campaigns? We tested Gemini and ChatGPT on a 90-day multi-channel Python dataset, Google Trends data, and math stress tests.",
-      "datePublished": "2026-09-21",
-      "dateModified": "2026-09-21",
+      "datePublished": "2026-03-10",
+      "dateModified": "2026-03-10",
       "inLanguage": "en",
       "proficiencyLevel": "Expert",
       "dependencies": "Google Cloud BigQuery, Python 3.10+, GoogleSQL, Google Analytics 4",
@@ -163,7 +163,7 @@
   <div class="wrap" style="max-width:760px">
     <p class="kicker"><a href="../blog/" style="color:inherit;text-decoration:none">← Back to blog</a></p>
     <h1 class="sec-h" style="font-size:2rem;line-height:1.2">Gemini vs ChatGPT for Marketing Data Analysis: Stress-Tested on Real Campaign Data</h1>
-    <p class="post-meta">21 Sep 2026 · 9 min read · <span class="tag">AI</span> <span class="tag">Gemini</span> <span class="tag">ChatGPT</span> <span class="tag">Marketing</span> <span class="tag">Data</span> <span class="tag">Python</span> <span class="lang-switch"><a href="gemini-vs-chatgpt-analisis-datos-marketing.html">🇨🇴 ES</a> · <a href="gemini-vs-chatgpt-analisis-datos-marketing.en.html" class="active">🇺🇸 EN</a> · <a href="gemini-vs-chatgpt-analisis-datos-marketing.pt.html">🇧🇷 PT</a></span></p>
+    <p class="post-meta">10 Mar 2026 · 9 min read · <span class="tag">AI</span> <span class="tag">Gemini</span> <span class="tag">ChatGPT</span> <span class="tag">Marketing</span> <span class="tag">Data</span> <span class="tag">Python</span></p>
     <article class="post">
 <p>It is the most common question I get from media buyers and marketing leaders on LinkedIn: <strong>"Should I use Gemini or ChatGPT to analyze my campaign reports and performance data?"</strong>. The short answer is that both are remarkable, but in marketing analytics, the line between an executive-ready report and a financial disaster comes down to three variables: <strong>where your data lives, what engine executes the calculations, and how well it integrates with your analytics stack.</strong></p>
 <blockquote><p><strong>30-Second Verdict (TL;DR):</strong><br />- <strong>Never let an LLM do math in free text:</strong> When asking ChatGPT or Gemini to calculate ratio metrics (ROAS, CTR, CPA) without code execution, the error rate exceeds <strong>28%</strong> due to the "average of averages" trap. With Python/Pandas enabled, calculation error is <strong>0%</strong>.<br />- <strong>Choose Gemini</strong> if your day-to-day operations live inside the Google ecosystem (Google Sheets, BigQuery, GA4, Looker Studio), you need to ingest multi-year data via its million-token context window, or you need the most cost-effective API (Gemini Flash) to automate client reports.<br />- <strong>Choose ChatGPT</strong> if your workflow is ad-hoc exploratory analysis directly in the chat without external code, leveraging the maturity and stability of its native Advanced Data Analysis Python environment.</p></blockquote>
@@ -300,7 +300,7 @@ MANDATORY INSTRUCTIONS:
 </div>
 <script>
 (function () {
-  var data = {"en": {"url": "gemini-vs-chatgpt-analisis-datos-marketing.en.html", "label": "This post is also available in English", "cta": "Read in English 🇺🇸"}, "es": {"url": "gemini-vs-chatgpt-analisis-datos-marketing.html", "label": "Este artículo también está disponible en español", "cta": "Leer en español 🇨🇴"}, "pt": {"url": "gemini-vs-chatgpt-analisis-datos-marketing.pt.html", "label": "Este post também está disponível em português", "cta": "Ler em português 🇧🇷"}};
+  var data = {"en": {"url": "gemini-vs-chatgpt-analisis-datos-marketing.en.html", "label": "This post is also available in English", "cta": "Read in English"}, "es": {"url": "gemini-vs-chatgpt-analisis-datos-marketing.html", "label": "Este artículo también está disponible en español", "cta": "Leer en español"}, "pt": {"url": "gemini-vs-chatgpt-analisis-datos-marketing.pt.html", "label": "Este post também está disponível em português", "cta": "Ler em português"}};
   var current = "en";
   var stored = null;
   try { stored = localStorage.getItem("lang") } catch (error) {}

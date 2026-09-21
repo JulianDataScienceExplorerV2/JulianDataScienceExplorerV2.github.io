@@ -1,7 +1,7 @@
 ---
 title: Gemini vs ChatGPT for Marketing Data Analysis: Stress-Tested on Real Campaign Data
 description: Which AI is better for analyzing marketing campaigns? We tested Gemini and ChatGPT on a 90-day multi-channel Python dataset, Google Trends data, and math stress tests.
-date: 2026-09-21
+date: 2026-03-10
 lang: en
 tags: AI, Gemini, ChatGPT, Marketing, Data, Python
 ---
