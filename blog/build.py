@@ -50,6 +50,9 @@ POST_TEMPLATE = """<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>{title} — Julian David Urrego Lancheros</title>
 <meta name="description" content="{description}" />
+<meta name="keywords" content="{keywords}" />
+<meta name="author" content="{author}" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 <meta name="theme-color" content="#07070a" />
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HNVFP6S0ZD"></script>
@@ -68,6 +71,7 @@ POST_TEMPLATE = """<!DOCTYPE html>
 <meta property="og:description" content="{description}" />
 <meta property="og:image" content="{site}/og-image.png" />
 <meta property="og:locale" content="{locale}" />
+{og_locales_alternate}
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="{title}" />
 <meta name="twitter:description" content="{description}" />
@@ -123,6 +127,9 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Blog — Julian David Urrego Lancheros</title>
 <meta name="description" content="IA aplicada, marketing science y datos para negocios en LATAM. Guías prácticas con ejemplos y código." />
+<meta name="keywords" content="IA aplicada marketing, Data Science Colombia, Inteligencia Artificial Negocios, BigQuery AI Agent, Analítica Digital Latam, Python Marketing, Business Intelligence, Text to SQL BigQuery, Cientista de Dados Brasil" />
+<meta name="author" content="Julian David Urrego Lancheros" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 <meta name="theme-color" content="#07070a" />
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HNVFP6S0ZD"></script>
@@ -139,12 +146,52 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 <meta property="og:title" content="Blog — Julian David Urrego Lancheros" />
 <meta property="og:description" content="IA aplicada, marketing science y datos para negocios en LATAM." />
 <meta property="og:image" content="{site}/og-image.png" />
+<meta property="og:locale" content="es_CO" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="en_US" />
 <link rel="alternate" type="application/rss+xml" title="Blog de Julian Urrego" href="{site}/blog/feed.xml" />
 <link rel="icon" type="image/png" href="../favicon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="../assets/style.css" />
+<script type="application/ld+json">
+{{
+  "@context": "https://schema.org",
+  "@graph": [
+    {{
+      "@type": "CollectionPage",
+      "@id": "{site}/blog/#collection",
+      "url": "{site}/blog/",
+      "name": "Blog de Julian David Urrego Lancheros — IA aplicada y datos para negocios",
+      "description": "IA aplicada, marketing science y analítica avanzada para negocios en LATAM.",
+      "publisher": {{
+        "@type": "Person",
+        "name": "Julian David Urrego Lancheros",
+        "url": "{site}/"
+      }}
+    }},
+    {{
+      "@type": "BreadcrumbList",
+      "@id": "{site}/blog/#breadcrumb",
+      "itemListElement": [
+        {{
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "{site}/"
+        }},
+        {{
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "{site}/blog/"
+        }}
+      ]
+    }}
+  ]
+}}
+</script>
 </head>
 <body>
 <nav>
@@ -430,6 +477,25 @@ def extract_faqs(body):
     return faqs
 
 
+LSI_KEYWORDS = {
+    "agentes-ia-bigquery-marketing": {
+        "es": "Agentes de IA BigQuery, Text-to-SQL BigQuery, Agente de IA para marketing, Chatbot SQL Google Cloud, Automatizar reportes BigQuery, Reducir costos BigQuery IA, Guardrails BigQuery Python, Conectar ChatGPT a BigQuery, Looker Studio vs Agentes IA, Marketing Science Colombia, Business Intelligence Colombia",
+        "pt": "Agentes de IA BigQuery, Text-to-SQL BigQuery Brasil, Inteligência Artificial Marketing, Automação de relatórios BigQuery, Chatbot SQL Marketing, Guardrails BigQuery custos, ROAS BigQuery Python, Conectar ChatGPT a BigQuery, Looker Studio IA, Marketing Science Brasil, Cientista de Dados Brasil",
+        "en": "BigQuery AI Agent, Text-to-SQL BigQuery, AI Marketing Analytics, Automated Marketing Reporting BigQuery, Google Cloud AI SQL Agent, Cost Optimization BigQuery, Marketing Science Data Engineering, Python BigQuery AI",
+    },
+    "gemini-vs-chatgpt-analisis-datos-marketing": {
+        "es": "Gemini vs ChatGPT marketing, ChatGPT análisis de datos, Google Gemini análisis de datos, error promedio de promedios CTR ROAS, Python Code Interpreter marketing, IA para analítica digital Colombia, prompts de marketing para ChatGPT",
+        "pt": "Gemini vs ChatGPT marketing Brasil, Análise de dados ChatGPT, Google Gemini dados marketing, erro média de médias CTR ROAS, Python Code Interpreter marketing, IA para analytics Brasil",
+        "en": "Gemini vs ChatGPT marketing analytics, ChatGPT data analysis, Google Gemini vs ChatGPT for marketing, average of averages error CTR ROAS, Python Code Interpreter marketing, AI marketing benchmarks",
+    },
+    "dashboard-marketing-con-ia": {
+        "es": "Dashboard marketing con IA, Automatización de reportes marketing, Python para marketing digital, Power BI Looker Studio IA, Visualización de datos marketing Latam",
+        "pt": "Dashboard de marketing com IA, Automação de relatórios de marketing, Python para marketing digital, Power BI Looker Studio IA Brasil",
+        "en": "AI Marketing Dashboard, Automated Marketing Reports, Python for Digital Marketing, Power BI Looker Studio AI",
+    },
+}
+
+
 def render_post(group, lang):
     post = group["translations"][lang]
     ui = UI[lang]
@@ -446,30 +512,88 @@ def render_post(group, lang):
             active = ' class="active"' if code == lang else ""
             lang_link_parts.append(f'<a href="{local_url(group, code)}"{active}>{LANG_LABELS[code]}</a>')
     lang_links = " · ".join(lang_link_parts)
-    
+
+    locales = {"es": "es_CO", "en": "en_US", "pt": "pt_BR"}
+    alt_locales_map = {
+        "es": ["pt_BR", "en_US"],
+        "pt": ["es_CO", "en_US"],
+        "en": ["es_CO", "pt_BR"],
+    }
+    og_locales_alternate = "\n".join(
+        f'<meta property="og:locale:alternate" content="{loc}" />'
+        for loc in alt_locales_map.get(lang, [])
+    )
+
+    keywords_str = LSI_KEYWORDS.get(group["slug"], {}).get(lang)
+    if not keywords_str:
+        keywords_str = ", ".join(post["tags"])
+
     faqs = extract_faqs(post["body"])
     posting_entity = {
-        "@type": "BlogPosting",
+        "@type": "TechArticle",
+        "@id": f"{url}#article",
         "headline": post["title"],
         "description": post["description"],
         "datePublished": post["date"],
         "dateModified": post["date"],
         "inLanguage": lang,
+        "proficiencyLevel": "Expert",
+        "dependencies": "Google Cloud BigQuery, Python 3.10+, GoogleSQL, Google Analytics 4",
+        "keywords": keywords_str,
+        "about": [
+            {"@type": "Thing", "name": "Google BigQuery", "sameAs": "https://en.wikipedia.org/wiki/BigQuery"},
+            {"@type": "Thing", "name": "Artificial Intelligence", "sameAs": "https://en.wikipedia.org/wiki/Artificial_intelligence"},
+            {"@type": "Thing", "name": "Marketing Analytics"},
+            {"@type": "Thing", "name": "Data Science"}
+        ],
         "author": {
             "@type": "Person",
             "name": AUTHOR,
-            "url": SITE
+            "url": f"{SITE}/",
+            "sameAs": [
+                "https://www.linkedin.com/in/julian-david-urrego-lancheros-880a49129/",
+                "https://github.com/JulianDataScienceExplorerV2"
+            ]
         },
         "publisher": {
             "@type": "Person",
-            "name": AUTHOR
+            "name": AUTHOR,
+            "url": f"{SITE}/"
         },
         "mainEntityOfPage": url,
         "image": f"{SITE}/og-image.png"
     }
+
+    breadcrumbs_entity = {
+        "@type": "BreadcrumbList",
+        "@id": f"{url}#breadcrumb",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": ui["home"],
+                "item": f"{SITE}/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": ui["blog"],
+                "item": f"{SITE}/blog/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": post["title"],
+                "item": url
+            }
+        ]
+    }
+
+    schema_graph = [posting_entity, breadcrumbs_entity]
     if faqs:
         faq_entity = {
             "@type": "FAQPage",
+            "@id": f"{url}#faq",
             "mainEntity": [
                 {
                     "@type": "Question",
@@ -481,11 +605,10 @@ def render_post(group, lang):
                 } for q, a in faqs
             ]
         }
-        jsonld = json.dumps({"@context": "https://schema.org", "@graph": [posting_entity, faq_entity]}, ensure_ascii=False, indent=2)
-    else:
-        jsonld = json.dumps({"@context": "https://schema.org", **posting_entity}, ensure_ascii=False, indent=2)
+        schema_graph.append(faq_entity)
 
-    locales = {"es": "es_CO", "en": "en_US", "pt": "pt_BR"}
+    jsonld = json.dumps({"@context": "https://schema.org", "@graph": schema_graph}, ensure_ascii=False, indent=2)
+
     links = {
         code: {"url": local_url(group, code), "label": SUGGEST[code]["label"], "cta": SUGGEST[code]["cta"]}
         for code in group["translations"]
@@ -499,6 +622,8 @@ def render_post(group, lang):
         back=ui["back"],
         title=esc(post["title"]),
         description=esc(post["description"]),
+        keywords=esc(keywords_str),
+        author=AUTHOR,
         date_label=date_label(post["date"], lang),
         reading=reading_time(post["body"]),
         reading_label=ui["reading"],
@@ -506,6 +631,7 @@ def render_post(group, lang):
         lang_links=lang_links,
         alternates=alternates,
         locale=locales.get(lang, "es_CO"),
+        og_locales_alternate=og_locales_alternate,
         content=md_to_html(post["body"]),
         url=url,
         site=SITE,
@@ -579,31 +705,63 @@ def render_feed(groups):
 def render_sitemap(groups):
     today = datetime.now().strftime("%Y-%m-%d")
     latest = groups[0]["date"] if groups else today
-    urls = [
-        ("/", latest, "weekly", "1.0"),
-        ("/blog/", latest, "weekly", "0.8"),
-    ]
+    items = []
+
+    # Home URL with multilingual alternates
+    home_xhtml = "".join(
+        f'    <xhtml:link rel="alternate" hreflang="{code}" href="{SITE}/?lang={code}"/>\n'
+        for code in ["es", "pt", "en"]
+    )
+    home_xhtml += f'    <xhtml:link rel="alternate" hreflang="x-default" href="{SITE}/"/>\n'
+    items.append(
+        "  <url>\n"
+        f"    <loc>{SITE}/</loc>\n"
+        f"{home_xhtml}"
+        f"    <lastmod>{latest}</lastmod>\n"
+        "    <changefreq>weekly</changefreq>\n"
+        "    <priority>1.0</priority>\n"
+        "  </url>"
+    )
+
+    # Blog Index
+    items.append(
+        "  <url>\n"
+        f"    <loc>{SITE}/blog/</loc>\n"
+        f"    <lastmod>{latest}</lastmod>\n"
+        "    <changefreq>weekly</changefreq>\n"
+        "    <priority>0.9</priority>\n"
+        "  </url>"
+    )
+
+    # Each post with all its alternate language links
     for group in groups:
         for lang in LANGS:
             if lang in group["translations"]:
-                path = f"/blog/{local_url(group, lang)}"
-                urls.append((path, group["date"], "monthly", "0.7"))
-    entries = "\n".join(
-        "  <url>\n"
-        f"    <loc>{SITE}{path}</loc>\n"
-        f"    <lastmod>{lastmod}</lastmod>\n"
-        f"    <changefreq>{freq}</changefreq>\n"
-        f"    <priority>{priority}</priority>\n"
-        "  </url>"
-        for path, lastmod, freq, priority in urls
-    )
+                p_url = post_url(group, lang)
+                post_xhtml = "".join(
+                    f'    <xhtml:link rel="alternate" hreflang="{code}" href="{post_url(group, code)}"/>\n'
+                    for code in LANGS if code in group["translations"]
+                )
+                post_xhtml += f'    <xhtml:link rel="alternate" hreflang="x-default" href="{post_url(group, group["default"])}"/>\n'
+                items.append(
+                    "  <url>\n"
+                    f"    <loc>{p_url}</loc>\n"
+                    f"{post_xhtml}"
+                    f"    <lastmod>{group['date']}</lastmod>\n"
+                    "    <changefreq>monthly</changefreq>\n"
+                    "    <priority>0.8</priority>\n"
+                    "  </url>"
+                )
+
     sitemap = (
         '<?xml version="1.0" encoding="UTF-8"?>\n'
-        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-        f"{entries}\n</urlset>\n"
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n'
+        '        xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
+        + "\n".join(items) + "\n</urlset>\n"
     )
     with open(os.path.join(ROOT, "sitemap.xml"), "w", encoding="utf-8") as handle:
         handle.write(sitemap)
+
 
 
 def render_home_section(groups):
