@@ -214,18 +214,57 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 </div>
 
 <footer>Julian David Urrego Lancheros &mdash; <span class="hi">juliandatascienceexplorerv2.github.io</span></footer>
+<script>
+  if (window.matchMedia('(hover: hover)').matches) {{
+    const cardSelector = '.proj-card';
+    document.addEventListener('mousemove', e => {{
+      const card = e.target.closest(cardSelector);
+      if (!card) return;
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      card.style.setProperty('--mouse-x', `${{x}}px`);
+      card.style.setProperty('--mouse-y', `${{y}}px`);
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * -4.5;
+      const rotateY = ((x - centerX) / centerX) * 4.5;
+      card.style.transform = `perspective(1000px) rotateX(${{rotateX.toFixed(2)}}deg) rotateY(${{rotateY.toFixed(2)}}deg) translateY(-4px)`;
+    }});
+    document.addEventListener('mouseout', e => {{
+      const card = e.target.closest(cardSelector);
+      if (card && (!e.relatedTarget || !card.contains(e.relatedTarget))) {{
+        card.style.transform = '';
+      }}
+    }});
+  }}
+</script>
 </body>
 </html>
 """
 
-POST_CARD = """      <a class="proj-card" href="{url}">
-        <div class="ctop">
-          <div class="cicon"><svg viewBox="0 0 24 24"><path d="M4 4h16v2H4zM4 9h10v2H4zM4 14h16v2H4zM4 19h10v2H4z"/></svg></div>
-          <div class="cmeta"><span class="ctime">{date_label}</span></div>
+POST_THUMBNAILS = {
+    "seguridad-agentes-ia-responsabilidad-ingenieria": "assets/img/agent-security-guardrails-architecture.webp",
+    "agentes-ia-bigquery-marketing": "assets/img/bigquery-agent-architecture.webp",
+    "gemini-vs-chatgpt-analisis-datos-marketing": "assets/img/scorecard-gemini-chatgpt.webp",
+    "dashboard-marketing-con-ia": "assets/img/mktdash-dashboard.webp",
+}
+
+POST_CARD = """      <a class="proj-card post-card" href="{url}">
+        <div class="card-thumb-wrap">
+          <img class="card-thumb" src="{thumb_url}" alt="{alt_title}" loading="lazy" decoding="async" />
+          <div class="card-thumb-overlay"></div>
+          {badge_html}
         </div>
-        <p class="cname">{title}</p>
-        <p class="cdesc">{description}</p>
-        <div class="cfoot"><div class="tags">{tags_html}</div><span class="ctime">{reading} {reading_label}</span></div>
+        <div class="card-body">
+          <div class="ctop">
+            <div class="cicon"><svg viewBox="0 0 24 24"><path d="M4 4h16v2H4zM4 9h10v2H4zM4 14h16v2H4zM4 19h10v2H4z"/></svg></div>
+            <div class="cmeta"><span class="ctime">{date_label}</span></div>
+          </div>
+          <p class="cname">{title}</p>
+          <p class="cdesc">{description}</p>
+          <div class="cfoot"><div class="tags">{tags_html}</div><span class="ctime">{reading} {reading_label}</span></div>
+        </div>
       </a>
 """
 
@@ -651,8 +690,10 @@ def render_post(group, lang):
 
 def render_index(groups):
     cards = []
-    for group in groups:
+    for idx, group in enumerate(groups):
         post = group["translations"][group["default"]]
+        badge_html = '<span class="badge-new"><span class="pulse-dot"></span> NUEVO</span>' if idx == 0 else ""
+        thumb_url = f"../{POST_THUMBNAILS.get(group['slug'], '')}"
         cards.append(
             POST_CARD.format(
                 url=local_url(group, group["default"]),
@@ -662,6 +703,9 @@ def render_index(groups):
                 reading=reading_time(post["body"]),
                 reading_label=UI["es"]["reading"],
                 tags_html=" ".join(f'<span class="tag">{esc(tag)}</span>' for tag in post["tags"]),
+                thumb_url=thumb_url,
+                badge_html=badge_html,
+                alt_title=html.escape(post["title"], quote=True),
             )
         )
     page = INDEX_TEMPLATE.format(cards="\n".join(cards), site=SITE)
@@ -769,8 +813,10 @@ def render_home_section(groups):
     with open(path, encoding="utf-8") as handle:
         page = handle.read()
     cards = []
-    for group in groups[:3]:
+    for idx, group in enumerate(groups[:3]):
         post = group["translations"][group["default"]]
+        badge_html = '<span class="badge-new"><span class="pulse-dot"></span> NUEVO</span>' if idx == 0 else ""
+        thumb_url = POST_THUMBNAILS.get(group["slug"], "")
         cards.append(
             POST_CARD.format(
                 url=f"blog/{local_url(group, group['default'])}",
@@ -780,6 +826,9 @@ def render_home_section(groups):
                 reading=reading_time(post["body"]),
                 reading_label=UI["es"]["reading"],
                 tags_html=" ".join(f'<span class="tag">{esc(tag)}</span>' for tag in post["tags"]),
+                thumb_url=thumb_url,
+                badge_html=badge_html,
+                alt_title=html.escape(post["title"], quote=True),
             )
         )
     updated = re.sub(
