@@ -53,7 +53,7 @@ POST_TEMPLATE = """<!DOCTYPE html>
 <meta name="keywords" content="{keywords}" />
 <meta name="author" content="{author}" />
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-<meta name="theme-color" content="#07070a" />
+<meta name="theme-color" content="#0F1115" />
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HNVFP6S0ZD"></script>
 <script>
@@ -76,6 +76,7 @@ POST_TEMPLATE = """<!DOCTYPE html>
 <meta name="twitter:title" content="{title}" />
 <meta name="twitter:description" content="{description}" />
 <meta name="twitter:image" content="{site}/og-image.png" />
+<link rel="icon" type="image/svg+xml" href="{base}favicon.svg" />
 <link rel="icon" type="image/png" href="{base}favicon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -130,7 +131,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 <meta name="keywords" content="IA aplicada marketing, Data Science Colombia, Inteligencia Artificial Negocios, BigQuery AI Agent, Analítica Digital Latam, Python Marketing, Business Intelligence, Text to SQL BigQuery, Cientista de Dados Brasil" />
 <meta name="author" content="Julian David Urrego Lancheros" />
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-<meta name="theme-color" content="#07070a" />
+<meta name="theme-color" content="#0F1115" />
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HNVFP6S0ZD"></script>
 <script>
@@ -150,6 +151,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 <meta property="og:locale:alternate" content="pt_BR" />
 <meta property="og:locale:alternate" content="en_US" />
 <link rel="alternate" type="application/rss+xml" title="Blog de Julian Urrego" href="{site}/blog/feed.xml" />
+<link rel="icon" type="image/svg+xml" href="../favicon.svg" />
 <link rel="icon" type="image/png" href="../favicon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -244,6 +246,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 """
 
 POST_THUMBNAILS = {
+    "prompt-injection-agentes-llm-produccion": "assets/img/agent-security-guardrails-architecture.webp",
     "seguridad-agentes-ia-responsabilidad-ingenieria": "assets/img/agent-security-guardrails-architecture.webp",
     "agentes-ia-bigquery-marketing": "assets/img/bigquery-agent-architecture.webp",
     "gemini-vs-chatgpt-analisis-datos-marketing": "assets/img/scorecard-gemini-chatgpt.webp",
@@ -300,7 +303,8 @@ LANG_SUGGEST_SCRIPT = r"""<div id="langSuggest" class="lang-suggest" hidden>
   if (!pick) {
     var tz = "";
     try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "" } catch (error) {}
-    pick = /^America\/(Sao_Paulo|Bahia|Fortaleza|Recife|Belem|Manaus|Cuiaba|Campo_Grande|Maceio|Joao_Pessoa|Araguaina|Porto_Velho|Rio_Branco|Boa_Vista|Noronha|Santarem)$/.test(tz) ? "pt" : (tz.indexOf("America/") === 0 ? "es" : "en");
+    var spanish = /^America\/(Bogota|Lima|Mexico_City|Monterrey|Cancun|Guatemala|El_Salvador|Tegucigalpa|Managua|Costa_Rica|Panama|Havana|Santo_Domingo|Puerto_Rico|Caracas|Guayaquil|La_Paz|Santiago|Asuncion|Montevideo|Buenos_Aires|Cordoba|Argentina\/.+)$/;
+    pick = /^America\/(Sao_Paulo|Bahia|Fortaleza|Recife|Belem|Manaus|Cuiaba|Campo_Grande|Maceio|Joao_Pessoa|Araguaina|Porto_Velho|Rio_Branco|Boa_Vista|Noronha|Santarem)$/.test(tz) ? "pt" : (spanish.test(tz) ? "es" : "en");
   }
   if (pick && pick !== current && data[pick]) {
     document.getElementById("langSuggestText").textContent = data[pick].label;

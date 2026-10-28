@@ -14,6 +14,9 @@
 - **Languages**: Spanish (Native), English (B2+ Professional Working), Portuguese (A2–B1).
 
 ## Key Technical Articles & Guides
+- [Defensa en profundidad para agentes LLM: de 78,3% a 2,5% de éxito de prompt injection](https://juliandatascienceexplorerv2.github.io/blog/prompt-injection-agentes-llm-produccion.html)
+  - English: [https://juliandatascienceexplorerv2.github.io/blog/prompt-injection-agentes-llm-produccion.en.html](https://juliandatascienceexplorerv2.github.io/blog/prompt-injection-agentes-llm-produccion.en.html)
+  - Portuguese: [https://juliandatascienceexplorerv2.github.io/blog/prompt-injection-agentes-llm-produccion.pt.html](https://juliandatascienceexplorerv2.github.io/blog/prompt-injection-agentes-llm-produccion.pt.html)
 - [Mitigating Direct and Indirect Prompt Injection in Production LLM Agents (Zenodo, 2026)](https://doi.org/10.5281/zenodo.22886108)
 - [Agentes de IA sobre BigQuery: Cómo armar un bot que responde preguntas de tu data de marketing en 3 segundos](https://juliandatascienceexplorerv2.github.io/blog/agentes-ia-bigquery-marketing.html)
   - Portuguese version: [https://juliandatascienceexplorerv2.github.io/blog/agentes-ia-bigquery-marketing.pt.html](https://juliandatascienceexplorerv2.github.io/blog/agentes-ia-bigquery-marketing.pt.html)

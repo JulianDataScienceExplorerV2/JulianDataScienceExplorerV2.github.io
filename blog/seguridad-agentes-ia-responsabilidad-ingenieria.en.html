@@ -8,7 +8,7 @@
 <meta name="keywords" content="AI Agent Security, Prompt Injection in Production, AI Guardrails, Zero-Trust LLM Architecture, Autonomous Agents Cybersecurity, Andrew Ng AI Safety, Sandboxing LLMs" />
 <meta name="author" content="Julian David Urrego Lancheros" />
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-<meta name="theme-color" content="#07070a" />
+<meta name="theme-color" content="#0F1115" />
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HNVFP6S0ZD"></script>
 <script>
@@ -35,6 +35,7 @@
 <meta name="twitter:title" content="The "Out-of-Control Agent" Fallacy: AI Security as a Software Engineering Problem" />
 <meta name="twitter:description" content="Inspired by Andrew Ng's editorial on AI fear-mongering, we examine why autonomous agent failures are not sci-fi doom, but concrete architectural challenges in sandboxing, credentials, and data governance." />
 <meta name="twitter:image" content="https://juliandatascienceexplorerv2.github.io/og-image.png" />
+<link rel="icon" type="image/svg+xml" href="../favicon.svg" />
 <link rel="icon" type="image/png" href="../favicon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -244,7 +245,8 @@
   if (!pick) {
     var tz = "";
     try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "" } catch (error) {}
-    pick = /^America\/(Sao_Paulo|Bahia|Fortaleza|Recife|Belem|Manaus|Cuiaba|Campo_Grande|Maceio|Joao_Pessoa|Araguaina|Porto_Velho|Rio_Branco|Boa_Vista|Noronha|Santarem)$/.test(tz) ? "pt" : (tz.indexOf("America/") === 0 ? "es" : "en");
+    var spanish = /^America\/(Bogota|Lima|Mexico_City|Monterrey|Cancun|Guatemala|El_Salvador|Tegucigalpa|Managua|Costa_Rica|Panama|Havana|Santo_Domingo|Puerto_Rico|Caracas|Guayaquil|La_Paz|Santiago|Asuncion|Montevideo|Buenos_Aires|Cordoba|Argentina\/.+)$/;
+    pick = /^America\/(Sao_Paulo|Bahia|Fortaleza|Recife|Belem|Manaus|Cuiaba|Campo_Grande|Maceio|Joao_Pessoa|Araguaina|Porto_Velho|Rio_Branco|Boa_Vista|Noronha|Santarem)$/.test(tz) ? "pt" : (spanish.test(tz) ? "es" : "en");
   }
   if (pick && pick !== current && data[pick]) {
     document.getElementById("langSuggestText").textContent = data[pick].label;
