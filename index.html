@@ -7,7 +7,7 @@
   <title>Julian David Urrego Lancheros — AI Engineer &amp; Solution Architect (Cloud &amp; AI)</title>
   <meta name="description"
     content="AI Engineer and Solution Architect focused on Cloud, Generative AI, and technical presales. 6+ years designing LLM/RAG systems, autonomous agents, and data platforms on GCP and AWS — BigQuery, Cloud Run, Vertex AI, Python, SQL, and enterprise BI." />
-  <meta name="theme-color" content="#07070a" />
+  <meta name="theme-color" content="#0b1220" />
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-HNVFP6S0ZD"></script>
   <script>
@@ -45,6 +45,7 @@
     content="AI Engineer and Solution Architect: Cloud, Generative AI, RAG, autonomous agents, and technical presales." />
   <meta name="twitter:image" content="https://juliandatascienceexplorerv2.github.io/og-image.png" />
   <meta name="twitter:image:alt" content="Julian David Urrego Lancheros — AI Engineer &amp; Solution Architect (Cloud &amp; AI)" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <script type="application/ld+json">
@@ -674,7 +675,7 @@
     let W, H, atoms = [], bursts = [], rafId = null;
     const REDUCED = matchMedia("(prefers-reduced-motion: reduce)").matches;
     let heroVisible = true;
-    const COLS = ["232,25,44", "255,107,53", "196,18,48"];
+    const COLS = ["79,124,247", "56,189,248", "37,99,235"];
     let N = 22;
 
     function resize() {
@@ -1078,7 +1079,7 @@
             const trs = step.rows.map(r => `<tr>${r.map(c => `<td>${c}</td>`).join("")}</tr>`).join("");
             stepHtml = `<div class="term-line"><span class="term-tag info">RESULTS</span><span>Query execution returned 2 rows:</span></div><div class="term-table-wrap"><table class="term-table"><thead><tr>${ths}</tr></thead><tbody>${trs}</tbody></table></div>`;
           } else if (step.tag === "security") {
-            stepHtml = `<div class="term-line"><span class="term-tag security">GUARDRAIL</span><span style="white-space:pre-line;color:#fca5a5;">${step.text.replace(/</g, "&lt;")}</span></div>`;
+            stepHtml = `<div class="term-line"><span class="term-tag security">GUARDRAIL</span><span style="white-space:pre-line;color:#93c5fd;">${step.text.replace(/</g, "&lt;")}</span></div>`;
           } else {
             stepHtml = `<div class="term-line"><span class="term-tag ${step.tag}">${step.tag.toUpperCase()}</span><span>${step.text.replace(/</g, "&lt;")}</span></div>`;
           }
