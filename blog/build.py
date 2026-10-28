@@ -775,20 +775,14 @@ def render_sitemap(groups):
         "  </url>"
     )
 
-    # Each post with all its alternate language links
+    # Each post. Hreflang lives in each page's <head>, not in the sitemap.
     for group in groups:
         for lang in LANGS:
             if lang in group["translations"]:
                 p_url = post_url(group, lang)
-                post_xhtml = "".join(
-                    f'    <xhtml:link rel="alternate" hreflang="{code}" href="{post_url(group, code)}"/>\n'
-                    for code in LANGS if code in group["translations"]
-                )
-                post_xhtml += f'    <xhtml:link rel="alternate" hreflang="x-default" href="{post_url(group, group["default"])}"/>\n'
                 items.append(
                     "  <url>\n"
                     f"    <loc>{p_url}</loc>\n"
-                    f"{post_xhtml}"
                     f"    <lastmod>{group['date']}</lastmod>\n"
                     "    <changefreq>monthly</changefreq>\n"
                     "    <priority>0.8</priority>\n"
@@ -797,8 +791,7 @@ def render_sitemap(groups):
 
     sitemap = (
         '<?xml version="1.0" encoding="UTF-8"?>\n'
-        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n'
-        '        xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
         + "\n".join(items) + "\n</urlset>\n"
     )
     with open(os.path.join(ROOT, "sitemap.xml"), "w", encoding="utf-8") as handle:
