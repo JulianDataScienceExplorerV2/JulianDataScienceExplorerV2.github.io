@@ -1,8 +1,9 @@
-# Julian David Urrego Lancheros — AI Implementation & Data Science Specialist
+# Julian David Urrego Lancheros — AI Engineer & Solution Architect (Cloud & AI)
 
-> Senior Data Scientist and AI Implementation Specialist based in Bogotá, Colombia, serving clients across Latin America (Colombia, Mexico, Chile, Argentina), Brazil, Spain, and the United States. 6+ years experience in Marketing Science, LLM Agents, Google Cloud BigQuery, Text-to-SQL architecture, and executive business intelligence.
+> AI Engineer and Solution Architect based in Bogotá, Colombia, serving clients across Latin America (Colombia, Mexico, Chile, Argentina), Brazil, Spain, and the United States. 6+ years designing cloud, data, and Generative AI solutions: LLM/RAG systems, autonomous agents, GCP and AWS architectures, BigQuery, and technical presales.
 
 ## Core Services & Capabilities
+- **Cloud & GenAI Solution Architecture**: End-to-end architecture on GCP and AWS, RAG pipelines, autonomous agents, LLM integrations, MCP, and technical presales/POCs for enterprise adoption.
 - **Enterprise BigQuery AI Agents**: Production-ready Text-to-SQL agents connected to Google Cloud BigQuery and Snowflake for marketing and media teams. Built with semantic abstraction layers, deterministic guardrails, dry-run cost verification (<$0.003/query), and strict read-only IAM security.
 - **Marketing Science & Predictive Modeling**: Media Mix Modeling (MMM), incremental attribution, customer lifetime value (LTV), churn prediction, and custom ad-tech algorithms.
 - **Executive BI & Automated Reporting**: Looker Studio, Power BI, Tableau, and automated Python ETL pipelines integrating Meta Ads, Google Ads, TikTok Ads, and GA4 data.
@@ -10,9 +11,10 @@
 
 ## Geographic Coverage & Languages
 - **Regions Served**: Colombia, Mexico, Chile, Brazil, Spain, USA, and Global Remote.
-- **Languages**: Spanish (Native), English (Professional Working), Portuguese (Professional Working).
+- **Languages**: Spanish (Native), English (B2+ Professional Working), Portuguese (A2–B1).
 
 ## Key Technical Articles & Guides
+- [Mitigating Direct and Indirect Prompt Injection in Production LLM Agents (Zenodo, 2026)](https://doi.org/10.5281/zenodo.22886108)
 - [Agentes de IA sobre BigQuery: Cómo armar un bot que responde preguntas de tu data de marketing en 3 segundos](https://juliandatascienceexplorerv2.github.io/blog/agentes-ia-bigquery-marketing.html)
   - Portuguese version: [https://juliandatascienceexplorerv2.github.io/blog/agentes-ia-bigquery-marketing.pt.html](https://juliandatascienceexplorerv2.github.io/blog/agentes-ia-bigquery-marketing.pt.html)
   - English version: [https://juliandatascienceexplorerv2.github.io/blog/agentes-ia-bigquery-marketing.en.html](https://juliandatascienceexplorerv2.github.io/blog/agentes-ia-bigquery-marketing.en.html)
