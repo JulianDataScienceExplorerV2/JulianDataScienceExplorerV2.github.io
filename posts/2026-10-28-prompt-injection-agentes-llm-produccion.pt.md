@@ -52,3 +52,15 @@ Não é uma defesa perfeita e não pretende ser. É uma redução mensurável de
 Segurança de agentes não se resolve com uma frase no prompt nem com uma camada mágica. Resolve-se com engenharia: fronteiras explícitas, validação determinística e pessoas no ponto de decisão.
 
 Leia e cite a nota completa aqui: **[https://doi.org/10.5281/zenodo.22886108](https://doi.org/10.5281/zenodo.22886108)**. É uma nota técnica de acesso aberto com benchmark empírico, não um artigo revisado por pares.
+
+
+## Perguntas frequentes
+
+### O que é injeção indireta de prompt?
+É um ataque em que instruções maliciosas viajam dentro de dados que o agente lê —uma linha de banco de dados, uma página web, um PDF ou um e-mail— e o modelo as confunde com comandos legítimos. O usuário não precisa digitar nada malicioso no chat.
+
+### Melhorar o system prompt é suficiente?
+Não. Um system prompt é uma sugestão para o modelo, não uma fronteira determinística. A defesa deve viver no código: limites criptográficos, parsing AST, permissões read-only e aprovação humana para ações destrutivas.
+
+### Onde posso ler a nota completa?
+No Zenodo, com acesso aberto e DOI: [https://doi.org/10.5281/zenodo.22886108](https://doi.org/10.5281/zenodo.22886108). É uma nota técnica com benchmark empírico, não um artigo revisado por pares.

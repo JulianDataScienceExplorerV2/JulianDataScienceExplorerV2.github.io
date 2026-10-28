@@ -116,6 +116,36 @@
           "item": "https://juliandatascienceexplorerv2.github.io/blog/prompt-injection-agentes-llm-produccion.html"
         }
       ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://juliandatascienceexplorerv2.github.io/blog/prompt-injection-agentes-llm-produccion.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué es la inyección indirecta de prompt?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Es un ataque en el que instrucciones maliciosas viajan dentro de datos que el agente lee —una fila de base de datos, una web, un PDF o un correo— y el modelo las confunde con órdenes legítimas. No requiere que el usuario escriba nada malicioso en el chat."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Basta con mejorar el system prompt?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Un system prompt es una sugerencia para el modelo, no una frontera determinista. La defensa debe vivir en código: límites criptográficos, parsing AST, permisos read-only y aprobación humana para acciones destructivas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Dónde puedo leer la nota completa?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "En Zenodo, con acceso abierto y DOI: https://doi.org/10.5281/zenodo.22886108. Es una nota técnica con benchmark empírico, no un artículo revisado por pares."
+          }
+        }
+      ]
     }
   ]
 }
@@ -134,7 +164,7 @@
   <div class="wrap" style="max-width:760px">
     <p class="kicker"><a href="../blog/" style="color:inherit;text-decoration:none">← Volver al blog</a></p>
     <h1 class="sec-h" style="font-size:2rem;line-height:1.2">Defensa en profundidad para agentes LLM: de 78,3% a 2,5% de éxito de prompt injection</h1>
-    <p class="post-meta">28 oct 2026 · 3 min de lectura · <span class="tag">Prompt Injection</span> <span class="tag">LLM Security</span> <span class="tag">AI Agents</span> <span class="tag">RAG</span> <span class="tag">Cloud</span> <span class="tag">BigQuery</span></p>
+    <p class="post-meta">28 oct 2026 · 4 min de lectura · <span class="tag">Prompt Injection</span> <span class="tag">LLM Security</span> <span class="tag">AI Agents</span> <span class="tag">RAG</span> <span class="tag">Cloud</span> <span class="tag">BigQuery</span></p>
     <article class="post">
 <p>Los agentes de IA ya no viven en un chat aislado. Leen correos, consultan bases de datos, navegan páginas y ejecutan acciones con herramientas reales. Ese salto de "responder texto" a "actuar sobre sistemas" cambia por completo el modelo de amenaza: el mayor riesgo ya no es que el modelo diga algo incorrecto, sino que un dato malicioso lo convenza de ejecutar una acción destructiva.</p>
 <p>Ese es el problema que abordé en la nota técnica <strong>Mitigating Direct and Indirect Prompt Injection in Production LLM Agents</strong> (<a href="https://doi.org/10.5281/zenodo.22886108">Zenodo, 2026</a>). La conclusión principal: <strong>los system prompts no son un control de seguridad</strong>. Funcionan como una sugerencia, no como una frontera determinista.</p>
@@ -170,6 +200,13 @@
 </ul>
 <p>La seguridad de agentes no se resuelve con una frase en el prompt ni con una capa mágica. Se resuelve con ingeniería: fronteras explícitas, validación determinista y personas en el punto de decisión.</p>
 <p>Puedes leer la nota completa y citarla aquí: <strong><a href="https://doi.org/10.5281/zenodo.22886108">https://doi.org/10.5281/zenodo.22886108</a></strong>. Es una nota técnica de acceso abierto, con benchmark empírico; no es un artículo revisado por pares.</p>
+<h2>Preguntas frecuentes</h2>
+<h3>¿Qué es la inyección indirecta de prompt?</h3>
+<p>Es un ataque en el que instrucciones maliciosas viajan dentro de datos que el agente lee —una fila de base de datos, una web, un PDF o un correo— y el modelo las confunde con órdenes legítimas. No requiere que el usuario escriba nada malicioso en el chat.</p>
+<h3>¿Basta con mejorar el system prompt?</h3>
+<p>No. Un system prompt es una sugerencia para el modelo, no una frontera determinista. La defensa debe vivir en código: límites criptográficos, parsing AST, permisos read-only y aprobación humana para acciones destructivas.</p>
+<h3>¿Dónde puedo leer la nota completa?</h3>
+<p>En Zenodo, con acceso abierto y DOI: <a href="https://doi.org/10.5281/zenodo.22886108">https://doi.org/10.5281/zenodo.22886108</a>. Es una nota técnica con benchmark empírico, no un artículo revisado por pares.</p>
     </article>
     <div class="dl" style="margin-top:3rem">
       <p style="font-size:14px;color:var(--text-2);line-height:1.7">

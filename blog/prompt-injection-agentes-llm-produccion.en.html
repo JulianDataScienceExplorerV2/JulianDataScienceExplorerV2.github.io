@@ -116,6 +116,36 @@
           "item": "https://juliandatascienceexplorerv2.github.io/blog/prompt-injection-agentes-llm-produccion.en.html"
         }
       ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://juliandatascienceexplorerv2.github.io/blog/prompt-injection-agentes-llm-produccion.en.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is indirect prompt injection?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It is an attack where malicious instructions travel inside data the agent reads —a database row, a web page, a PDF, or an email— and the model mistakes them for legitimate commands. The user does not need to type anything malicious in the chat."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is improving the system prompt enough?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. A system prompt is a suggestion to the model, not a deterministic boundary. Defense must live in code: cryptographic boundaries, AST parsing, read-only permissions, and human approval for destructive actions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where can I read the full note?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "On Zenodo, open access, with a DOI: https://doi.org/10.5281/zenodo.22886108. It is a technical note with an empirical benchmark, not a peer-reviewed journal article."
+          }
+        }
+      ]
     }
   ]
 }
@@ -134,7 +164,7 @@
   <div class="wrap" style="max-width:760px">
     <p class="kicker"><a href="../blog/" style="color:inherit;text-decoration:none">← Back to blog</a></p>
     <h1 class="sec-h" style="font-size:2rem;line-height:1.2">Defense in Depth for Production LLM Agents: From 78.3% to 2.5% Prompt-Injection Success</h1>
-    <p class="post-meta">28 Oct 2026 · 3 min read · <span class="tag">Prompt Injection</span> <span class="tag">LLM Security</span> <span class="tag">AI Agents</span> <span class="tag">RAG</span> <span class="tag">Cloud</span> <span class="tag">BigQuery</span></p>
+    <p class="post-meta">28 Oct 2026 · 4 min read · <span class="tag">Prompt Injection</span> <span class="tag">LLM Security</span> <span class="tag">AI Agents</span> <span class="tag">RAG</span> <span class="tag">Cloud</span> <span class="tag">BigQuery</span></p>
     <article class="post">
 <p>AI agents no longer live inside a chat window. They read email, query databases, browse web pages, and call real tools. Moving from "answering text" to "acting on systems" changes the threat model: the main risk is no longer a wrong answer, but a malicious data point convincing the agent to execute a destructive action.</p>
 <p>That is the problem I address in the technical note <strong>Mitigating Direct and Indirect Prompt Injection in Production LLM Agents</strong> (<a href="https://doi.org/10.5281/zenodo.22886108">Zenodo, 2026</a>). The core conclusion: <strong>system prompts are not a security control</strong>. They are a suggestion, not a deterministic boundary.</p>
@@ -170,6 +200,13 @@
 </ul>
 <p>Agent security is not solved by a sentence in a prompt or a magic layer. It is solved with engineering: explicit boundaries, deterministic validation, and humans at the decision point.</p>
 <p>Read and cite the full note here: <strong><a href="https://doi.org/10.5281/zenodo.22886108">https://doi.org/10.5281/zenodo.22886108</a></strong>. It is an open-access technical note with an empirical benchmark, not a peer-reviewed journal article.</p>
+<h2>Frequently asked questions</h2>
+<h3>What is indirect prompt injection?</h3>
+<p>It is an attack where malicious instructions travel inside data the agent reads —a database row, a web page, a PDF, or an email— and the model mistakes them for legitimate commands. The user does not need to type anything malicious in the chat.</p>
+<h3>Is improving the system prompt enough?</h3>
+<p>No. A system prompt is a suggestion to the model, not a deterministic boundary. Defense must live in code: cryptographic boundaries, AST parsing, read-only permissions, and human approval for destructive actions.</p>
+<h3>Where can I read the full note?</h3>
+<p>On Zenodo, open access, with a DOI: <a href="https://doi.org/10.5281/zenodo.22886108">https://doi.org/10.5281/zenodo.22886108</a>. It is a technical note with an empirical benchmark, not a peer-reviewed journal article.</p>
     </article>
     <div class="dl" style="margin-top:3rem">
       <p style="font-size:14px;color:var(--text-2);line-height:1.7">

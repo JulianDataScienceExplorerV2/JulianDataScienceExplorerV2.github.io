@@ -52,3 +52,15 @@ This is not a perfect defense, and it does not claim to be. It is a measurable r
 Agent security is not solved by a sentence in a prompt or a magic layer. It is solved with engineering: explicit boundaries, deterministic validation, and humans at the decision point.
 
 Read and cite the full note here: **[https://doi.org/10.5281/zenodo.22886108](https://doi.org/10.5281/zenodo.22886108)**. It is an open-access technical note with an empirical benchmark, not a peer-reviewed journal article.
+
+
+## Frequently asked questions
+
+### What is indirect prompt injection?
+It is an attack where malicious instructions travel inside data the agent reads —a database row, a web page, a PDF, or an email— and the model mistakes them for legitimate commands. The user does not need to type anything malicious in the chat.
+
+### Is improving the system prompt enough?
+No. A system prompt is a suggestion to the model, not a deterministic boundary. Defense must live in code: cryptographic boundaries, AST parsing, read-only permissions, and human approval for destructive actions.
+
+### Where can I read the full note?
+On Zenodo, open access, with a DOI: [https://doi.org/10.5281/zenodo.22886108](https://doi.org/10.5281/zenodo.22886108). It is a technical note with an empirical benchmark, not a peer-reviewed journal article.
