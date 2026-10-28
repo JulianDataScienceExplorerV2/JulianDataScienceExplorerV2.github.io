@@ -1714,3 +1714,9 @@
 .term-sql-code .c { color:#64748b; font-style:italic; }
 .term-sql-code .f { color:#c4b5fd; }
 @media(max-width:720px){ .agent-flow{gap:.4rem} .flow-step{min-width:104px;padding:.55rem .7rem} .term-metrics{display:none} }
+
+/* Demo labels and severity chips */
+.preset-code { font-family:"JetBrains Mono",monospace; font-size:9px; font-weight:700; color:var(--r2); border:1px solid var(--bd); border-radius:4px; padding:2px 5px; letter-spacing:.04em; }
+.sev { display:inline-block; padding:2px 6px; border-radius:4px; font-family:"JetBrains Mono",monospace; font-size:9px; font-weight:700; letter-spacing:.04em; }
+.sev.critical { background:rgba(239,68,68,.14); color:#f87171; border:1px solid rgba(239,68,68,.30); }
+.sev.warning { background:rgba(245,158,11,.14); color:#fbbf24; border:1px solid rgba(245,158,11,.30); }

@@ -22,10 +22,6 @@
   <meta name="author" content="Julian David Urrego Lancheros" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <link rel="canonical" href="https://juliandatascienceexplorerv2.github.io/" />
-  <link rel="alternate" hreflang="es" href="https://juliandatascienceexplorerv2.github.io/?lang=es" />
-  <link rel="alternate" hreflang="pt" href="https://juliandatascienceexplorerv2.github.io/?lang=pt" />
-  <link rel="alternate" hreflang="en" href="https://juliandatascienceexplorerv2.github.io/?lang=en" />
-  <link rel="alternate" hreflang="x-default" href="https://juliandatascienceexplorerv2.github.io/" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://juliandatascienceexplorerv2.github.io/" />
   <meta property="og:site_name" content="Julian David Urrego Lancheros" />
@@ -36,9 +32,9 @@
   <meta property="og:image:alt" content="Julian David Urrego Lancheros — AI Engineer &amp; Solution Architect (Cloud &amp; AI)" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:locale" content="es_CO" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="es_CO" />
   <meta property="og:locale:alternate" content="pt_BR" />
-  <meta property="og:locale:alternate" content="en_US" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Julian David Urrego Lancheros — AI Engineer &amp; Solution Architect (Cloud &amp; AI)" />
   <meta name="twitter:description"
@@ -332,15 +328,15 @@
             <p class="preset-label" data-en="Select an executive query scenario:" data-es="Selecciona un escenario de consulta ejecutiva:" data-pt="Selecione um cenário de consulta executiva:">Selecciona un escenario de consulta ejecutiva:</p>
             <div class="preset-pills">
               <button type="button" class="pill-btn active" data-query-id="roas">
-                <span>📊</span>
+                <span class="preset-code">SQL-01</span>
                 <span data-en="ROAS & CPA by Media Channel (Last 30d)" data-es="ROAS y CPA por Canal de Medios (Últimos 30d)" data-pt="ROAS e CPA por Canal de Mídia (Últimos 30d)">ROAS y CPA por Canal de Medios (Últimos 30d)</span>
               </button>
               <button type="button" class="pill-btn" data-query-id="anomaly">
-                <span>⚡</span>
+                <span class="preset-code">FIN-02</span>
                 <span data-en="High CPA Anomaly Alert (> $35 Threshold)" data-es="Alerta de Anomalías: CPA Elevado (> $35)" data-pt="Alerta de Anomalias: CPA Elevado (> $35)">Alerta de Anomalías: CPA Elevado (> $35)</span>
               </button>
               <button type="button" class="pill-btn danger" data-query-id="security">
-                <span>🛡️</span>
+                <span class="preset-code">SEC-03</span>
                 <span data-en="Zero-Trust Test: Prompt Injection Attack" data-es="Test Zero-Trust: Intento de Inyección SQL" data-pt="Teste Zero-Trust: Tentativa de Injeção SQL">Test Zero-Trust: Intento de Inyección SQL</span>
               </button>
             </div>
@@ -1034,8 +1030,8 @@
           { tag: "sql", sql: `WITH campaign_stats AS (\n  SELECT \n    campaign_name, channel,\n    SUM(spend) AS spend, SUM(conversions) AS conversions,\n    SAFE_DIVIDE(SUM(spend), SUM(conversions)) AS cpa\n  FROM \`analytics-prod-2026.marketing.fact_daily_performance\`\n  WHERE date >= DATE_SUB(CURRENT_DATE(), INTERVAL 7 DAY)\n  GROUP BY 1, 2\n)\nSELECT campaign_name, channel, ROUND(spend, 2) AS spend, conversions, ROUND(cpa, 2) AS cpa\nFROM campaign_stats\nWHERE cpa > 35.00\nORDER BY cpa DESC;` },
           { tag: "cost", text: l === "es" ? "BigQuery Dry-Run: 184.2 MB escaneados · Costo estimado: $0.0009 USD · Partición activada" : (l === "pt" ? "BigQuery Dry-Run: 184.2 MB escaneados · Custo estimado: $0.0009 USD · Partição ativada" : "BigQuery Dry-Run: 184.2 MB scanned · Estimated cost: $0.0009 USD · Partition pruning active") },
           { tag: "table", headers: ["Campaign Name", "Channel", "Spend", "Conversions", "CPA", "Alert"], rows: [
-            ["Retargeting_Prospects_HighLTV", "Meta Ads", "$3,420.00", "72", "<span class='highlight-warn'>$47.50</span>", "⚠️ Critical Anomaly"],
-            ["Generic_Broad_Keywords_V2", "Google Ads", "$2,180.00", "58", "<span class='highlight-warn'>$37.58</span>", "⚠️ Warning"]
+            ["Retargeting_Prospects_HighLTV", "Meta Ads", "$3,420.00", "72", "<span class='highlight-warn'>$47.50</span>", "<span class='sev critical'>CRITICAL</span>"],
+            ["Generic_Broad_Keywords_V2", "Google Ads", "$2,180.00", "58", "<span class='highlight-warn'>$37.58</span>", "<span class='sev warning'>WARNING</span>"]
           ]},
           { tag: "insight", text: l === "es" ? "INSIGHT EJECUTIVO: 2 campañas rompieron el umbral de seguridad. Saturación de audiencia en Retargeting Meta Ads está causando fatiga de subasta. Acción: rotar creativos y ampliar tamaño de Lookalike." : (l === "pt" ? "INSIGHT EXECUTIVO: 2 campanhas ultrapassaram o limite de segurança. Saturação de audiência no Retargeting Meta está gerando fadiga de leilão. Ação: alternar criativos e expandir Lookalike." : "EXECUTIVE INSIGHT: 2 campaigns breached safety thresholds. Audience saturation in Meta Retargeting is causing auction fatigue. Immediate action: refresh ad variants and expand Lookalike threshold.") }
         ]
@@ -1048,7 +1044,7 @@
         },
         steps: (l) => [
           { tag: "info", text: l === "es" ? "Solicitud no confiable recibida. Pasando a través del analizador sintáctico AST de seguridad..." : (l === "pt" ? "Solicitação não confiável recebida. Encaminhando para analisador sintático AST de segurança..." : "Untrusted prompt received. Routing through Zero-Trust AST Security Guardrail...") },
-          { tag: "security", text: l === "es" ? "🚨 INTERCEPCIÓN ZERO-TRUST: CONSULTA MALICIOSA BLOQUEADA" : (l === "pt" ? "🚨 INTERCEPTAÇÃO ZERO-TRUST: CONSULTA MALICIOSA BLOQUEADA" : "🚨 ZERO-TRUST INTERCEPT: MALICIOUS PROMPT BLOCKED") },
+          { tag: "security", text: l === "es" ? "INTERCEPCIÓN ZERO-TRUST: CONSULTA MALICIOSA BLOQUEADA" : (l === "pt" ? "INTERCEPTAÇÃO ZERO-TRUST: CONSULTA MALICIOSA BLOQUEADA" : "ZERO-TRUST INTERCEPT: MALICIOUS PROMPT BLOCKED") },
           { tag: "security", text: l === "es" ? "• Violación AST #01: Intento de comando DDL/DML destructivo ('DROP TABLE') detectado.\n• Violación AST #04: Intento de acceso a esquema restringido ('credentials').\n• Heurística Anti-Prompt Injection: Clasificador de jailbreak activado (Score: 0.99)." : (l === "pt" ? "• Violação AST #01: Tentativa de instrução DDL/DML destrutiva ('DROP TABLE') detectada.\n• Violação AST #04: Tentativa de acesso a esquema restrito ('credentials').\n• Heurística Anti-Prompt Injection: Classificador de jailbreak acionado (Score: 0.99)." : "• AST Rule #01 Violation: Destructive DDL/DML statement ('DROP TABLE') detected.\n• AST Rule #04 Violation: Unauthorized schema access denied ('credentials').\n• Anti-Prompt Injection Heuristic: System prompt override attempt identified (Confidence: 0.99).") },
           { tag: "cost", text: l === "es" ? "Sandboxing activo: 0 bytes escaneados en BigQuery · 0 credenciales expuestas · Sesión aislada con seguridad" : (l === "pt" ? "Sandboxing ativo: 0 bytes escaneados no BigQuery · 0 credenciais expostas · Sessão isolada com segurança" : "Active Sandbox: 0 bytes scanned in BigQuery · 0 credentials exposed · Session safely quarantined") },
           { tag: "insight", text: l === "es" ? "LECCIÓN DE INGENIERÍA: Como señala Andrew Ng, la seguridad en agentes de IA no es magia ni ciencia ficción: es sandboxing determinista, validación AST y arquitectura de mínimo privilegio." : (l === "pt" ? "LIÇÃO DE ENGENHARIA: Como aponta Andrew Ng, a segurança em agentes de IA não é magia nem ficção científica: é sandboxing determinístico, validação AST e mínimo privilégio." : "ENGINEERING TAKEAWAY: As emphasized by Andrew Ng, AI agent safety is neither magic nor sci-fi: it is deterministic sandboxing, AST validation, and strict least-privilege architecture.") }

@@ -12,7 +12,7 @@ BLOG_DIR = os.path.join(ROOT, "blog")
 SITE = "https://juliandatascienceexplorerv2.github.io"
 AUTHOR = "Julian David Urrego Lancheros"
 LANGS = ["es", "en", "pt"]
-LANG_LABELS = {"es": "🇨🇴 ES", "en": "🇺🇸 EN", "pt": "🇧🇷 PT"}
+LANG_LABELS = {"es": "ES", "en": "EN", "pt": "PT"}
 LANG_NAMES = {"es": "Español", "en": "English", "pt": "Português"}
 MONTHS = {
     "es": ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"],
@@ -755,16 +755,10 @@ def render_sitemap(groups):
     latest = groups[0]["date"] if groups else today
     items = []
 
-    # Home URL with multilingual alternates
-    home_xhtml = "".join(
-        f'    <xhtml:link rel="alternate" hreflang="{code}" href="{SITE}/?lang={code}"/>\n'
-        for code in ["es", "pt", "en"]
-    )
-    home_xhtml += f'    <xhtml:link rel="alternate" hreflang="x-default" href="{SITE}/"/>\n'
+    # Home is a single canonical English URL; language is a client-side preference.
     items.append(
         "  <url>\n"
         f"    <loc>{SITE}/</loc>\n"
-        f"{home_xhtml}"
         f"    <lastmod>{latest}</lastmod>\n"
         "    <changefreq>weekly</changefreq>\n"
         "    <priority>1.0</priority>\n"
