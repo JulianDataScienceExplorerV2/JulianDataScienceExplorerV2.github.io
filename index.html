@@ -297,6 +297,17 @@
       <p class="sec-s" data-es>Simula un agente autónomo de Text-to-SQL sobre BigQuery con generación AST, estimación de costos en dry-run y guardrails de seguridad zero-trust.</p>
       <p class="sec-s" data-pt>Simule um agente autônomo de Text-to-SQL no BigQuery com geração AST, estimativa de custos em dry-run e guardrails de segurança zero-trust.</p>
 
+      <div class="agent-flow" id="agentFlow">
+        <div class="flow-step"><span class="flow-n">01</span><b>Prompt</b><i>NL → Intent</i></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-step"><span class="flow-n">02</span><b>AST Guardrails</b><i>Zero-trust</i></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-step"><span class="flow-n">03</span><b>Dry-run Cost</b><i>Quota check</i></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-step"><span class="flow-n">04</span><b>BigQuery</b><i>Read-only</i></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-step"><span class="flow-n">05</span><b>Insight</b><i>Exec-ready</i></div>
+      </div>
       <div class="terminal-demo">
         <div class="terminal-header">
           <div class="terminal-controls">
@@ -308,7 +319,12 @@
             <span>agent@bigquery-enterprise: ~/marketing-analytics</span>
             <span class="term-badge">ONLINE · Gemini + BQ Sandbox</span>
           </div>
-          <div style="width: 52px"></div>
+          <div class="term-metrics" id="termMetrics">
+            <span class="tm"><i>Latency</i><b id="mLat">—</b></span>
+            <span class="tm"><i>Cost</i><b id="mCost">—</b></span>
+            <span class="tm"><i>Scan</i><b id="mScan">—</b></span>
+            <span class="tm"><i>Guard</i><b id="mGuard">—</b></span>
+          </div>
         </div>
 
         <div class="terminal-body">
@@ -1039,6 +1055,36 @@
       }
     };
 
+    const AGENT_METRICS = {
+      roas:     { lat: "0.42s", cost: "$0.0021", scan: "428 MB", guard: "PASS" },
+      anomaly:  { lat: "0.36s", cost: "$0.0009", scan: "184 MB", guard: "PASS" },
+      security: { lat: "0.18s", cost: "$0.0000", scan: "0 B", guard: "BLOCK" }
+    };
+    function setAgentMetrics(id) {
+      const m = AGENT_METRICS[id] || AGENT_METRICS.roas;
+      document.getElementById("mLat").textContent = m.lat;
+      document.getElementById("mCost").textContent = m.cost;
+      document.getElementById("mScan").textContent = m.scan;
+      document.getElementById("mGuard").textContent = m.guard;
+    }
+    function resetAgentFlow() {
+      document.querySelectorAll("#agentFlow .flow-step").forEach(el => el.classList.remove("active", "done"));
+    }
+    function stepAgentFlow(index) {
+      document.querySelectorAll("#agentFlow .flow-step").forEach((el, idx) => {
+        el.classList.toggle("done", idx < index);
+        el.classList.toggle("active", idx === index);
+      });
+    }
+    function highlightSql(sql) {
+      const esc = sql.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+      return esc
+        .replace(/('(?:[^']|'')*')/g, '<span class="s">$1</span>')
+        .replace(/(--[^\n]*)/g, '<span class="c">$1</span>')
+        .replace(/`([^`]+)`/g, '<span class="f">`$1`</span>')
+        .replace(/\b(SELECT|FROM|WHERE|GROUP BY|ORDER BY|WITH|AS|SUM|COUNT|AVG|SAFE_DIVIDE|CASE|WHEN|THEN|ELSE|END|LIMIT|JOIN|ON|AND|OR|NOT|NULL|DATE_SUB|CURRENT_DATE|INTERVAL|DISTINCT|DESC|ASC|ROUND)\b/g, '<span class="k">$1</span>');
+    }
+
     let activeQueryId = "roas";
     let isAgentRunning = false;
     let agentTimeouts = [];
@@ -1066,6 +1112,8 @@
 
       const scenario = TERMINAL_SCENARIOS[activeQueryId];
       const steps = scenario.steps(lang);
+      resetAgentFlow();
+      setAgentMetrics(activeQueryId);
       screen.innerHTML = '<div class="term-line"><span class="term-tag info">RUN</span><span>Initializing sandbox container...</span><span class="term-cursor"></span></div>';
 
       let currentHtml = '';
@@ -1073,7 +1121,7 @@
         const timeout = setTimeout(() => {
           let stepHtml = '';
           if (step.tag === "sql") {
-            stepHtml = `<div class="term-line"><span class="term-tag sql">GoogleSQL</span><span>Generated query:</span></div><code class="term-sql-code">${step.sql.replace(/</g, "&lt;")}</code>`;
+            stepHtml = `<div class="term-line"><span class="term-tag sql">GoogleSQL</span><span>Generated query:</span></div><code class="term-sql-code">${highlightSql(step.sql)}</code>`;
           } else if (step.tag === "table") {
             const ths = step.headers.map(h => `<th>${h}</th>`).join("");
             const trs = step.rows.map(r => `<tr>${r.map(c => `<td>${c}</td>`).join("")}</tr>`).join("");
@@ -1084,6 +1132,7 @@
             stepHtml = `<div class="term-line"><span class="term-tag ${step.tag}">${step.tag.toUpperCase()}</span><span>${step.text.replace(/</g, "&lt;")}</span></div>`;
           }
 
+          stepAgentFlow(index);
           currentHtml += stepHtml;
           const isLast = index === steps.length - 1;
           screen.innerHTML = currentHtml + (isLast ? '' : '<div class="term-line"><span class="term-cursor"></span></div>');
