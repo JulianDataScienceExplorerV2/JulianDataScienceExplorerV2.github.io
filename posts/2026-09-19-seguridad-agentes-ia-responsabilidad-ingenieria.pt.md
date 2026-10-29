@@ -1,5 +1,5 @@
 ---
-title: A falácia do "agente fora de controle": Segurança em IA como problema de engenharia
+title: Segurança de IA como problema de engenharia
 description: Inspirado na reflexão de Andrew Ng sobre o alarmismo em IA, analisamos por que as falhas de agentes autônomos não são ficção científica, mas sim desafios de arquitetura, sandboxing e governança de dados.
 date: 2026-09-19
 lang: pt

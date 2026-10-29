@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Defensa en profundidad para agentes LLM: de 78,3% a 2,5% de éxito de prompt injection — Julian David Urrego Lancheros</title>
+<title>Defensa en profundidad contra prompt injection en LLM</title>
 <meta name="description" content="Cómo diseñar agentes LLM seguros en producción con límites XML, discriminador out-of-band, parsing AST con IAM read-only y aprobación humana. Benchmark con 120 payloads adversariales." />
 <meta name="keywords" content="Prompt Injection, LLM Security, AI Agents, RAG, Cloud, BigQuery" />
 <meta name="author" content="Julian David Urrego Lancheros" />
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-<meta name="theme-color" content="#0F1115" />
+<meta name="theme-color" content="#12141a" />
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HNVFP6S0ZD"></script>
 <script>
@@ -25,14 +25,14 @@
 <link rel="alternate" hreflang="x-default" href="https://juliandatascienceexplorerv2.github.io/blog/prompt-injection-agentes-llm-produccion.html" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://juliandatascienceexplorerv2.github.io/blog/prompt-injection-agentes-llm-produccion.html" />
-<meta property="og:title" content="Defensa en profundidad para agentes LLM: de 78,3% a 2,5% de éxito de prompt injection" />
+<meta property="og:title" content="Defensa en profundidad contra prompt injection en LLM" />
 <meta property="og:description" content="Cómo diseñar agentes LLM seguros en producción con límites XML, discriminador out-of-band, parsing AST con IAM read-only y aprobación humana. Benchmark con 120 payloads adversariales." />
 <meta property="og:image" content="https://juliandatascienceexplorerv2.github.io/og-image.png" />
 <meta property="og:locale" content="es_CO" />
 <meta property="og:locale:alternate" content="pt_BR" />
 <meta property="og:locale:alternate" content="en_US" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Defensa en profundidad para agentes LLM: de 78,3% a 2,5% de éxito de prompt injection" />
+<meta name="twitter:title" content="Defensa en profundidad contra prompt injection en LLM" />
 <meta name="twitter:description" content="Cómo diseñar agentes LLM seguros en producción con límites XML, discriminador out-of-band, parsing AST con IAM read-only y aprobación humana. Benchmark con 120 payloads adversariales." />
 <meta name="twitter:image" content="https://juliandatascienceexplorerv2.github.io/og-image.png" />
 <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
@@ -48,7 +48,7 @@
     {
       "@type": "TechArticle",
       "@id": "https://juliandatascienceexplorerv2.github.io/blog/prompt-injection-agentes-llm-produccion.html#article",
-      "headline": "Defensa en profundidad para agentes LLM: de 78,3% a 2,5% de éxito de prompt injection",
+      "headline": "Defensa en profundidad contra prompt injection en LLM",
       "description": "Cómo diseñar agentes LLM seguros en producción con límites XML, discriminador out-of-band, parsing AST con IAM read-only y aprobación humana. Benchmark con 120 payloads adversariales.",
       "datePublished": "2026-10-28",
       "dateModified": "2026-10-28",
@@ -112,7 +112,7 @@
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Defensa en profundidad para agentes LLM: de 78,3% a 2,5% de éxito de prompt injection",
+          "name": "Defensa en profundidad contra prompt injection en LLM",
           "item": "https://juliandatascienceexplorerv2.github.io/blog/prompt-injection-agentes-llm-produccion.html"
         }
       ]
@@ -163,7 +163,7 @@
 <div class="section" style="padding-top:7rem">
   <div class="wrap" style="max-width:760px">
     <p class="kicker"><a href="../blog/" style="color:inherit;text-decoration:none">← Volver al blog</a></p>
-    <h1 class="sec-h" style="font-size:2rem;line-height:1.2">Defensa en profundidad para agentes LLM: de 78,3% a 2,5% de éxito de prompt injection</h1>
+    <h1 class="sec-h" style="font-size:2rem;line-height:1.2">Defensa en profundidad contra prompt injection en LLM</h1>
     <p class="post-meta">28 oct 2026 · 4 min de lectura · <span class="tag">Prompt Injection</span> <span class="tag">LLM Security</span> <span class="tag">AI Agents</span> <span class="tag">RAG</span> <span class="tag">Cloud</span> <span class="tag">BigQuery</span></p>
     <article class="post">
 <p>Los agentes de IA ya no viven en un chat aislado. Leen correos, consultan bases de datos, navegan páginas y ejecutan acciones con herramientas reales. Ese salto de "responder texto" a "actuar sobre sistemas" cambia por completo el modelo de amenaza: el mayor riesgo ya no es que el modelo diga algo incorrecto, sino que un dato malicioso lo convenza de ejecutar una acción destructiva.</p>

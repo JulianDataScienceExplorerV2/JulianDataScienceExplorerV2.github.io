@@ -1,5 +1,5 @@
 ---
-title: AI Agents on BigQuery: How to Build a Bot That Answers Marketing Data Queries in 3 Seconds
+title: BigQuery AI Agents for Marketing Text-to-SQL
 description: Discover how to connect an LLM to Google Cloud BigQuery to build a secure, low-cost Text-to-SQL marketing agent delivering executive campaign insights in seconds.
 date: 2026-09-18
 lang: en

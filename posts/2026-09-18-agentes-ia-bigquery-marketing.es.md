@@ -1,5 +1,5 @@
 ---
-title: Agentes de IA sobre BigQuery: Cómo armar un bot que responde preguntas de tu data de marketing en 3 segundos
+title: BigQuery + IA: Bot de Text-to-SQL para marketing
 description: Descubre cómo conectar un LLM con Google Cloud BigQuery para crear un agente de Text-to-SQL seguro, de bajo costo y con insights ejecutivos de campañas en segundos.
 date: 2026-09-18
 lang: es

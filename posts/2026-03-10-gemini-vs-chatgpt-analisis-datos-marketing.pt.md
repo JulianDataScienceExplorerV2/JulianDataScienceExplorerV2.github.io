@@ -1,5 +1,5 @@
 ---
-title: Gemini vs ChatGPT para análise de dados de marketing: Teste de estresse com campanhas reais
+title: Gemini vs ChatGPT para análise de marketing
 description: Qual IA analisa melhor suas campanhas de tráfego pago? Avaliamos Gemini e ChatGPT com um dataset multicanal de 90 dias gerado em Python, dados do Google Trends e testes de precisão aritmética.
 date: 2026-03-10
 lang: pt

@@ -1,5 +1,5 @@
 ---
-title: "Defensa en profundidad para agentes LLM: de 78,3% a 2,5% de éxito de prompt injection"
+title: Defensa en profundidad contra prompt injection en LLM
 description: "Cómo diseñar agentes LLM seguros en producción con límites XML, discriminador out-of-band, parsing AST con IAM read-only y aprobación humana. Benchmark con 120 payloads adversariales."
 date: 2026-10-28
 lang: es

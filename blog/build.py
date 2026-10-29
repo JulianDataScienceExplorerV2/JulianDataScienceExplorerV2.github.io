@@ -48,12 +48,12 @@ POST_TEMPLATE = """<!DOCTYPE html>
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>{title} — Julian David Urrego Lancheros</title>
+<title>{title}</title>
 <meta name="description" content="{description}" />
 <meta name="keywords" content="{keywords}" />
 <meta name="author" content="{author}" />
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-<meta name="theme-color" content="#0F1115" />
+<meta name="theme-color" content="#12141a" />
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HNVFP6S0ZD"></script>
 <script>
@@ -131,7 +131,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 <meta name="keywords" content="IA aplicada marketing, Data Science Colombia, Inteligencia Artificial Negocios, BigQuery AI Agent, Analítica Digital Latam, Python Marketing, Business Intelligence, Text to SQL BigQuery, Cientista de Dados Brasil" />
 <meta name="author" content="Julian David Urrego Lancheros" />
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-<meta name="theme-color" content="#0F1115" />
+<meta name="theme-color" content="#12141a" />
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HNVFP6S0ZD"></script>
 <script>

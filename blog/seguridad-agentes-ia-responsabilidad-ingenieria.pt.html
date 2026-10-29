@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>A falácia do "agente fora de controle": Segurança em IA como problema de engenharia — Julian David Urrego Lancheros</title>
+<title>Segurança de IA como problema de engenharia</title>
 <meta name="description" content="Inspirado na reflexão de Andrew Ng sobre o alarmismo em IA, analisamos por que as falhas de agentes autônomos não são ficção científica, mas sim desafios de arquitetura, sandboxing e governança de dados." />
 <meta name="keywords" content="Segurança em agentes de IA, Prompt Injection em produção, Guardrails de IA, Arquitetura Zero-Trust LLM, Cibersegurança Agentes Autônomos, Andrew Ng segurança IA, Sandboxing LLM Brasil" />
 <meta name="author" content="Julian David Urrego Lancheros" />
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-<meta name="theme-color" content="#0F1115" />
+<meta name="theme-color" content="#12141a" />
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HNVFP6S0ZD"></script>
 <script>
@@ -25,14 +25,14 @@
 <link rel="alternate" hreflang="x-default" href="https://juliandatascienceexplorerv2.github.io/blog/seguridad-agentes-ia-responsabilidad-ingenieria.html" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://juliandatascienceexplorerv2.github.io/blog/seguridad-agentes-ia-responsabilidad-ingenieria.pt.html" />
-<meta property="og:title" content="A falácia do "agente fora de controle": Segurança em IA como problema de engenharia" />
+<meta property="og:title" content="Segurança de IA como problema de engenharia" />
 <meta property="og:description" content="Inspirado na reflexão de Andrew Ng sobre o alarmismo em IA, analisamos por que as falhas de agentes autônomos não são ficção científica, mas sim desafios de arquitetura, sandboxing e governança de dados." />
 <meta property="og:image" content="https://juliandatascienceexplorerv2.github.io/og-image.png" />
 <meta property="og:locale" content="pt_BR" />
 <meta property="og:locale:alternate" content="es_CO" />
 <meta property="og:locale:alternate" content="en_US" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="A falácia do "agente fora de controle": Segurança em IA como problema de engenharia" />
+<meta name="twitter:title" content="Segurança de IA como problema de engenharia" />
 <meta name="twitter:description" content="Inspirado na reflexão de Andrew Ng sobre o alarmismo em IA, analisamos por que as falhas de agentes autônomos não são ficção científica, mas sim desafios de arquitetura, sandboxing e governança de dados." />
 <meta name="twitter:image" content="https://juliandatascienceexplorerv2.github.io/og-image.png" />
 <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
@@ -48,7 +48,7 @@
     {
       "@type": "TechArticle",
       "@id": "https://juliandatascienceexplorerv2.github.io/blog/seguridad-agentes-ia-responsabilidad-ingenieria.pt.html#article",
-      "headline": "A falácia do \"agente fora de controle\": Segurança em IA como problema de engenharia",
+      "headline": "Segurança de IA como problema de engenharia",
       "description": "Inspirado na reflexão de Andrew Ng sobre o alarmismo em IA, analisamos por que as falhas de agentes autônomos não são ficção científica, mas sim desafios de arquitetura, sandboxing e governança de dados.",
       "datePublished": "2026-09-19",
       "dateModified": "2026-09-19",
@@ -112,7 +112,7 @@
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "A falácia do \"agente fora de controle\": Segurança em IA como problema de engenharia",
+          "name": "Segurança de IA como problema de engenharia",
           "item": "https://juliandatascienceexplorerv2.github.io/blog/seguridad-agentes-ia-responsabilidad-ingenieria.pt.html"
         }
       ]
@@ -163,7 +163,7 @@
 <div class="section" style="padding-top:7rem">
   <div class="wrap" style="max-width:760px">
     <p class="kicker"><a href="../blog/" style="color:inherit;text-decoration:none">← Voltar ao blog</a></p>
-    <h1 class="sec-h" style="font-size:2rem;line-height:1.2">A falácia do "agente fora de controle": Segurança em IA como problema de engenharia</h1>
+    <h1 class="sec-h" style="font-size:2rem;line-height:1.2">Segurança de IA como problema de engenharia</h1>
     <p class="post-meta">19 set 2026 · 5 min de leitura · <span class="tag">Agentes</span> <span class="tag">Cibersegurança</span> <span class="tag">IA</span> <span class="tag">Python</span> <span class="tag">Cloud</span> <span class="tag">Engenharia</span></p>
     <article class="post">
 <p>Em seu editorial recente no <em>The Batch</em> da <a href="https://www.deeplearning.ai/">DeepLearning.AI</a>, <strong>Andrew Ng</strong> tocou em uma ferida incômoda: grande parte do pânico midiático sobre os "perigos existenciais da IA" não decorre de uma guinada apocalíptica da tecnologia, mas sim de campanhas de relações públicas e narrativas sensacionalistas que confundem deliberadamente falhas de engenharia com catástrofes inevitáveis.</p>

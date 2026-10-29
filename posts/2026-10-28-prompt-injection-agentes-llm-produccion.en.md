@@ -1,5 +1,5 @@
 ---
-title: "Defense in Depth for Production LLM Agents: From 78.3% to 2.5% Prompt-Injection Success"
+title: Defense in Depth Against Prompt Injection in LLMs
 description: "How to design secure production LLM agents with cryptographic boundaries, an out-of-band discriminator, AST parsing with read-only IAM, and human sign-off. A benchmark across 120 adversarial payloads."
 date: 2026-10-28
 lang: en

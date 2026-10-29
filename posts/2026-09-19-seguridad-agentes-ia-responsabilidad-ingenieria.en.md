@@ -1,5 +1,5 @@
 ---
-title: The "Out-of-Control Agent" Fallacy: AI Security as a Software Engineering Problem
+title: AI Security as a Software Engineering Problem
 description: Inspired by Andrew Ng's editorial on AI fear-mongering, we examine why autonomous agent failures are not sci-fi doom, but concrete architectural challenges in sandboxing, credentials, and data governance.
 date: 2026-09-19
 lang: en

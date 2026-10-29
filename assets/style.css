@@ -1850,23 +1850,165 @@ body.light-mode .terminal-input::placeholder {
 
 .term-chart {
   margin: 10px 0;
-  padding: 12px;
+  padding: 14px;
   background: rgba(255,255,255,0.03);
   border: 1px solid rgba(255,255,255,0.06);
-  border-radius: 6px;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.term-chart::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--r1), var(--r2), transparent);
+  opacity: .6;
 }
 
 .term-chart-title {
   font-size: 10px;
   color: var(--text-2);
-  margin-bottom: 8px;
+  margin-bottom: 12px;
   text-transform: uppercase;
-  letter-spacing: .05em;
+  letter-spacing: .08em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.term-chart-title span {
+  color: var(--r1);
+  font-weight: 700;
 }
 
 .term-chart svg {
   width: 100%;
   height: auto;
+  display: block;
+}
+
+.term-chart .bar {
+  transition: all .4s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.term-chart .bar:hover {
+  filter: brightness(1.2);
+}
+
+.term-chart .bar-bg {
+  fill: rgba(255,255,255,0.04);
+}
+
+.term-chart .bar-label {
+  font-size: 10px;
+  fill: #94a3b8;
+}
+
+.term-chart .bar-value {
+  font-size: 10px;
+  fill: #e2e8f0;
+  font-weight: 600;
+  opacity: 0;
+  animation: fadeIn .4s ease forwards;
+  animation-delay: .6s;
+}
+
+.term-chart .tooltip {
+  position: absolute;
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid var(--bdh);
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 11px;
+  color: #fff;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity .2s, transform .2s;
+  z-index: 10;
+  box-shadow: 0 4px 16px rgba(0,0,0,.4);
+  white-space: nowrap;
+}
+
+.term-chart .tooltip.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes growBar {
+  from { width: 0; }
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+.term-gauge {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 10px 0;
+  padding: 14px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 8px;
+}
+
+.term-gauge svg {
+  width: 90px;
+  height: 90px;
+  flex-shrink: 0;
+}
+
+.term-gauge-info {
+  flex: 1;
+}
+
+.term-gauge-info b {
+  display: block;
+  font-size: 13px;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.term-gauge-info span {
+  font-size: 11px;
+  color: #94a3b8;
+  line-height: 1.5;
+}
+
+.term-kpi-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 8px;
+  margin: 10px 0;
+}
+
+.term-kpi {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 6px;
+  padding: 10px;
+  text-align: center;
+}
+
+.term-kpi b {
+  display: block;
+  font-size: 16px;
+  color: var(--r1);
+  margin-bottom: 2px;
+}
+
+.term-kpi span {
+  font-size: 9px;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: .05em;
 }
 
 .term-actions {
