@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Como indexar seu site no Bing Webmaster Tools passo a passo</title>
+<meta name="description" content="Guia prático para verificar seu domínio, enviar o sitemap, corrigir issues de SEO, configurar o IndexNow e enviar URLs para o Bing usando um script Python." />
+<meta name="keywords" content="SEO, Bing, IndexNow, GitHub Pages, Webmaster Tools, Python" />
+<meta name="author" content="Julian David Urrego Lancheros" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="theme-color" content="#12141a" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HNVFP6S0ZD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HNVFP6S0ZD');
+</script>
+<link rel="canonical" href="https://juliandatascienceexplorerv2.github.io/blog/como-indexar-sitio-bing-webmaster-tools.pt.html" />
+<link rel="alternate" hreflang="es" href="https://juliandatascienceexplorerv2.github.io/blog/como-indexar-sitio-bing-webmaster-tools.html" />
+<link rel="alternate" hreflang="en" href="https://juliandatascienceexplorerv2.github.io/blog/como-indexar-sitio-bing-webmaster-tools.en.html" />
+<link rel="alternate" hreflang="pt" href="https://juliandatascienceexplorerv2.github.io/blog/como-indexar-sitio-bing-webmaster-tools.pt.html" />
+<link rel="alternate" hreflang="x-default" href="https://juliandatascienceexplorerv2.github.io/blog/como-indexar-sitio-bing-webmaster-tools.html" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://juliandatascienceexplorerv2.github.io/blog/como-indexar-sitio-bing-webmaster-tools.pt.html" />
+<meta property="og:title" content="Como indexar seu site no Bing Webmaster Tools passo a passo" />
+<meta property="og:description" content="Guia prático para verificar seu domínio, enviar o sitemap, corrigir issues de SEO, configurar o IndexNow e enviar URLs para o Bing usando um script Python." />
+<meta property="og:image" content="https://juliandatascienceexplorerv2.github.io/og-image.png" />
+<meta property="og:locale" content="pt_BR" />
+<meta property="og:locale:alternate" content="es_CO" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Como indexar seu site no Bing Webmaster Tools passo a passo" />
+<meta name="twitter:description" content="Guia prático para verificar seu domínio, enviar o sitemap, corrigir issues de SEO, configurar o IndexNow e enviar URLs para o Bing usando um script Python." />
+<meta name="twitter:image" content="https://juliandatascienceexplorerv2.github.io/og-image.png" />
+<link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/style.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "@id": "https://juliandatascienceexplorerv2.github.io/blog/como-indexar-sitio-bing-webmaster-tools.pt.html#article",
+      "headline": "Como indexar seu site no Bing Webmaster Tools passo a passo",
+      "description": "Guia prático para verificar seu domínio, enviar o sitemap, corrigir issues de SEO, configurar o IndexNow e enviar URLs para o Bing usando um script Python.",
+      "datePublished": "2026-10-29",
+      "dateModified": "2026-10-28",
+      "inLanguage": "pt",
+      "proficiencyLevel": "Expert",
+      "dependencies": "Google Cloud BigQuery, Python 3.10+, GoogleSQL, Google Analytics 4",
+      "keywords": "SEO, Bing, IndexNow, GitHub Pages, Webmaster Tools, Python",
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Google BigQuery",
+          "sameAs": "https://en.wikipedia.org/wiki/BigQuery"
+        },
+        {
+          "@type": "Thing",
+          "name": "Artificial Intelligence",
+          "sameAs": "https://en.wikipedia.org/wiki/Artificial_intelligence"
+        },
+        {
+          "@type": "Thing",
+          "name": "Marketing Analytics"
+        },
+        {
+          "@type": "Thing",
+          "name": "Data Science"
+        }
+      ],
+      "author": {
+        "@type": "Person",
+        "name": "Julian David Urrego Lancheros",
+        "url": "https://juliandatascienceexplorerv2.github.io/",
+        "sameAs": [
+          "https://www.linkedin.com/in/julian-david-urrego-lancheros-880a49129/",
+          "https://github.com/JulianDataScienceExplorerV2"
+        ]
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Julian David Urrego Lancheros",
+        "url": "https://juliandatascienceexplorerv2.github.io/"
+      },
+      "mainEntityOfPage": "https://juliandatascienceexplorerv2.github.io/blog/como-indexar-sitio-bing-webmaster-tools.pt.html",
+      "image": "https://juliandatascienceexplorerv2.github.io/og-image.png"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://juliandatascienceexplorerv2.github.io/blog/como-indexar-sitio-bing-webmaster-tools.pt.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Portfólio",
+          "item": "https://juliandatascienceexplorerv2.github.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://juliandatascienceexplorerv2.github.io/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Como indexar seu site no Bing Webmaster Tools passo a passo",
+          "item": "https://juliandatascienceexplorerv2.github.io/blog/como-indexar-sitio-bing-webmaster-tools.pt.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="../" style="text-decoration:none">&gt;<span class="d"> julian</span>.dev</a>
+  <ul class="nav-links">
+    <li><a href="../">Portfólio</a></li>
+    <li><a href="../blog/index.html">Blog</a></li>
+  </ul>
+</nav>
+
+<div class="section" style="padding-top:7rem">
+  <div class="wrap" style="max-width:760px">
+    <p class="kicker"><a href="../blog/index.html" style="color:inherit;text-decoration:none">← Voltar ao blog</a></p>
+    <h1 class="sec-h" style="font-size:2rem;line-height:1.2">Como indexar seu site no Bing Webmaster Tools passo a passo</h1>
+    <p class="post-meta">29 out 2026 · 4 min de leitura · <span class="tag">SEO</span> <span class="tag">Bing</span> <span class="tag">IndexNow</span> <span class="tag">GitHub Pages</span> <span class="tag">Webmaster Tools</span> <span class="tag">Python</span></p>
+    <article class="post">
+<p>Depois de publicar um site no GitHub Pages, o próximo passo é fazer com que os mecanismos de busca o encontrem. O Bing costuma ser mais rápido que o Google para indexar sites novos, e sua console detecta problemas de SEO que muitas vezes passam despercebidos.</p>
+<p>Neste guia vou contar exatamente o que fiz para indexar <a href="https://juliandatascienceexplorerv2.github.io/">meu portfólio</a> no Bing Webmaster Tools: verificação de domínio, envio de sitemap, correção de erros, configuração do IndexNow e um script para enviar URLs automaticamente.</p>
+<h2>Passo 1: Verificar seu domínio no Bing Webmaster Tools</h2>
+<ol>
+<li>Acesse o <a href="https://www.bing.com/webmasters">Bing Webmaster Tools</a> e faça login.</li>
+<li>Clique em <strong>Adicionar um site</strong>.</li>
+<li>Insira seu domínio, por exemplo <code>https://juliandatascienceexplorerv2.github.io/</code>.</li>
+<li>O Bing oferece várias opções de verificação. A mais simples para GitHub Pages é fazer upload de um arquivo HTML ou XML na raiz do site.</li>
+<li>Baixe o arquivo de verificação (por exemplo <code>BingSiteAuth.xml</code>) e coloque-o na raiz do seu repositório.</li>
+<li>Execute <code>git add</code>, <code>commit</code> e <code>push</code>.</li>
+<li>Aguarde alguns minutos e pressione <strong>Verificar</strong> no Bing.</li>
+</ol>
+<p>Uma vez verificado, o Bing começa a rastrear seu site automaticamente, embora você possa acelerar o processo com os passos a seguir.</p>
+<h2>Passo 2: Enviar seu sitemap</h2>
+<p>No menu lateral do Bing Webmaster Tools, vá em <strong>Sitemaps</strong>.</p>
+<p>Insira a URL do seu sitemap:</p>
+<pre><code>https://juliandatascienceexplorerv2.github.io/sitemap.xml</code></pre>
+<p>Pressione <strong>Enviar</strong>. O Bing processará o arquivo e informará se encontrou erros. Um sitemap com URLs canônicas, <code>lastmod</code>, <code>changefreq</code> e <code>priority</code> funciona melhor.</p>
+<h2>Passo 3: Revisar e corrigir issues de SEO</h2>
+<p>O Bing Webmaster Tools tem uma seção de <strong>Recomendações de SEO</strong> ou <strong>Issues</strong> onde detecta problemas comuns. No meu caso apareceram dois:</p>
+<h3>Títulos muito longos</h3>
+<p>O Bing recomenda que as tags <code>&lt;title&gt;</code> não ultrapassem 65 caracteres. Eu encurtei títulos dos posts e da home para que ficassem dentro do limite.</p>
+<h3>Meta descriptions fora do intervalo</h3>
+<p>As descrições devem ter entre 25 e 160 caracteres. Várias das minhas páginas estavam acima de 160, então eu as reduzi mantendo o sentido.</p>
+<p>Minha recomendação: revise cada issue que o Bing mostrar, corrija no código-fonte e regenera as páginas se usar um gerador estático.</p>
+<h2>Passo 4: Configurar o IndexNow</h2>
+<p>O IndexNow é um protocolo aberto que notifica o Bing (e outros buscadores) quando você publica ou atualiza URLs.</p>
+<h3>Gerar a API key</h3>
+<ol>
+<li>Gere um UUID entre 8 e 128 caracteres. No macOS ou Linux:</li>
+</ol>
+<pre><code>python3 -c "import uuid; print(uuid.uuid4())"</code></pre>
+<ol>
+<li>Crie um arquivo de texto com o UUID como nome e conteúdo. Se sua key for <code>abcd1234-...</code>, o arquivo será:</li>
+</ol>
+<pre><code>abcd1234-....txt</code></pre>
+<ol>
+<li>Faça upload na raiz do seu site. Ele deve estar acessível publicamente em:</li>
+</ol>
+<pre><code>https://juliandatascienceexplorerv2.github.io/abcd1234-....txt</code></pre>
+<blockquote><p><strong>Nota importante:</strong> a key do IndexNow é pública por design. Serve para verificar que você controla o domínio, não é um secret como uma API key da OpenAI.</p></blockquote>
+<h2>Passo 5: Enviar URLs automaticamente com Python</h2>
+<p>Crie um script que leia seu <code>sitemap.xml</code> e envie as URLs para o endpoint do IndexNow. Eu uso este:</p>
+<pre><code>#!/usr/bin/env python3
+import os
+import sys
+import xml.etree.ElementTree as ET
+import requests
+
+INDEXNOW_ENDPOINT = "https://www.bing.com/indexnow"
+SITEMAP_PATH = "sitemap.xml"
+BATCH_SIZE = 100
+
+def get_env(name):
+    value = os.environ.get(name)
+    if not value:
+        print(f"Erro: variável de ambiente {name} não definida")
+        sys.exit(1)
+    return value
+
+def load_urls(path):
+    tree = ET.parse(path)
+    root = tree.getroot()
+    ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+    return [loc.text.strip() for url in root.findall("sm:url", ns) for loc in [url.find("sm:loc", ns)] if loc is not None and loc.text]
+
+def submit_batch(host, key, urls):
+    payload = {
+        "host": host,
+        "key": key,
+        "keyLocation": f"https://{host}/{key}.txt",
+        "urlList": urls,
+    }
+    return requests.post(INDEXNOW_ENDPOINT, json=payload, timeout=30)
+
+def main():
+    key = get_env("INDEXNOW_KEY")
+    host = get_env("SITE_HOST")
+    urls = load_urls(SITEMAP_PATH)
+    print(f"URLs encontradas: {len(urls)}")
+
+    for i in range(0, len(urls), BATCH_SIZE):
+        batch = urls[i:i+BATCH_SIZE]
+        resp = submit_batch(host, key, batch)
+        print(f"Lote {i//BATCH_SIZE + 1}: HTTP {resp.status_code}")
+        if resp.status_code not in (200, 202):
+            print(resp.text)
+            sys.exit(1)
+
+if __name__ == "__main__":
+    main()</code></pre>
+<p>Execute assim:</p>
+<pre><code>export INDEXNOW_KEY="sua-key-aqui"
+export SITE_HOST="juliandatascienceexplorerv2.github.io"
+python3 scripts/submit_indexnow.py</code></pre>
+<p>Se tudo der certo, você verá:</p>
+<pre><code>Found 17 URLs in sitemap.xml
+Sending batch 1/1 (17 URLs)...
+HTTP 200
+OK - URLs accepted for processing</code></pre>
+<h2>Passo 6: Verificar se o Bing recebeu as URLs</h2>
+<p>O IndexNow responde imediatamente, mas a console do Bing pode levar horas ou dias para refletir. Para confirmar:</p>
+<ol>
+<li>Verifique se sua key está pública:</li>
+</ol>
+<pre><code>   https://juliandatascienceexplorerv2.github.io/sua-key.txt</code></pre>
+<ol>
+<li>Depois de alguns dias, busque no Bing:</li>
+</ol>
+<pre><code>   site:juliandatascienceexplorerv2.github.io</code></pre>
+<p>Isso mostrará quantas páginas do seu site estão indexadas.</p>
+<h2>Conclusão</h2>
+<p>O Bing Webmaster Tools é uma ferramenta poderosa e subestimada. Além de indexar mais rápido que o Google em muitos casos, ele também diz exatamente o que corrigir no seu HTML antes que o Google note.</p>
+<p>Se você seguir estes passos, seu site no GitHub Pages estará verificado, indexado e notificado automaticamente sempre que publicar conteúdo novo.</p>
+    </article>
+    <div class="dl" style="margin-top:3rem">
+      <p style="font-size:14px;color:var(--text-2);line-height:1.7">
+        Este post te ajudou ou você quer algo assim na sua equipe? Me escreve e conversamos.
+      </p>
+      <div style="display:flex;gap:.75rem;flex-wrap:wrap">
+        <a class="cta1" href="../#contact">Fale comigo</a>
+        <a class="cta2" href="../">Ver portfólio</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>Julian David Urrego Lancheros &mdash; <span class="hi">juliandatascienceexplorerv2.github.io</span></footer>
+<div id="langSuggest" class="lang-suggest" hidden>
+  <span id="langSuggestText"></span>
+  <a id="langSuggestLink" href="#"></a>
+  <button type="button" aria-label="Cerrar" onclick="this.parentNode.hidden = true">&times;</button>
+</div>
+<script>
+(function () {
+  var data = {"en": {"url": "como-indexar-sitio-bing-webmaster-tools.en.html", "label": "This post is also available in English", "cta": "Read in English"}, "es": {"url": "como-indexar-sitio-bing-webmaster-tools.html", "label": "Este artículo también está disponible en español", "cta": "Leer en español"}, "pt": {"url": "como-indexar-sitio-bing-webmaster-tools.pt.html", "label": "Este post também está disponível em português", "cta": "Ler em português"}};
+  var current = "pt";
+  var stored = null;
+  try { stored = localStorage.getItem("lang") } catch (error) {}
+  var pick = stored;
+  if (!pick) {
+    var candidates = (navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ""]).map(function (code) { return code.toLowerCase() });
+    for (var i = 0; i < candidates.length; i++) {
+      var code = candidates[i];
+      if (code.indexOf("es") === 0) { pick = "es"; break }
+      if (code.indexOf("pt") === 0) { pick = "pt"; break }
+      if (code.indexOf("en") === 0) { pick = "en"; break }
+    }
+  }
+  if (!pick) {
+    var tz = "";
+    try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "" } catch (error) {}
+    var spanish = /^America\/(Bogota|Lima|Mexico_City|Monterrey|Cancun|Guatemala|El_Salvador|Tegucigalpa|Managua|Costa_Rica|Panama|Havana|Santo_Domingo|Puerto_Rico|Caracas|Guayaquil|La_Paz|Santiago|Asuncion|Montevideo|Buenos_Aires|Cordoba|Argentina\/.+)$/;
+    pick = /^America\/(Sao_Paulo|Bahia|Fortaleza|Recife|Belem|Manaus|Cuiaba|Campo_Grande|Maceio|Joao_Pessoa|Araguaina|Porto_Velho|Rio_Branco|Boa_Vista|Noronha|Santarem)$/.test(tz) ? "pt" : (spanish.test(tz) ? "es" : "en");
+  }
+  if (pick && pick !== current && data[pick]) {
+    document.getElementById("langSuggestText").textContent = data[pick].label;
+    var link = document.getElementById("langSuggestLink");
+    link.href = data[pick].url;
+    link.textContent = data[pick].cta;
+    document.getElementById("langSuggest").hidden = false;
+  }
+})();
+</script>
+</body>
+</html>
