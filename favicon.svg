@@ -1,37 +1,89 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#12141a"/>
-      <stop offset="1" stop-color="#1a1d26"/>
+      <stop offset="0%" stop-color="#0F1115"/>
+      <stop offset="100%" stop-color="#181B24"/>
     </linearGradient>
-    <linearGradient id="acc" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#E0A83E"/>
-      <stop offset="1" stop-color="#F5D08A"/>
+    
+    <!-- Rich Golden Gradients -->
+    <linearGradient id="gold-bright" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFF3B0"/>
+      <stop offset="35%" stop-color="#F7CE68"/>
+      <stop offset="70%" stop-color="#E0A83E"/>
+      <stop offset="100%" stop-color="#B87D18"/>
     </linearGradient>
+    
+    <linearGradient id="gold-core" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFF9D6"/>
+      <stop offset="50%" stop-color="#F2C14E"/>
+      <stop offset="100%" stop-color="#D49320"/>
+    </linearGradient>
+
+    <!-- Radiant Electron Glow -->
+    <radialGradient id="electron-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFFBE6" stop-opacity="1"/>
+      <stop offset="28%" stop-color="#F7CE68" stop-opacity="0.95"/>
+      <stop offset="65%" stop-color="#E0A83E" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#E0A83E" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="nucleus-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#F7CE68" stop-opacity="0.6"/>
+      <stop offset="55%" stop-color="#E0A83E" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#E0A83E" stop-opacity="0"/>
+    </radialGradient>
   </defs>
+
+  <!-- Base container with golden border -->
   <rect width="512" height="512" rx="112" fill="url(#bg)"/>
-  <rect x="18" y="18" width="476" height="476" rx="98" fill="none" stroke="url(#acc)" stroke-width="6" opacity="0.45"/>
+  <rect x="18" y="18" width="476" height="476" rx="98" fill="none" stroke="url(#gold-bright)" stroke-width="8" opacity="0.6"/>
   
-  <!-- Hexagon network -->
+  <!-- Ambient golden glow in center -->
+  <circle cx="256" cy="256" r="145" fill="url(#nucleus-glow)"/>
+
+  <!-- Orbital & Quantum Network Architecture -->
   <g transform="translate(256, 256)">
-    <!-- Outer hexagon -->
-    <polygon points="0,-160 138.56,-80 138.56,80 0,160 -138.56,80 -138.56,-80" fill="none" stroke="url(#acc)" stroke-width="8" stroke-linejoin="round" opacity="0.9"/>
     
-    <!-- Inner connections -->
-    <line x1="0" y1="-80" x2="0" y2="80" stroke="#E0A83E" stroke-width="5" opacity="0.7"/>
-    <line x1="-69.28" y1="-40" x2="69.28" y2="40" stroke="#E0A83E" stroke-width="5" opacity="0.7"/>
-    <line x1="-69.28" y1="40" x2="69.28" y2="-40" stroke="#E0A83E" stroke-width="5" opacity="0.7"/>
+    <!-- Outer Hexagonal Quantum Lattice (Bold Gold) -->
+    <polygon points="0,-165 142.89,-82.5 142.89,82.5 0,165 -142.89,82.5 -142.89,-82.5" 
+             fill="none" stroke="url(#gold-bright)" stroke-width="14" stroke-linejoin="round" opacity="0.95"/>
     
-    <!-- Nodes -->
-    <circle cx="0" cy="-80" r="14" fill="url(#acc)"/>
-    <circle cx="0" cy="80" r="14" fill="url(#acc)"/>
-    <circle cx="-69.28" cy="-40" r="12" fill="#F5D08A"/>
-    <circle cx="69.28" cy="-40" r="12" fill="#F5D08A"/>
-    <circle cx="-69.28" cy="40" r="12" fill="#F5D08A"/>
-    <circle cx="69.28" cy="40" r="12" fill="#F5D08A"/>
+    <!-- Quantum Electron Orbital Trajectory -->
+    <ellipse cx="0" cy="0" rx="175" ry="70" transform="rotate(-30)" 
+             fill="none" stroke="url(#gold-bright)" stroke-width="9" stroke-dasharray="14 10" opacity="0.65"/>
+             
+    <!-- Inner Connections -->
+    <line x1="0" y1="-82.5" x2="0" y2="82.5" stroke="#E0A83E" stroke-width="8" opacity="0.85"/>
+    <line x1="-71.45" y1="-41.25" x2="71.45" y2="41.25" stroke="#E0A83E" stroke-width="8" opacity="0.85"/>
+    <line x1="-71.45" y1="41.25" x2="71.45" y2="-41.25" stroke="#E0A83E" stroke-width="8" opacity="0.85"/>
     
-    <!-- Center core -->
-    <circle cx="0" cy="0" r="24" fill="url(#acc)"/>
-    <circle cx="0" cy="0" r="12" fill="#0F1115"/>
+    <!-- Lattice Nodes (Rich Gold) -->
+    <circle cx="0" cy="-165" r="16" fill="url(#gold-bright)"/>
+    <circle cx="142.89" cy="82.5" r="16" fill="url(#gold-bright)"/>
+    <circle cx="0" cy="165" r="16" fill="url(#gold-bright)"/>
+    <circle cx="-142.89" cy="82.5" r="16" fill="url(#gold-bright)"/>
+    <circle cx="-142.89" cy="-82.5" r="16" fill="url(#gold-bright)"/>
+    
+    <circle cx="0" cy="-82.5" r="13" fill="#F7CE68"/>
+    <circle cx="0" cy="82.5" r="13" fill="#F7CE68"/>
+    <circle cx="-71.45" cy="-41.25" r="13" fill="#F7CE68"/>
+    <circle cx="71.45" cy="41.25" r="13" fill="#F7CE68"/>
+    <circle cx="-71.45" cy="41.25" r="13" fill="#F7CE68"/>
+    <circle cx="71.45" cy="-41.25" r="13" fill="#F7CE68"/>
+    
+    <!-- Central Nucleus Core -->
+    <circle cx="0" cy="0" r="38" fill="url(#gold-core)"/>
+    <circle cx="0" cy="0" r="18" fill="#0F1115"/>
+    <circle cx="0" cy="0" r="8" fill="#FFF3B0"/>
+
+    <!-- ================= THE RADIANT GOLD ELECTRON ================= -->
+    <!-- Positioned on top-right orbit (x: 142.89, y: -82.5) -->
+    <!-- Outer Radiant Halo Aura -->
+    <circle cx="142.89" cy="-82.5" r="56" fill="url(#electron-glow)"/>
+    <!-- Intense Gold Halo -->
+    <circle cx="142.89" cy="-82.5" r="33" fill="url(#gold-bright)"/>
+    <!-- Radiant High-Contrast Core -->
+    <circle cx="142.89" cy="-82.5" r="23" fill="#FFFBE6" stroke="#D49320" stroke-width="4.5"/>
+    <circle cx="142.89" cy="-82.5" r="11" fill="#F2C14E"/>
   </g>
 </svg>
