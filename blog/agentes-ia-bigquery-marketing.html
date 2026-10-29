@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>BigQuery + IA: Bot de Text-to-SQL para marketing</title>
-<meta name="description" content="Descubre cómo conectar un LLM con Google Cloud BigQuery para crear un agente de Text-to-SQL seguro, de bajo costo y con insights ejecutivos de campañas en segundos." />
+<meta name="description" content="Cómo conectar un modelo de lenguaje con Google BigQuery para crear un agente de Text-to-SQL seguro, de bajo costo y con respuestas exactas en segundos." />
 <meta name="keywords" content="Agentes de IA BigQuery, Text-to-SQL BigQuery, Agente de IA para marketing, Chatbot SQL Google Cloud, Automatizar reportes BigQuery, Reducir costos BigQuery IA, Guardrails BigQuery Python, Conectar ChatGPT a BigQuery, Looker Studio vs Agentes IA, Marketing Science Colombia, Business Intelligence Colombia" />
 <meta name="author" content="Julian David Urrego Lancheros" />
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
@@ -26,14 +26,14 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://juliandatascienceexplorerv2.github.io/blog/agentes-ia-bigquery-marketing.html" />
 <meta property="og:title" content="BigQuery + IA: Bot de Text-to-SQL para marketing" />
-<meta property="og:description" content="Descubre cómo conectar un LLM con Google Cloud BigQuery para crear un agente de Text-to-SQL seguro, de bajo costo y con insights ejecutivos de campañas en segundos." />
+<meta property="og:description" content="Cómo conectar un modelo de lenguaje con Google BigQuery para crear un agente de Text-to-SQL seguro, de bajo costo y con respuestas exactas en segundos." />
 <meta property="og:image" content="https://juliandatascienceexplorerv2.github.io/og-image.png" />
 <meta property="og:locale" content="es_CO" />
 <meta property="og:locale:alternate" content="pt_BR" />
 <meta property="og:locale:alternate" content="en_US" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="BigQuery + IA: Bot de Text-to-SQL para marketing" />
-<meta name="twitter:description" content="Descubre cómo conectar un LLM con Google Cloud BigQuery para crear un agente de Text-to-SQL seguro, de bajo costo y con insights ejecutivos de campañas en segundos." />
+<meta name="twitter:description" content="Cómo conectar un modelo de lenguaje con Google BigQuery para crear un agente de Text-to-SQL seguro, de bajo costo y con respuestas exactas en segundos." />
 <meta name="twitter:image" content="https://juliandatascienceexplorerv2.github.io/og-image.png" />
 <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
 <link rel="icon" type="image/png" href="../favicon.png" />
@@ -49,7 +49,7 @@
       "@type": "TechArticle",
       "@id": "https://juliandatascienceexplorerv2.github.io/blog/agentes-ia-bigquery-marketing.html#article",
       "headline": "BigQuery + IA: Bot de Text-to-SQL para marketing",
-      "description": "Descubre cómo conectar un LLM con Google Cloud BigQuery para crear un agente de Text-to-SQL seguro, de bajo costo y con insights ejecutivos de campañas en segundos.",
+      "description": "Cómo conectar un modelo de lenguaje con Google BigQuery para crear un agente de Text-to-SQL seguro, de bajo costo y con respuestas exactas en segundos.",
       "datePublished": "2026-09-18",
       "dateModified": "2026-10-28",
       "inLanguage": "es",
@@ -123,34 +123,26 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "¿Hay riesgo de que el bot borre o modifique datos de mi empresa?",
+          "name": "¿Cómo evita el agente que se dispare la factura de BigQuery?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Ninguno, siempre que la cuenta de servicio de Google Cloud vinculada al agente tenga únicamente el rol de BigQuery Data Viewer y BigQuery Job User. Al no otorgar permisos de escritura ni administración, es matemáticamente imposible que el bot modifique o elimine registros."
+            "text": "Utilizando el modo dryrun = True en la API de BigQuery. Esto permite calcular exactamente cuántos bytes escaneará la consulta antes de ejecutarla. Si el volumen supera el límite establecido (por ejemplo, 500 MB), la consulta se detiene automáticamente."
           }
         },
         {
           "@type": "Question",
-          "name": "¿Cuánto cuesta mantener un agente de IA sobre BigQuery al mes?",
+          "name": "¿Puede el bot modificar o borrar datos accidentalmente?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Para una agencia o empresa mediana que realiza entre 200 y 500 consultas ad-hoc al mes con tablas bien particionadas, el costo total en Google Cloud (BigQuery + llamadas a la API de IA) suele rondar entre $5 y $15 USD mensuales."
+            "text": "No, por dos motivos: primero, un linter sintáctico en Python descarta cualquier instrucción que contenga comandos DDL o DML; segundo, la cuenta de servicio de Google Cloud solo tiene permisos de lectura estricta."
           }
         },
         {
           "@type": "Question",
-          "name": "¿Se puede conectar este agente a herramientas como Slack o Teams?",
+          "name": "¿Qué tan rápido responde el agente en Slack o Teams?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Sí. La arquitectura se despliega como una micro-API (usando Python y FastAPI o Cloud Functions) que se conecta mediante Webhooks a bots internos de Slack, Microsoft Teams, WhatsApp Business o dashboards web privados."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "¿Quieres implementar un agente de IA sobre tus datos?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Montar una prueba de concepto en un cuaderno de Jupyter toma un par de horas; pero estructurar un Agente de IA en producción conectado a tu BigQuery, con optimización de costos en Google Cloud, guardrails de seguridad corporativa e integración a tu Slack o plataforma interna, requiere ingeniería a medida.  Si quieres llevar esta tecnología a tu agencia, startup o equipo de datos, escríbeme y coordinamos una sesión técnica para revisar tu infraestructura."
+            "text": "Entre 1 y 3 segundos en promedio, siempre que las tablas de BigQuery estén correctamente particionadas por fecha y optimizadas con clústeres."
           }
         }
       ]
@@ -174,77 +166,72 @@
     <h1 class="sec-h" style="font-size:2rem;line-height:1.2">BigQuery + IA: Bot de Text-to-SQL para marketing</h1>
     <p class="post-meta">18 sep 2026 · 7 min de lectura · <span class="tag">IA</span> <span class="tag">BigQuery</span> <span class="tag">Agentes</span> <span class="tag">Python</span> <span class="tag">SQL</span> <span class="tag">Marketing</span></p>
     <article class="post">
-<p>Es una escena que se repite todas las semanas en cualquier agencia o equipo de crecimiento: el CMO o el Director de Medios entra al canal de Slack y pregunta: <strong>"¿Cuál fue el canal con mejor ROAS la semana pasada y cómo se compara el CPA de Meta frente a Google?"</strong>.</p>
-<p>El analista de datos o el media buyer tiene que pausar lo que está haciendo, abrir la consola de <strong>Google BigQuery</strong>, buscar el dataset, escribir una consulta de 25 líneas con agregaciones y agrupaciones, esperar los resultados, copiarlos a una hoja de cálculo y redactar el resumen. Veinte minutos después, responde.</p>
-<p>¿Y si un <strong>Agente de IA conectado a tu BigQuery</strong> pudiera responder esa misma pregunta en lenguaje natural, con datos matemáticamente exactos y un gráfico automático en menos de 3 segundos?</p>
-<blockquote><p><strong>El veredicto en 30 segundos:</strong><br />- <strong>El error del Text-to-SQL ingenuo:</strong> Conectar un chatbot directo a una base de datos sin capas intermedias es una bomba de tiempo: genera consultas no optimizadas que escanean terabytes enteros (disparando la factura de Google Cloud) o inventa tablas que no existen.<br />- <strong>La solución de producción:</strong> Una <strong>arquitectura desacoplada en 4 capas</strong> con permisos estrictos de solo lectura (IAM Read-Only), un validador de sintaxis con <em>Dry Run</em> para auditar el costo antes de ejecutar, y un motor determinista en BigQuery.<br />- <strong>El resultado:</strong> Cualquier miembro del equipo puede consultar millones de filas de pauta en Slack o WhatsApp sin tocar una sola línea de SQL y por menos de $0.003 USD por consulta.</p></blockquote>
-<p>A continuación, te explico cómo está diseñada la arquitectura para que entiendas la lógica sin caer en las trampas técnicas.</p>
-<h2>Por qué los dashboards tradicionales ya no alcanzan</h2>
-<p>Los tableros en <strong>Looker Studio, Tableau o Power BI</strong> son indispensables para el monitoreo rutinario: ver si la inversión del mes va al ritmo proyectado o si el CTR general se mantiene estable.</p>
-<p>El problema ocurre con las <strong>preguntas ad-hoc</strong>:</p>
+<p>En cualquier equipo de marketing o analítica, la historia se repite cada semana: alguien de dirección o un cliente pregunta por Slack: <strong>"¿Cuál fue el canal con mejor ROAS la semana pasada y cómo viene el CPA de Meta comparado con Google?"</strong>.</p>
+<p>El analista tiene que frenar lo que está haciendo, abrir la consola de <strong>Google BigQuery</strong>, buscar el dataset correcto, escribir una consulta de 30 líneas con agregaciones y filtros de fecha, esperar los resultados, copiarlos a una hoja de cálculo y redactar el mensaje. Quince minutos después, manda una respuesta que se lee en diez segundos.</p>
+<p>Conectar un LLM para responder preguntas en lenguaje natural (Text-to-SQL) parece la solución inmediata. Pero si lo haces de forma ingenua —como en la mayoría de tutoriales de internet— tienes una bomba de tiempo: un bot sin guardrails genera consultas no optimizadas que hacen escaneos completos de 400 GB en BigQuery, disparan la factura de Google Cloud a cientos de dólares y pueden inventar tablas inexistentes.</p>
+<blockquote><p><strong>Regla de ingeniería:</strong><br />- <strong>El error del Text-to-SQL ingenuo:</strong> Conectar un bot directo a la base de datos sin capas intermedias. Alucina esquemas, no usa particiones y quema presupuesto de cómputo.<br />- <strong>La solución de producción:</strong> Una <strong>arquitectura desacoplada en 4 capas</strong> con permisos estrictos de solo lectura (IAM Read-Only), un validador sintáctico en Python con <em>Dry Run</em> para auditar el costo antes de tocar los datos, y cálculo determinista en BigQuery.<br />- <strong>El resultado:</strong> Cualquier miembro del equipo consulta millones de filas de pauta en Slack o WhatsApp sin tocar una sola línea de SQL y por menos de $0.003 USD por consulta.</p></blockquote>
+<p>Así está diseñada la arquitectura para que opere con seguridad y bajo costo en producción.</p>
+<h2>Por qué los dashboards tradicionales se quedan cortos</h2>
+<p>Los tableros en <strong>Looker Studio, Tableau o Power BI</strong> son excelentes para el monitoreo habitual: revisar el ritmo de gasto mensual o verificar si el CTR general está dentro de lo esperado.</p>
+<p>El problema aparece con las <strong>preguntas ad-hoc</strong>:</p>
 <ul>
-<li><em>"¿Qué creativos de video tuvieron mayor retención en el último Hot Sale?"</em></li>
-<li><em>"¿Cómo varió el costo por adquisición (CPA) en Brasil comparado con México los días de quincena?"</em></li>
-<li><em>"¿Cuánto gastamos en campañas de tráfico frío vs retargeting el último trimestre?"</em></li>
+<li><em>"¿Qué creativos de video tuvieron mayor retención en el último evento de descuentos?"</em></li>
+<li><em>"¿Cómo varió el costo por adquisición (CPA) en Colombia frente a México los días de quincena?"</em></li>
+<li><em>"¿Cuánto invertimos en campañas de tráfico frío frente a retargeting el último trimestre?"</em></li>
 </ul>
-<p>Construir un gráfico nuevo en un dashboard para cada pregunta puntual satura el tablero y hace perder horas al equipo de analítica. Aquí es donde un <strong>Agente de Datos con IA</strong> cambia las reglas del juego.</p>
-<h2>La Arquitectura en 4 Capas: De Lenguaje Natural a BigQuery</h2>
-<p>Para que un agente de IA funcione en un entorno empresarial serio, no se le da acceso libre a la base de datos. Se implementa un <strong>pipeline controlado en 4 fases</strong>:</p>
+<p>Construir una tarjeta o un filtro nuevo en un dashboard para cada duda puntual satura la vista y desgasta al equipo de BI. Aquí es donde un <strong>Agente de Datos con IA</strong> resuelve la fricción real.</p>
+<h2>La arquitectura en 4 capas: de lenguaje natural a BigQuery</h2>
+<p>Para que un agente funcione en un entorno empresarial serio, no se le da acceso libre a la base de datos. Se implementa un <strong>pipeline controlado en 4 fases</strong>:</p>
 <figure><img src="../assets/img/bigquery-agent-architecture.webp" alt="Arquitectura de un Agente de IA para Marketing sobre BigQuery" loading="lazy" decoding="async" /><figcaption>Arquitectura de un Agente de IA para Marketing sobre BigQuery</figcaption></figure>
 <h3>1. Capa de Negocio (La Interfaz del Usuario)</h3>
-<p>El usuario (analista, director o cliente) escribe su duda en su canal habitual: Slack, Microsoft Teams o un chat web interno. No necesita saber qué es un <code>JOIN</code>, ni qué columnas componen el dataset.</p>
-<h3>2. Capa Semántica &amp; Traducción (El LLM)</h3>
-<p>Aquí entra un modelo con alta capacidad de razonamiento técnico (como Gemini 3 o Claude). El truco no es darle toda la base de datos, sino pasarle el <strong>Diccionario de Esquema (Schema Context)</strong>:</p>
+<p>El usuario (analista, director de medios o cliente) escribe su pregunta en el canal habitual: Slack, Microsoft Teams o un chat web interno. No necesita saber qué es un <code>JOIN</code>, ni cómo se estructuran las tablas en el data lakehouse.</p>
+<h3>2. Capa Semántica y Traducción (El LLM)</h3>
+<p>Un modelo con alta capacidad de razonamiento técnico (como Gemini o Claude) recibe la pregunta. El truco no es pasarle toda la base de datos, sino entregarle un <strong>Diccionario de Esquema (Schema Context)</strong> acotado:</p>
 <ul>
 <li>Nombres de las tablas principales (<code>campaigns_performance</code>, <code>conversions_attribution</code>).</li>
-<li>Definición formal de las métricas clave (ejemplo: <em>"ROAS es revenue dividido entre spend, nunca la media de la columna"</em>).</li>
+<li>Reglas de negocio para métricas clave (por ejemplo: <em>"ROAS es revenue dividido entre spend, jamás el promedio de la columna de ratios"</em>).</li>
 <li>Particiones disponibles (generalmente por fecha de evento <code>event_date</code>).</li>
 </ul>
-<p>Con este contexto, el modelo traduce la intención en una consulta SQL dialecto GoogleSQL limpia y precisa.</p>
-<h3>3. Capa de Guardrails &amp; Seguridad (El Filtro en Python)</h3>
-<p>Este es el paso que el 90% de los tutoriales de internet ignoran, y es el más crítico:</p>
+<p>Con este contexto, el modelo traduce la intención del usuario a una consulta SQL limpia en dialecto GoogleSQL.</p>
+<h3>3. Capa de Guardrails y Auditoría de Costos (Python)</h3>
+<p>Este es el paso crítico que casi todos los prototipos omiten:</p>
 <ul>
-<li><strong>Validación de solo lectura:</strong> Un linter en Python rechaza cualquier consulta que contenga palabras prohibidas como <code>DROP</code>, <code>DELETE</code>, <code>UPDATE</code>, <code>INSERT</code> o <code>ALTER</code>.</li>
-<li><strong>Auditoría de costo con Dry Run:</strong> Antes de correr la query en BigQuery, se ejecuta en modo <code>dry_run = True</code>. BigQuery devuelve exactamente cuántos megabytes va a procesar <strong>sin cobrar un centavo</strong>. Si la consulta intenta escanear más de 500 MB (porque el usuario olvidó acotar la fecha), el agente la rechaza y pide especificar el rango temporal.</li>
+<li><strong>Validación estricta de solo lectura:</strong> Un parser AST en Python rechaza cualquier consulta que contenga comandos de modificación (<code>DROP</code>, <code>DELETE</code>, <code>UPDATE</code>, <code>INSERT</code>, <code>ALTER</code>, <code>GRANT</code>).</li>
+<li><strong>Auditoría de costo con Dry Run:</strong> Antes de ejecutar la query en BigQuery, se evalúa con el parámetro <code>dry_run = True</code> del cliente oficial de Google Cloud. BigQuery responde en milisegundos indicando exactamente cuántos megabytes va a escanear <strong>sin cobrar un solo centavo</strong>. Si la consulta intenta procesar más de 500 MB (porque el usuario no acotó la fecha), el agente la frena y solicita especificar el rango temporal.</li>
 </ul>
-<h3>4. Capa de Ejecución Determinista &amp; Síntesis</h3>
-<p>BigQuery procesa la query sobre millones de filas en milisegundos. El resultado tabular vuelve al agente, quien redacta la síntesis ejecutiva con los hallazgos clave y, si corresponde, renderiza un gráfico interactivo.</p>
-<h2>Cómo se ve en la práctica (Demostración)</h2>
-<p>Así opera el agente cuando un Director de Medios interactúa con él:</p>
+<h3>4. Capa de Ejecución Determinista y Síntesis</h3>
+<p>BigQuery procesa la query sobre millones de filas particionadas en milisegundos. Los datos tabulares resultantes vuelven al agente, quien redacta la síntesis ejecutiva con los hallazgos clave y, si corresponde, renderiza un gráfico interactivo.</p>
+<h2>Cómo opera en la práctica</h2>
+<p>Así responde el agente cuando un Director de Medios interactúa con él:</p>
 <figure><img src="../assets/img/bigquery-agent-chat-demo.webp" alt="Demostración de chat de un Agente de Marketing conectado a BigQuery" loading="lazy" decoding="async" /><figcaption>Demostración de chat de un Agente de Marketing conectado a BigQuery</figcaption></figure>
-<p>Fíjate en el flujo:</p>
+<p>El flujo es completamente transparente:</p>
 <ol>
-<li>El usuario pregunta en lenguaje conversacional sobre el Cyberlunes.</li>
-<li>El agente formula la consulta SQL respetando el particionamiento de fecha.</li>
+<li>El usuario pregunta en lenguaje conversacional sobre el rendimiento de Cyberlunes.</li>
+<li>El agente formula la consulta SQL respetando las particiones por fecha.</li>
 <li>El motor de BigQuery escanea apenas <strong>14.2 MB en 1.4 segundos</strong>.</li>
 <li>La respuesta final entrega los números consolidados exactos (Meta ROAS 4.32x vs Google ROAS 3.78x) y una conclusión estratégica inmediata.</li>
 </ol>
 <h2>El Benchmark: Agente Ingenuo vs. Agente de Producción</h2>
-<p>Muchos equipos intentan armar un bot conectando un LLM directo a su base con herramientas genéricas de internet. La diferencia frente a una arquitectura profesional es abismal:</p>
+<p>La diferencia entre conectar un bot directamente a la base de datos y montar una arquitectura controlada con guardrails es radical:</p>
 <figure><img src="../assets/img/bigquery-guardrails-benchmark.webp" alt="Benchmark: Agente de IA Ingenuo vs Agente de Producción en BigQuery" loading="lazy" decoding="async" /><figcaption>Benchmark: Agente de IA Ingenuo vs Agente de Producción en BigQuery</figcaption></figure>
-<table><thead><tr><th>Factor de Evaluación</th><th>Agente Ingenuo (Text-to-SQL básico)</th><th>Agente de Producción (Arquitectura Controlada)</th></tr></thead><tbody><tr><td><strong>Costo por consulta en GCP</strong></td><td><strong>$1.50 a $3.00 USD</strong> (escaneos completos de 400+ GB)</td><td><strong>&lt; $0.003 USD</strong> (aprovecha particiones y clústeres)</td></tr><tr><td><strong>Tiempo de respuesta</strong></td><td>10 a 20 segundos (riesgo de timeout en Slack)</td><td><strong>1 a 2 segundos</strong> (respuesta instantánea)</td></tr><tr><td><strong>Seguridad de datos</strong></td><td>Vulnerable a alucinaciones o modificaciones</td><td><strong>100% blindado</strong> (permisos IAM de lectura estricta)</td></tr><tr><td><strong>Consistencia matemática</strong></td><td>70% (puede inventar fórmulas intermedias)</td><td><strong>100% exacto</strong> (el cálculo lo ejecuta BigQuery)</td></tr></tbody></table>
-<h2>Los Desafíos Reales para Llevarlo a Tu Equipo</h2>
-<p>Implementar un agente de este tipo abre una ventaja competitiva gigante, pero exige resolver detalles de ingeniería que no vienen en un prompt:</p>
+<table><thead><tr><th>Factor de Evaluación</th><th>Agente Ingenuo (Text-to-SQL básico)</th><th>Agente de Producción (Arquitectura Controlada)</th></tr></thead><tbody><tr><td><strong>Costo por consulta en GCP</strong></td><td><strong>$1.50 a $3.00 USD</strong> (escaneos completos de 400+ GB)</td><td><strong>&lt; $0.003 USD</strong> (aprovecha particiones y clústeres)</td></tr><tr><td><strong>Tiempo de respuesta</strong></td><td>10 a 20 segundos (riesgo de timeout en Slack)</td><td><strong>1 a 2 segundos</strong> (respuesta casi instantánea)</td></tr><tr><td><strong>Seguridad de datos</strong></td><td>Vulnerable a alucinaciones o modificaciones</td><td><strong>100% blindado</strong> (permisos IAM de lectura estricta)</td></tr><tr><td><strong>Consistencia matemática</strong></td><td>70% (puede inventar fórmulas intermedias)</td><td><strong>100% exacto</strong> (el cálculo lo ejecuta BigQuery)</td></tr></tbody></table>
+<h2>Desafíos reales para implementarlo en tu equipo</h2>
+<p>Montar un sistema de este tipo entrega una ventaja competitiva gigante, pero exige resolver detalles de ingeniería que no vienen en ningún prompt:</p>
 <ol>
-<li><strong>La Taxonomía Multicanal:</strong> Si Meta llama al gasto <code>spend</code>, Google Ads lo llama <code>cost</code> y TikTok lo llama <code>stat_cost</code>, tu data lakehouse en BigQuery debe tener vistas normalizadas para que el modelo no se confunda de fuente.</li>
-<li><strong>Estrategia de Particionamiento:</strong> Las tablas deben estar particionadas por día (<code>PARTITION BY DATE(date)</code>) y agrupadas en clústeres por canal y campaña para que las queries cuesten fracciones de centavo.</li>
-<li><strong>Caché Inteligente de Consultas:</strong> Si dos directores hacen preguntas similares en la misma mañana, el sistema debe responder desde caché en memoria sin volver a golpear la base de datos.</li>
-<li><strong>Seguridad y Privacidad:</strong> Las credenciales de servicio de Google Cloud (Service Account) deben estar cifradas y bajo el principio de mínimo privilegio (<em>Least Privilege Access</em>).</li>
+<li><strong>Taxonomía unificada de canales:</strong> Si Meta llama al gasto <code>spend</code>, Google Ads lo llama <code>cost</code> y TikTok lo llama <code>stat_cost</code>, tu lakehouse en BigQuery debe exponer vistas normalizadas para que el modelo no se confunda de fuente.</li>
+<li><strong>Estrategia de particionamiento:</strong> Las tablas deben estar particionadas por día (<code>PARTITION BY DATE(date)</code>) y agrupadas en clústeres por canal y campaña para que las queries cuesten fracciones de centavo.</li>
+<li><strong>Caché inteligente de consultas:</strong> Si dos personas hacen preguntas similares durante la misma mañana, el sistema debe responder desde caché en memoria sin volver a consultar la base de datos.</li>
+<li><strong>Mínimo privilegio en la nube:</strong> La cuenta de servicio de Google Cloud (Service Account) debe contar exclusivamente con permisos de lectura sobre las tablas autorizadas (<code>roles/bigquery.dataViewer</code>).</li>
 </ol>
-<h2>Preguntas Frecuentes sobre Agentes de IA y BigQuery</h2>
-<h3>¿Hay riesgo de que el bot borre o modifique datos de mi empresa?</h3>
-<p>Ninguno, siempre que la cuenta de servicio de Google Cloud vinculada al agente tenga únicamente el rol de <code>BigQuery Data Viewer</code> y <code>BigQuery Job User</code>. Al no otorgar permisos de escritura ni administración, es matemáticamente imposible que el bot modifique o elimine registros.</p>
-<h3>¿Cuánto cuesta mantener un agente de IA sobre BigQuery al mes?</h3>
-<p>Para una agencia o empresa mediana que realiza entre 200 y 500 consultas ad-hoc al mes con tablas bien particionadas, el costo total en Google Cloud (BigQuery + llamadas a la API de IA) suele rondar entre <strong>$5 y $15 USD mensuales</strong>.</p>
-<h3>¿Se puede conectar este agente a herramientas como Slack o Teams?</h3>
-<p>Sí. La arquitectura se despliega como una micro-API (usando Python y FastAPI o Cloud Functions) que se conecta mediante Webhooks a bots internos de Slack, Microsoft Teams, WhatsApp Business o dashboards web privados.</p>
-<h2>Conclusión: La IA como puente entre el dato y la decisión</h2>
-<p>El verdadero valor de la inteligencia artificial en analítica de marketing no es reemplazar a los científicos de datos ni a los especialistas en BI, sino <strong>democratizar el acceso a las respuestas</strong>.</p>
-<p>Cuando un director de marketing puede conversar directamente con sus datos en 3 segundos, las reuniones dejan de ser discusiones sobre qué número es el correcto y pasan a ser decisiones sobre cómo escalar el negocio.</p>
+<p>La inteligencia artificial en datos de negocio no consiste en darle acceso total a un bot; consiste en construir la infraestructura y los guardrails para que el modelo trabaje con precisión, seguridad y costos bajo control.</p>
 <p>---</p>
-<h3>¿Quieres implementar un agente de IA sobre tus datos?</h3>
-<p>Montar una prueba de concepto en un cuaderno de Jupyter toma un par de horas; pero estructurar un <strong>Agente de IA en producción conectado a tu BigQuery</strong>, con optimización de costos en Google Cloud, guardrails de seguridad corporativa e integración a tu Slack o plataforma interna, requiere ingeniería a medida.</p>
-<p>Si quieres llevar esta tecnología a tu agencia, startup o equipo de datos, <a href="../#contact">escríbeme</a> y coordinamos una sesión técnica para revisar tu infraestructura.</p>
+<h2>Preguntas frecuentes</h2>
+<h3>¿Cómo evita el agente que se dispare la factura de BigQuery?</h3>
+<p>Utilizando el modo <code>dry_run = True</code> en la API de BigQuery. Esto permite calcular exactamente cuántos bytes escaneará la consulta antes de ejecutarla. Si el volumen supera el límite establecido (por ejemplo, 500 MB), la consulta se detiene automáticamente.</p>
+<h3>¿Puede el bot modificar o borrar datos accidentalmente?</h3>
+<p>No, por dos motivos: primero, un linter sintáctico en Python descarta cualquier instrucción que contenga comandos DDL o DML; segundo, la cuenta de servicio de Google Cloud solo tiene permisos de lectura estricta.</p>
+<h3>¿Qué tan rápido responde el agente en Slack o Teams?</h3>
+<p>Entre 1 y 3 segundos en promedio, siempre que las tablas de BigQuery estén correctamente particionadas por fecha y optimizadas con clústeres.</p>
     </article>
     <div class="dl" style="margin-top:3rem">
       <p style="font-size:14px;color:var(--text-2);line-height:1.7">

@@ -246,7 +246,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 """
 
 POST_THUMBNAILS = {
-    "prompt-injection-agentes-llm-produccion": "assets/img/agent-security-guardrails-architecture.webp",
+    "prompt-injection-agentes-llm-produccion": "assets/img/prompt-injection-defense-benchmark.webp",
     "seguridad-agentes-ia-responsabilidad-ingenieria": "assets/img/agent-security-guardrails-architecture.webp",
     "agentes-ia-bigquery-marketing": "assets/img/bigquery-agent-architecture.webp",
     "gemini-vs-chatgpt-analisis-datos-marketing": "assets/img/scorecard-gemini-chatgpt.webp",
