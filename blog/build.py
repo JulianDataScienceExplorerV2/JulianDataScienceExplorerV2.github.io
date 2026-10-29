@@ -271,7 +271,7 @@ POST_CARD = """      <a class="proj-card post-card" href="{url}">
       </a>
 """
 
-BLOCK_JSONLD = """{{"@context":"https://schema.org","@type":"BlogPosting","headline":"{title}","description":"{description}","datePublished":"{date}","dateModified":"{date}","inLanguage":"{lang}","author":{{"@type":"Person","name":"{author}","url":"{site}"}},"publisher":{{"@type":"Person","name":"{author}"}},"mainEntityOfPage":"{url}","image":"{site}/og-image.png"}}"""
+BLOCK_JSONLD = """{{"@context":"https://schema.org","@type":"BlogPosting","headline":"{title}","description":"{description}","datePublished":"{date}","dateModified":"{modified}","inLanguage":"{lang}","author":{{"@type":"Person","name":"{author}","url":"{site}"}},"publisher":{{"@type":"Person","name":"{author}"}},"mainEntityOfPage":"{url}","image":"{site}/og-image.png"}}"""
 
 SUGGEST = {
     "es": {"label": "Este artículo también está disponible en español", "cta": "Leer en español"},
@@ -546,6 +546,8 @@ LSI_KEYWORDS = {
 
 def render_post(group, lang):
     post = group["translations"][lang]
+    url = f"{SITE}/blog/{local_url(group, lang)}"
+    today = datetime.now().strftime("%Y-%m-%d")
     ui = UI[lang]
     url = post_url(group, lang)
     tags_html = " ".join(f'<span class="tag">{esc(tag)}</span>' for tag in post["tags"])
@@ -583,7 +585,7 @@ def render_post(group, lang):
         "headline": post["title"],
         "description": post["description"],
         "datePublished": post["date"],
-        "dateModified": post["date"],
+        "dateModified": today,
         "inLanguage": lang,
         "proficiencyLevel": "Expert",
         "dependencies": "Google Cloud BigQuery, Python 3.10+, GoogleSQL, Google Analytics 4",
@@ -752,14 +754,14 @@ def render_feed(groups):
 
 def render_sitemap(groups):
     today = datetime.now().strftime("%Y-%m-%d")
-    latest = groups[0]["date"] if groups else today
+    latest = max(groups[0]["date"], today) if groups else today
     items = []
 
     # Home is a single canonical English URL; language is a client-side preference.
     items.append(
         "  <url>\n"
         f"    <loc>{SITE}/</loc>\n"
-        f"    <lastmod>{latest}</lastmod>\n"
+        f"    <lastmod>{today}</lastmod>\n"
         "    <changefreq>weekly</changefreq>\n"
         "    <priority>1.0</priority>\n"
         "  </url>"
@@ -769,29 +771,38 @@ def render_sitemap(groups):
     items.append(
         "  <url>\n"
         f"    <loc>{SITE}/blog/</loc>\n"
-        f"    <lastmod>{latest}</lastmod>\n"
+        f"    <lastmod>{today}</lastmod>\n"
         "    <changefreq>weekly</changefreq>\n"
         "    <priority>0.9</priority>\n"
         "  </url>"
     )
 
-    # Each post. Hreflang lives in each page's <head>, not in the sitemap.
+    # Each post with hreflang annotations in the sitemap.
     for group in groups:
+        translations = {code: post_url(group, code) for code in LANGS if code in group["translations"]}
         for lang in LANGS:
-            if lang in group["translations"]:
-                p_url = post_url(group, lang)
-                items.append(
-                    "  <url>\n"
-                    f"    <loc>{p_url}</loc>\n"
-                    f"    <lastmod>{group['date']}</lastmod>\n"
-                    "    <changefreq>monthly</changefreq>\n"
-                    "    <priority>0.8</priority>\n"
-                    "  </url>"
-                )
+            if lang not in group["translations"]:
+                continue
+            p_url = translations[lang]
+            hreflang_links = "\n".join(
+                f'    <xhtml:link rel="alternate" hreflang="{code}" href="{translations[code]}" />'
+                for code in translations
+            )
+            # x-default points to the default language version.
+            hreflang_links += f'\n    <xhtml:link rel="alternate" hreflang="x-default" href="{translations[group["default"]]}" />'
+            items.append(
+                "  <url>\n"
+                f"    <loc>{p_url}</loc>\n"
+                f"    <lastmod>{today}</lastmod>\n"
+                "    <changefreq>monthly</changefreq>\n"
+                "    <priority>0.8</priority>\n"
+                f"{hreflang_links}\n"
+                "  </url>"
+            )
 
     sitemap = (
         '<?xml version="1.0" encoding="UTF-8"?>\n'
-        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
         + "\n".join(items) + "\n</urlset>\n"
     )
     with open(os.path.join(ROOT, "sitemap.xml"), "w", encoding="utf-8") as handle:
