@@ -53,15 +53,21 @@
       --bg-terminal-header: rgba(15, 23, 42, 0.95);
       --bg-input: rgba(255, 255, 255, 0.90);
 
+      /* Rich gold/amber accents for light background */
+      --r1: #B7791F;
+      --r2: #D97706;
+      --r3: #92400E;
+      --gold: #B45309;
+
       --text-1: #0f172a;
       --text-2: #475569;
       --text-3: #94a3b8;
 
-      --bd: rgba(224, 168, 62, 0.22);
-      --bdh: rgba(224, 168, 62, 0.55);
-      --r1a: rgba(224, 168, 62, 0.12);
-      --r1b: rgba(224, 168, 62, 0.06);
-      --r2a: rgba(245, 208, 138, 0.12);
+      --bd: rgba(183, 121, 31, 0.18);
+      --bdh: rgba(183, 121, 31, 0.48);
+      --r1a: rgba(183, 121, 31, 0.10);
+      --r1b: rgba(183, 121, 31, 0.05);
+      --r2a: rgba(217, 119, 6, 0.10);
     }
 
     html {
@@ -243,7 +249,7 @@
     }
 
     body.light-mode .grid-pat {
-      background-image: linear-gradient(rgba(15, 23, 42, .06) 1px, transparent 1px), linear-gradient(90deg, rgba(15, 23, 42, .06) 1px, transparent 1px);
+      background-image: linear-gradient(rgba(183, 121, 31, .05) 1px, transparent 1px), linear-gradient(90deg, rgba(183, 121, 31, .05) 1px, transparent 1px);
     }
 
     .vignette {
@@ -253,7 +259,7 @@
     }
 
     body.light-mode .vignette {
-      background: radial-gradient(ellipse 85% 85% at 10% 50%, rgba(248, 250, 252, .92) 30%, rgba(248, 250, 252, .55) 70%, rgba(248, 250, 252, .88) 100%)
+      background: radial-gradient(ellipse 85% 85% at 15% 50%, rgba(248, 250, 252, .70) 25%, rgba(248, 250, 252, .18) 65%, rgba(248, 250, 252, .45) 100%);
     }
 
     .hero-content {
@@ -357,6 +363,11 @@
       }
     }
 
+    body.light-mode .hero-glow {
+      background: radial-gradient(ellipse 65% 55% at 45% 45%, rgba(217, 119, 6, 0.10) 0%, rgba(180, 83, 9, 0.04) 45%, transparent 72%);
+      filter: blur(55px);
+    }
+
     .hero-name {
       position: relative;
       font-size: clamp(2.8rem, 6vw, 4.6rem);
@@ -373,7 +384,22 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
       background-size: 200%;
-      animation: gshift 5s ease infinite alternate
+      animation: gshift 5s ease infinite alternate;
+      text-shadow: none; /* Prevents text-shadow bleed behind transparent clipped text */
+    }
+
+    body.light-mode .hero-name {
+      color: #0f172a;
+      text-shadow: none;
+    }
+
+    body.light-mode .hero-name .grad {
+      background: linear-gradient(120deg, #b45309 0%, #d97706 45%, #92400e 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: none;
+      filter: none;
     }
 
     @keyframes gshift {

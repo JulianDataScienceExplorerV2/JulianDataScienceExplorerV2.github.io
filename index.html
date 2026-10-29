@@ -1190,7 +1190,11 @@
     let W, H, atoms = [], bursts = [], rafId = null;
     const REDUCED = matchMedia("(prefers-reduced-motion: reduce)").matches;
     let heroVisible = true;
-    const COLS = ["224,168,62", "245,208,138", "183,121,31"];
+    const COLS_DARK = ["224,168,62", "245,208,138", "183,121,31", "242,193,78"];
+    const COLS_LIGHT = ["180,83,9", "194,120,3", "146,64,14", "71,85,105"];
+    function getAtomCols() {
+      return document.body.classList.contains("light-mode") ? COLS_LIGHT : COLS_DARK;
+    }
     let N = 22;
 
     function resize() {
@@ -1238,7 +1242,7 @@
         r: 1.4 + Math.random() * 1.2,
         rad: Math.max.apply(null, orbits.map(orbit => orbit.r)) + 8,
         orbits: orbits,
-        col: COLS[Math.floor(Math.random() * COLS.length)],
+        colIdx: Math.floor(Math.random() * 4),
         alpha: REDUCED ? 1 : 0
       };
     }
@@ -1257,8 +1261,10 @@
     }
 
     function physics() {
+      const cols = getAtomCols();
       const margin = 24;
       atoms.forEach(atom => {
+        const atomCol = cols[atom.colIdx % cols.length];
         if (atom.alpha < 1) atom.alpha = Math.min(1, atom.alpha + .02);
         
         atom.x += atom.vx;
@@ -1274,7 +1280,7 @@
             const excitation = 1 + (160 - dist) / 25;
             atom.orbits.forEach(orbit => { orbit.a += orbit.s * excitation });
             if (dist < atom.rad + 4 && Math.random() < 0.15 && bursts.length < 24) {
-              spawnBurst(atom.x, atom.y, atom.col, 2);
+              spawnBurst(atom.x, atom.y, atomCol, 2);
             }
           } else {
             atom.orbits.forEach(orbit => { orbit.a += orbit.s });
@@ -1324,7 +1330,9 @@
             b.vy += p * ny * 0.8;
 
             if (Math.random() < 0.25 && bursts.length < 20) {
-              spawnBurst((a.x + b.x) / 2, (a.y + b.y) / 2, Math.random() < .5 ? a.col : b.col, 2);
+              const aCol = cols[a.colIdx % cols.length];
+              const bCol = cols[b.colIdx % cols.length];
+              spawnBurst((a.x + b.x) / 2, (a.y + b.y) / 2, Math.random() < .5 ? aCol : bCol, 2);
             }
           }
         }
@@ -1344,6 +1352,9 @@
       X.clearRect(0, 0, W, H);
       physics();
 
+      const isLight = document.body.classList.contains("light-mode");
+      const cols = getAtomCols();
+
       // Quantum proximity links
       for (let i = 0; i < atoms.length; i++) {
         for (let j = i + 1; j < atoms.length; j++) {
@@ -1351,50 +1362,63 @@
           const dx = b.x - a.x, dy = b.y - a.y;
           const d = Math.hypot(dx, dy);
           if (d < 95) {
-            const linkAlpha = (1 - d / 95) * 0.16 * Math.min(a.alpha, b.alpha);
+            const aCol = cols[a.colIdx % cols.length];
+            const maxAlpha = isLight ? 0.36 : 0.16;
+            const linkAlpha = (1 - d / 95) * maxAlpha * Math.min(a.alpha, b.alpha);
             X.beginPath();
             X.moveTo(a.x, a.y);
             X.lineTo(b.x, b.y);
-            X.strokeStyle = `rgba(${a.col},${linkAlpha})`;
-            X.lineWidth = 0.6;
+            X.strokeStyle = `rgba(${aCol},${linkAlpha})`;
+            X.lineWidth = isLight ? 0.85 : 0.6;
             X.stroke();
           }
         }
       }
 
       atoms.forEach(atom => {
-        X.globalAlpha = atom.alpha * .85;
+        const col = cols[atom.colIdx % cols.length];
+        X.globalAlpha = atom.alpha * (isLight ? 0.95 : 0.85);
+
         atom.orbits.forEach(orbit => {
           X.beginPath();
           X.arc(atom.x, atom.y, orbit.r, 0, Math.PI * 2);
-          X.strokeStyle = `rgba(${atom.col},.2)`;
-          X.lineWidth = .6;
+          X.strokeStyle = `rgba(${col},${isLight ? 0.36 : 0.20})`;
+          X.lineWidth = isLight ? 0.85 : 0.6;
           X.stroke();
+
           const ex = atom.x + Math.cos(orbit.a) * orbit.r;
           const ey = atom.y + Math.sin(orbit.a) * orbit.r;
           X.beginPath();
-          X.arc(ex, ey, orbit.size, 0, Math.PI * 2);
-          X.fillStyle = `rgba(${atom.col},.95)`;
+          X.arc(ex, ey, orbit.size * (isLight ? 1.25 : 1), 0, Math.PI * 2);
+          X.fillStyle = `rgba(${col},1)`;
           X.fill();
         });
-        const glow = X.createRadialGradient(atom.x, atom.y, 0, atom.x, atom.y, atom.r * 4);
-        glow.addColorStop(0, `rgba(${atom.col},.75)`);
-        glow.addColorStop(1, `rgba(${atom.col},0)`);
+
+        const glow = X.createRadialGradient(atom.x, atom.y, 0, atom.x, atom.y, atom.r * 4.5);
+        if (isLight) {
+          glow.addColorStop(0, `rgba(${col},.50)`);
+          glow.addColorStop(1, `rgba(${col},0)`);
+        } else {
+          glow.addColorStop(0, `rgba(${col},.75)`);
+          glow.addColorStop(1, `rgba(${col},0)`);
+        }
         X.beginPath();
-        X.arc(atom.x, atom.y, atom.r * 4, 0, Math.PI * 2);
+        X.arc(atom.x, atom.y, atom.r * 4.5, 0, Math.PI * 2);
         X.fillStyle = glow;
         X.fill();
+
         X.beginPath();
-        X.arc(atom.x, atom.y, atom.r, 0, Math.PI * 2);
-        X.fillStyle = `rgba(${atom.col},.95)`;
+        X.arc(atom.x, atom.y, atom.r * (isLight ? 1.2 : 1), 0, Math.PI * 2);
+        X.fillStyle = `rgba(${col},1)`;
         X.fill();
       });
 
       bursts.forEach(p => {
-        X.globalAlpha = Math.max(p.life, 0) * .9;
+        const pCol = p.col || (isLight ? "180,83,9" : "224,168,62");
+        X.globalAlpha = Math.max(p.life, 0) * (isLight ? 1 : 0.9);
         X.beginPath();
-        X.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        X.fillStyle = `rgba(${p.col},1)`;
+        X.arc(p.x, p.y, p.size * (isLight ? 1.25 : 1), 0, Math.PI * 2);
+        X.fillStyle = `rgba(${pCol},1)`;
         X.fill();
       });
       X.globalAlpha = 1;
