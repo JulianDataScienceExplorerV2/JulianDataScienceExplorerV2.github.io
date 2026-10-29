@@ -91,13 +91,13 @@ POST_TEMPLATE = """<!DOCTYPE html>
   <a class="nav-logo" href="{base}" style="text-decoration:none">&gt;<span class="d"> julian</span>.dev</a>
   <ul class="nav-links">
     <li><a href="{base}">{home}</a></li>
-    <li><a href="{base}blog/">{blog}</a></li>
+    <li><a href="{base}blog/index.html">{blog}</a></li>
   </ul>
 </nav>
 
 <div class="section" style="padding-top:7rem">
   <div class="wrap" style="max-width:760px">
-    <p class="kicker"><a href="{base}blog/" style="color:inherit;text-decoration:none">{back}</a></p>
+    <p class="kicker"><a href="{base}blog/index.html" style="color:inherit;text-decoration:none">{back}</a></p>
     <h1 class="sec-h" style="font-size:2rem;line-height:1.2">{title}</h1>
     <p class="post-meta">{date_label} · {reading} {reading_label} · {tags}</p>
     <article class="post">
@@ -200,7 +200,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   <a class="nav-logo" href="../" style="text-decoration:none">&gt;<span class="d"> julian</span>.dev</a>
   <ul class="nav-links">
     <li><a href="../">Portafolio</a></li>
-    <li><a href="./">Blog</a></li>
+    <li><a href="./index.html">Blog</a></li>
   </ul>
 </nav>
 
