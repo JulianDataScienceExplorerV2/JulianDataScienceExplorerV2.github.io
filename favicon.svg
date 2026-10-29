@@ -1,11 +1,37 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0F1115"/><stop offset="1" stop-color="#241C12"/></linearGradient>
-    <linearGradient id="acc" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E0A83E"/><stop offset="1" stop-color="#F5D08A"/></linearGradient>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#12141a"/>
+      <stop offset="1" stop-color="#1a1d26"/>
+    </linearGradient>
+    <linearGradient id="acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#E0A83E"/>
+      <stop offset="1" stop-color="#F5D08A"/>
+    </linearGradient>
   </defs>
   <rect width="512" height="512" rx="112" fill="url(#bg)"/>
-  <rect x="18" y="18" width="476" height="476" rx="98" fill="none" stroke="url(#acc)" stroke-width="5" opacity="0.55"/>
-  <text x="254" y="312" font-family="Inter, -apple-system, 'Segoe UI', sans-serif" font-size="210" font-weight="800" letter-spacing="2" fill="#F4F2EC" text-anchor="middle">JU</text>
-  <circle cx="386" cy="150" r="26" fill="#F5D08A"/>
-  <circle cx="386" cy="150" r="11" fill="#0F1115"/>
+  <rect x="18" y="18" width="476" height="476" rx="98" fill="none" stroke="url(#acc)" stroke-width="6" opacity="0.45"/>
+  
+  <!-- Hexagon network -->
+  <g transform="translate(256, 256)">
+    <!-- Outer hexagon -->
+    <polygon points="0,-160 138.56,-80 138.56,80 0,160 -138.56,80 -138.56,-80" fill="none" stroke="url(#acc)" stroke-width="8" stroke-linejoin="round" opacity="0.9"/>
+    
+    <!-- Inner connections -->
+    <line x1="0" y1="-80" x2="0" y2="80" stroke="#E0A83E" stroke-width="5" opacity="0.7"/>
+    <line x1="-69.28" y1="-40" x2="69.28" y2="40" stroke="#E0A83E" stroke-width="5" opacity="0.7"/>
+    <line x1="-69.28" y1="40" x2="69.28" y2="-40" stroke="#E0A83E" stroke-width="5" opacity="0.7"/>
+    
+    <!-- Nodes -->
+    <circle cx="0" cy="-80" r="14" fill="url(#acc)"/>
+    <circle cx="0" cy="80" r="14" fill="url(#acc)"/>
+    <circle cx="-69.28" cy="-40" r="12" fill="#F5D08A"/>
+    <circle cx="69.28" cy="-40" r="12" fill="#F5D08A"/>
+    <circle cx="-69.28" cy="40" r="12" fill="#F5D08A"/>
+    <circle cx="69.28" cy="40" r="12" fill="#F5D08A"/>
+    
+    <!-- Center core -->
+    <circle cx="0" cy="0" r="24" fill="url(#acc)"/>
+    <circle cx="0" cy="0" r="12" fill="#0F1115"/>
+  </g>
 </svg>
