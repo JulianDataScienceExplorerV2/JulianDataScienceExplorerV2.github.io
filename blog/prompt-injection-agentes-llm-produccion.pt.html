@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Defesa em profundidade contra prompt injection em LLMs</title>
-<meta name="description" content="Como blindar agentes LLM em produção contra injeções diretas e indiretas: limites XML assinados, discriminador out-of-band, parsing AST com IAM somente leitura e aprovação humana. Benchmark com 120 payloads." />
+<meta name="description" content="Como blindar agentes LLM em produção contra prompt injection: limites XML assinados, discriminador out-of-band, parsing AST e guardrails de IAM." />
 <meta name="keywords" content="Prompt Injection, LLM Security, AI Agents, RAG, Cloud, BigQuery" />
 <meta name="author" content="Julian David Urrego Lancheros" />
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
@@ -26,14 +26,14 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://juliandatascienceexplorerv2.github.io/blog/prompt-injection-agentes-llm-produccion.pt.html" />
 <meta property="og:title" content="Defesa em profundidade contra prompt injection em LLMs" />
-<meta property="og:description" content="Como blindar agentes LLM em produção contra injeções diretas e indiretas: limites XML assinados, discriminador out-of-band, parsing AST com IAM somente leitura e aprovação humana. Benchmark com 120 payloads." />
+<meta property="og:description" content="Como blindar agentes LLM em produção contra prompt injection: limites XML assinados, discriminador out-of-band, parsing AST e guardrails de IAM." />
 <meta property="og:image" content="https://juliandatascienceexplorerv2.github.io/og-image.png" />
 <meta property="og:locale" content="pt_BR" />
 <meta property="og:locale:alternate" content="es_CO" />
 <meta property="og:locale:alternate" content="en_US" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Defesa em profundidade contra prompt injection em LLMs" />
-<meta name="twitter:description" content="Como blindar agentes LLM em produção contra injeções diretas e indiretas: limites XML assinados, discriminador out-of-band, parsing AST com IAM somente leitura e aprovação humana. Benchmark com 120 payloads." />
+<meta name="twitter:description" content="Como blindar agentes LLM em produção contra prompt injection: limites XML assinados, discriminador out-of-band, parsing AST e guardrails de IAM." />
 <meta name="twitter:image" content="https://juliandatascienceexplorerv2.github.io/og-image.png" />
 <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
 <link rel="icon" type="image/png" href="../favicon.png" />
@@ -49,7 +49,7 @@
       "@type": "TechArticle",
       "@id": "https://juliandatascienceexplorerv2.github.io/blog/prompt-injection-agentes-llm-produccion.pt.html#article",
       "headline": "Defesa em profundidade contra prompt injection em LLMs",
-      "description": "Como blindar agentes LLM em produção contra injeções diretas e indiretas: limites XML assinados, discriminador out-of-band, parsing AST com IAM somente leitura e aprovação humana. Benchmark com 120 payloads.",
+      "description": "Como blindar agentes LLM em produção contra prompt injection: limites XML assinados, discriminador out-of-band, parsing AST e guardrails de IAM.",
       "datePublished": "2026-10-28",
       "dateModified": "2026-10-28",
       "inLanguage": "pt",

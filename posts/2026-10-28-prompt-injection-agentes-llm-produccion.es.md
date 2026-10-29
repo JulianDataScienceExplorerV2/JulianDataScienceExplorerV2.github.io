@@ -1,6 +1,6 @@
 ---
 title: Defensa en profundidad contra prompt injection en LLM
-description: "Cómo blindar agentes LLM en producción frente a inyecciones directas e indirectas: límites XML firmados, discriminador out-of-band, parsing AST con IAM de solo lectura y aprobación humana. Benchmark con 120 payloads."
+description: "Cómo blindar agentes LLM en producción contra prompt injection: límites XML firmados, discriminador out-of-band, parsing AST y guardrails de IAM."
 date: 2026-10-28
 lang: es
 tags: Prompt Injection, LLM Security, AI Agents, RAG, Cloud, BigQuery

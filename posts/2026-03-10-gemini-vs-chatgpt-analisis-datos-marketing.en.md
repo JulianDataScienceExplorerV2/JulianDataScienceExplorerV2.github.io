@@ -1,6 +1,6 @@
 ---
 title: Gemini vs ChatGPT for Marketing Analytics: A Technical Benchmark
-description: Which AI analyzes ad campaigns better? We tested Google Gemini and OpenAI ChatGPT across a 90-day multi-channel dataset, Google Trends interest, and arithmetic stress tests.
+description: Which AI analyzes ad campaigns better? We tested Gemini and ChatGPT on a 90-day multi-channel dataset, Google Trends data, and arithmetic stress tests.
 date: 2026-03-10
 lang: en
 tags: AI, Gemini, ChatGPT, Marketing, Data Science, Python

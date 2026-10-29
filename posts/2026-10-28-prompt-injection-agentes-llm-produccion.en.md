@@ -1,6 +1,6 @@
 ---
 title: Defense in Depth Against Prompt Injection in LLMs
-description: "How to harden production LLM agents against direct and indirect prompt injection: signed XML boundaries, out-of-band discriminators, AST parsing with read-only IAM, and human sign-off. Benchmark across 120 adversarial payloads."
+description: "How to harden production LLM agents against prompt injection: signed XML boundaries, out-of-band discriminators, AST parsing, read-only IAM, and human sign-off."
 date: 2026-10-28
 lang: en
 tags: Prompt Injection, LLM Security, AI Agents, RAG, Cloud, BigQuery

@@ -492,6 +492,10 @@ def load_groups():
             group["default"] = "es"
         else:
             group["default"] = next(iter(group["translations"]))
+        for lang, post in group["translations"].items():
+            desc_len = len(post["description"])
+            if desc_len < 25 or desc_len > 160:
+                print(f"WARNING: description length {desc_len} for {slug}.{lang}.md (recommended 25-160 chars)")
     return ordered
 
 

@@ -1,6 +1,6 @@
 ---
 title: Como gerei um dashboard de marketing com IA em 2 minutos
-description: Construí uma ferramenta que transforma um CSV de campanhas em um dashboard pronto para o cliente, com análise escrita por IA. Veja como funciona e como replicar.
+description: Transforme um CSV de campanhas em dashboard client-ready com análise escrita por IA. Veja como funciona e como replicar em poucos minutos.
 date: 2025-08-14
 lang: pt
 tags: IA, Marketing, Automação, Python

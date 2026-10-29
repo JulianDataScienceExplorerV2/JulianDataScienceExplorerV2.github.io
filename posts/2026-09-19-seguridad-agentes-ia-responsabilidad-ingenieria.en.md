@@ -1,6 +1,6 @@
 ---
 title: AI Agent Security as a Software Engineering Problem
-description: Why autonomous agent failures are not science fiction catastrophes, but classical software engineering challenges around sandboxing, access control, and boundary defense.
+description: Autonomous agent failures are not sci-fi catastrophes, but classic software engineering challenges around sandboxing, access control, and boundary defense.
 date: 2026-09-19
 lang: en
 tags: Agents, Cybersecurity, AI, Python, Cloud, Engineering
