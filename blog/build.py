@@ -251,6 +251,7 @@ POST_THUMBNAILS = {
     "agentes-ia-bigquery-marketing": "assets/img/bigquery-agent-architecture.webp",
     "gemini-vs-chatgpt-analisis-datos-marketing": "assets/img/scorecard-gemini-chatgpt.webp",
     "dashboard-marketing-con-ia": "assets/img/mktdash-dashboard.webp",
+    "como-indexar-sitio-bing-webmaster-tools": "og-image.png",
 }
 
 POST_CARD = """      <a class="proj-card post-card" href="{url}">
@@ -703,7 +704,7 @@ def render_index(groups):
     for idx, group in enumerate(groups):
         post = group["translations"][group["default"]]
         badge_html = '<span class="badge-new"><span class="pulse-dot"></span> NUEVO</span>' if idx == 0 else ""
-        thumb_url = f"../{POST_THUMBNAILS.get(group['slug'], '')}"
+        thumb_url = f"../{POST_THUMBNAILS.get(group['slug'], 'og-image.png')}"
         cards.append(
             POST_CARD.format(
                 url=local_url(group, group["default"]),
@@ -822,7 +823,7 @@ def render_home_section(groups):
     for idx, group in enumerate(groups[:3]):
         post = group["translations"][group["default"]]
         badge_html = '<span class="badge-new"><span class="pulse-dot"></span> NUEVO</span>' if idx == 0 else ""
-        thumb_url = POST_THUMBNAILS.get(group["slug"], "")
+        thumb_url = POST_THUMBNAILS.get(group["slug"], "og-image.png")
         cards.append(
             POST_CARD.format(
                 url=f"blog/{local_url(group, group['default'])}",
