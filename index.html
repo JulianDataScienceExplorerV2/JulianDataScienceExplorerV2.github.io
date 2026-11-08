@@ -62,12 +62,14 @@
             {"@type": "CollegeOrUniversity", "name": "Universidad Nacional de Colombia"},
             {"@type": "CollegeOrUniversity", "name": "ESEIT"},
             {"@type": "CollegeOrUniversity", "name": "Universidad de los Andes"},
+            {"@type": "CollegeOrUniversity", "name": "Universidad Tecnológica de Pereira"},
             {"@type": "CollegeOrUniversity", "name": "Duke University"}
           ],
           "knowsLanguage": ["es", "en", "pt"],
           "sameAs": [
             "https://github.com/JulianDataScienceExplorerV2",
-            "https://www.linkedin.com/in/julian-david-urrego-lancheros-880a49129/"
+            "https://www.linkedin.com/in/julian-david-urrego-lancheros-880a49129/",
+            "https://orcid.org/0009-0008-3916-2951"
           ],
           "knowsAbout": [
             "Cloud Architecture", "Solution Architecture", "Generative AI", "Large Language Models",
@@ -135,10 +137,10 @@
       },
       {
         "@type": "Question",
-        "name": "What is SAT UPTC?",
+        "name": "Which AI models and tools does he work with?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "SAT UPTC is a student early-warning system that combines XGBoost/Weka risk models, Oracle data, and role-based dashboards for administrators, faculty, and students."
+          "text": "Qwen, DeepSeek, OpenAI, Claude, and Gemini, orchestrated with Dify, n8n, and the Model Context Protocol (MCP) on Google Cloud (BigQuery, Cloud Run, Vertex AI) and AWS, and benchmarked for latency, GPU cost, and inference efficiency."
         }
       },
       {
@@ -169,8 +171,7 @@
 <a href="#skills" data-pt>Habilidades</a></li>
       <li><a href="#about" data-en>About</a><a href="#about" data-es>Acerca de</a>
 <a href="#about" data-pt>Sobre</a></li>
-      <li><a href="#contact" data-en>Contact</a><a href="#contact" data-es>Contacto</a>
-<a href="#contact" data-pt>Contato</a></li>
+      <li><a href="#experience" data-en>Experience</a><a href="#experience" data-es>Experiencia</a><a href="#experience" data-pt>Experiência</a></li>
       <li><a href="blog/index.html">Blog</a></li>
     </ul>
     <div class="nav-right">
@@ -237,23 +238,35 @@
 <span
             class="stat-l" data-pt>Anos de Experiência</span></div>
       </div>
-      <aside class="hero-side" aria-label="Impact highlights">
-        <div class="hs-card">
-          <div class="hs-top"><span class="hs-dots"><i></i><i></i><i></i></span><span class="hs-file">impact.log</span><span class="hs-live"><span class="ldot"></span>live</span></div>
-          <div class="hs-row">
-            <span class="hs-k" data-en>Prompt-injection attack success</span><span class="hs-k" data-es>Éxito de ataques de prompt injection</span><span class="hs-k" data-pt>Sucesso de ataques de prompt injection</span>
-            <div class="hs-big"><span class="hs-old">78.3%</span><svg class="hs-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-5-5 5 5-5 5"/></svg><span class="hs-new">2.5%</span></div>
-            <div class="hs-bars" aria-hidden="true"><i class="bad" style="--w:78.3%"></i><i class="good" style="--w:2.5%"></i></div>
-          </div>
-          <div class="hs-row">
-            <span class="hs-k" data-en>BigQuery Text-to-SQL agent</span><span class="hs-k" data-es>Agente Text-to-SQL en BigQuery</span><span class="hs-k" data-pt>Agente Text-to-SQL no BigQuery</span>
-            <div class="hs-big"><span class="hs-new">&lt;&nbsp;$0.003</span><small data-en>per query</small><small data-es>por consulta</small><small data-pt>por consulta</small></div>
-            <svg class="hs-spark" viewBox="0 0 200 36" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M0 6 L25 9 L50 8 L75 15 L100 13 L125 22 L150 25 L175 29 L200 31"/></svg>
-          </div>
-          <div class="hs-row">
-            <span class="hs-k" data-en>AI marketing dashboard</span><span class="hs-k" data-es>Dashboard de marketing con IA</span><span class="hs-k" data-pt>Dashboard de marketing com IA</span>
-            <div class="hs-big"><span class="hs-new">11 KPIs</span><small data-en>in &lt; 2 min</small><small data-es>en &lt; 2 min</small><small data-pt>em &lt; 2 min</small></div>
-            <div class="hs-dotsbar" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <aside class="hero-side" aria-label="Cloud &amp; AI dashboard">
+        <div class="hs-card dash">
+          <div class="hs-top"><span class="hs-dots"><i></i><i></i><i></i></span><span class="hs-file">cloud-ai.dashboard</span><span class="hs-env">GCP · AWS</span><span class="hs-live"><span class="ldot"></span>live</span></div>
+          <div class="dash-grid">
+            <div class="dw dw-wide">
+              <div class="dw-h"><span data-en>Agent traffic</span><span data-es>Tráfico del agente</span><span data-pt>Tráfego do agente</span><em class="dw-tag">sandbox</em><b id="dReq">140</b><small>req/min</small></div>
+              <svg class="dw-line" viewBox="0 0 340 62" preserveAspectRatio="none" aria-hidden="true">
+                <defs><linearGradient id="dashGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E0A83E" stop-opacity=".4"/><stop offset="1" stop-color="#E0A83E" stop-opacity="0"/></linearGradient></defs>
+                <path id="dArea" fill="url(#dashGrad)"/><path id="dLine" class="dl-stroke"/><circle id="dDot" r="3.2"/>
+              </svg>
+            </div>
+            <div class="dw">
+              <div class="dw-h"><span data-en>Injection ASR</span><span data-es>ASR de inyección</span><span data-pt>ASR de injeção</span></div>
+              <div class="dw-bars" aria-hidden="true"><i class="vb bad" style="--h:78.3%"></i><i class="vb good" style="--h:2.5%"></i></div>
+              <div class="dw-bars-l"><span><b class="bad">78.3%</b><small data-en>before</small><small data-es>antes</small><small data-pt>antes</small></span><span><b class="good">2.5%</b><small data-en>after</small><small data-es>después</small><small data-pt>depois</small></span></div>
+            </div>
+            <div class="dw">
+              <div class="dw-h"><span data-en>LLMs benchmarked</span><span data-es>LLMs evaluados</span><span data-pt>LLMs avaliados</span></div>
+              <div class="dw-ring">
+                <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="26" class="ring-bg"/><circle cx="32" cy="32" r="26" stroke="#a78bfa" style="stroke-dasharray:29.67 163.36;stroke-dashoffset:0.00;animation-delay:0.60s"/><circle cx="32" cy="32" r="26" stroke="#38bdf8" style="stroke-dasharray:29.67 163.36;stroke-dashoffset:-32.67;animation-delay:0.75s"/><circle cx="32" cy="32" r="26" stroke="#10b981" style="stroke-dasharray:29.67 163.36;stroke-dashoffset:-65.34;animation-delay:0.90s"/><circle cx="32" cy="32" r="26" stroke="#E0A83E" style="stroke-dasharray:29.67 163.36;stroke-dashoffset:-98.02;animation-delay:1.05s"/><circle cx="32" cy="32" r="26" stroke="#f472b6" style="stroke-dasharray:29.67 163.36;stroke-dashoffset:-130.69;animation-delay:1.20s"/><text x="32" y="37" text-anchor="middle" class="ring-n">5</text></svg>
+                <ul><li><i style="background:#a78bfa"></i>Qwen</li><li><i style="background:#38bdf8"></i>DeepSeek</li><li><i style="background:#10b981"></i>OpenAI</li><li><i style="background:#E0A83E"></i>Claude</li><li><i style="background:#f472b6"></i>Gemini</li></ul>
+              </div>
+            </div>
+            <div class="dw dw-wide dw-kpis">
+              <div><b>&lt;$0.003</b><small data-en>per query</small><small data-es>por consulta</small><small data-pt>por consulta</small></div>
+              <div><b>+182 ms</b><small data-en>guardrail latency</small><small data-es>latencia guardrails</small><small data-pt>latência guardrails</small></div>
+              <div><b>1.6%</b><small data-en>false positives</small><small data-es>falsos positivos</small><small data-pt>falsos positivos</small></div>
+            </div>
+            <div class="dw dw-wide dw-svcs"><span><i></i>BigQuery</span><span><i></i>Cloud Run</span><span><i></i>Vertex AI</span><span><i></i>AWS Lambda</span><span><i></i>MCP</span></div>
           </div>
           <a class="hs-foot" href="https://doi.org/10.5281/zenodo.22886108" target="_blank" rel="noopener"><span data-en>Read the Zenodo paper</span><span data-es>Leer el paper en Zenodo</span><span data-pt>Ler o paper no Zenodo</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
         </div>
@@ -265,10 +278,10 @@
   <div class="marquee" aria-label="Tech stack">
     <div class="mq-track">
       <ul class="mq-list">
-        <li>Google Cloud</li><li>BigQuery</li><li>Vertex AI</li><li>Cloud Run</li><li>AWS</li><li>Python</li><li>SQL</li><li>Gemini</li><li>Claude</li><li>GPT</li><li>LangChain</li><li>MCP</li><li>RAG</li><li>Dify</li><li>n8n</li><li>Power BI</li><li>Tableau</li><li>Looker Studio</li><li>Go</li><li>Streamlit</li>
+        <li>Google Cloud</li><li>BigQuery</li><li>Vertex AI</li><li>Cloud Run</li><li>AWS</li><li>Python</li><li>SQL</li><li>Gemini</li><li>Claude</li><li>OpenAI</li><li>Qwen</li><li>DeepSeek</li><li>LangChain</li><li>MCP</li><li>RAG</li><li>Dify</li><li>n8n</li><li>Power BI</li><li>Tableau</li><li>Looker Studio</li><li>Datorama</li><li>GA4</li><li>Go</li><li>Streamlit</li>
       </ul>
       <ul class="mq-list" aria-hidden="true">
-        <li>Google Cloud</li><li>BigQuery</li><li>Vertex AI</li><li>Cloud Run</li><li>AWS</li><li>Python</li><li>SQL</li><li>Gemini</li><li>Claude</li><li>GPT</li><li>LangChain</li><li>MCP</li><li>RAG</li><li>Dify</li><li>n8n</li><li>Power BI</li><li>Tableau</li><li>Looker Studio</li><li>Go</li><li>Streamlit</li>
+        <li>Google Cloud</li><li>BigQuery</li><li>Vertex AI</li><li>Cloud Run</li><li>AWS</li><li>Python</li><li>SQL</li><li>Gemini</li><li>Claude</li><li>OpenAI</li><li>Qwen</li><li>DeepSeek</li><li>LangChain</li><li>MCP</li><li>RAG</li><li>Dify</li><li>n8n</li><li>Power BI</li><li>Tableau</li><li>Looker Studio</li><li>Datorama</li><li>GA4</li><li>Go</li><li>Streamlit</li>
       </ul>
     </div>
   </div>
@@ -509,7 +522,7 @@
             <div class="bento-meter-list">
               <div class="bento-item">
                 <div class="bi-header">
-                  <span class="bi-name">LLMs (Gemini 1.5, Claude 3.5, GPT-4o)</span>
+                  <span class="bi-name">LLMs (Qwen, DeepSeek, OpenAI, Claude, Gemini)</span>
                   <div class="bi-meta"><span class="bi-tier">Expert</span><span class="bi-percent">92%</span></div>
                 </div>
                 <div class="bi-meter"><span class="bi-seg active"></span><span class="bi-seg active"></span><span class="bi-seg active"></span><span class="bi-seg active"></span><span class="bi-seg active"></span></div>
@@ -853,9 +866,9 @@
           <p data-en><strong>Julian David Urrego Lancheros</strong> is an AI Engineer and Solution Architect with 6+ years of experience designing cloud, data, and Generative AI solutions for enterprise adoption.</p>
           <p data-es><strong>Julian David Urrego Lancheros</strong> es un Ingeniero de IA y Arquitecto de Soluciones con 6+ años de experiencia diseñando soluciones cloud, datos e IA generativa para adopción empresarial.</p>
 <p data-pt><strong>Julian David Urrego Lancheros</strong> é um Engenheiro de IA e Arquiteto de Soluções com 6+ anos de experiência projetando soluções de cloud, dados e IA generativa para adoção empresarial.</p>
-          <p data-en>Currently an <strong>AI Engineer at CSA Latam</strong>, promoted from Regional Data Analyst &amp; BI Specialist, he designs LLM integrations, RAG architectures, autonomous agent workflows, and cloud data pipelines across GCP and AWS. He also consults for <strong>UPTC</strong> on SAT, a student early-warning system, and has delivered analytics for <strong>OMD</strong>, <strong>Ariadna Communications Group</strong>, and <strong>Super de Alimentos</strong>.</p>
-          <p data-es>Actualmente es <strong>Ingeniero de IA en CSA Latam</strong>, promovido desde Analista Regional de Datos y Especialista BI, donde diseña integraciones de LLM, arquitecturas RAG, flujos de agentes autónomos y pipelines cloud en GCP y AWS. También consulta para la <strong>UPTC</strong> en SAT, un sistema de alerta temprana estudiantil, y ha entregado analítica para <strong>OMD</strong>, <strong>Ariadna Communications Group</strong> y <strong>Super de Alimentos</strong>.</p>
-<p data-pt>Atualmente é <strong>Engenheiro de IA na CSA Latam</strong>, promovido de Analista Regional de Dados e Especialista em BI, onde projeta integrações de LLM, arquiteturas RAG, fluxos de agentes autônomos e pipelines de dados em GCP e AWS. Também consulta para a <strong>UPTC</strong> no SAT, um sistema de alerta precoce estudantil, e já entregou analytics para <strong>OMD</strong>, <strong>Ariadna Communications Group</strong> e <strong>Super de Alimentos</strong>.</p>
+          <p data-en>Currently an <strong>AI Engineer at CSA Latam</strong>, promoted from Regional Data Analyst &amp; BI Specialist, he designs LLM integrations, RAG architectures, autonomous agent workflows, and cloud data pipelines across GCP and AWS. He also works part-time as an <strong>applied ML &amp; AI consultant for UPTC</strong>, and has delivered analytics for <strong>OMD</strong>, <strong>Ariadna Communications Group</strong>, and <strong>Super de Alimentos</strong>.</p>
+          <p data-es>Actualmente es <strong>Ingeniero de IA en CSA Latam</strong>, promovido desde Analista Regional de Datos y Especialista BI, donde diseña integraciones de LLM, arquitecturas RAG, flujos de agentes autónomos y pipelines cloud en GCP y AWS. También es <strong>consultor de ML e IA aplicada para la UPTC</strong> (medio tiempo), y ha entregado analítica para <strong>OMD</strong>, <strong>Ariadna Communications Group</strong> y <strong>Super de Alimentos</strong>.</p>
+<p data-pt>Atualmente é <strong>Engenheiro de IA na CSA Latam</strong>, promovido de Analista Regional de Dados e Especialista em BI, onde projeta integrações de LLM, arquiteturas RAG, fluxos de agentes autônomos e pipelines de dados em GCP e AWS. Também atua como <strong>consultor de ML e IA aplicada para a UPTC</strong> (meio período), e já entregou analytics para <strong>OMD</strong>, <strong>Ariadna Communications Group</strong> e <strong>Super de Alimentos</strong>.</p>
           <p data-en>His current focus is <strong>AI engineering and solution architecture</strong>: production RAG systems, agent workflows, cloud architectures, and technical presales/POCs that turn business problems into scalable solutions.</p>
           <p data-en>He is the author of the open-access technical note <strong>Mitigating Direct and Indirect Prompt Injection in Production LLM Agents</strong> (Zenodo, 2026; DOI: <a href="https://doi.org/10.5281/zenodo.22886108" target="_blank" rel="noopener">10.5281/zenodo.22886108</a>), with an empirical benchmark reducing attack success from 78.3% to 2.5%.</p>
           <p data-es>Su foco actual es la <strong>ingeniería de IA y la arquitectura de soluciones</strong>: sistemas RAG en producción, flujos de agentes, arquitecturas cloud y preventa técnica/POCs que convierten problemas de negocio en soluciones escalables.</p>
@@ -882,11 +895,7 @@
           <div class="dr"><span class="dk" data-en>Experience</span><span class="dk" data-es>Experiencia</span>
 <span class="dk" data-pt>Experiência</span><span
               class="dv">CSA Latam · UPTC · OMD · Ariadna · Super de Alimentos</span></div>
-          <div class="dr"><span class="dk" data-en>Education</span><span class="dk" data-es>Educación</span>
-<span class="dk" data-pt>Educação</span><span
-              class="dv" style="line-height:1.5;"><strong>Esp. Big Data & Analítica</strong> (ESEIT)<br><strong>AI
-                Product Management</strong> (Duke Univ)<br><strong>Ciencia de Datos</strong> (Uniandes)<br><strong>Admin.
-                de Empresas</strong> (UNAL)</span></div>
+          <div class="dr"><span class="dk">ORCID</span><span class="dv"><a href="https://orcid.org/0009-0008-3916-2951" target="_blank" rel="noopener">0009-0008-3916-2951</a></span></div>
           <div class="dr"><span class="dk" data-en>Languages</span><span class="dk" data-es>Idiomas</span>
 <span class="dk" data-pt>Idiomas</span><span
               class="dv" data-en>Spanish (native) · English (B2+) · Portuguese (A2–B1)</span><span class="dv" data-es>Español (nativo) ·
@@ -897,6 +906,123 @@
                 class="ldot"></span><span data-en>Open to Solution Architect / AI Engineer roles</span><span data-es>Abierto a roles de Arquitecto de Soluciones / Ingeniero de IA</span>
 <span data-pt>Aberto a vagas de Arquiteto de Soluções / Engenheiro de IA</span></span></div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="experience">
+    <div class="wrap rv">
+      <p class="kicker" data-en>Career</p><p class="kicker" data-es>Carrera</p><p class="kicker" data-pt>Carreira</p>
+      <h2 class="sec-h" data-en>Experience</h2><h2 class="sec-h" data-es>Experiencia</h2><h2 class="sec-h" data-pt>Experiência</h2>
+      <p class="sec-s" data-en>6+ years from data analytics and BI to production AI, internally promoted to AI Engineer.</p><p class="sec-s" data-es>6+ años de la analítica de datos y el BI a la IA en producción, promovido internamente a Ingeniero de IA.</p><p class="sec-s" data-pt>6+ anos da análise de dados e BI à IA em produção, promovido internamente a Engenheiro de IA.</p>
+      <div class="xp-grid">
+        <ol class="timeline">
+          <li class="tl-item is-current">
+            <div class="tl-head">
+              <div><b class="tl-role" data-en>AI Engineer</b><b class="tl-role" data-es>Ingeniero de IA</b><b class="tl-role" data-pt>Engenheiro de IA</b><span class="tl-org">CSA Latam · Bogotá</span></div>
+              <span class="tl-date"><span data-en>Jan 2026 – Present</span><span data-es>Ene 2026 – Actual</span><span data-pt>Jan 2026 – Atual</span></span>
+            </div>
+            <ul class="tl-pts">
+                <li data-en>Design and deploy Generative AI workflows, LLM integrations, production RAG with hybrid retrieval and guardrails, and agent architectures on GCP and AWS.</li><li data-es>Diseño y despliegue de flujos de IA generativa, integraciones de LLM, RAG en producción con recuperación híbrida y guardrails, y arquitecturas de agentes en GCP y AWS.</li><li data-pt>Projeto e implantação de fluxos de IA generativa, integrações de LLM, RAG em produção com recuperação híbrida e guardrails, e arquiteturas de agentes em GCP e AWS.</li>
+                <li data-en>Benchmark Qwen, DeepSeek, OpenAI, Claude and Gemini for latency, GPU cost and inference efficiency; turn business pain points into POCs and demos for presales.</li><li data-es>Benchmarking de Qwen, DeepSeek, OpenAI, Claude y Gemini por latencia, costo de GPU y eficiencia de inferencia; convierto problemas de negocio en POCs y demos para preventa.</li><li data-pt>Benchmarking de Qwen, DeepSeek, OpenAI, Claude e Gemini por latência, custo de GPU e eficiência de inferência; transformo dores de negócio em POCs e demos para pré-venda.</li>
+            </ul>
+            <div class="tl-tags"><span>RAG</span><span>Agents</span><span>MCP</span><span>Dify</span><span>n8n</span><span>GCP</span><span>AWS</span></div>
+          </li>
+          <li class="tl-item is-current">
+            <div class="tl-head">
+              <div><b class="tl-role" data-en>Applied ML & AI Consultant</b><b class="tl-role" data-es>Consultor de ML e IA aplicada</b><b class="tl-role" data-pt>Consultor de ML e IA aplicada</b><span class="tl-org"><span data-en>UPTC · Part-time</span><span data-es>UPTC · Medio tiempo</span><span data-pt>UPTC · Meio período</span></span></div>
+              <span class="tl-date"><span data-en>Oct 2025 – Present</span><span data-es>Oct 2025 – Actual</span><span data-pt>Out 2025 – Atual</span></span>
+            </div>
+            <ul class="tl-pts">
+                <li data-en>RAG and agent workflows with Dify, n8n and MCP; evaluated prompt-injection defenses and published an open-access benchmark (attack success 78.3% → 2.5%).</li><li data-es>Flujos RAG y de agentes con Dify, n8n y MCP; evalué defensas contra prompt injection y publiqué un benchmark de acceso abierto (éxito de ataque 78,3% → 2,5%).</li><li data-pt>Fluxos RAG e de agentes com Dify, n8n e MCP; avaliei defesas contra prompt injection e publiquei um benchmark de acesso aberto (sucesso de ataque 78,3% → 2,5%).</li>
+                <li data-en>Applied ML research: predictive models for memory and attention dynamics with Python, Scikit-learn and BigQuery.</li><li data-es>Investigación de ML aplicado: modelos predictivos de dinámicas de memoria y atención con Python, Scikit-learn y BigQuery.</li><li data-pt>Pesquisa de ML aplicado: modelos preditivos de dinâmicas de memória e atenção com Python, Scikit-learn e BigQuery.</li>
+            </ul>
+            <div class="tl-tags"><span>ML</span><span>RAG</span><span>MCP</span><span>Scikit-learn</span><span>BigQuery</span></div>
+          </li>
+          <li class="tl-item">
+            <div class="tl-head">
+              <div><b class="tl-role" data-en>Regional Data Analyst & BI Specialist</b><b class="tl-role" data-es>Analista Regional de Datos y Especialista BI</b><b class="tl-role" data-pt>Analista Regional de Dados e Especialista em BI</b><span class="tl-org">CSA Latam · Bogotá</span></div>
+              <span class="tl-date"><span data-en>Jun 2024 – Dec 2025</span><span data-es>Jun 2024 – Dic 2025</span><span data-pt>Jun 2024 – Dez 2025</span></span>
+            </div>
+              <span class="tl-chip">↑ <span data-en>Promoted internally to AI Engineer</span><span data-es>Promovido internamente a Ingeniero de IA</span><span data-pt>Promovido internamente a Engenheiro de IA</span></span>
+            <ul class="tl-pts">
+                <li data-en>AI-assisted insight generation and automated cross-channel dashboards in Datorama, Power BI, Tableau, Looker Studio and Python.</li><li data-es>Generación de insights asistida por IA y dashboards cross-channel automatizados en Datorama, Power BI, Tableau, Looker Studio y Python.</li><li data-pt>Geração de insights assistida por IA e dashboards multicanal automatizados em Datorama, Power BI, Tableau, Looker Studio e Python.</li>
+                <li data-en>Unified data pipelines across GTM, GA4, BigQuery and AWS; ML models for segmentation and campaign optimization across regional markets.</li><li data-es>Pipelines de datos unificados entre GTM, GA4, BigQuery y AWS; modelos de ML para segmentación y optimización de campañas en mercados regionales.</li><li data-pt>Pipelines de dados unificados entre GTM, GA4, BigQuery e AWS; modelos de ML para segmentação e otimização de campanhas em mercados regionais.</li>
+            </ul>
+            <div class="tl-tags"><span>BigQuery</span><span>GA4</span><span>Power BI</span><span>Python</span></div>
+          </li>
+          <li class="tl-item">
+            <div class="tl-head">
+              <div><b class="tl-role" data-en>Marketing Data Analyst</b><b class="tl-role" data-es>Analista de Datos de Marketing</b><b class="tl-role" data-pt>Analista de Dados de Marketing</b><span class="tl-org">OMD Colombia / Sancho · Bogotá</span></div>
+              <span class="tl-date"><span data-en>Oct 2023 – May 2024</span><span data-es>Oct 2023 – May 2024</span><span data-pt>Out 2023 – Mai 2024</span></span>
+            </div>
+            <ul class="tl-pts">
+                <li data-en>Media performance reporting for major corporate accounts, competitive benchmarking (Admetricks, IWKS, INSTAR) and automated daily and weekly trackers.</li><li data-es>Reportes de performance de medios para grandes cuentas corporativas, benchmarking competitivo (Admetricks, IWKS, INSTAR) y trackers diarios y semanales automatizados.</li><li data-pt>Relatórios de performance de mídia para grandes contas corporativas, benchmarking competitivo (Admetricks, IWKS, INSTAR) e trackers diários e semanais automatizados.</li>
+            </ul>
+            <div class="tl-tags"><span>Datorama</span><span>Tableau</span><span>Looker Studio</span></div>
+          </li>
+          <li class="tl-item">
+            <div class="tl-head">
+              <div><b class="tl-role" data-en>Independent BI & Analytics Consultant</b><b class="tl-role" data-es>Consultor independiente de BI y analítica</b><b class="tl-role" data-pt>Consultor independente de BI e analytics</b><span class="tl-org"><span data-en>Super de Alimentos · Peru (remote)</span><span data-es>Super de Alimentos · Perú (remoto)</span><span data-pt>Super de Alimentos · Peru (remoto)</span></span></div>
+              <span class="tl-date"><span data-en>Mar 2023 – Jan 2024</span><span data-es>Mar 2023 – Ene 2024</span><span data-pt>Mar 2023 – Jan 2024</span></span>
+            </div>
+            <ul class="tl-pts">
+                <li data-en>Tableau sales intelligence and automated Excel/Python pipelines that turn raw transactions into executive-ready insights.</li><li data-es>Inteligencia comercial en Tableau y pipelines automatizados en Excel/Python que convierten transacciones crudas en insights ejecutivos.</li><li data-pt>Inteligência comercial em Tableau e pipelines automatizados em Excel/Python que transformam transações brutas em insights executivos.</li>
+            </ul>
+            <div class="tl-tags"><span>Tableau</span><span>Python</span></div>
+          </li>
+          <li class="tl-item">
+            <div class="tl-head">
+              <div><b class="tl-role" data-en>Data Analyst</b><b class="tl-role" data-es>Analista de Datos</b><b class="tl-role" data-pt>Analista de Dados</b><span class="tl-org">Ariadna Communications Group · Bogotá</span></div>
+              <span class="tl-date"><span data-en>Mar 2022 – Sep 2023</span><span data-es>Mar 2022 – Sep 2023</span><span data-pt>Mar 2022 – Set 2023</span></span>
+            </div>
+            <ul class="tl-pts">
+                <li data-en>ETL of digital marketing data (Supermetrics, SQL, Python), dashboards for Google, Meta and LinkedIn Ads, and reporting automation with VBA and SQL.</li><li data-es>ETL de datos de marketing digital (Supermetrics, SQL, Python), dashboards para Google, Meta y LinkedIn Ads, y automatización de reportes con VBA y SQL.</li><li data-pt>ETL de dados de marketing digital (Supermetrics, SQL, Python), dashboards para Google, Meta e LinkedIn Ads, e automação de relatórios com VBA e SQL.</li>
+            </ul>
+            <div class="tl-tags"><span>SQL</span><span>Supermetrics</span><span>Power BI</span></div>
+          </li>
+          <li class="tl-item">
+            <div class="tl-head">
+              <div><b class="tl-role" data-en>Data Analytics Intern</b><b class="tl-role" data-es>Practicante de Analítica de Datos</b><b class="tl-role" data-pt>Estagiário de Análise de Dados</b><span class="tl-org"><span data-en>Ministry of Health and Social Protection of Colombia</span><span data-es>Ministerio de Salud y Protección Social</span><span data-pt>Ministério da Saúde e Proteção Social da Colômbia</span></span></div>
+              <span class="tl-date"><span data-en>Jul – Dec 2020</span><span data-es>Jul – Dic 2020</span><span data-pt>Jul – Dez 2020</span></span>
+            </div>
+            <ul class="tl-pts">
+                <li data-en>National public health data management, cleaning and statistical reporting with R, SPSS and Excel.</li><li data-es>Gestión de bases de datos nacionales de salud pública, limpieza de datos y reportes estadísticos con R, SPSS y Excel.</li><li data-pt>Gestão de bases nacionais de saúde pública, limpeza de dados e relatórios estatísticos com R, SPSS e Excel.</li>
+            </ul>
+            <div class="tl-tags"><span>R</span><span>SPSS</span></div>
+          </li>
+        </ol>
+        <aside class="xp-side">
+          <a class="xp-pub" href="https://doi.org/10.5281/zenodo.22886108" target="_blank" rel="noopener">
+            <span class="xp-label"><span data-en>Publication · Zenodo 2026</span><span data-es>Publicación · Zenodo 2026</span><span data-pt>Publicação · Zenodo 2026</span></span>
+            <b>Mitigating Direct and Indirect Prompt Injection in Production LLM Agents</b>
+            <span class="xp-metrics">
+              <span><em>78.3% → 2.5%</em><i data-en>attack success</i><i data-es>éxito de ataque</i><i data-pt>sucesso de ataque</i></span>
+              <span><em>+182 ms</em><i data-en>added latency</i><i data-es>latencia añadida</i><i data-pt>latência adicional</i></span>
+              <span><em>1.6%</em><i data-en>false positives</i><i data-es>falsos positivos</i><i data-pt>falsos positivos</i></span>
+            </span>
+            <span class="xp-doi">DOI 10.5281/zenodo.22886108 ↗</span>
+          </a>
+          <div class="xp-box">
+            <span class="xp-label"><span data-en>Certifications</span><span data-es>Certificaciones</span><span data-pt>Certificações</span></span>
+            <ul class="xp-list">
+              <li><a href="https://www.coursera.org/verify/specialization/DK63MZHV4QLM" target="_blank" rel="noopener" title="Verify"><b data-en>AI Product Management</b><b data-es>AI Product Management</b><b data-pt>AI Product Management</b><span>Duke University (Coursera) · 2025</span></a></li>
+              <li><a href="https://www.coursera.org/verify/specialization/WN5P3KBNRPMN" target="_blank" rel="noopener" title="Verify"><b data-en>Data Science</b><b data-es>Ciencia de Datos</b><b data-pt>Ciência de Dados</b><span>Universidad de los Andes (Coursera) · 2025</span></a></li>
+              <li><div><b data-en>Scrum Fundamentals Certified (SFC)</b><b data-es>Scrum Fundamentals Certified (SFC)</b><b data-pt>Scrum Fundamentals Certified (SFC)</b><span>VMEdu · 2022</span></div></li>
+              <li><div><b data-en>Software Development, Java &amp; Python diplomas</b><b data-es>Diplomados en Desarrollo de Software, Java y Python</b><b data-pt>Diplomas em Desenvolvimento de Software, Java e Python</b><span>Universidad Tecnológica de Pereira · 2022</span></div></li>
+              <li><div><b data-en>Google Analytics IQ, Tag Manager, Datorama &amp; Tableau</b><b data-es>Google Analytics IQ, Tag Manager, Datorama &amp; Tableau</b><b data-pt>Google Analytics IQ, Tag Manager, Datorama &amp; Tableau</b><span>Google / Platzi</span></div></li>
+              <li class="xp-wip"><div><b data-en>Cloud Architect certification</b><b data-es>Certificación de Arquitecto Cloud</b><b data-pt>Certificação de Arquiteto Cloud</b><span data-en>In preparation</span><span data-es>En preparación</span><span data-pt>Em preparação</span></div></li>
+            </ul>
+          </div>
+          <div class="xp-box">
+            <span class="xp-label"><span data-en>Education</span><span data-es>Educación</span><span data-pt>Educação</span></span>
+            <ul class="xp-list">
+              <li><div><b data-en>Specialization in Big Data &amp; Data Analytics</b><b data-es>Especialización en Big Data y Analítica de Datos</b><b data-pt>Especialização em Big Data e Análise de Dados</b><span>ESEIT · 2025</span></div></li>
+              <li><div><b data-en>Diploma in Programming &amp; Web Development</b><b data-es>Diplomado en Programación y Desarrollo Web</b><b data-pt>Diploma em Programação e Desenvolvimento Web</b><span>Universidad Tecnológica de Pereira · 2022</span></div></li>
+              <li><div><b data-en>B.A. in Business Administration</b><b data-es>Administración de Empresas</b><b data-pt>Administração de Empresas</b><span>Universidad Nacional de Colombia · 2015–2021</span></div></li>
+            </ul>
+          </div>
+        </aside>
       </div>
     </div>
   </section>
@@ -954,12 +1080,12 @@
           <p data-pt>É Engenheiro de IA e Arquiteto de Soluções com 6+ anos projetando soluções de cloud, dados e IA generativa. Trabalha na CSA Latam e consulta para a UPTC.</p>
         </div>
         <div class="faq-item">
-          <h3 data-en>What is SAT UPTC?</h3>
-          <h3 data-es>¿Qué es SAT UPTC?</h3>
-          <h3 data-pt>O que é o SAT UPTC?</h3>
-          <p data-en>SAT UPTC is a student early-warning system that combines XGBoost/Weka risk models, Oracle data, and role-based dashboards for administrators, faculty, and students.</p>
-          <p data-es>SAT UPTC es un sistema de alerta temprana estudiantil que combina modelos de riesgo XGBoost/Weka, datos de Oracle y dashboards por rol para administración, docentes y estudiantes.</p>
-          <p data-pt>O SAT UPTC é um sistema de alerta precoce estudantil que combina modelos de risco XGBoost/Weka, dados do Oracle e dashboards por perfil para administração, docentes e estudantes.</p>
+          <h3 data-en>Which AI models and tools does he work with?</h3>
+          <h3 data-es>¿Con qué modelos y herramientas de IA trabaja?</h3>
+          <h3 data-pt>Com quais modelos e ferramentas de IA ele trabalha?</h3>
+          <p data-en>Qwen, DeepSeek, OpenAI, Claude, and Gemini, orchestrated with Dify, n8n, and the Model Context Protocol (MCP) on Google Cloud (BigQuery, Cloud Run, Vertex AI) and AWS, and benchmarked for latency, GPU cost, and inference efficiency.</p>
+          <p data-es>Qwen, DeepSeek, OpenAI, Claude y Gemini, orquestados con Dify, n8n y Model Context Protocol (MCP) sobre Google Cloud (BigQuery, Cloud Run, Vertex AI) y AWS, y evaluados por latencia, costo de GPU y eficiencia de inferencia.</p>
+          <p data-pt>Qwen, DeepSeek, OpenAI, Claude e Gemini, orquestrados com Dify, n8n e Model Context Protocol (MCP) no Google Cloud (BigQuery, Cloud Run, Vertex AI) e AWS, e avaliados por latência, custo de GPU e eficiência de inferência.</p>
         </div>
         <div class="faq-item">
           <h3 data-en>What is the Zenodo technical note about?</h3>
@@ -1081,6 +1207,7 @@
         <a href="#agent-demo"><span data-en>Live Demo</span><span data-es>Demo en Vivo</span><span data-pt>Demo ao Vivo</span></a>
         <a href="#skills"><span data-en>Skills</span><span data-es>Habilidades</span><span data-pt>Habilidades</span></a>
         <a href="#about"><span data-en>About</span><span data-es>Acerca de</span><span data-pt>Sobre</span></a>
+        <a href="#experience"><span data-en>Experience</span><span data-es>Experiencia</span><span data-pt>Experiência</span></a>
         <a href="blog/index.html">Blog</a>
       </div>
       <div class="foot-social">
@@ -1608,6 +1735,41 @@
         }
       });
     }
+
+    // HERO DASHBOARD: simulated live agent-traffic chart (labelled "sandbox" in the UI)
+    (function () {
+      const line = document.getElementById("dLine"), area = document.getElementById("dArea");
+      const dot = document.getElementById("dDot"), reqEl = document.getElementById("dReq");
+      if (!line) return;
+      const W = 340, H = 62, N = 26;
+      const pts = [];
+      let v = 140;
+      for (let i = 0; i < N; i++) { v = Math.max(95, Math.min(190, v + (Math.random() - .5) * 30)); pts.push(v); }
+      const yOf = val => H - 5 - ((val - 85) / 115) * (H - 12);
+      function draw() {
+        const step = W / (N - 1);
+        const xy = pts.map((p, i) => [i * step, yOf(p)]);
+        let d = `M${xy[0][0]} ${xy[0][1].toFixed(1)}`;
+        for (let i = 1; i < N - 1; i++) {
+          const mx = (xy[i][0] + xy[i + 1][0]) / 2, my = (xy[i][1] + xy[i + 1][1]) / 2;
+          d += ` Q${xy[i][0].toFixed(1)} ${xy[i][1].toFixed(1)} ${mx.toFixed(1)} ${my.toFixed(1)}`;
+        }
+        d += ` L${W} ${xy[N - 1][1].toFixed(1)}`;
+        line.setAttribute("d", d);
+        area.setAttribute("d", `${d} L${W} ${H} L0 ${H} Z`);
+        dot.setAttribute("cx", W - 1);
+        dot.setAttribute("cy", xy[N - 1][1].toFixed(1));
+        reqEl.textContent = Math.round(pts[N - 1]);
+      }
+      draw();
+      if (REDUCED) return;
+      setInterval(() => {
+        if (!heroVisible || document.hidden) return;
+        pts.push(Math.max(95, Math.min(190, pts[N - 1] + (Math.random() - .5) * 34)));
+        pts.shift();
+        draw();
+      }, 1000);
+    })();
 
     // NAV: transparent over the hero, solid after scrolling; highlight the section in view
     const navEl = document.querySelector("nav");
