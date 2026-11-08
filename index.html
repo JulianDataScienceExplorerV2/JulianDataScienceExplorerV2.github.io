@@ -158,7 +158,7 @@
 
   <div id="prog"></div>
 
-  <nav>
+  <nav class="site-nav">
     <span class="nav-logo">&gt;<span class="d"> julian</span>.dev</span>
     <ul class="nav-links">
       <li><a href="#projects" data-en>Projects</a><a href="#projects" data-es>Proyectos</a>
@@ -173,6 +173,8 @@
 <a href="#contact" data-pt>Contato</a></li>
       <li><a href="blog/index.html">Blog</a></li>
     </ul>
+    <div class="nav-right">
+    <a href="#contact" class="nav-cta"><span data-en>Let's talk</span><span data-es>Hablemos</span><span data-pt>Vamos conversar</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-5-5 5 5-5 5"/></svg></a>
     <select class="lang-btn" id="langBtn" aria-label="Idioma / Language" style="display:none">
       <option value="es">🇨🇴 ES</option>
       <option value="en">🇺🇸 EN</option>
@@ -182,6 +184,7 @@
       <svg class="moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       <svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
     </button>
+    </div>
   </nav>
 
   <section id="hero">
@@ -234,8 +237,41 @@
 <span
             class="stat-l" data-pt>Anos de Experiência</span></div>
       </div>
+      <aside class="hero-side" aria-label="Impact highlights">
+        <div class="hs-card">
+          <div class="hs-top"><span class="hs-dots"><i></i><i></i><i></i></span><span class="hs-file">impact.log</span><span class="hs-live"><span class="ldot"></span>live</span></div>
+          <div class="hs-row">
+            <span class="hs-k" data-en>Prompt-injection attack success</span><span class="hs-k" data-es>Éxito de ataques de prompt injection</span><span class="hs-k" data-pt>Sucesso de ataques de prompt injection</span>
+            <div class="hs-big"><span class="hs-old">78.3%</span><svg class="hs-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-5-5 5 5-5 5"/></svg><span class="hs-new">2.5%</span></div>
+            <div class="hs-bars" aria-hidden="true"><i class="bad" style="--w:78.3%"></i><i class="good" style="--w:2.5%"></i></div>
+          </div>
+          <div class="hs-row">
+            <span class="hs-k" data-en>BigQuery Text-to-SQL agent</span><span class="hs-k" data-es>Agente Text-to-SQL en BigQuery</span><span class="hs-k" data-pt>Agente Text-to-SQL no BigQuery</span>
+            <div class="hs-big"><span class="hs-new">&lt;&nbsp;$0.003</span><small data-en>per query</small><small data-es>por consulta</small><small data-pt>por consulta</small></div>
+            <svg class="hs-spark" viewBox="0 0 200 36" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M0 6 L25 9 L50 8 L75 15 L100 13 L125 22 L150 25 L175 29 L200 31"/></svg>
+          </div>
+          <div class="hs-row">
+            <span class="hs-k" data-en>AI marketing dashboard</span><span class="hs-k" data-es>Dashboard de marketing con IA</span><span class="hs-k" data-pt>Dashboard de marketing com IA</span>
+            <div class="hs-big"><span class="hs-new">11 KPIs</span><small data-en>in &lt; 2 min</small><small data-es>en &lt; 2 min</small><small data-pt>em &lt; 2 min</small></div>
+            <div class="hs-dotsbar" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+          <a class="hs-foot" href="https://doi.org/10.5281/zenodo.22886108" target="_blank" rel="noopener"><span data-en>Read the Zenodo paper</span><span data-es>Leer el paper en Zenodo</span><span data-pt>Ler o paper no Zenodo</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+        </div>
+      </aside>
     </div>
+    <a href="#specialties" class="scroll-cue" aria-label="Scroll"><span></span></a>
   </section>
+
+  <div class="marquee" aria-label="Tech stack">
+    <div class="mq-track">
+      <ul class="mq-list">
+        <li>Google Cloud</li><li>BigQuery</li><li>Vertex AI</li><li>Cloud Run</li><li>AWS</li><li>Python</li><li>SQL</li><li>Gemini</li><li>Claude</li><li>GPT</li><li>LangChain</li><li>MCP</li><li>RAG</li><li>Dify</li><li>n8n</li><li>Power BI</li><li>Tableau</li><li>Looker Studio</li><li>Go</li><li>Streamlit</li>
+      </ul>
+      <ul class="mq-list" aria-hidden="true">
+        <li>Google Cloud</li><li>BigQuery</li><li>Vertex AI</li><li>Cloud Run</li><li>AWS</li><li>Python</li><li>SQL</li><li>Gemini</li><li>Claude</li><li>GPT</li><li>LangChain</li><li>MCP</li><li>RAG</li><li>Dify</li><li>n8n</li><li>Power BI</li><li>Tableau</li><li>Looker Studio</li><li>Go</li><li>Streamlit</li>
+      </ul>
+    </div>
+  </div>
 
   <section class="section" id="specialties">
     <div class="wrap rv">
@@ -250,7 +286,8 @@
 <p class="sec-s" data-pt>Três disciplinas que aplico em cada projeto de cloud, dados e IA.</p>
       <div class="spec-grid">
         <div class="spec-card r">
-          <div class="sdot r"></div>
+          <span class="spec-n">01</span>
+          <div class="spec-ic r"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.35 10.04A7.49 7.49 0 0 0 12 4C9.11 4 6.6 5.64 5.35 8.04A5.994 5.994 0 0 0 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/></svg></div>
           <p class="spec-t" data-en>Cloud &amp; GenAI Architecture</p>
           <p class="spec-t" data-es>Arquitectura Cloud e IA Generativa</p>
 <p class="spec-t" data-pt>Arquitetura Cloud e IA Generativa</p>
@@ -259,7 +296,8 @@
 <p class="spec-d" data-pt>Design de soluções de cloud e IA generativa de ponta a ponta: arquitetura em GCP e AWS, BigQuery, Cloud Run, Vertex AI, pipelines RAG e agentes autônomos — do POC à produção.</p>
         </div>
         <div class="spec-card o">
-          <div class="sdot o"></div>
+          <span class="spec-n">02</span>
+          <div class="spec-ic o"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 9H9v6h6V9zm-2 4h-2v-2h2v2zm8-2V9h-2V7c0-1.1-.9-2-2-2h-2V3h-2v2h-2V3H9v2H7c-1.1 0-2 .9-2 2v2H3v2h2v2H3v2h2v2c0 1.1.9 2 2 2h2v2h2v-2h2v2h2v-2h2c1.1 0 2-.9 2-2v-2h2v-2h-2v-2h2zm-4 6H7V7h10v10z"/></svg></div>
           <p class="spec-t" data-en>AI Engineering</p>
           <p class="spec-t" data-es>Ingeniería de IA</p>
 <p class="spec-t" data-pt>Engenharia de IA</p>
@@ -268,7 +306,8 @@
 <p class="spec-d" data-pt>Integrações de LLM, RAG com busca vetorial e guardrails, agentes autônomos, MCP, Dify, n8n, defesas contra prompt injection e benchmarking de modelos para sistemas em produção.</p>
         </div>
         <div class="spec-card g">
-          <div class="sdot g"></div>
+          <span class="spec-n">03</span>
+          <div class="spec-ic g"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 9.2h3V19H5zM10.6 5h2.8v14h-2.8zm5.6 8H19v6h-2.8z"/></svg></div>
           <p class="spec-t" data-en>BI & Visualization</p>
           <p class="spec-t" data-es>BI y Visualización</p>
 <p class="spec-t" data-pt>BI e Visualização</p>
@@ -828,7 +867,7 @@
 <p data-pt>Seu perfil combina negócio e tecnologia: <strong>Administração de Empresas (Universidad Nacional de Colombia)</strong>, <strong>Especialização em Big Data e Analytics (ESEIT)</strong> e certificações em <strong>Ciência de Dados (Universidade de los Andes)</strong> e <strong>AI Product Management (Duke University)</strong>. Atualmente se prepara para uma certificação formal de Arquiteto Cloud.</p>
         </div>
         <div class="dl">
-          <div class="dr"><span class="dk">Name</span><span class="dv">Julian David Urrego Lancheros</span></div>
+          <div class="dl-head"><div class="mono" aria-hidden="true">JU</div><div class="dl-id"><b>Julian David Urrego Lancheros</b><span>AI Engineer · Solution Architect</span></div></div>
           <div class="dr"><span class="dk" data-en>Location</span><span class="dk" data-es>Ubicación</span>
 <span class="dk" data-pt>Localização</span><span
               class="dv">Bogotá, Colombia</span></div>
@@ -947,7 +986,7 @@
         <!-- POSTS:START -->
       <a class="proj-card post-card" href="blog/como-indexar-sitio-bing-webmaster-tools.html">
         <div class="card-thumb-wrap">
-          <img class="card-thumb" src="" alt="Cómo indexar tu sitio en Bing Webmaster Tools paso a paso" loading="lazy" decoding="async" />
+          <img class="card-thumb" src="assets/img/bing-indexnow-pipeline.webp" alt="Cómo indexar tu sitio en Bing Webmaster Tools paso a paso" loading="lazy" decoding="async" />
           <div class="card-thumb-overlay"></div>
           <span class="badge-new"><span class="pulse-dot"></span> NUEVO</span>
         </div>
@@ -998,7 +1037,7 @@
 
         <!-- POSTS:END -->
       </div>
-      <p class="api-note"><a href="blog/index.html" style="color:var(--r1)">Ver todos los posts &rarr;</a></p>
+      <p class="api-note"><a href="blog/index.html" class="all-posts"><span data-en>See all posts</span><span data-es>Ver todos los posts</span><span data-pt>Ver todos os posts</span> &rarr;</a></p>
     </div>
   </section>
 
@@ -1006,12 +1045,18 @@
     <div class="wrap rv">
       <div class="cbox">
         <div class="ct">
-          <h3 data-en>Let's build something together</h3>
-          <h3 data-es>Construyamos algo juntos</h3>
-<h3 data-pt>Vamos construir algo juntos</h3>
+          <span class="c-avail"><span class="ldot"></span><span data-en>Available for new projects</span><span data-es>Disponible para nuevos proyectos</span><span data-pt>Disponível para novos projetos</span></span>
+          <h3 data-en>Let's build something <span class="grad-t">together</span></h3>
+          <h3 data-es>Construyamos algo <span class="grad-t">juntos</span></h3>
+          <h3 data-pt>Vamos construir algo <span class="grad-t">juntos</span></h3>
           <p data-en>Open to full-time roles, freelance projects, and collaboration.</p>
           <p data-es>Abierto a roles full-time, proyectos freelance y colaboraciones.</p>
 <p data-pt>Aberto a vagas full-time, projetos freelance e colaborações.</p>
+          <button type="button" class="c-copy" id="copyEmail" data-email="juliandavidurrego2011@gmail.com">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+            <span class="c-mail">juliandavidurrego2011@gmail.com</span>
+            <span class="c-copy-l" id="copyEmailLabel">Copy</span>
+          </button>
         </div>
         <div class="cas">
           <a href="mailto:juliandavidurrego2011@gmail.com" class="cta1" data-en>Send Email</a>
@@ -1025,7 +1070,30 @@
     </div>
   </section>
 
-  <footer>Julian David Urrego Lancheros &mdash; <span class="hi">juliandatascienceexplorerv2.github.io</span></footer>
+  <footer class="site-foot">
+    <div class="wrap foot-grid">
+      <div class="foot-brand">
+        <span class="nav-logo">&gt;<span class="d"> julian</span>.dev</span>
+        <p><span data-en>AI Engineer &amp; Solution Architect · Bogotá, Colombia</span><span data-es>Ingeniero de IA y Arquitecto de Soluciones · Bogotá, Colombia</span><span data-pt>Engenheiro de IA e Arquiteto de Soluções · Bogotá, Colômbia</span></p>
+      </div>
+      <div class="foot-links">
+        <a href="#projects"><span data-en>Projects</span><span data-es>Proyectos</span><span data-pt>Projetos</span></a>
+        <a href="#agent-demo"><span data-en>Live Demo</span><span data-es>Demo en Vivo</span><span data-pt>Demo ao Vivo</span></a>
+        <a href="#skills"><span data-en>Skills</span><span data-es>Habilidades</span><span data-pt>Habilidades</span></a>
+        <a href="#about"><span data-en>About</span><span data-es>Acerca de</span><span data-pt>Sobre</span></a>
+        <a href="blog/index.html">Blog</a>
+      </div>
+      <div class="foot-social">
+        <a href="https://github.com/JulianDataScienceExplorerV2" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a>
+        <a href="https://www.linkedin.com/in/julian-david-urrego-lancheros-880a49129/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
+        <a href="mailto:juliandavidurrego2011@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
+      </div>
+    </div>
+    <div class="wrap"><div class="foot-bottom">
+      <span>&copy; <span id="footYear">2026</span> Julian David Urrego Lancheros</span>
+      <a href="#hero" class="to-top"><span data-en>Back to top</span><span data-es>Volver arriba</span><span data-pt>Voltar ao topo</span> &uarr;</a>
+    </div></div>
+  </footer>
 
   <script>
     // LANGUAGE
@@ -1089,6 +1157,8 @@
         }
         pi = 0; ci = 0; del = false; clearTimeout(tt); typer();
         if (window.updateTerminalLang) window.updateTerminalLang();
+        if (window.renderRepos) window.renderRepos();
+        if (window.updateCopyLabel) window.updateCopyLabel();
         console.log("Language changed to: " + code);
       }
     };
@@ -1440,19 +1510,30 @@
     const PINNED = ["Customer-Segmentation-RFM-KMeans-SQL-Python", "Churn-Prediction-Retention-System-Python-Go", "AB-Testing-Lab-Marketing-Science", "Marketing-Metrics-CLI-Go"];
     function ago(iso) {
       const s = (Date.now() - new Date(iso)) / 1000;
-      const t = s < 3600 ? [Math.floor(s / 60), "m", "min"] : s < 86400 ? [Math.floor(s / 3600), "h", "h"] : s < 2592000 ? [Math.floor(s / 86400), "d", "d"] : s < 31536000 ? [Math.floor(s / 2592000), "mo", "meses"] : [Math.floor(s / 31536000), "y", "años"];
-      return lang === "es" ? `hace ${t[0]} ${t[2]}` : `${t[0]}${t[1]} ago`;
+      const t = s < 3600 ? [Math.floor(s / 60), "m", "min", "min"] : s < 86400 ? [Math.floor(s / 3600), "h", "h", "h"] : s < 2592000 ? [Math.floor(s / 86400), "d", "d", "d"] : s < 31536000 ? [Math.floor(s / 2592000), "mo", "meses", "meses"] : [Math.floor(s / 31536000), "y", "años", "anos"];
+      if (lang === "es") return `hace ${t[0]} ${t[2]}`;
+      if (lang === "pt") return `há ${t[0]} ${t[3]}`;
+      return `${t[0]}${t[1]} ago`;
     }
 
+    const LANG_COLORS = { Python: "#3572A5", Go: "#00ADD8", JavaScript: "#f1e05a", TypeScript: "#3178c6", HTML: "#e34c26", "Jupyter Notebook": "#DA5B0B", SQL: "#e38c00", R: "#198CE7", Shell: "#89e051" };
+    // Repo descriptions are written "English / Español": show the half that matches the visitor
+    function localDesc(desc) {
+      if (!desc) return { es: "Repositorio público en GitHub.", pt: "Repositório público no GitHub." }[lang] || "Public repository on GitHub.";
+      const parts = desc.split(" / ");
+      if (parts.length === 2) return lang === "en" ? parts[0] : parts[1];
+      return desc;
+    }
     function card(r, pin) {
-      const desc = r.description || "No description provided.";
+      const desc = localDesc(r.description);
       const topics = (r.topics || []).slice(0, 3);
-      return `<a class="proj-card" href="${r.html_url}" target="_blank" rel="noopener">
+      const pinLabel = { es: "destacado", pt: "destaque" }[lang] || "pinned";
+      return `<a class="proj-card${pin ? " is-pinned" : ""}" href="${r.html_url}" target="_blank" rel="noopener" style="--lc:${LANG_COLORS[r.language] || "var(--r1)"}">
     <div class="ctop">
       <div class="cicon"><svg viewBox="0 0 24 24"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg></div>
       <div class="cmeta">
         ${r.stargazers_count > 0 ? `<div class="stars"><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 18.896l-7.416 4.517 1.48-8.279L.036 9.306l8.332-1.151z"/></svg>${r.stargazers_count}</div>` : ""}
-        ${pin ? '<span class="pinbadge">pinned</span>' : ""}
+        ${pin ? `<span class="pinbadge">${pinLabel}</span>` : ""}
       </div>
     </div>
     <p class="cname">${r.name.replace(/[-_]/g, " ")}</p>
@@ -1473,7 +1554,8 @@
         filtered.sort((a, b) => { const ap = PINNED.includes(a.name) ? 1 : 0, bp = PINNED.includes(b.name) ? 1 : 0; if (ap !== bp) return bp - ap; return b.stargazers_count - a.stargazers_count });
         countUp(document.getElementById("sR"), filtered.length);
         countUp(document.getElementById("sS"), filtered.reduce((s, r) => s + r.stargazers_count, 0));
-        grid.innerHTML = filtered.map(r => card(r, PINNED.includes(r.name))).join("");
+        window.renderRepos = () => { grid.innerHTML = filtered.map(r => card(r, PINNED.includes(r.name))).join(""); };
+        window.renderRepos();
         document.getElementById("apiNote").textContent = `live via github api · ${filtered.length} repos · ${res.headers.get("X-RateLimit-Remaining")} req remaining`;
       } catch (e) {
         grid.innerHTML = `<div class="skel" style="grid-column:1/-1;padding:2rem;text-align:center;color:var(--text-2)">Could not load repositories. <a href="https://github.com/${USERNAME}" style="color:var(--r1)">View on GitHub</a></div>`;
@@ -1526,6 +1608,39 @@
         }
       });
     }
+
+    // NAV: transparent over the hero, solid after scrolling; highlight the section in view
+    const navEl = document.querySelector("nav");
+    const spyLinks = Array.from(document.querySelectorAll('.nav-links a[href^="#"]'));
+    const spySections = Array.from(document.querySelectorAll("section[id]"));
+    function updateNav() {
+      navEl.classList.toggle("scrolled", window.scrollY > 24);
+      const y = window.scrollY + window.innerHeight * 0.35;
+      let current = "";
+      spySections.forEach(sec => { if (sec.offsetTop <= y) current = sec.id; });
+      spyLinks.forEach(a => a.classList.toggle("active", a.getAttribute("href") === "#" + current));
+    }
+    window.addEventListener("scroll", updateNav, { passive: true });
+    updateNav();
+
+    // CONTACT: copy email to clipboard
+    const COPY_LABELS = { es: ["Copiar", "¡Copiado!"], en: ["Copy", "Copied!"], pt: ["Copiar", "Copiado!"] };
+    const copyBtnEl = document.getElementById("copyEmail");
+    const copyLabelEl = document.getElementById("copyEmailLabel");
+    window.updateCopyLabel = () => { if (copyLabelEl) copyLabelEl.textContent = (COPY_LABELS[lang] || COPY_LABELS.en)[0]; };
+    window.updateCopyLabel();
+    if (copyBtnEl) {
+      copyBtnEl.addEventListener("click", () => {
+        navigator.clipboard.writeText(copyBtnEl.dataset.email).then(() => {
+          copyBtnEl.classList.add("copied");
+          copyLabelEl.textContent = (COPY_LABELS[lang] || COPY_LABELS.en)[1];
+          setTimeout(() => { copyBtnEl.classList.remove("copied"); window.updateCopyLabel(); }, 1800);
+          if (typeof gtag === "function") gtag("event", "contact_intent", { target: "copy_email" });
+        }).catch(() => { window.location.href = "mailto:" + copyBtnEl.dataset.email; });
+      });
+    }
+    const footYear = document.getElementById("footYear");
+    if (footYear) footYear.textContent = new Date().getFullYear();
 
     // TERMINAL AGENT SIMULATOR
     const TERMINAL_SCENARIOS = {
@@ -1791,7 +1906,7 @@
       }
       return p.prefix + s + p.suffix;
     }
-    function countUp(el, finalText, dur = 900) {
+    function countTo(el, finalText, dur = 900) {
       const p = parseNum(finalText);
       if (!p || REDUCED) { el.textContent = finalText; return; }
       const t0 = performance.now();
@@ -1806,7 +1921,7 @@
     function activateViz(node) {
       requestAnimationFrame(() => requestAnimationFrame(() => {
         node.querySelectorAll("[data-dash]").forEach(p => { p.style.strokeDasharray = `${p.dataset.dash} 999`; });
-        node.querySelectorAll("[data-count]").forEach(el => countUp(el, el.dataset.count));
+        node.querySelectorAll("[data-count]").forEach(el => countTo(el, el.dataset.count));
       }));
     }
 
@@ -1854,7 +1969,7 @@
       if (!el) return;
       const v = (AGENT_METRICS[qid] || AGENT_METRICS.roas)[key];
       if (key === "guard") { el.textContent = v; el.className = v === "BLOCK" ? "block" : "pass"; }
-      else countUp(el, v, 700);
+      else countTo(el, v, 700);
     }
     function setProgress(f) {
       const el = document.getElementById("termProgress");
