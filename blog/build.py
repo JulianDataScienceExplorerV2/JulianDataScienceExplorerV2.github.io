@@ -704,7 +704,7 @@ def render_index(groups):
     for idx, group in enumerate(groups):
         post = group["translations"][group["default"]]
         badge_html = '<span class="badge-new"><span class="pulse-dot"></span> NUEVO</span>' if idx == 0 else ""
-        thumb_url = f"../{POST_THUMBNAILS.get(group['slug'], '')}"
+        thumb_url = f"../{POST_THUMBNAILS.get(group['slug'], 'og-image.png')}"
         cards.append(
             POST_CARD.format(
                 url=local_url(group, group["default"]),
@@ -823,7 +823,7 @@ def render_home_section(groups):
     for idx, group in enumerate(groups[:3]):
         post = group["translations"][group["default"]]
         badge_html = '<span class="badge-new"><span class="pulse-dot"></span> NUEVO</span>' if idx == 0 else ""
-        thumb_url = POST_THUMBNAILS.get(group["slug"], "")
+        thumb_url = POST_THUMBNAILS.get(group["slug"], "og-image.png")
         cards.append(
             POST_CARD.format(
                 url=f"blog/{local_url(group, group['default'])}",
