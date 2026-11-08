@@ -2772,3 +2772,30 @@ body.light-mode .dw-bars-l b.good { color: #047857; }
 .dw-svcs span:nth-child(3) i { animation-delay: .8s; }
 .dw-svcs span:nth-child(4) i { animation-delay: 1.2s; }
 .dw-svcs span:nth-child(5) i { animation-delay: 1.6s; }
+
+/* ==========================================================================
+   READABILITY PASS — WCAG AA contrast for small text, calmer accent palette
+   ========================================================================== */
+/* Dark mode: the dimmest grey was 2.4:1 on graphite (dates, labels, footer) -> 5:1 */
+:root { --text-3: #7d8696; }
+/* Gold buttons: white on gold was ~2:1 -> near-black on gold (8.8:1) */
+.cta1, .btn-run-agent, .nav-cta:hover { color: #14110a; }
+.btn-run-agent .run-spin { border-color: rgba(20, 17, 10, .25); border-top-color: #14110a; }
+.dv-ok { color: var(--success); }
+
+/* Light mode: gold text was 2.8-3.5:1 on white -> deeper bronze (5.5:1); grey 2.5:1 -> 4.8:1 */
+body.light-mode { --r1: #8f5a0e; --r2: #9a5b0b; --text-3: #64748b; }
+body.light-mode .cta1, body.light-mode .btn-run-agent, body.light-mode .nav-cta:hover { color: #fff; }
+body.light-mode .btn-run-agent .run-spin { border-color: rgba(255, 255, 255, .35); border-top-color: #fff; }
+/* Neon status colours are designed for dark backgrounds; use deeper tones on white */
+body.light-mode .dv-ok { color: #047857; }
+body.light-mode .stars { color: #b45309; }
+body.light-mode .flow-step.done .flow-n { color: #0369a1; }
+body.light-mode .dw-bars-l b.bad, body.light-mode .pill-btn.danger .preset-code, body.light-mode .badge-new { color: #b91c1c; }
+/* The terminal stays dark in light mode: give it the dark palette back */
+body.light-mode .terminal-header, body.light-mode .terminal-screen {
+  --r1: #E0A83E; --r2: #F5D08A; --r3: #B7791F; --text-1: #f2f2f5; --text-2: #9ca3af; --text-3: #7d8696;
+  --bd: rgba(224, 168, 62, .12); --bdh: rgba(224, 168, 62, .40); --r1a: rgba(224, 168, 62, .10); --r1b: rgba(224, 168, 62, .05);
+}
+/* One secondary accent (cyan) next to gold: publication card border drops the purple */
+.xp-pub { background: linear-gradient(var(--bg-solid), var(--bg-solid)) padding-box, linear-gradient(140deg, rgba(224, 168, 62, .6), rgba(224, 168, 62, .05) 45%, rgba(56, 189, 248, .45)) border-box; }
