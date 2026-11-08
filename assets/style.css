@@ -2559,33 +2559,10 @@ body.light-mode .hs-card { box-shadow: 0 30px 70px rgba(15, 23, 42, .12); }
 .hs-file { color: var(--text-1); }
 .hs-live { margin-left: auto; display: flex; align-items: center; color: var(--success); text-transform: uppercase; font-size: 9.5px; letter-spacing: .12em; }
 body.light-mode .hs-live { color: #047857; }
-.hs-row { padding: 13px 0; border-bottom: 1px dashed var(--bd); }
-.hs-k { display: block; margin-bottom: 6px; font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--text-2); }
-.hs-big { display: flex; align-items: baseline; gap: 8px; font-family: "JetBrains Mono", monospace; font-weight: 700; }
-.hs-old { font-size: 17px; color: var(--danger); text-decoration: line-through; text-decoration-thickness: 2px; opacity: .85; }
-.hs-new { font-size: 24px; background: linear-gradient(135deg, var(--r1), var(--r2)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
-.hs-big small { font-size: 11px; font-weight: 500; color: var(--text-2); }
-.hs-arrow { width: 16px; height: 16px; align-self: center; fill: none; stroke: var(--text-2); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.hs-bars { display: grid; gap: 4px; margin-top: 10px; }
-.hs-bars i { display: block; height: 5px; min-width: 7px; width: var(--w); border-radius: 3px; transform-origin: left; animation: hbGrow 1.2s cubic-bezier(.16, 1, .3, 1) .6s both; }
-.hs-bars i.bad { background: linear-gradient(90deg, rgba(248, 113, 113, .35), var(--danger)); }
-.hs-bars i.good { background: var(--success); box-shadow: 0 0 8px var(--success); animation-delay: 1s; }
-.hs-spark { display: block; width: 100%; height: 30px; margin-top: 8px; overflow: visible; }
-.hs-spark path { fill: none; stroke: var(--info); stroke-width: 2; stroke-linecap: round; stroke-dasharray: 100; stroke-dashoffset: 100; filter: drop-shadow(0 0 4px rgba(56, 189, 248, .6)); animation: sparkDraw 1.6s ease-out .8s forwards; }
-.hs-dotsbar { display: flex; gap: 4px; margin-top: 10px; }
-.hs-dotsbar i { flex: 1; height: 6px; border-radius: 2px; background: var(--r1); opacity: .18; animation: dotOn .35s ease forwards; }
-.hs-dotsbar i:nth-child(1) { animation-delay: 1.0s; } .hs-dotsbar i:nth-child(2) { animation-delay: 1.08s; }
-.hs-dotsbar i:nth-child(3) { animation-delay: 1.16s; } .hs-dotsbar i:nth-child(4) { animation-delay: 1.24s; }
-.hs-dotsbar i:nth-child(5) { animation-delay: 1.32s; } .hs-dotsbar i:nth-child(6) { animation-delay: 1.40s; }
-.hs-dotsbar i:nth-child(7) { animation-delay: 1.48s; } .hs-dotsbar i:nth-child(8) { animation-delay: 1.56s; }
-.hs-dotsbar i:nth-child(9) { animation-delay: 1.64s; } .hs-dotsbar i:nth-child(10) { animation-delay: 1.72s; }
-.hs-dotsbar i:nth-child(11) { animation-delay: 1.80s; }
+@keyframes hsFloat { 50% { transform: translateY(-10px); } }
 .hs-foot { display: flex; align-items: center; justify-content: space-between; margin-top: 12px; font-size: 12px; font-weight: 600; color: var(--r1); text-decoration: none; }
 .hs-foot svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: transform .25s; }
 .hs-foot:hover svg { transform: translate(2px, -2px); }
-@keyframes hsFloat { 50% { transform: translateY(-10px); } }
-@keyframes sparkDraw { to { stroke-dashoffset: 0; } }
-@keyframes dotOn { to { opacity: 1; box-shadow: 0 0 6px var(--r1); } }
 .scroll-cue { position: absolute; left: 50%; bottom: 26px; z-index: 3; width: 24px; height: 38px; margin-left: -12px; border: 1.5px solid var(--bdh); border-radius: 14px; opacity: .8; transition: opacity .2s; }
 .scroll-cue:hover { opacity: 1; }
 .scroll-cue span { position: absolute; left: 50%; top: 7px; width: 3px; height: 7px; margin-left: -1.5px; border-radius: 2px; background: var(--r1); animation: cue 1.8s ease-in-out infinite; }
@@ -2697,9 +2674,7 @@ body.light-mode .foot-bottom { color: var(--text-2); }
   .nav-cta { padding: 6px 12px; font-size: 12px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .mq-track, .hs-card, .scroll-cue span, .cbox, .mono::before, .hs-bars i, .hs-dotsbar i, .hs-spark path { animation: none !important; }
-  .hs-spark path { stroke-dashoffset: 0; }
-  .hs-dotsbar i { opacity: 1; }
+  .mq-track, .hs-card, .scroll-cue span, .cbox, .mono::before, .vb, .dw-ring circle, .dw-svcs i { animation: none !important; }
 }
 
 /* EXPERIENCE — timeline + publication / certifications / education */
@@ -2752,3 +2727,48 @@ body.light-mode .tl-chip { color: #0369a1; }
   .tl-item:nth-child(n+4) .tl-pts { display: none; }
   .tl-item { padding-bottom: 1.4rem; }
 }
+
+/* HERO DASHBOARD (cloud & AI) */
+.hero-side { width: 400px; right: -1rem; top: 340px; }
+.hs-env { padding: 1px 7px; border: 1px solid var(--bd); border-radius: 5px; font-size: 9.5px; color: var(--r1); }
+.dash-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; }
+.dw { min-width: 0; padding: 10px 11px; border-radius: 10px; background: var(--r1b); border: 1px solid var(--bd); }
+.dw-wide { grid-column: 1 / -1; }
+.dw-h { display: flex; align-items: center; gap: 6px; font-family: "JetBrains Mono", monospace; font-size: 9.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--text-2); }
+.dw-h b { margin-left: auto; font-size: 16px; letter-spacing: 0; color: var(--text-1); font-variant-numeric: tabular-nums; }
+.dw-h small { font-size: 9px; letter-spacing: 0; text-transform: none; color: var(--text-2); }
+.dw-tag { padding: 1px 5px; border: 1px solid var(--bd); border-radius: 4px; font-style: normal; font-size: 8.5px; color: var(--r1); }
+.dw-line { display: block; width: 100%; height: 62px; margin-top: 6px; overflow: visible; }
+.dl-stroke { fill: none; stroke: var(--r1); stroke-width: 2; stroke-linecap: round; vector-effect: non-scaling-stroke; filter: drop-shadow(0 0 4px rgba(224, 168, 62, .6)); }
+#dDot { fill: var(--r2); filter: drop-shadow(0 0 5px var(--r1)); }
+.dw-bars { display: flex; align-items: flex-end; gap: 16px; height: 66px; margin-top: 8px; padding: 0 10px; border-bottom: 1px solid var(--bd); }
+.vb { flex: 1; height: var(--h); min-height: 3px; border-radius: 4px 4px 0 0; transform-origin: bottom; animation: vbGrow 1.2s cubic-bezier(.16, 1, .3, 1) .5s both; }
+.vb.bad { background: linear-gradient(180deg, var(--danger), rgba(248, 113, 113, .2)); }
+.vb.good { background: var(--success); box-shadow: 0 0 10px var(--success); animation-delay: .9s; }
+.dw-bars-l { display: flex; gap: 16px; margin-top: 5px; padding: 0 10px; }
+.dw-bars-l > span { flex: 1; text-align: center; line-height: 1.2; }
+.dw-bars-l b { display: block; font-family: "JetBrains Mono", monospace; font-size: 11px; }
+.dw-bars-l b.bad { color: var(--danger); }
+.dw-bars-l b.good { color: var(--success); }
+body.light-mode .dw-bars-l b.good { color: #047857; }
+.dw-bars-l small { font-size: 9px; color: var(--text-2); }
+@keyframes vbGrow { from { transform: scaleY(0); } }
+.dw-ring { display: flex; align-items: center; gap: 8px; margin-top: 8px; }
+.dw-ring svg { flex-shrink: 0; width: 64px; height: 64px; transform: rotate(-90deg); }
+.dw-ring circle { fill: none; stroke-width: 7; stroke-linecap: round; animation: ringDraw .9s cubic-bezier(.16, 1, .3, 1) both; }
+.dw-ring .ring-bg { stroke: var(--bd); stroke-width: 7; animation: none; }
+.ring-n { fill: var(--text-1); font-family: "JetBrains Mono", monospace; font-size: 16px; font-weight: 800; transform: rotate(90deg); transform-origin: 32px 32px; }
+.dw-ring ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 1px; }
+.dw-ring li { display: flex; align-items: center; gap: 5px; font-size: 10px; line-height: 1.35; color: var(--text-2); }
+.dw-ring li i { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+@keyframes ringDraw { from { stroke-dasharray: 0 200; } }
+.dw-kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; text-align: center; }
+.dw-kpis b { display: block; font-family: "JetBrains Mono", monospace; font-size: 14px; background: linear-gradient(135deg, var(--r1), var(--r2)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.dw-kpis small { font-size: 9px; line-height: 1.25; color: var(--text-2); }
+.dw-svcs { display: flex; flex-wrap: wrap; gap: 5px 12px; padding: 8px 11px; font-family: "JetBrains Mono", monospace; font-size: 10px; color: var(--text-2); }
+.dw-svcs span { display: inline-flex; align-items: center; gap: 5px; }
+.dw-svcs i { width: 6px; height: 6px; border-radius: 50%; background: var(--success); box-shadow: 0 0 6px var(--success); animation: pd 2s ease-in-out infinite; }
+.dw-svcs span:nth-child(2) i { animation-delay: .4s; }
+.dw-svcs span:nth-child(3) i { animation-delay: .8s; }
+.dw-svcs span:nth-child(4) i { animation-delay: 1.2s; }
+.dw-svcs span:nth-child(5) i { animation-delay: 1.6s; }

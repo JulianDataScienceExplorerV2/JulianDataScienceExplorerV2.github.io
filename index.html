@@ -238,23 +238,35 @@
 <span
             class="stat-l" data-pt>Anos de Experiência</span></div>
       </div>
-      <aside class="hero-side" aria-label="Impact highlights">
-        <div class="hs-card">
-          <div class="hs-top"><span class="hs-dots"><i></i><i></i><i></i></span><span class="hs-file">impact.log</span><span class="hs-live"><span class="ldot"></span>live</span></div>
-          <div class="hs-row">
-            <span class="hs-k" data-en>Prompt-injection attack success</span><span class="hs-k" data-es>Éxito de ataques de prompt injection</span><span class="hs-k" data-pt>Sucesso de ataques de prompt injection</span>
-            <div class="hs-big"><span class="hs-old">78.3%</span><svg class="hs-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-5-5 5 5-5 5"/></svg><span class="hs-new">2.5%</span></div>
-            <div class="hs-bars" aria-hidden="true"><i class="bad" style="--w:78.3%"></i><i class="good" style="--w:2.5%"></i></div>
-          </div>
-          <div class="hs-row">
-            <span class="hs-k" data-en>BigQuery Text-to-SQL agent</span><span class="hs-k" data-es>Agente Text-to-SQL en BigQuery</span><span class="hs-k" data-pt>Agente Text-to-SQL no BigQuery</span>
-            <div class="hs-big"><span class="hs-new">&lt;&nbsp;$0.003</span><small data-en>per query</small><small data-es>por consulta</small><small data-pt>por consulta</small></div>
-            <svg class="hs-spark" viewBox="0 0 200 36" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M0 6 L25 9 L50 8 L75 15 L100 13 L125 22 L150 25 L175 29 L200 31"/></svg>
-          </div>
-          <div class="hs-row">
-            <span class="hs-k" data-en>AI marketing dashboard</span><span class="hs-k" data-es>Dashboard de marketing con IA</span><span class="hs-k" data-pt>Dashboard de marketing com IA</span>
-            <div class="hs-big"><span class="hs-new">11 KPIs</span><small data-en>in &lt; 2 min</small><small data-es>en &lt; 2 min</small><small data-pt>em &lt; 2 min</small></div>
-            <div class="hs-dotsbar" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <aside class="hero-side" aria-label="Cloud &amp; AI dashboard">
+        <div class="hs-card dash">
+          <div class="hs-top"><span class="hs-dots"><i></i><i></i><i></i></span><span class="hs-file">cloud-ai.dashboard</span><span class="hs-env">GCP · AWS</span><span class="hs-live"><span class="ldot"></span>live</span></div>
+          <div class="dash-grid">
+            <div class="dw dw-wide">
+              <div class="dw-h"><span data-en>Agent traffic</span><span data-es>Tráfico del agente</span><span data-pt>Tráfego do agente</span><em class="dw-tag">sandbox</em><b id="dReq">140</b><small>req/min</small></div>
+              <svg class="dw-line" viewBox="0 0 340 62" preserveAspectRatio="none" aria-hidden="true">
+                <defs><linearGradient id="dashGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E0A83E" stop-opacity=".4"/><stop offset="1" stop-color="#E0A83E" stop-opacity="0"/></linearGradient></defs>
+                <path id="dArea" fill="url(#dashGrad)"/><path id="dLine" class="dl-stroke"/><circle id="dDot" r="3.2"/>
+              </svg>
+            </div>
+            <div class="dw">
+              <div class="dw-h"><span data-en>Injection ASR</span><span data-es>ASR de inyección</span><span data-pt>ASR de injeção</span></div>
+              <div class="dw-bars" aria-hidden="true"><i class="vb bad" style="--h:78.3%"></i><i class="vb good" style="--h:2.5%"></i></div>
+              <div class="dw-bars-l"><span><b class="bad">78.3%</b><small data-en>before</small><small data-es>antes</small><small data-pt>antes</small></span><span><b class="good">2.5%</b><small data-en>after</small><small data-es>después</small><small data-pt>depois</small></span></div>
+            </div>
+            <div class="dw">
+              <div class="dw-h"><span data-en>LLMs benchmarked</span><span data-es>LLMs evaluados</span><span data-pt>LLMs avaliados</span></div>
+              <div class="dw-ring">
+                <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="26" class="ring-bg"/><circle cx="32" cy="32" r="26" stroke="#a78bfa" style="stroke-dasharray:29.67 163.36;stroke-dashoffset:0.00;animation-delay:0.60s"/><circle cx="32" cy="32" r="26" stroke="#38bdf8" style="stroke-dasharray:29.67 163.36;stroke-dashoffset:-32.67;animation-delay:0.75s"/><circle cx="32" cy="32" r="26" stroke="#10b981" style="stroke-dasharray:29.67 163.36;stroke-dashoffset:-65.34;animation-delay:0.90s"/><circle cx="32" cy="32" r="26" stroke="#E0A83E" style="stroke-dasharray:29.67 163.36;stroke-dashoffset:-98.02;animation-delay:1.05s"/><circle cx="32" cy="32" r="26" stroke="#f472b6" style="stroke-dasharray:29.67 163.36;stroke-dashoffset:-130.69;animation-delay:1.20s"/><text x="32" y="37" text-anchor="middle" class="ring-n">5</text></svg>
+                <ul><li><i style="background:#a78bfa"></i>Qwen</li><li><i style="background:#38bdf8"></i>DeepSeek</li><li><i style="background:#10b981"></i>OpenAI</li><li><i style="background:#E0A83E"></i>Claude</li><li><i style="background:#f472b6"></i>Gemini</li></ul>
+              </div>
+            </div>
+            <div class="dw dw-wide dw-kpis">
+              <div><b>&lt;$0.003</b><small data-en>per query</small><small data-es>por consulta</small><small data-pt>por consulta</small></div>
+              <div><b>+182 ms</b><small data-en>guardrail latency</small><small data-es>latencia guardrails</small><small data-pt>latência guardrails</small></div>
+              <div><b>1.6%</b><small data-en>false positives</small><small data-es>falsos positivos</small><small data-pt>falsos positivos</small></div>
+            </div>
+            <div class="dw dw-wide dw-svcs"><span><i></i>BigQuery</span><span><i></i>Cloud Run</span><span><i></i>Vertex AI</span><span><i></i>AWS Lambda</span><span><i></i>MCP</span></div>
           </div>
           <a class="hs-foot" href="https://doi.org/10.5281/zenodo.22886108" target="_blank" rel="noopener"><span data-en>Read the Zenodo paper</span><span data-es>Leer el paper en Zenodo</span><span data-pt>Ler o paper no Zenodo</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
         </div>
@@ -1723,6 +1735,41 @@
         }
       });
     }
+
+    // HERO DASHBOARD: simulated live agent-traffic chart (labelled "sandbox" in the UI)
+    (function () {
+      const line = document.getElementById("dLine"), area = document.getElementById("dArea");
+      const dot = document.getElementById("dDot"), reqEl = document.getElementById("dReq");
+      if (!line) return;
+      const W = 340, H = 62, N = 26;
+      const pts = [];
+      let v = 140;
+      for (let i = 0; i < N; i++) { v = Math.max(95, Math.min(190, v + (Math.random() - .5) * 30)); pts.push(v); }
+      const yOf = val => H - 5 - ((val - 85) / 115) * (H - 12);
+      function draw() {
+        const step = W / (N - 1);
+        const xy = pts.map((p, i) => [i * step, yOf(p)]);
+        let d = `M${xy[0][0]} ${xy[0][1].toFixed(1)}`;
+        for (let i = 1; i < N - 1; i++) {
+          const mx = (xy[i][0] + xy[i + 1][0]) / 2, my = (xy[i][1] + xy[i + 1][1]) / 2;
+          d += ` Q${xy[i][0].toFixed(1)} ${xy[i][1].toFixed(1)} ${mx.toFixed(1)} ${my.toFixed(1)}`;
+        }
+        d += ` L${W} ${xy[N - 1][1].toFixed(1)}`;
+        line.setAttribute("d", d);
+        area.setAttribute("d", `${d} L${W} ${H} L0 ${H} Z`);
+        dot.setAttribute("cx", W - 1);
+        dot.setAttribute("cy", xy[N - 1][1].toFixed(1));
+        reqEl.textContent = Math.round(pts[N - 1]);
+      }
+      draw();
+      if (REDUCED) return;
+      setInterval(() => {
+        if (!heroVisible || document.hidden) return;
+        pts.push(Math.max(95, Math.min(190, pts[N - 1] + (Math.random() - .5) * 34)));
+        pts.shift();
+        draw();
+      }, 1000);
+    })();
 
     // NAV: transparent over the hero, solid after scrolling; highlight the section in view
     const navEl = document.querySelector("nav");
