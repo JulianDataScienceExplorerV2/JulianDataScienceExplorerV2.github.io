@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Self-Healing Web Data Extraction Pipelines with Lightweight LLMs and Deterministic Parsers</title>
+<meta name="description" content="How to cut scraping token costs by over 98% by combining deterministic parsers with a lightweight LLM that only repairs broken selectors." />
+<meta name="keywords" content="Web Scraping, Self-Healing, LLM, Data Engineering, Cloud Run, E-Commerce, Telecom" />
+<meta name="author" content="Julian David Urrego Lancheros" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="theme-color" content="#12141a" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HNVFP6S0ZD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HNVFP6S0ZD');
+</script>
+<link rel="canonical" href="https://juliandatascienceexplorerv2.github.io/blog/self-healing-web-data-extraction-pipelines.en.html" />
+<link rel="alternate" hreflang="es" href="https://juliandatascienceexplorerv2.github.io/blog/self-healing-web-data-extraction-pipelines.html" />
+<link rel="alternate" hreflang="en" href="https://juliandatascienceexplorerv2.github.io/blog/self-healing-web-data-extraction-pipelines.en.html" />
+<link rel="alternate" hreflang="pt" href="https://juliandatascienceexplorerv2.github.io/blog/self-healing-web-data-extraction-pipelines.pt.html" />
+<link rel="alternate" hreflang="x-default" href="https://juliandatascienceexplorerv2.github.io/blog/self-healing-web-data-extraction-pipelines.html" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://juliandatascienceexplorerv2.github.io/blog/self-healing-web-data-extraction-pipelines.en.html" />
+<meta property="og:title" content="Self-Healing Web Data Extraction Pipelines with Lightweight LLMs and Deterministic Parsers" />
+<meta property="og:description" content="How to cut scraping token costs by over 98% by combining deterministic parsers with a lightweight LLM that only repairs broken selectors." />
+<meta property="og:image" content="https://juliandatascienceexplorerv2.github.io/og-image.png" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:locale:alternate" content="es_CO" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Self-Healing Web Data Extraction Pipelines with Lightweight LLMs and Deterministic Parsers" />
+<meta name="twitter:description" content="How to cut scraping token costs by over 98% by combining deterministic parsers with a lightweight LLM that only repairs broken selectors." />
+<meta name="twitter:image" content="https://juliandatascienceexplorerv2.github.io/og-image.png" />
+<link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/style.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "@id": "https://juliandatascienceexplorerv2.github.io/blog/self-healing-web-data-extraction-pipelines.en.html#article",
+      "headline": "Self-Healing Web Data Extraction Pipelines with Lightweight LLMs and Deterministic Parsers",
+      "description": "How to cut scraping token costs by over 98% by combining deterministic parsers with a lightweight LLM that only repairs broken selectors.",
+      "datePublished": "2026-11-09",
+      "dateModified": "2026-11-08",
+      "inLanguage": "en",
+      "proficiencyLevel": "Expert",
+      "dependencies": "Google Cloud BigQuery, Python 3.10+, GoogleSQL, Google Analytics 4",
+      "keywords": "Web Scraping, Self-Healing, LLM, Data Engineering, Cloud Run, E-Commerce, Telecom",
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Google BigQuery",
+          "sameAs": "https://en.wikipedia.org/wiki/BigQuery"
+        },
+        {
+          "@type": "Thing",
+          "name": "Artificial Intelligence",
+          "sameAs": "https://en.wikipedia.org/wiki/Artificial_intelligence"
+        },
+        {
+          "@type": "Thing",
+          "name": "Marketing Analytics"
+        },
+        {
+          "@type": "Thing",
+          "name": "Data Science"
+        }
+      ],
+      "author": {
+        "@type": "Person",
+        "name": "Julian David Urrego Lancheros",
+        "url": "https://juliandatascienceexplorerv2.github.io/",
+        "sameAs": [
+          "https://www.linkedin.com/in/julian-david-urrego-lancheros-880a49129/",
+          "https://github.com/JulianDataScienceExplorerV2"
+        ]
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Julian David Urrego Lancheros",
+        "url": "https://juliandatascienceexplorerv2.github.io/"
+      },
+      "mainEntityOfPage": "https://juliandatascienceexplorerv2.github.io/blog/self-healing-web-data-extraction-pipelines.en.html",
+      "image": "https://juliandatascienceexplorerv2.github.io/og-image.png"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://juliandatascienceexplorerv2.github.io/blog/self-healing-web-data-extraction-pipelines.en.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Portfolio",
+          "item": "https://juliandatascienceexplorerv2.github.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://juliandatascienceexplorerv2.github.io/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Self-Healing Web Data Extraction Pipelines with Lightweight LLMs and Deterministic Parsers",
+          "item": "https://juliandatascienceexplorerv2.github.io/blog/self-healing-web-data-extraction-pipelines.en.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="../" style="text-decoration:none">&gt;<span class="d"> julian</span>.dev</a>
+  <ul class="nav-links">
+    <li><a href="../">Portfolio</a></li>
+    <li><a href="../blog/index.html">Blog</a></li>
+  </ul>
+</nav>
+
+<div class="section" style="padding-top:7rem">
+  <div class="wrap" style="max-width:760px">
+    <p class="kicker"><a href="../blog/index.html" style="color:inherit;text-decoration:none">← Back to blog</a></p>
+    <h1 class="sec-h" style="font-size:2rem;line-height:1.2">Self-Healing Web Data Extraction Pipelines with Lightweight LLMs and Deterministic Parsers</h1>
+    <p class="post-meta">9 Nov 2026 · 4 min read · <span class="tag">Web Scraping</span> <span class="tag">Self-Healing</span> <span class="tag">LLM</span> <span class="tag">Data Engineering</span> <span class="tag">Cloud Run</span> <span class="tag">E-Commerce</span> <span class="tag">Telecom</span></p>
+    <article class="post">
+<p>Extracting web data at scale for e-commerce and telecom intelligence has always been a game of two extremes. On one side, deterministic parsers (XPath/CSS via <code>lxml</code> and <code>parsel</code>) have near-zero marginal cost and millisecond latency, but break the moment the frontend mutates the DOM. On the other, sending raw HTML through a large LLM fixes the fragility, but at prohibitive token cost, high latency, and an indirect prompt-injection attack surface nobody wants in production.</p>
+<p>That is the trade-off we tackle in the technical note <strong>Self-Healing Web Data Extraction Pipelines: Combining Lightweight LLMs and Deterministic Parsers for E-Commerce and Telecom Intelligence</strong> (<a href="https://doi.org/10.5281/zenodo.24064916">Zenodo, 2026; DOI: 10.5281/zenodo.24064916</a>, Report ID UNAL-CS-2026-TN02). The answer is not picking a side: it is decoupling routine parsing from LLM-assisted recovery.</p>
+<figure><img src="../assets/img/bigquery-agent-architecture.webp" alt="Self-healing extraction pipeline: deterministic parser plus lightweight LLM repairing selectors" loading="lazy" decoding="async" /><figcaption>Self-healing extraction pipeline: deterministic parser plus lightweight LLM repairing selectors</figcaption></figure>
+<h2>The problem: the DOM changes, the LLM is expensive</h2>
+<p>In production, a scraper does not fail because the model is dumb; it fails because a CSS class was renamed, a container got wrapped in a new <code>div</code>, or the site moved to client-side rendering. The XPath selector that worked yesterday returns empty today, and the pipeline stalls until someone rewrites the rule by hand.</p>
+<p>The obvious temptation is "send the HTML to the LLM and let it extract the fields." It works in demos, but in production it is a bad idea for three reasons:</p>
+<ul>
+<li><strong>Cost</strong>: tokenizing a full page per extraction multiplies the inference bill by thousands.</li>
+<li><strong>Latency</strong>: the model round-trip adds hundreds of milliseconds per record.</li>
+<li><strong>Security</strong>: HTML is untrusted input. If an attacker injects a payload into the scraped page, the LLM can be manipulated into executing actions outside its contract (indirect prompt injection).</li>
+</ul>
+<h2>The architecture: deterministic parsing plus LLM recovery</h2>
+<p>The pipeline runs on serverless workers (Cloud Run) and operates in two modes:</p>
+<h3>Normal mode: deterministic selectors plus strict schemas</h3>
+<p>Under normal operation, extraction relies strictly on XPath/CSS selectors validated against strict <strong>Pydantic</strong> schemas. No model calls, no tokens, no extra latency. Marginal cost is practically zero and latency is measured in milliseconds.</p>
+<h3>Recovery mode: anomaly circuit breaker</h3>
+<p>When a schema violation or structural drift trips the anomaly circuit breaker, the system enters recovery mode with four steps:</p>
+<ol>
+<li><strong>LCA DOM pruning</strong>: the mutated HTML region is isolated using the Lowest Common Ancestor, discarding the rest of the page.</li>
+<li><strong>Cryptographic boundaries</strong>: the untrusted snippet is encapsulated within signed XML boundaries with cryptographic nonces, mitigating indirect prompt injection (the same primitive detailed in <a href="https://doi.org/10.5281/zenodo.22886108">TN01</a>).</li>
+<li><strong>Lightweight LLM out-of-band</strong>: only at this point is a lightweight LLM invoked, and solely to synthesize a patched XPath/CSS selector. It does not extract data or decide flows; it only proposes a rule.</li>
+<li><strong>Sandbox verification</strong>: the new selector is validated against historical schema invariants in an isolated environment. If it passes, it hot-swaps into the production registry.</li>
+</ol>
+<h2>Result: over 98% fewer tokens</h2>
+<p>Evaluated across Latin American and Colombian retail and telecom portals, the hybrid pipeline resolves layout breaks autonomously, with no human intervention, reducing token consumption by over <strong>98%</strong> compared to full-page LLM scraping.</p>
+<p>The key is that the model never sees the whole page: only the mutated fragment, and only when the deterministic parser fails. 99% of the work is done by code; the remaining 1% is delegated to the model under a tightly scoped contract.</p>
+<h2>Relation to the previous note (TN01)</h2>
+<p>This report is the second technical note in the series (UNAL-CS-2026-TN02) and directly cites the first, <strong>Mitigating Direct and Indirect Prompt Injection in Production LLM Agents</strong> (UNAL-CS-2026-TN01). The cryptographic nonce boundaries protecting the scraped snippet are the same defense primitive I designed for production LLM agents.</p>
+<h2>References</h2>
+<ul>
+<li>Urrego Lancheros, J. D. (2026). <em>Self-Healing Web Data Extraction Pipelines: Combining Lightweight LLMs and Deterministic Parsers for E-Commerce and Telecom Intelligence</em>. Technical Note UNAL-CS-2026-TN02. Universidad Nacional de Colombia / Zenodo. DOI: <a href="https://doi.org/10.5281/zenodo.24064916">10.5281/zenodo.24064916</a>.</li>
+<li>Urrego Lancheros, J. D. (2026). <em>Mitigating Direct and Indirect Prompt Injection in Production LLM Agents</em>. Technical Note UNAL-CS-2026-TN01. Universidad Nacional de Colombia / Zenodo.</li>
+<li>Greshake, K., et al. (2023). <em>Not what you've signed up for: Compromising real-world LLM-integrated applications with indirect prompt injection</em>. AISEC.</li>
+<li>Gur, I., et al. (2024). <em>A Real-World WebAgent with Planning, Long Context Understanding, and Program Synthesis</em>. ICLR.</li>
+<li>Deng, X., et al. (2023). <em>Mind2Web</em>. NeurIPS.</li>
+<li>Yao, S., et al. (2023). <em>ReAct</em>. ICLR.</li>
+</ul>
+    </article>
+    <div class="dl" style="margin-top:3rem">
+      <p style="font-size:14px;color:var(--text-2);line-height:1.7">
+        Did this post help you, or do you want something like this for your team? Reach out and let's talk.
+      </p>
+      <div style="display:flex;gap:.75rem;flex-wrap:wrap">
+        <a class="cta1" href="../#contact">Contact me</a>
+        <a class="cta2" href="../">View portfolio</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>Julian David Urrego Lancheros &mdash; <span class="hi">juliandatascienceexplorerv2.github.io</span></footer>
+<div id="langSuggest" class="lang-suggest" hidden>
+  <span id="langSuggestText"></span>
+  <a id="langSuggestLink" href="#"></a>
+  <button type="button" aria-label="Cerrar" onclick="this.parentNode.hidden = true">&times;</button>
+</div>
+<script>
+(function () {
+  var data = {"en": {"url": "self-healing-web-data-extraction-pipelines.en.html", "label": "This post is also available in English", "cta": "Read in English"}, "es": {"url": "self-healing-web-data-extraction-pipelines.html", "label": "Este artículo también está disponible en español", "cta": "Leer en español"}, "pt": {"url": "self-healing-web-data-extraction-pipelines.pt.html", "label": "Este post também está disponível em português", "cta": "Ler em português"}};
+  var current = "en";
+  var stored = null;
+  try { stored = localStorage.getItem("lang") } catch (error) {}
+  var pick = stored;
+  if (!pick) {
+    var candidates = (navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ""]).map(function (code) { return code.toLowerCase() });
+    for (var i = 0; i < candidates.length; i++) {
+      var code = candidates[i];
+      if (code.indexOf("es") === 0) { pick = "es"; break }
+      if (code.indexOf("pt") === 0) { pick = "pt"; break }
+      if (code.indexOf("en") === 0) { pick = "en"; break }
+    }
+  }
+  if (!pick) {
+    var tz = "";
+    try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "" } catch (error) {}
+    var spanish = /^America\/(Bogota|Lima|Mexico_City|Monterrey|Cancun|Guatemala|El_Salvador|Tegucigalpa|Managua|Costa_Rica|Panama|Havana|Santo_Domingo|Puerto_Rico|Caracas|Guayaquil|La_Paz|Santiago|Asuncion|Montevideo|Buenos_Aires|Cordoba|Argentina\/.+)$/;
+    pick = /^America\/(Sao_Paulo|Bahia|Fortaleza|Recife|Belem|Manaus|Cuiaba|Campo_Grande|Maceio|Joao_Pessoa|Araguaina|Porto_Velho|Rio_Branco|Boa_Vista|Noronha|Santarem)$/.test(tz) ? "pt" : (spanish.test(tz) ? "es" : "en");
+  }
+  if (pick && pick !== current && data[pick]) {
+    document.getElementById("langSuggestText").textContent = data[pick].label;
+    var link = document.getElementById("langSuggestLink");
+    link.href = data[pick].url;
+    link.textContent = data[pick].cta;
+    document.getElementById("langSuggest").hidden = false;
+  }
+})();
+</script>
+</body>
+</html>

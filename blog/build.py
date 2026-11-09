@@ -252,6 +252,7 @@ POST_THUMBNAILS = {
     "gemini-vs-chatgpt-analisis-datos-marketing": "assets/img/scorecard-gemini-chatgpt.webp",
     "dashboard-marketing-con-ia": "assets/img/mktdash-dashboard.webp",
     "como-indexar-sitio-bing-webmaster-tools": "assets/img/bing-indexnow-pipeline.webp",
+    "self-healing-web-data-extraction-pipelines": "og-image.png",
 }
 
 POST_CARD = """      <a class="proj-card post-card" href="{url}">
